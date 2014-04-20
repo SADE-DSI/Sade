@@ -1,0 +1,51 @@
+
+ 
+.contenedor {
+	width: 1349px;
+	height: 643px;
+ }
+ 
+.cabecera {
+	height: 30px;
+	padding: 5px;
+ }
+ 
+.contenido {
+	margin-left: auto;
+	text-align: left; /*margin-right: auto;*/
+	width: 85%;
+	height: 90%;
+ }
+ 
+.dasd {float: left;}
+ 
+.espacio {
+	width: 100px;
+	float: left;
+	height: 493px;
+ }
+ 
+.login {
+	margin-left: auto;
+	width: 460px;
+	height: 580px;
+	float: left; /*	quede en una misma linea*/
+ }
+ 
+a {
+	text-decoration-color: #FFD25E;
+	text-decoration: none;
+	color: #FFD25E;
+ }
+ 
+.foto {
+	width: 525px;
+	height: 580px;
+	float: left; /*	quede en una misma linea*/
+ }
+ .form {
+	text-align: right;
+ }
+ 
+.pieDePagina {clear: both;}
+ 

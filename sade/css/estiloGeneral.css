@@ -1,0 +1,300 @@
+
+.contenedor {
+	width: 1349px;
+	height: 643px;
+ }
+ 
+.cabecera {
+	background-color: #FFD25E;
+	height: 50px;
+	padding: 10px;
+background: -moz-linear-gradient(top,  rgba(255,168,76,1) 0%, rgba(255,126,17,0.29) 93%, rgba(255,123,13,0.29) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,168,76,1)), color-stop(93%,rgba(255,126,17,0.29)), color-stop(100%,rgba(255,123,13,0.29))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,168,76,1) 0%,rgba(255,126,17,0.29) 93%,rgba(255,123,13,0.29) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,168,76,1) 0%,rgba(255,126,17,0.29) 93%,rgba(255,123,13,0.29) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,168,76,1) 0%,rgba(255,126,17,0.29) 93%,rgba(255,123,13,0.29) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,168,76,1) 0%,rgba(255,126,17,0.29) 93%,rgba(255,123,13,0.29) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa84c', endColorstr='#4aff7b0d',GradientType=0 ); /* IE6-9 */
+
+ }
+ 
+.menu {
+	background-color: #F0F0F0;
+	float: left;
+	width: 190px;
+	height: 83%;
+	padding: 10px;
+ }
+ 
+.contenidos {
+	float: left;
+	width: 929px;
+	height: 544px;
+  line-height:3em;
+  overflow:auto;
+  padding:5px;
+   }
+
+.titulo {
+	width: 90%;
+	height: 50px;
+	border-bottom: solid 2px;
+	margin-left: auto;
+	margin-right: auto;
+ }
+ 
+.informacion {
+	background-color: #F0F0F0;
+	float: left;
+	width: 180px;
+	height: 83%;
+	padding: 10px;
+ }
+ 
+.pieDePagina {
+	clear: both;
+	height: 20px;
+ }
+ 
+a {
+	text-decoration-color: #FFD25E;
+	text-decoration: none;
+	color: #FFD25E;
+ }
+ 
+h4 {color: slategray;}
+
+
+
+
+
+/*se le aplica solo a los ul que estan en la div class menu*/
+.menu ul
+{
+list-style-type:none;
+margin:0;
+padding:0;
+overflow:hidden;
+}
+
+.menu a:link,.menu a:visited
+{
+display:block;
+width:120px;
+font-weight:bold;
+padding:4px;
+text-decoration:none;
+}
+.menu a:hover,.menu a:active
+{
+background-color:#9C9B97;
+}
+
+/*.menu a:focus{
+    
+background-color:#703DDB;    
+}*/
+
+
+
+/*menu derecho estilo de yii*/
+
+.portlet-decoration
+{
+	padding: 3px 8px;
+	background: #B7D6E7;
+	border-left: 5px solid #6FACCF;
+}
+
+.portlet-title
+{
+	font-size: 12px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+	color: #298dcd;
+}
+
+.portlet-content
+{
+	font-size:0.9em;
+	margin: 0 0 15px 0;
+	padding: 5px 8px;
+	
+}
+
+.portlet-content ul
+{
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin: 0;
+	padding: 0;
+}
+
+.portlet-content li
+{
+	padding: 2px 0 4px 0px;
+}
+
+
+.operations
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.operations li
+{
+	padding-bottom: 2px;
+}
+
+.operations li a
+{
+	font: bold 12px Arial;
+	color: #0066A4;
+	display: block;
+	padding: 2px 0 2px 8px;
+	line-height: 15px;
+	text-decoration: none;
+}
+
+.operations li a:visited
+{
+	color: #0066A4;
+}
+
+.operations li a:hover
+{
+	background: #80CFFF;
+}
+
+
+/*tablas que se muestran */
+
+.grid-view-loading
+{
+	background:url(loading.gif) no-repeat;
+}
+
+.grid-view
+{
+	padding: 15px 0;
+}
+
+.grid-view table.items
+{
+	background: white;
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px #D0E3EF solid;
+}
+
+.grid-view table.items th, .grid-view table.items td
+{
+	font-size: 0.9em;
+	border: 1px white solid;
+	padding: 0.3em;
+}
+
+.grid-view table.items th
+{
+	color: white;
+	background: url("bg.gif") repeat-x scroll left top white;
+	text-align: center;
+}
+
+.grid-view table.items th a
+{
+	color: #EEE;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.grid-view table.items th a:hover
+{
+	color: #FFF;
+}
+
+.grid-view table.items th a.asc
+{
+	background:url(up.gif) right center no-repeat;
+	padding-right: 10px;
+}
+
+.grid-view table.items th a.desc
+{
+	background:url(down.gif) right center no-repeat;
+	padding-right: 10px;
+}
+
+.grid-view table.items tr.even
+{
+	background: #F8F8F8;
+}
+
+.grid-view table.items tr.odd
+{
+	background: #E5F1F4;
+}
+
+.grid-view table.items tr.selected
+{
+	background: #BCE774;
+}
+
+.grid-view table.items tr:hover.selected
+{
+	background: #CCFF66;
+}
+
+.grid-view table.items tbody tr:hover
+{
+	background: #ECFBD4;
+}
+
+.grid-view .link-column img
+{
+	border: 0;
+}
+
+.grid-view .button-column
+{
+	text-align: center;
+	width: 60px;
+}
+
+.grid-view .button-column img
+{
+	border: 0;
+}
+
+.grid-view .checkbox-column
+{
+	width: 15px;
+}
+
+.grid-view .summary
+{
+	/* margin: 0 0 5px 0; */
+	text-align: right;
+}
+
+.grid-view .pager
+{
+	margin: 5px 0 0 0;
+	text-align: right;
+}
+
+.grid-view .empty
+{
+	font-style: italic;
+}
+
+.grid-view .filters input,
+.grid-view .filters select
+{
+	width: 100%;
+	border: 1px solid #ccc;
+}

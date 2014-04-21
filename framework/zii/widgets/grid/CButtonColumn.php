@@ -215,11 +215,11 @@ class CButtonColumn extends CGridColumn
 	protected function initDefaultButtons()
 	{
 		if($this->viewButtonLabel===null)
-			$this->viewButtonLabel=Yii::t('zii','View');
+			$this->viewButtonLabel=Yii::t('zii','Ver');
 		if($this->updateButtonLabel===null)
-			$this->updateButtonLabel=Yii::t('zii','Update');
+			$this->updateButtonLabel=Yii::t('zii','Actualizar');
 		if($this->deleteButtonLabel===null)
-			$this->deleteButtonLabel=Yii::t('zii','Delete');
+			$this->deleteButtonLabel=Yii::t('zii','Eliminar');
 		if($this->viewButtonImageUrl===null)
 			$this->viewButtonImageUrl=$this->grid->baseScriptUrl.'/view.png';
 		if($this->updateButtonImageUrl===null)

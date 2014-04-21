@@ -3,7 +3,7 @@
 
 $this->pageTitle=Yii::app()->name . ' - About';
 $this->breadcrumbs=array(
-	'About',
+	'Acerca',
 );
 ?>
 <div class="titulo"><h1>About</h1></div>

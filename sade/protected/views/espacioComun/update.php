@@ -5,7 +5,7 @@
 $this->breadcrumbs=array(
 	'Espacios Comunes'=>array('index'),
 	$model->ecCodigo=>array('view','id'=>$model->ecCodigo),
-	'Update',
+	'Actualizar',
 );
 
 $this->menu=array(

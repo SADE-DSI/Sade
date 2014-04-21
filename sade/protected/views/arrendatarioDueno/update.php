@@ -1,7 +1,7 @@
 <?php
 /* @var $this ArrendatarioDuenoController */
 /* @var $model ArrendatarioDueno */
-
+		$persona= new Persona;
 $this->breadcrumbs=array(
 	'Arrendatario Duenos'=>array('index'),
 	$model->adRut=>array('view','id'=>$model->adRut),
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update ArrendatarioDueno <?php echo $model->adRut; ?></h1>
+<h1>Actualizar Arrendatario/Dueno <?php echo $model->adRut; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'persona'=>$persona)); ?>

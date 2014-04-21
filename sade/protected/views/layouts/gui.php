@@ -30,6 +30,12 @@
 				array('label'=>'Administrar Usuarios'
 					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
 					, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Agregar Usuario'
+					, 'url'=>array('/arrendatarioDueno/index')
+					, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Agregar conserje'
+					, 'url'=>array('/conserjeAdministrador/index')
+					, 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Login'
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),

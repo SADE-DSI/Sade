@@ -10,9 +10,11 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'List ArrendatarioDueno', 'url'=>array('index')),
 	array('label'=>'Manage ArrendatarioDueno', 'url'=>array('admin')),
+
+
 );
 ?>
 
-<h1>Create ArrendatarioDueno</h1>
+<h1>Ingresar nuevo Arrendatario/Dueño</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'persona'=>$persona)); ?>

@@ -24,9 +24,9 @@
 			'items'=>array(
 				array('label'=>'Inicio', 'url'=>array('/site/index')),
 				array('label'=>'Acerca', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contacto', 'url'=>array('/compromisoPago/index')),
+				array('label'=>'Contacto', 'url'=>array('/site/contact')),
 				array('label'=>'Administrar Usuarios', 'url'=>Yii::app()->user->ui->userManagementAdminUrl, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Agregar gasto comun', 'url'=>array('/site/contact')),
+				array('label'=>'Agregar gasto comun', 'url'=>array('/compromisoPago/index')),
 				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')),
 				array('label'=>'Login'
 					, 'url'=>Yii::app()->user->ui->loginUrl

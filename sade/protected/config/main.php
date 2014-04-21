@@ -132,10 +132,10 @@ return array(
 */
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=SADE',
+			'connectionString' => 'mysql:host=localhost;dbname=sade',
 			'emulatePrepare' => true,
-			'username' => 'grupo6',
-			'password' => 'face2014',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		

@@ -34,13 +34,31 @@
 			),
 		)); ?>
 	</div>
+	<?php if(isset($this->breadcrumbs)):?>
+		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
+			'links'=>$this->breadcrumbs,
+		)); ?><!-- breadcrumbs -->
+	<?php endif?>
 	<div class="contenidos">
-		
-<?php echo $content; ?>
+	<?php echo $content; ?>
+	<div class="span-5 last">
+	<div id="sidebar">
+	<?php
+		$this->beginWidget('zii.widgets.CPortlet', array(
+			'title'=>'Operations',
+		));
+		$this->widget('zii.widgets.CMenu', array(
+			'items'=>$this->menu,
+			'htmlOptions'=>array('class'=>'operations'),
+		));
+		$this->endWidget();
+	?>
+	</div><!-- sidebar -->
+</div>
 		
 	</div>
 	<div class="informacion">
-		<h2>Información</h2>
+		<h2>Informacion</h2>
 	</div>
 	<div class="pieDePagina">
 	Copyright &copy; <?php echo date('Y'); ?> by SADE.<br/>

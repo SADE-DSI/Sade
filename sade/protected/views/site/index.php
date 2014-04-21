@@ -6,9 +6,9 @@ $this->pageTitle=Yii::app()->name;
 
 <div class="titulo"> <h1>Bienvenido a <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>	</div>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+<p>Sistema de Administracion de Edificios</p>
 
-<p>You may change the content of this page by modifying the following two files:</p>
+<!-- <p>You may change the content of this page by modifying the following two files:</p> 
 <ul>
 	<li>View file: <code><?php echo __FILE__; ?></code></li>
 	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
@@ -18,3 +18,4 @@ $this->pageTitle=Yii::app()->name;
 the <a href="http://www.yiiframework.com/doc/">documentation</a>.
 Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
 should you have any questions.</p>
+-->

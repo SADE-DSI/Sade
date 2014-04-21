@@ -34,7 +34,7 @@ class PagoMensual extends CActiveRecord
 		return array(
 			array('pmMonto', 'numerical', 'integerOnly'=>true),
 			array('dlDireccion, pmObs', 'length', 'max'=>100),
-			array('pmFechaRealPago', 'safe'),
+			array('pmFechaPago, pmFechaRealPago', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('pmCodigo, dlDireccion, pmFechaPago, pmMonto, pmObs, pmFechaRealPago', 'safe', 'on'=>'search'),

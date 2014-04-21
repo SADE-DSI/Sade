@@ -63,30 +63,22 @@ class ConserjeAdministradorController extends Controller
 	public function actionCreate()
 	{
 		$model=new ConserjeAdministrador;
-		$persona= new Persona;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['ConserjeAdministrador'],$_POST['Persona']))
+		if(isset($_POST['ConserjeAdministrador']))
 		{
 			$model->attributes=$_POST['ConserjeAdministrador'];
-			$persona->attributes=$_POST['Persona'];
-			$valida=$model->validate();
-			$valida=$persona->validate() && $valida;
-			if($valida){
-				$persona->save(false);
-				$model->caRut = $persona->peRut;
-				$model->save(false);
-			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->caRut));
 		}
+
 		$this->render('create',array(
-			'persona'=>$persona,
 			'model'=>$model,
 		));
 	}
+
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.

@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Crear Conserje</h1>
+<h1>Create ConserjeAdministrador</h1>
 
-<?php $this->renderPartial('_form', array('persona'=>$persona,'model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model)); ?>

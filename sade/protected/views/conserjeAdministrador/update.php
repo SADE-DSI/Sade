@@ -1,7 +1,7 @@
 <?php
 /* @var $this ConserjeAdministradorController */
 /* @var $model ConserjeAdministrador */
-$persona= new Persona;
+
 $this->breadcrumbs=array(
 	'Conserje Administradors'=>array('index'),
 	$model->caRut=>array('view','id'=>$model->caRut),
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Actualizar Conserje/Administrador <?php echo $model->caRut; ?></h1>
+<h1>Update ConserjeAdministrador <?php echo $model->caRut; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model,'persona'=>$persona)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model)); ?>

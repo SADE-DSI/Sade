@@ -1,5 +1,5 @@
 <?php
-/* @var $this ConserjeAdministradorController */
+/* @var $this ConserjeAdministradorController  */
 /* @var $model ConserjeAdministrador */
 
 $this->breadcrumbs=array(

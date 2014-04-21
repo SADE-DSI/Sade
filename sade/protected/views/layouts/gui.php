@@ -25,6 +25,8 @@
 				    , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
+				array('label'=>'Gestionar pagos', 'url'=>array('/pagoMensual/index')
+					, 'visible'=>!Yii::app()->user->isGuest), 
 				array('label'=>'Administrar Usuarios'
 					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
 					, 'visible'=>!Yii::app()->user->isGuest),

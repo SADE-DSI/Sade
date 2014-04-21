@@ -4,7 +4,8 @@
  * This is the model class for table "compromisoPago".
  *
  * The followings are the available columns in table 'compromisoPago':
- * @property integer $coCodigo
+ * @property string $cpId
+ * @property integer $cpCodigo
  * @property string $cpFechaVencimiento
  * @property integer $cpMonto
  * @property string $cpDescripcion
@@ -12,9 +13,6 @@
  * @property string $cpObs
  * @property integer $gpNumeroBoleta
  * @property string $gpFechaRealPago
- *
- * The followings are the available model relations:
- * @property Codigo $coCodigo0
  */
 class CompromisoPago extends CActiveRecord
 {
@@ -34,12 +32,13 @@ class CompromisoPago extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('coCodigo', 'required'),
-			array('coCodigo, cpMonto, gpNumeroBoleta', 'numerical', 'integerOnly'=>true),
-			array('cpDescripcion, cpFechaIngreso, cpObs, gpFechaRealPago', 'safe'),
+			array('cpCodigo', 'required'),
+			array('cpCodigo, cpMonto, gpNumeroBoleta', 'numerical', 'integerOnly'=>true),
+			array('cpDescripcion, cpObs', 'length', 'max'=>100),
+			array('cpFechaVencimiento, cpFechaIngreso, gpFechaRealPago', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('coCodigo, cpFechaVencimiento, cpMonto, cpDescripcion, cpFechaIngreso, cpObs, gpNumeroBoleta, gpFechaRealPago', 'safe', 'on'=>'search'),
+			array('cpId, cpCodigo, cpFechaVencimiento, cpMonto, cpDescripcion, cpFechaIngreso, cpObs, gpNumeroBoleta, gpFechaRealPago', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,7 +50,6 @@ class CompromisoPago extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'coCodigo0' => array(self::BELONGS_TO, 'Codigo', 'coCodigo'),
 		);
 	}
 
@@ -61,7 +59,8 @@ class CompromisoPago extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'coCodigo' => 'Co Codigo',
+			'cpId' => 'Cp',
+			'cpCodigo' => 'Cp Codigo',
 			'cpFechaVencimiento' => 'Cp Fecha Vencimiento',
 			'cpMonto' => 'Cp Monto',
 			'cpDescripcion' => 'Cp Descripcion',
@@ -90,7 +89,8 @@ class CompromisoPago extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('coCodigo',$this->coCodigo);
+		$criteria->compare('cpId',$this->cpId,true);
+		$criteria->compare('cpCodigo',$this->cpCodigo);
 		$criteria->compare('cpFechaVencimiento',$this->cpFechaVencimiento,true);
 		$criteria->compare('cpMonto',$this->cpMonto);
 		$criteria->compare('cpDescripcion',$this->cpDescripcion,true);

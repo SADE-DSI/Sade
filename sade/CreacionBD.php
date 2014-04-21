@@ -167,7 +167,7 @@ $tabla="CREATE TABLE materiales (
 }
 
 */
-
+#prueba
 
 ?>
 

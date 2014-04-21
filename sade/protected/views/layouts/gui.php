@@ -18,9 +18,10 @@
 	<div class="menu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
+				array('label'=>'Inicio', 'url'=>array('/site/index')),
+				array('label'=>'Acerca', 'url'=>array('/site/page', 'view'=>'about')),
+				array('label'=>'Contacto', 'url'=>array('/site/contact')),
+				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')), 
 				array('label'=>'Administrar Usuarios'
 					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
 					, 'visible'=>!Yii::app()->user->isGuest),

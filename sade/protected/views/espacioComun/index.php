@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Espacio Comuns',
+	'Espacios Comunes',
 );
 
 $this->menu=array(
-	array('label'=>'Create EspacioComun', 'url'=>array('create')),
-	array('label'=>'Manage EspacioComun', 'url'=>array('admin')),
+	array('label'=>'Crear Espacio Comun', 'url'=>array('create')),
+	array('label'=>'Administrar Espacio Comun', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Espacio Comuns</h1>
+<h1>Espacios Comunes</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

@@ -3,16 +3,16 @@
 /* @var $model EspacioComun */
 
 $this->breadcrumbs=array(
-	'Espacio Comuns'=>array('index'),
-	'Manage',
+	'Espacios Comunes'=>array('index'),
+	'Administrar',
 );
 
 $this->menu=array(
-	array('label'=>'List EspacioComun', 'url'=>array('index')),
-	array('label'=>'Create EspacioComun', 'url'=>array('create')),
+	array('label'=>'Listar Espacios Comúnes', 'url'=>array('index')),
+	array('label'=>'Crear Espacio Común', 'url'=>array('create')),
 );
 
-Yii::app()->clientScript->registerScript('search', "
+Yii::app()->clientScript->registerScript('search', "s
 $('.search-button').click(function(){
 	$('.search-form').toggle();
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Espacio Comuns</h1>
+<h1>Administrar Espacios Comunes</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

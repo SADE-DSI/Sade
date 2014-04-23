@@ -27,7 +27,18 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pmFechaPago'); ?>
-		<?php echo $form->textField($model,'pmFechaPago'); ?>
+		<?php echo $form->labelEx($model,'pmFechaPago'); ?>
+		<?php 
+		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
+			"attribute"=>"pmFechaPago",
+			"model"=>$model,
+			"language"=>"es",
+			"options"=>array(
+				"dateFormat"=>"yy-mm-dd"
+				)
+			));
+
+		?>
 		<?php echo $form->error($model,'pmFechaPago'); ?>
 	</div>
 
@@ -45,7 +56,18 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pmFechaRealPago'); ?>
-		<?php echo $form->textField($model,'pmFechaRealPago'); ?>
+		<?php echo $form->labelEx($model,'pmFechaRealPago'); ?>
+		<?php 
+		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
+			"attribute"=>"pmFechaRealPago",
+			"model"=>$model,
+			"language"=>"es",
+			"options"=>array(
+				"dateFormat"=>"yy-mm-dd"
+				)
+			));
+
+		?>
 		<?php echo $form->error($model,'pmFechaRealPago'); ?>
 	</div>
 

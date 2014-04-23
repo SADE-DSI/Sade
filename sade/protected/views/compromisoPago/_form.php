@@ -27,7 +27,17 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'cpFechaVencimiento'); ?>
-		<?php echo $form->textField($model,'cpFechaVencimiento'); ?>
+		<?php 
+		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
+			"attribute"=>"cpFechaVencimiento",
+			"model"=>$model,
+			"language"=>"es",
+			"options"=>array(
+				"dateFormat"=>"yy-mm-dd"
+				)
+			));
+
+		?>
 		<?php echo $form->error($model,'cpFechaVencimiento'); ?>
 	</div>
 
@@ -45,7 +55,17 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'cpFechaIngreso'); ?>
-		<?php echo $form->textField($model,'cpFechaIngreso'); ?>
+		<?php 
+		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
+			"attribute"=>"cpFechaIngreso",
+			"model"=>$model,
+			"language"=>"es",
+			"options"=>array(
+				"dateFormat"=>"yy-mm-dd"
+				)
+			));
+
+		?>
 		<?php echo $form->error($model,'cpFechaIngreso'); ?>
 	</div>
 
@@ -63,7 +83,17 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'gpFechaRealPago'); ?>
-		<?php echo $form->textField($model,'gpFechaRealPago'); ?>
+		<?php 
+		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
+			"attribute"=>"gpFechaRealPago",
+			"model"=>$model,
+			"language"=>"es",
+			"options"=>array(
+				"dateFormat"=>"yy-mm-dd"
+				)
+			));
+
+		?>
 		<?php echo $form->error($model,'gpFechaRealPago'); ?>
 	</div>
 

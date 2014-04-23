@@ -131,6 +131,7 @@ return array(
 		// uncomment the following to use a MySQL database
 */
 		
+		# Conexion si se usa base de datos Local 
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=sade',
 			'emulatePrepare' => true,
@@ -138,6 +139,19 @@ return array(
 			'password' => '',
 			'charset' => 'utf8',
 		),
+		
+		
+		# Conexion si se usa base de datos del servidor 
+		/* 'db'=>array(
+			'connectionString' => 'mysql:host=localhost;dbname=SADE',
+			'emulatePrepare' => true,
+			'username' => 'grupo6',
+			'password' => 'face2014',
+			'charset' => 'utf8',
+		),  */ 
+		
+		
+		
 		
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

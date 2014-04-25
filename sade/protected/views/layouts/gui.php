@@ -69,7 +69,7 @@
 		
 	</div>
 	<div class="informacion">
-		<h2>Informacion</h2>
+		<h2>Información</h2>
 	</div>
 	<div class="pieDePagina">
 	Copyright &copy; <?php echo date('Y'); ?> by SADE.<br/>

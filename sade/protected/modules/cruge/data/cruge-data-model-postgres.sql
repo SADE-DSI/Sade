@@ -19,6 +19,28 @@
 			para relacionarla con cruge_user (foregin key on delete cascade), ademas
 			de cambiarle el tipo de clave del iduser de VARCHAR(64) a INT
 */
+CREATE  TABLE cruge_user (
+  iduser  serial,
+  regdate bigint NULL ,
+  actdate bigint NULL ,
+  logondate bigint NULL ,
+  username VARCHAR(64) NULL ,
+  email VARCHAR(45) NULL ,
+  password VARCHAR(64) NULL,
+  authkey VARCHAR(100) NULL,
+  state integer NULL DEFAULT 0 ,
+  totalsessioncounter integer NULL DEFAULT 0 ,
+  currentsessioncounter integer NULL DEFAULT 0 ,
+  PRIMARY KEY (iduser)
+  )
+;
+
+delete from cruge_user;
+insert into cruge_user(username, email, password, state) values
+ ('admin', 'admin@tucorreo.com','admin',1)
+ ,('invitado', 'invitado','nopassword',1)
+;
+
 CREATE TABLE cruge_system (
   idsystem serial,
   name VARCHAR(45) NULL ,
@@ -58,27 +80,7 @@ CREATE TABLE cruge_session (
   )
 ;
 
-CREATE  TABLE cruge_user (
-  iduser  serial,
-  regdate bigint NULL ,
-  actdate bigint NULL ,
-  logondate bigint NULL ,
-  username VARCHAR(64) NULL ,
-  email VARCHAR(45) NULL ,
-  password VARCHAR(64) NULL,
-  authkey VARCHAR(100) NULL,
-  state integer NULL DEFAULT 0 ,
-  totalsessioncounter integer NULL DEFAULT 0 ,
-  currentsessioncounter integer NULL DEFAULT 0 ,
-  PRIMARY KEY (iduser)
-  )
-;
 
-delete from cruge_user;
-insert into cruge_user(username, email, password, state) values
- ('admin', 'admin@tucorreo.com','admin',1)
- ,('invitado', 'invitado','nopassword',1)
-;
 
 
 CREATE  TABLE cruge_field (

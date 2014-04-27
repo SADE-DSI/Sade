@@ -1,18 +1,18 @@
 <?php
-/* @var $this DptoLocalController */
-/* @var $model DptoLocal */
+/* @var $this DptolocalController */
+/* @var $model Dptolocal */
 
 $this->breadcrumbs=array(
-	'Dpto Locals'=>array('index'),
-	'Create',
+	'Dptolocals'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'List DptoLocal', 'url'=>array('index')),
-	array('label'=>'Manage DptoLocal', 'url'=>array('admin')),
+	array('label'=>'Listar Dpto/Local', 'url'=>array('index')),
+	array('label'=>'Administrar Dpto/Local', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create DptoLocal</h1>
+<h1>Crear Departamento o Local</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

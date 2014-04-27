@@ -29,10 +29,11 @@ class Aviso extends CActiveRecord
 		return array(
 			array('avTitulo', 'length', 'max'=>40),
 			array('avAviso', 'length', 'max'=>767),
-
+			array('avFecha', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('avCodigo, avTitulo, avFecha, avAviso', 'safe', 'on'=>'search'),
+			array('avTitulo, avAviso', 'required'),
 		);
 	}
 

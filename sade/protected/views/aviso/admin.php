@@ -29,8 +29,8 @@ $('.search-form form').submit(function(){
 <h1>Administrar Avisos</h1>
 
 <p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+Opcionalmente usted puede introducir operadores comparativos (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
+or <b>=</b>) en la primera fila de cada columna en la cual desea realizar la comparaci&oacute;n.
 </p>
 
 <?php echo CHtml::link('Busqueda Avanzada','#',array('class'=>'search-button')); ?>

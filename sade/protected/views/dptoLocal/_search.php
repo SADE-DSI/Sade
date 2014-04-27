@@ -1,6 +1,6 @@
 <?php
-/* @var $this DptoLocalController */
-/* @var $model DptoLocal */
+/* @var $this DptolocalController */
+/* @var $model Dptolocal */
 /* @var $form CActiveForm */
 ?>
 
@@ -13,7 +13,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'dlDireccion'); ?>
-		<?php echo $form->textField($model,'dlDireccion',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->textField($model,'dlDireccion',array('size'=>60,'maxlength'=>767)); ?>
 	</div>
 
 	<div class="row">

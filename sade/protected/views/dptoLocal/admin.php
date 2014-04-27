@@ -1,15 +1,15 @@
 <?php
-/* @var $this DptoLocalController */
-/* @var $model DptoLocal */
+/* @var $this DptolocalController */
+/* @var $model Dptolocal */
 
 $this->breadcrumbs=array(
-	'Dpto Locals'=>array('index'),
-	'Manage',
+	'Dpto/Locales'=>array('index'),
+	'Administrar',
 );
 
 $this->menu=array(
-	array('label'=>'List DptoLocal', 'url'=>array('index')),
-	array('label'=>'Create DptoLocal', 'url'=>array('create')),
+	array('label'=>'Listar Dpto/Local', 'url'=>array('index')),
+	array('label'=>'Crear Dpto/Local', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#dpto-local-grid').yiiGridView('update', {
+	$('#dptolocal-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,14 +26,14 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Dpto Locals</h1>
+<h1>Administrar Dptos/Locales</h1>
 
 <p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+Opcionalmente usted puede introducir operadores comparativos (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
+or <b>=</b>) en la primera fila de cada columna en la cual desea realizar la comparaci&oacute;n.
 </p>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('B&uacute;squeda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -41,7 +41,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'dpto-local-grid',
+	'id'=>'dptolocal-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(

@@ -1,18 +1,18 @@
 <?php
-/* @var $this DptoLocalController */
+/* @var $this DptolocalController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Dpto Locals',
+	'Dptolocals',
 );
 
 $this->menu=array(
-	array('label'=>'Create DptoLocal', 'url'=>array('create')),
-	array('label'=>'Manage DptoLocal', 'url'=>array('admin')),
+	array('label'=>'Crear Dpto/Local', 'url'=>array('create')),
+	array('label'=>'Administrar Dpto/Local', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Dpto Locals</h1>
+<h1>Dpto/Local</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

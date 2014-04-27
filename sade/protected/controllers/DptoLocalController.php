@@ -1,6 +1,6 @@
 <?php
 
-class DptoLocalController extends Controller
+class DptolocalController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,14 +62,14 @@ class DptoLocalController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new DptoLocal;
+		$model=new Dptolocal;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['DptoLocal']))
+		if(isset($_POST['Dptolocal']))
 		{
-			$model->attributes=$_POST['DptoLocal'];
+			$model->attributes=$_POST['Dptolocal'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->dlDireccion));
 		}
@@ -91,9 +91,9 @@ class DptoLocalController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['DptoLocal']))
+		if(isset($_POST['Dptolocal']))
 		{
-			$model->attributes=$_POST['DptoLocal'];
+			$model->attributes=$_POST['Dptolocal'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->dlDireccion));
 		}
@@ -122,7 +122,7 @@ class DptoLocalController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('DptoLocal');
+		$dataProvider=new CActiveDataProvider('Dptolocal');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -133,10 +133,10 @@ class DptoLocalController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new DptoLocal('search');
+		$model=new Dptolocal('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['DptoLocal']))
-			$model->attributes=$_GET['DptoLocal'];
+		if(isset($_GET['Dptolocal']))
+			$model->attributes=$_GET['Dptolocal'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -147,12 +147,12 @@ class DptoLocalController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return DptoLocal the loaded model
+	 * @return Dptolocal the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=DptoLocal::model()->findByPk($id);
+		$model=Dptolocal::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -160,11 +160,11 @@ class DptoLocalController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param DptoLocal $model the model to be validated
+	 * @param Dptolocal $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='dpto-local-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='dptolocal-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

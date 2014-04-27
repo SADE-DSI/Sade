@@ -1,21 +1,21 @@
 <?php
-/* @var $this DptoLocalController */
-/* @var $model DptoLocal */
+/* @var $this DptolocalController */
+/* @var $model Dptolocal */
 
 $this->breadcrumbs=array(
-	'Dpto Locals'=>array('index'),
+	'Dpto/locals'=>array('index'),
 	$model->dlDireccion=>array('view','id'=>$model->dlDireccion),
-	'Update',
+	'Modificar',
 );
 
 $this->menu=array(
-	array('label'=>'List DptoLocal', 'url'=>array('index')),
-	array('label'=>'Create DptoLocal', 'url'=>array('create')),
-	array('label'=>'View DptoLocal', 'url'=>array('view', 'id'=>$model->dlDireccion)),
-	array('label'=>'Manage DptoLocal', 'url'=>array('admin')),
+	array('label'=>'Listar Dpto/local', 'url'=>array('index')),
+	array('label'=>'Crear Dpto/local', 'url'=>array('create')),
+	array('label'=>'Ver Dpto/local', 'url'=>array('view', 'id'=>$model->dlDireccion)),
+	array('label'=>'Administrar Dpto/local', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update DptoLocal <?php echo $model->dlDireccion; ?></h1>
+<h1>Modificar Dpto/local <?php echo $model->dlDireccion; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -26,12 +26,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'avFecha'); ?>
-		<?php echo $form->textField($model,'avFecha'); ?>
-		<?php echo $form->error($model,'avFecha'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'avAviso'); ?>
 		<?php echo $form->textField($model,'avAviso',array('size'=>60,'maxlength'=>767)); ?>
 		<?php echo $form->error($model,'avAviso'); ?>

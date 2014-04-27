@@ -1,26 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "dptoLocal".
+ * This is the model class for table "dptolocal".
  *
- * The followings are the available columns in table 'dptoLocal':
+ * The followings are the available columns in table 'dptolocal':
  * @property string $dlDireccion
  * @property integer $dlMts2Construidos
  * @property integer $dlValorArriendo
  *
  * The followings are the available model relations:
- * @property PagoMensual[] $pagoMensuals
- * @property ResideDpto[] $resideDptos
- * @property VisitaDpto[] $visitaDptos
+ * @property Pagomensual[] $pagomensuals
+ * @property Residedpto[] $residedptos
+ * @property Visitadpto[] $visitadptos
  */
-class DptoLocal extends CActiveRecord
+class Dptolocal extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'dptoLocal';
+		return 'dptolocal';
 	}
 
 	/**
@@ -31,9 +31,8 @@ class DptoLocal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('dlDireccion', 'required'),
 			array('dlMts2Construidos, dlValorArriendo', 'numerical', 'integerOnly'=>true),
-			array('dlDireccion', 'length', 'max'=>100),
+			array('dlDireccion', 'length', 'max'=>767),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('dlDireccion, dlMts2Construidos, dlValorArriendo', 'safe', 'on'=>'search'),
@@ -48,9 +47,9 @@ class DptoLocal extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'pagoMensuals' => array(self::HAS_MANY, 'PagoMensual', 'dlDireccion'),
-			'resideDptos' => array(self::HAS_MANY, 'ResideDpto', 'dlDireccion'),
-			'visitaDptos' => array(self::HAS_MANY, 'VisitaDpto', 'dlDireccion'),
+			'pagomensuals' => array(self::HAS_MANY, 'Pagomensual', 'dlDireccion'),
+			'residedptos' => array(self::HAS_MANY, 'Residedpto', 'dlDireccion'),
+			'visitadptos' => array(self::HAS_MANY, 'Visitadpto', 'dlDireccion'),
 		);
 	}
 
@@ -60,9 +59,9 @@ class DptoLocal extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'dlDireccion' => 'Dl Direccion',
-			'dlMts2Construidos' => 'Dl Mts2 Construidos',
-			'dlValorArriendo' => 'Dl Valor Arriendo',
+			'dlDireccion' => 'Direccion',
+			'dlMts2Construidos' => 'Metros Cuadrados Construidos',
+			'dlValorArriendo' => 'Valor Arriendo',
 		);
 	}
 
@@ -97,7 +96,7 @@ class DptoLocal extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return DptoLocal the static model class
+	 * @return Dptolocal the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

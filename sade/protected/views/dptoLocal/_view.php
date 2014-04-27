@@ -1,6 +1,6 @@
 <?php
-/* @var $this DptoLocalController */
-/* @var $data DptoLocal */
+/* @var $this DptolocalController */
+/* @var $data Dptolocal */
 ?>
 
 <div class="view">

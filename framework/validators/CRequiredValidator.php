@@ -60,14 +60,14 @@ class CRequiredValidator extends CValidator
 		{
 			if(!$this->strict && $value!=$this->requiredValue || $this->strict && $value!==$this->requiredValue)
 			{
-				$message=$this->message!==null?$this->message:Yii::t('yii','{attribute} must be {value}.',
+				$message=$this->message!==null?$this->message:Yii::t('yii','{attribute} debe ser {value}.',
 					array('{value}'=>$this->requiredValue));
 				$this->addError($object,$attribute,$message);
 			}
 		}
 		elseif($this->isEmpty($value,$this->trim))
 		{
-			$message=$this->message!==null?$this->message:Yii::t('yii','{attribute} cannot be blank.');
+			$message=$this->message!==null?$this->message:Yii::t('yii','El Campo {attribute} NO puede estar en blanco.');
 			$this->addError($object,$attribute,$message);
 		}
 	}
@@ -86,7 +86,7 @@ class CRequiredValidator extends CValidator
 		if($this->requiredValue!==null)
 		{
 			if($message===null)
-				$message=Yii::t('yii','{attribute} must be {value}.');
+				$message=Yii::t('yii','{attribute} debe ser {value}.');
 			$message=strtr($message, array(
 				'{value}'=>$this->requiredValue,
 				'{attribute}'=>$object->getAttributeLabel($attribute),
@@ -100,7 +100,7 @@ if(value!=" . CJSON::encode($this->requiredValue) . ") {
 		else
 		{
 			if($message===null)
-				$message=Yii::t('yii','{attribute} cannot be blank.');
+				$message=Yii::t('yii','el Campo {attribute} No puede estar en blanco.');
 			$message=strtr($message, array(
 				'{attribute}'=>$object->getAttributeLabel($attribute),
 			));

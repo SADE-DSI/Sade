@@ -63,7 +63,7 @@ class AvisoController extends Controller
 	public function actionCreate()
 	{
 		$model=new Aviso;
-		$model->avFecha = new CDbExpression('NOW()');
+		$model->avFecha = date('Y-m-d');
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

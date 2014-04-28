@@ -6,7 +6,7 @@ class CompromisoPagoController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/main';
 
 	/**
 	 * @return array action filters
@@ -63,6 +63,8 @@ class CompromisoPagoController extends Controller
 	public function actionCreate()
 	{
 		$model=new CompromisoPago;
+		
+
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

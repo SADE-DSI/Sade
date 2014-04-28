@@ -31,11 +31,14 @@ class Dptolocal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('dlMts2Construidos, dlValorArriendo', 'numerical', 'integerOnly'=>true),
+			array('dlValorArriendo', 'numerical', 'integerOnly'=>true, 'min'=>1),	
 			array('dlDireccion', 'length', 'max'=>767),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('dlDireccion, dlMts2Construidos, dlValorArriendo', 'safe', 'on'=>'search'),
+			array('dlDireccion', 'required'),		
+			array('dlMts2Construidos', 'numerical', 'integerOnly'=>false,'message'=>
+					'{attribute}  debe ser un entero o un decimal con punto.'),	
 		);
 	}
 

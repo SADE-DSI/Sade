@@ -62,7 +62,7 @@ CREATE TABLE visita(
 
 CREATE TABLE dptoLocal (
 	dlDireccion VARCHAR (767),
-	dlMts2Construidos INTEGER,
+	dlMts2Construidos FLOAT,
 	dlValorArriendo INTEGER,
 	CONSTRAINT pkDptoLocal PRIMARY KEY (dlDireccion)
 );

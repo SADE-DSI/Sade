@@ -3,7 +3,7 @@
 /* @var $model Dptolocal */
 
 $this->breadcrumbs=array(
-	'Dptolocals'=>array('index'),
+	'Dpto/locals'=>array('index'),
 	'Crear',
 );
 

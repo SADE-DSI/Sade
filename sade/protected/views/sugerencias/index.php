@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Sugerenciases',
+	'Sugerencias',
 );
 
 $this->menu=array(
-	array('label'=>'Create Sugerencias', 'url'=>array('create')),
-	array('label'=>'Manage Sugerencias', 'url'=>array('admin')),
+	array('label'=>'Crear Sugerencia', 'url'=>array('create')),
+	array('label'=>'Administrar Sugerencias', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Sugerenciases</h1>
+<h1>Sugerencias</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

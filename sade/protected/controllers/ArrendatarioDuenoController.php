@@ -63,19 +63,27 @@ class ArrendatarioduenoController extends Controller
 	public function actionCreate()
 	{
 		$model=new Arrendatariodueno;
+		$persona = new Persona;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Arrendatariodueno']))
+		if(isset($_POST['Arrendatariodueno'],$_POST['Persona']))
 		{
+			$persona->attributes=$_POST['Persona'];
 			$model->attributes=$_POST['Arrendatariodueno'];
+
+			$persona->save();
+			$model->adRut = $persona->peRut;
+			$model->save();
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->adRut));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+			'persona' =>$persona,
 		));
 	}
 

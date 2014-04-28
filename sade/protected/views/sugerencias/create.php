@@ -3,16 +3,16 @@
 /* @var $model Sugerencias */
 
 $this->breadcrumbs=array(
-	'Sugerenciases'=>array('index'),
-	'Create',
+	'Sugerencias'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'List Sugerencias', 'url'=>array('index')),
-	array('label'=>'Manage Sugerencias', 'url'=>array('admin')),
+	array('label'=>'Listar Sugerencias', 'url'=>array('index')),
+	array('label'=>'Administrar Sugerencias', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Sugerencias</h1>
+<h1>Crear Sugerencia</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

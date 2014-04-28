@@ -51,7 +51,7 @@ class Arrendatariodueno extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'adRut0' => array(self::BELONGS_TO, 'Persona', 'adRut'),
+			'ad_pe' => array(self::HAS_ONE, 'Persona', 'peRut'),
 			'reservaespcomuns' => array(self::HAS_MANY, 'Reservaespcomun', 'adRut'),
 			'residedptos' => array(self::HAS_MANY, 'Residedpto', 'adRut'),
 		);

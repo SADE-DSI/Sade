@@ -1,21 +1,21 @@
 <?php
-/* @var $this PagoMensualController */
-/* @var $model PagoMensual */
+/* @var $this PagomensualController */
+/* @var $model Pagomensual */
 
 $this->breadcrumbs=array(
-	'Pago Mensuals'=>array('index'),
+	'Pagomensuals'=>array('index'),
 	$model->pmCodigo=>array('view','id'=>$model->pmCodigo),
 	'Update',
 );
 
 $this->menu=array(
-	array('label'=>'List PagoMensual', 'url'=>array('index')),
-	array('label'=>'Create PagoMensual', 'url'=>array('create')),
-	array('label'=>'View PagoMensual', 'url'=>array('view', 'id'=>$model->pmCodigo)),
-	array('label'=>'Manage PagoMensual', 'url'=>array('admin')),
+	array('label'=>'List Pagomensual', 'url'=>array('index')),
+	array('label'=>'Create Pagomensual', 'url'=>array('create')),
+	array('label'=>'View Pagomensual', 'url'=>array('view', 'id'=>$model->pmCodigo)),
+	array('label'=>'Manage Pagomensual', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update PagoMensual <?php echo $model->pmCodigo; ?></h1>
+<h1>Update Pagomensual <?php echo $model->pmCodigo; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

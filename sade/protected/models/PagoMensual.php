@@ -1,27 +1,28 @@
 <?php
 
 /**
- * This is the model class for table "pagoMensual".
+ * This is the model class for table "pagomensual".
  *
- * The followings are the available columns in table 'pagoMensual':
+ * The followings are the available columns in table 'pagomensual':
  * @property string $pmCodigo
  * @property string $dlDireccion
  * @property string $pmFechaPago
- * @property integer $pmMonto
+ * @property string $pmMonto
  * @property string $pmObs
  * @property string $pmFechaRealPago
+ * @property string $pmId
  *
  * The followings are the available model relations:
- * @property DptoLocal $dlDireccion0
+ * @property Dptolocal $dlDireccion0
  */
-class PagoMensual extends CActiveRecord
+class Pagomensual extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'pagoMensual';
+		return 'pagomensual';
 	}
 
 	/**
@@ -32,12 +33,35 @@ class PagoMensual extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('pmMonto', 'numerical', 'integerOnly'=>true),
-			array('dlDireccion, pmObs', 'length', 'max'=>100),
-			array('pmFechaPago, pmFechaRealPago', 'safe'),
+			
+			array('dlDireccion','exist','allowEmpty' => true, 'attributeName' => 'dlDireccion', 'className' => 'Dptolocal'),
+			//valida si la direccion ingresada esta en la tabla dptolocal
+			
+			array('dlDireccion, pmFechaPago, pmMonto, pmFechaRealPago', 'required'),
+			//valida que los campos no esten vacios
+
+
+			array('dlDireccion', 'length', 'max'=>767),
+			array('pmMonto, pmId', 'length', 'max'=>10),
+			array('pmObs', 'length', 'max'=>255),
+            //valida el largo maximo
+
+
+
+			array('pmFechaPago', 'date', 'format'=>'yyyy-M-d'),
+			array('pmFechaRealPago', 'date', 'format'=>'yyyy-M-d'),
+			//valida los formatos de las fechas
+
+			array('pmMonto','numerical','integerOnly'=>true,'min'=>1,'tooSmall'=>'No se pueden ingresar menor a 1'),
+			//valida si es un numero
+			//valida si es mayor a 1
+
+
+
+
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('pmCodigo, dlDireccion, pmFechaPago, pmMonto, pmObs, pmFechaRealPago', 'safe', 'on'=>'search'),
+			array('pmCodigo, dlDireccion, pmFechaPago, pmMonto, pmObs, pmFechaRealPago, pmId', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,7 +73,7 @@ class PagoMensual extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'dlDireccion0' => array(self::BELONGS_TO, 'DptoLocal', 'dlDireccion'),
+			'dlDireccion0' => array(self::BELONGS_TO, 'Dptolocal', 'dlDireccion'),
 		);
 	}
 
@@ -65,6 +89,7 @@ class PagoMensual extends CActiveRecord
 			'pmMonto' => 'Pm Monto',
 			'pmObs' => 'Pm Obs',
 			'pmFechaRealPago' => 'Pm Fecha Real Pago',
+			'pmId' => 'Pm',
 		);
 	}
 
@@ -89,9 +114,10 @@ class PagoMensual extends CActiveRecord
 		$criteria->compare('pmCodigo',$this->pmCodigo,true);
 		$criteria->compare('dlDireccion',$this->dlDireccion,true);
 		$criteria->compare('pmFechaPago',$this->pmFechaPago,true);
-		$criteria->compare('pmMonto',$this->pmMonto);
+		$criteria->compare('pmMonto',$this->pmMonto,true);
 		$criteria->compare('pmObs',$this->pmObs,true);
 		$criteria->compare('pmFechaRealPago',$this->pmFechaRealPago,true);
+		$criteria->compare('pmId',$this->pmId,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -102,7 +128,7 @@ class PagoMensual extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return PagoMensual the static model class
+	 * @return Pagomensual the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

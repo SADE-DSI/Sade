@@ -1,6 +1,6 @@
 <?php
 
-class PagoMensualController extends Controller
+class PagomensualController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,14 +62,14 @@ class PagoMensualController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new PagoMensual;
+		$model=new Pagomensual;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['PagoMensual']))
+		if(isset($_POST['Pagomensual']))
 		{
-			$model->attributes=$_POST['PagoMensual'];
+			$model->attributes=$_POST['Pagomensual'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->pmCodigo));
 		}
@@ -91,9 +91,9 @@ class PagoMensualController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['PagoMensual']))
+		if(isset($_POST['Pagomensual']))
 		{
-			$model->attributes=$_POST['PagoMensual'];
+			$model->attributes=$_POST['Pagomensual'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->pmCodigo));
 		}
@@ -122,7 +122,7 @@ class PagoMensualController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('PagoMensual');
+		$dataProvider=new CActiveDataProvider('Pagomensual');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -133,10 +133,10 @@ class PagoMensualController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new PagoMensual('search');
+		$model=new Pagomensual('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['PagoMensual']))
-			$model->attributes=$_GET['PagoMensual'];
+		if(isset($_GET['Pagomensual']))
+			$model->attributes=$_GET['Pagomensual'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -147,12 +147,12 @@ class PagoMensualController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return PagoMensual the loaded model
+	 * @return Pagomensual the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=PagoMensual::model()->findByPk($id);
+		$model=Pagomensual::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -160,11 +160,11 @@ class PagoMensualController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param PagoMensual $model the model to be validated
+	 * @param Pagomensual $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='pago-mensual-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='pagomensual-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

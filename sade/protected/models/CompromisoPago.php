@@ -33,8 +33,24 @@ class Compromisopago extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('cpCodigo, cpFechaVencimiento, cpMonto, cpFechaIngreso', 'required'),
+
+
 			array('cpCodigo, cpMonto, cpNumeroBoleta', 'length', 'max'=>10),
 			array('cpDescripcion, cpObs', 'length', 'max'=>255),
+
+			
+
+			array('cpFechaVencimiento', 'date', 'format'=>'yyyy-M-d'),
+			array('cpFechaIngreso', 'date', 'format'=>'yyyy-M-d'),
+			//valida los formatos de las fechas
+
+
+
+			array('cpMonto','numerical','integerOnly'=>true,'min'=>1,'tooSmall'=>'No se pueden ingresar menor a 1'),
+			//valida si es un numero
+			//valida si es mayor a 1
+
+
 			array('cpFechaRealPago', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

@@ -1,6 +1,6 @@
 <?php
-/* @var $this PagoMensualController */
-/* @var $data PagoMensual */
+/* @var $this PagomensualController */
+/* @var $data Pagomensual */
 ?>
 
 <div class="view">
@@ -27,6 +27,10 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('pmFechaRealPago')); ?>:</b>
 	<?php echo CHtml::encode($data->pmFechaRealPago); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('pmId')); ?>:</b>
+	<?php echo CHtml::encode($data->pmId); ?>
 	<br />
 
 

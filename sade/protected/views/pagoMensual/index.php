@@ -1,18 +1,18 @@
 <?php
-/* @var $this PagoMensualController */
+/* @var $this PagomensualController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Pago Mensuals',
+	'Pagomensuals',
 );
 
 $this->menu=array(
-	array('label'=>'Create PagoMensual', 'url'=>array('create')),
-	array('label'=>'Manage PagoMensual', 'url'=>array('admin')),
+	array('label'=>'Create Pagomensual', 'url'=>array('create')),
+	array('label'=>'Manage Pagomensual', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Pago Mensuals</h1>
+<h1>Pagomensuals</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

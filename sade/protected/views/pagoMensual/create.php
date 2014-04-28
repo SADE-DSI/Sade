@@ -1,18 +1,18 @@
 <?php
-/* @var $this PagoMensualController */
-/* @var $model PagoMensual */
+/* @var $this PagomensualController */
+/* @var $model Pagomensual */
 
 $this->breadcrumbs=array(
-	'Pago Mensuals'=>array('index'),
+	'Pagomensuals'=>array('index'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List PagoMensual', 'url'=>array('index')),
-	array('label'=>'Manage PagoMensual', 'url'=>array('admin')),
+	array('label'=>'List Pagomensual', 'url'=>array('index')),
+	array('label'=>'Manage Pagomensual', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create PagoMensual</h1>
+<h1>Create Pagomensual</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

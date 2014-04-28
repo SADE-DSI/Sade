@@ -1,6 +1,6 @@
 <?php
-/* @var $this PagoMensualController */
-/* @var $model PagoMensual */
+/* @var $this PagomensualController */
+/* @var $model Pagomensual */
 /* @var $form CActiveForm */
 ?>
 
@@ -13,12 +13,12 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'pmCodigo'); ?>
-		<?php echo $form->textField($model,'pmCodigo',array('size'=>20,'maxlength'=>20)); ?>
+		<?php echo $form->textField($model,'pmCodigo',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'dlDireccion'); ?>
-		<?php echo $form->textField($model,'dlDireccion',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->textField($model,'dlDireccion',array('size'=>60,'maxlength'=>767)); ?>
 	</div>
 
 	<div class="row">
@@ -28,17 +28,22 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'pmMonto'); ?>
-		<?php echo $form->textField($model,'pmMonto'); ?>
+		<?php echo $form->textField($model,'pmMonto',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'pmObs'); ?>
-		<?php echo $form->textField($model,'pmObs',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->textField($model,'pmObs',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'pmFechaRealPago'); ?>
 		<?php echo $form->textField($model,'pmFechaRealPago'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'pmId'); ?>
+		<?php echo $form->textField($model,'pmId',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
 	<div class="row buttons">

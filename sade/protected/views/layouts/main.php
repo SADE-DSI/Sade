@@ -27,15 +27,21 @@
 					, 'visible'=>!Yii::app()->user->isGuest), 
 				array('label'=>'Gestionar pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
-				array('label'=>'Administrar Usuarios'
-					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
-					, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Agregar Usuario'
+				// array('label'=>'Gestionar Usuarios'
+				// 	, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
+				// 	, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Gestionar Usuario'
 					, 'url'=>array('/arrendatarioDueno/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Agregar conserje'
+				array('label'=>'Gestionar conserje'
 					, 'url'=>array('/conserjeAdministrador/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
+				
+				array('label'=>'Gestionar Dpto/locales', 'url'=>array('/dptoLocal/index')
+					, 'visible'=>!Yii::app()->user->isGuest), 
+				array('label'=>'Gestionar avisos', 'url'=>array('/aviso/index')
+					, 'visible'=>!Yii::app()->user->isGuest), 
+
 				array('label'=>'Login'
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),

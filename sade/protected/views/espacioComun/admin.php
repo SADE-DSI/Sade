@@ -12,7 +12,7 @@ $this->menu=array(
 	array('label'=>'Crear Espacio Común', 'url'=>array('create')),
 );
 
-Yii::app()->clientScript->registerScript('search', "s
+Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
 	return false;

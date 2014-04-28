@@ -74,29 +74,7 @@
 		<?php echo $form->textField($model,'cpObs',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'cpObs'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'gpNumeroBoleta'); ?>
-		<?php echo $form->textField($model,'gpNumeroBoleta'); ?>
-		<?php echo $form->error($model,'gpNumeroBoleta'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'gpFechaRealPago'); ?>
-		<?php 
-		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
-			"attribute"=>"gpFechaRealPago",
-			"model"=>$model,
-			"language"=>"es",
-			"options"=>array(
-				"dateFormat"=>"yy-mm-dd"
-				)
-			));
-
-		?>
-		<?php echo $form->error($model,'gpFechaRealPago'); ?>
-	</div>
-
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

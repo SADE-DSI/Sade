@@ -27,9 +27,6 @@
 					, 'visible'=>!Yii::app()->user->isGuest), 
 				array('label'=>'Gestionar pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
-				// array('label'=>'Gestionar Usuarios'
-				// 	, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
-				// 	, 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Gestionar Usuario'
 					, 'url'=>array('/arrendatarioDueno/index')
 					, 'visible'=>!Yii::app()->user->isGuest),

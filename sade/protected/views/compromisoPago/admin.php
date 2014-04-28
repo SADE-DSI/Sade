@@ -1,15 +1,15 @@
 <?php
-/* @var $this CompromisoPagoController */
-/* @var $model CompromisoPago */
+/* @var $this CompromisopagoController */
+/* @var $model Compromisopago */
 
 $this->breadcrumbs=array(
-	'Compromiso Pagos'=>array('index'),
+	'Compromisopagos'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List CompromisoPago', 'url'=>array('index')),
-	array('label'=>'Create CompromisoPago', 'url'=>array('create')),
+	array('label'=>'List Compromisopago', 'url'=>array('index')),
+	array('label'=>'Create Compromisopago', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#compromiso-pago-grid').yiiGridView('update', {
+	$('#compromisopago-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Compromiso Pagos</h1>
+<h1>Manage Compromisopagos</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,7 +41,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'compromiso-pago-grid',
+	'id'=>'compromisopago-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
@@ -53,8 +53,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'cpFechaIngreso',
 		/*
 		'cpObs',
-		'gpNumeroBoleta',
-		'gpFechaRealPago',
+		'cpNumeroBoleta',
+		'cpFechaRealPago',
 		*/
 		array(
 			'class'=>'CButtonColumn',

@@ -1,6 +1,6 @@
 <?php
-/* @var $this CompromisoPagoController */
-/* @var $data CompromisoPago */
+/* @var $this CompromisopagoController */
+/* @var $data Compromisopago */
 ?>
 
 <div class="view">
@@ -34,12 +34,12 @@
 	<br />
 
 	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('gpNumeroBoleta')); ?>:</b>
-	<?php echo CHtml::encode($data->gpNumeroBoleta); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('cpNumeroBoleta')); ?>:</b>
+	<?php echo CHtml::encode($data->cpNumeroBoleta); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('gpFechaRealPago')); ?>:</b>
-	<?php echo CHtml::encode($data->gpFechaRealPago); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('cpFechaRealPago')); ?>:</b>
+	<?php echo CHtml::encode($data->cpFechaRealPago); ?>
 	<br />
 
 	*/ ?>

@@ -1,18 +1,18 @@
 <?php
-/* @var $this CompromisoPagoController */
+/* @var $this CompromisopagoController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Compromiso Pagos',
+	'Compromisopagos',
 );
 
 $this->menu=array(
-	array('label'=>'Create CompromisoPago', 'url'=>array('create')),
-	array('label'=>'Manage CompromisoPago', 'url'=>array('admin')),
+	array('label'=>'Create Compromisopago', 'url'=>array('create')),
+	array('label'=>'Manage Compromisopago', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Compromiso Pagos</h1>
+<h1>Compromisopagos</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

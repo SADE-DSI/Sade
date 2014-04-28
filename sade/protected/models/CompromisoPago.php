@@ -1,27 +1,27 @@
 <?php
 
 /**
- * This is the model class for table "compromisoPago".
+ * This is the model class for table "compromisopago".
  *
- * The followings are the available columns in table 'compromisoPago':
+ * The followings are the available columns in table 'compromisopago':
  * @property string $cpId
- * @property integer $cpCodigo
+ * @property string $cpCodigo
  * @property string $cpFechaVencimiento
- * @property integer $cpMonto
+ * @property string $cpMonto
  * @property string $cpDescripcion
  * @property string $cpFechaIngreso
  * @property string $cpObs
- * @property integer $gpNumeroBoleta
- * @property string $gpFechaRealPago
+ * @property string $cpNumeroBoleta
+ * @property string $cpFechaRealPago
  */
-class CompromisoPago extends CActiveRecord
+class Compromisopago extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'compromisoPago';
+		return 'compromisopago';
 	}
 
 	/**
@@ -32,13 +32,13 @@ class CompromisoPago extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cpCodigo', 'required'),
-			array('cpCodigo, cpMonto, gpNumeroBoleta', 'numerical', 'integerOnly'=>true),
-			array('cpDescripcion, cpObs', 'length', 'max'=>100),
-			array('cpFechaVencimiento, cpFechaIngreso, gpFechaRealPago', 'safe'),
+			array('cpCodigo, cpFechaVencimiento, cpMonto, cpFechaIngreso', 'required'),
+			array('cpCodigo, cpMonto, cpNumeroBoleta', 'length', 'max'=>10),
+			array('cpDescripcion, cpObs', 'length', 'max'=>255),
+			array('cpFechaRealPago', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('cpId, cpCodigo, cpFechaVencimiento, cpMonto, cpDescripcion, cpFechaIngreso, cpObs, gpNumeroBoleta, gpFechaRealPago', 'safe', 'on'=>'search'),
+			array('cpId, cpCodigo, cpFechaVencimiento, cpMonto, cpDescripcion, cpFechaIngreso, cpObs, cpNumeroBoleta, cpFechaRealPago', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,8 +66,8 @@ class CompromisoPago extends CActiveRecord
 			'cpDescripcion' => 'Cp Descripcion',
 			'cpFechaIngreso' => 'Cp Fecha Ingreso',
 			'cpObs' => 'Cp Obs',
-			'gpNumeroBoleta' => 'Gp Numero Boleta',
-			'gpFechaRealPago' => 'Gp Fecha Real Pago',
+			'cpNumeroBoleta' => 'Cp Numero Boleta',
+			'cpFechaRealPago' => 'Cp Fecha Real Pago',
 		);
 	}
 
@@ -90,14 +90,14 @@ class CompromisoPago extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('cpId',$this->cpId,true);
-		$criteria->compare('cpCodigo',$this->cpCodigo);
+		$criteria->compare('cpCodigo',$this->cpCodigo,true);
 		$criteria->compare('cpFechaVencimiento',$this->cpFechaVencimiento,true);
-		$criteria->compare('cpMonto',$this->cpMonto);
+		$criteria->compare('cpMonto',$this->cpMonto,true);
 		$criteria->compare('cpDescripcion',$this->cpDescripcion,true);
 		$criteria->compare('cpFechaIngreso',$this->cpFechaIngreso,true);
 		$criteria->compare('cpObs',$this->cpObs,true);
-		$criteria->compare('gpNumeroBoleta',$this->gpNumeroBoleta);
-		$criteria->compare('gpFechaRealPago',$this->gpFechaRealPago,true);
+		$criteria->compare('cpNumeroBoleta',$this->cpNumeroBoleta,true);
+		$criteria->compare('cpFechaRealPago',$this->cpFechaRealPago,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -108,7 +108,7 @@ class CompromisoPago extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return CompromisoPago the static model class
+	 * @return Compromisopago the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

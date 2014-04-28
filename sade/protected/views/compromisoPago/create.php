@@ -1,18 +1,18 @@
 <?php
-/* @var $this CompromisoPagoController */
-/* @var $model CompromisoPago */
+/* @var $this CompromisopagoController */
+/* @var $model Compromisopago */
 
 $this->breadcrumbs=array(
-	'Compromiso Pagos'=>array('index'),
+	'Compromisopagos'=>array('index'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List CompromisoPago', 'url'=>array('index')),
-	array('label'=>'Manage CompromisoPago', 'url'=>array('admin')),
+	array('label'=>'List Compromisopago', 'url'=>array('index')),
+	array('label'=>'Manage Compromisopago', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create CompromisoPago</h1>
+<h1>Create Compromisopago</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

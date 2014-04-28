@@ -1,6 +1,6 @@
 <?php
 
-class CompromisoPagoController extends Controller
+class CompromisopagoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,16 +62,14 @@ class CompromisoPagoController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new CompromisoPago;
-		
-
+		$model=new Compromisopago;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['CompromisoPago']))
+		if(isset($_POST['Compromisopago']))
 		{
-			$model->attributes=$_POST['CompromisoPago'];
+			$model->attributes=$_POST['Compromisopago'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->cpId));
 		}
@@ -93,9 +91,9 @@ class CompromisoPagoController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['CompromisoPago']))
+		if(isset($_POST['Compromisopago']))
 		{
-			$model->attributes=$_POST['CompromisoPago'];
+			$model->attributes=$_POST['Compromisopago'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->cpId));
 		}
@@ -124,7 +122,7 @@ class CompromisoPagoController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('CompromisoPago');
+		$dataProvider=new CActiveDataProvider('Compromisopago');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -135,10 +133,10 @@ class CompromisoPagoController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new CompromisoPago('search');
+		$model=new Compromisopago('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['CompromisoPago']))
-			$model->attributes=$_GET['CompromisoPago'];
+		if(isset($_GET['Compromisopago']))
+			$model->attributes=$_GET['Compromisopago'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -149,12 +147,12 @@ class CompromisoPagoController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return CompromisoPago the loaded model
+	 * @return Compromisopago the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=CompromisoPago::model()->findByPk($id);
+		$model=Compromisopago::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -162,11 +160,11 @@ class CompromisoPagoController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param CompromisoPago $model the model to be validated
+	 * @param Compromisopago $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='compromiso-pago-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='compromisopago-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

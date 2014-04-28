@@ -39,7 +39,17 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'adFechaLiberacion'); ?>
-		<?php echo $form->textField($model,'adFechaLiberacion'); ?>
+		<?php 
+               $this->widget("zii.widgets.jui.CJuiDatePicker",array(
+                       "attribute"=>"adFechaLiberacion",
+                       "model"=>$model,
+                       "language"=>"es",
+                       "options"=>array(
+                               "dateFormat"=>"yy-mm-dd"
+                               )
+                       ));
+
+               ?>
 		<?php echo $form->error($model,'adFechaLiberacion'); ?>
 	</div>
 
@@ -67,9 +77,10 @@
 		<?php echo $form->error($persona,'peTelefono'); ?>
 	</div>
 
+
 	<div class="row">
 		<?php echo $form->labelEx($persona,'peTipo'); ?>
-		<?php echo $form->textField($persona,'peTipo'); ?>
+		<?php echo $form->textField($persona,'peTipo',array('value'=>2,'readonly'=>'false')); ?>
 		<?php echo $form->error($persona,'peTipo'); ?>
 	</div>
 

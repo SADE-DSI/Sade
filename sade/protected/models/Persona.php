@@ -40,9 +40,16 @@ class Persona extends CActiveRecord
 			array('peRut, peNombresApellidos, peEmail, peTipo', 'required'),
 			array('peActivo', 'numerical', 'integerOnly'=>true),
 			array('peRut', 'length', 'max'=>13),
+			 array('peRut','match','pattern'=>'/^[0-9_-]{12,13}$/'
+                , 'message'=>CrugeTranslator::t("El rut ingresado no es valido")),
 			array('peNombresApellidos', 'length', 'max'=>80),
+			array('peNombresApellidos','match','pattern'=>'/^[a-z]$/'
+                , 'message'=>CrugeTranslator::t("El nombre/apellido no es válido")),
 			array('peEmail', 'length', 'max'=>30),
+			array('peEmail', 'email'),
 			array('peTelefono', 'length', 'max'=>10),
+			array('peTelefono','match','pattern'=>'/^[0-9_-]$/'
+                , 'message'=>CrugeTranslator::t("El teléfono no es válido")),
 			array('peTipo', 'length', 'max'=>12),
 			array('peDescripcion, peDireccion', 'length', 'max'=>255),
 			// The following rule is used by search().

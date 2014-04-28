@@ -29,8 +29,13 @@ class Material extends CActiveRecord
 		return array(
 			array('maNombre', 'required'),
 			array('maNombre', 'length', 'max'=>20),
+			array('maNombre','match','pattern'=>'/^[a-z_-]$/'
+                , 'message'=>CrugeTranslator::t("El nombre no es válido")),
 			array('maDescripcion', 'length', 'max'=>100),
 			array('maEstado', 'length', 'max'=>10),
+			array('maEstado', 'numerical', 'integerOnly'=>true),
+			array('maEstado','match','pattern'=>'/^[0-1]$/'
+                , 'message'=>CrugeTranslator::t("El estado no es válido")),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('maCodigo, maNombre, maDescripcion, maEstado', 'safe', 'on'=>'search'),

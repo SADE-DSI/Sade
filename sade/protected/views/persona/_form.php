@@ -51,7 +51,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'peTipo'); ?>
-		<?php echo $form->textField($model,'peTipo',array('size'=>12,'maxlength'=>12)); ?>
+		<?php echo $form->dropDownList($model, 'peTipo', array(1=>'test1', 2=>'test2'));?>
 		<?php echo $form->error($model,'peTipo'); ?>
 	</div>
 

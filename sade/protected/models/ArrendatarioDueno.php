@@ -33,9 +33,12 @@ class Arrendatariodueno extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('adRut, adClave', 'required'),
-			array('adEstado', 'numerical', 'integerOnly'=>true),
+			array('adEstado', 'numerical', 'integerOnly'=>true, 'min'=>0, 'max'=>1),
 			array('adRut', 'length', 'max'=>13),
 			array('adClave', 'length', 'max'=>30),
+			array('adClave', 'length', 'min'=>6),
+			array('adClave','match','pattern'=>'/^[a-z0-9]$/'
+                , 'message'=>CrugeTranslator::t("Solo letras y números")),
 			array('adFechaLiberacion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

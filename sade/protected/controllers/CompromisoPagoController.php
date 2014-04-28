@@ -63,6 +63,8 @@ class CompromisoPagoController extends Controller
 	public function actionCreate()
 	{
 		$model=new CompromisoPago;
+		
+
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

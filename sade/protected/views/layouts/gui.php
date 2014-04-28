@@ -21,7 +21,7 @@
 				array('label'=>'Inicio', 'url'=>array('/site/index')),
 				array('label'=>'Acerca', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contacto', 'url'=>array('/site/contact')),
-				array('label'=>'Agregar gasto comun', 'url'=>array('/compromisoPago/index')
+				array('label'=>'Gestionar gasto comun', 'url'=>array('/compromisoPago/index')
 				    , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 

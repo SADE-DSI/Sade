@@ -25,33 +25,16 @@
 	<div id="header">
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
-<div class="menu">
+
+	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Inicio', 'url'=>array('/site/index')),
 				array('label'=>'Acerca', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contacto', 'url'=>array('/site/contact')),
-				array('label'=>'Agregar gasto comun', 'url'=>array('/compromisoPago/index')
-				    , 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')
-					, 'visible'=>!Yii::app()->user->isGuest), 
-				array('label'=>'Gestionar pagos', 'url'=>array('/pagoMensual/index')
-					, 'visible'=>!Yii::app()->user->isGuest), 
-				// array('label'=>'Gestionar Usuarios'
-				// 	, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
-				// 	, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Gestionar Usuario'
-					, 'url'=>array('/arrendatarioDueno/index')
+				array('label'=>'Administrar Usuarios'
+					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
 					, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Gestionar conserje'
-					, 'url'=>array('/conserjeAdministrador/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
-				
-				array('label'=>'Gestionar Dpto/locales', 'url'=>array('/dptoLocal/index')
-					, 'visible'=>!Yii::app()->user->isGuest), 
-				array('label'=>'Gestionar avisos', 'url'=>array('/aviso/index')
-					, 'visible'=>!Yii::app()->user->isGuest), 
-
 				array('label'=>'Login'
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),

@@ -5,19 +5,19 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('sgId')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->sgId), array('view', 'id'=>$data->sgId)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('sfComentario')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Comentario')); ?>:</b>
 	<?php echo CHtml::encode($data->sfComentario); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('sfRespuesta')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Respuesta')); ?>:</b>
 	<?php echo CHtml::encode($data->sfRespuesta); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('sfLeido')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Leido')); ?>:</b>
 	<?php echo CHtml::encode($data->sfLeido); ?>
 	<br />
 

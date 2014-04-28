@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "arrendatarioDueno".
+ * This is the model class for table "arrendatariodueno".
  *
- * The followings are the available columns in table 'arrendatarioDueno':
+ * The followings are the available columns in table 'arrendatariodueno':
  * @property string $adRut
  * @property string $adClave
  * @property integer $adEstado
@@ -11,17 +11,17 @@
  *
  * The followings are the available model relations:
  * @property Persona $adRut0
- * @property ReservaEspacioComun[] $reservaEspacioComuns
- * @property ResideDpto[] $resideDptos
+ * @property Reservaespcomun[] $reservaespcomuns
+ * @property Residedpto[] $residedptos
  */
-class ArrendatarioDueno extends CActiveRecord
+class Arrendatariodueno extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'arrendatarioDueno';
+		return 'arrendatariodueno';
 	}
 
 	/**
@@ -32,7 +32,7 @@ class ArrendatarioDueno extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('adRut', 'required'),
+			array('adRut, adClave', 'required'),
 			array('adEstado', 'numerical', 'integerOnly'=>true),
 			array('adRut', 'length', 'max'=>13),
 			array('adClave', 'length', 'max'=>30),
@@ -52,8 +52,8 @@ class ArrendatarioDueno extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'adRut0' => array(self::BELONGS_TO, 'Persona', 'adRut'),
-			'reservaEspacioComuns' => array(self::HAS_MANY, 'ReservaEspacioComun', 'adRut'),
-			'resideDptos' => array(self::HAS_MANY, 'ResideDpto', 'adRut'),
+			'reservaespcomuns' => array(self::HAS_MANY, 'Reservaespcomun', 'adRut'),
+			'residedptos' => array(self::HAS_MANY, 'Residedpto', 'adRut'),
 		);
 	}
 
@@ -102,7 +102,7 @@ class ArrendatarioDueno extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return ArrendatarioDueno the static model class
+	 * @return Arrendatariodueno the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

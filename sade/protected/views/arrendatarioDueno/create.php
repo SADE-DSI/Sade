@@ -1,20 +1,18 @@
 <?php
-/* @var $this ArrendatarioDuenoController */
-/* @var $model ArrendatarioDueno */
+/* @var $this ArrendatarioduenoController */
+/* @var $model Arrendatariodueno */
 
 $this->breadcrumbs=array(
-	'Arrendatario Duenos'=>array('index'),
+	'Arrendatarioduenos'=>array('index'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List ArrendatarioDueno', 'url'=>array('index')),
-	array('label'=>'Manage ArrendatarioDueno', 'url'=>array('admin')),
-
-
+	array('label'=>'List Arrendatariodueno', 'url'=>array('index')),
+	array('label'=>'Manage Arrendatariodueno', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Ingresar nuevo Arrendatario/Dueño</h1>
+<h1>Create Arrendatariodueno</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model,'persona'=>$persona)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model)); ?>

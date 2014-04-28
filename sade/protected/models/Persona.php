@@ -14,9 +14,10 @@
  * @property string $peDireccion
  *
  * The followings are the available model relations:
- * @property ArrendatarioDueno $arrendatarioDueno
- * @property ConserjeAdministrador $conserjeAdministrador
- * @property SueldoPersona[] $sueldoPersonas
+ * @property Arrendatariodueno $arrendatariodueno
+ * @property Conserjeadministrador $conserjeadministrador
+ * @property Contratopersonal[] $contratopersonals
+ * @property Sueldopersonal[] $sueldopersonals
  */
 class Persona extends CActiveRecord
 {
@@ -36,19 +37,20 @@ class Persona extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('peRut', 'required'),
+			array('peRut, peNombresApellidos, peEmail, peTipo', 'required'),
 			array('peActivo', 'numerical', 'integerOnly'=>true),
 			array('peRut', 'length', 'max'=>13),
 			array('peNombresApellidos', 'length', 'max'=>80),
 			array('peEmail', 'length', 'max'=>30),
-			array('peTelefono', 'length', 'max'=>14),
+			array('peTelefono', 'length', 'max'=>10),
 			array('peTipo', 'length', 'max'=>12),
-			array('peDescripcion, peDireccion', 'safe'),
+			array('peDescripcion, peDireccion', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('peRut, peNombresApellidos, peActivo, peEmail, peTelefono, peTipo, peDescripcion, peDireccion', 'safe', 'on'=>'search'),
 		);
 	}
+
 
 	/**
 	 * @return array relational rules.
@@ -58,9 +60,10 @@ class Persona extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'arrendatarioDueno' => array(self::HAS_ONE, 'ArrendatarioDueno', 'adRut'),
-			'conserjeAdministrador' => array(self::HAS_ONE, 'ConserjeAdministrador', 'caRut'),
-			'sueldoPersonas' => array(self::HAS_MANY, 'SueldoPersona', 'peRut'),
+			'pe_ad' => array(self::HAS_ONE, 'Arrendatariodueno', 'adRut'),
+			'pe_ca' => array(self::HAS_ONE, 'Conserjeadministrador', 'caRut'),
+			'contratopersonals' => array(self::HAS_MANY, 'Contratopersonal', 'peRut'),
+			'sueldopersonals' => array(self::HAS_MANY, 'Sueldopersonal', 'peRut'),
 		);
 	}
 

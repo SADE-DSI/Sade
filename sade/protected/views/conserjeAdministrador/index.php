@@ -1,18 +1,18 @@
 <?php
-/* @var $this ConserjeAdministradorController  */
+/* @var $this ConserjeadministradorController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Conserje Administradors',
+	'Gestionar Conserjes',
 );
 
 $this->menu=array(
-	array('label'=>'Create ConserjeAdministrador', 'url'=>array('create')),
-	array('label'=>'Manage ConserjeAdministrador', 'url'=>array('admin')),
+	array('label'=>'Create Conserjeadministrador', 'url'=>array('create')),
+	array('label'=>'Manage Conserjeadministrador', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Conserje Administradors</h1>
+<h1>Conserjes / Administrador </h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

@@ -1,22 +1,22 @@
 <?php
-/* @var $this ArrendatarioDuenoController  */
-/* @var $model ArrendatarioDueno */
+/* @var $this ArrendatarioduenoController */
+/* @var $model Arrendatariodueno */
 
 $this->breadcrumbs=array(
-	'Arrendatario Duenos'=>array('index'),
+	'Arrendatarioduenos'=>array('index'),
 	$model->adRut,
 );
 
 $this->menu=array(
-	array('label'=>'List ArrendatarioDueno', 'url'=>array('index')),
-	array('label'=>'Create ArrendatarioDueno', 'url'=>array('create')),
-	array('label'=>'Update ArrendatarioDueno', 'url'=>array('update', 'id'=>$model->adRut)),
-	array('label'=>'Delete ArrendatarioDueno', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->adRut),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage ArrendatarioDueno', 'url'=>array('admin')),
+	array('label'=>'List Arrendatariodueno', 'url'=>array('index')),
+	array('label'=>'Create Arrendatariodueno', 'url'=>array('create')),
+	array('label'=>'Update Arrendatariodueno', 'url'=>array('update', 'id'=>$model->adRut)),
+	array('label'=>'Delete Arrendatariodueno', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->adRut),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Manage Arrendatariodueno', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View ArrendatarioDueno #<?php echo $model->adRut; ?></h1>
+<h1>View Arrendatariodueno #<?php echo $model->adRut; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

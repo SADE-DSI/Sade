@@ -1,6 +1,6 @@
 <?php
-/* @var $this ArrendatarioDuenoController  */
-/* @var $data ArrendatarioDueno */
+/* @var $this ArrendatarioduenoController */
+/* @var $data Arrendatariodueno */
 ?>
 
 <div class="view">

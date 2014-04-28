@@ -1,6 +1,6 @@
 <?php
-/* @var $this ArrendatarioDuenoController  */
-/* @var $model ArrendatarioDueno */
+/* @var $this ArrendatarioduenoController */
+/* @var $model Arrendatariodueno */
 /* @var $form CActiveForm */
 ?>
 

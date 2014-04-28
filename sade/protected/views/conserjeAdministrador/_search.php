@@ -1,6 +1,6 @@
 <?php
-/* @var $this ConserjeAdministradorController  */
-/* @var $model ConserjeAdministrador */
+/* @var $this ConserjeadministradorController */
+/* @var $model Conserjeadministrador */
 /* @var $form CActiveForm */
 ?>
 
@@ -18,7 +18,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'caClave'); ?>
-		<?php echo $form->textField($model,'caClave',array('size'=>30,'maxlength'=>30)); ?>
+		<?php echo $form->textField($model,'caClave',array('size'=>20,'maxlength'=>20)); ?>
 	</div>
 
 	<div class="row buttons">

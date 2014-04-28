@@ -1,21 +1,21 @@
 <?php
-/* @var $this ConserjeAdministradorController */
-/* @var $model ConserjeAdministrador */
-$persona= new Persona;
+/* @var $this ConserjeadministradorController */
+/* @var $model Conserjeadministrador */
+
 $this->breadcrumbs=array(
-	'Conserje Administradors'=>array('index'),
+	'Conserjeadministradors'=>array('index'),
 	$model->caRut=>array('view','id'=>$model->caRut),
 	'Update',
 );
 
 $this->menu=array(
-	array('label'=>'List ConserjeAdministrador', 'url'=>array('index')),
-	array('label'=>'Create ConserjeAdministrador', 'url'=>array('create')),
-	array('label'=>'View ConserjeAdministrador', 'url'=>array('view', 'id'=>$model->caRut)),
-	array('label'=>'Manage ConserjeAdministrador', 'url'=>array('admin')),
+	array('label'=>'List Conserjeadministrador', 'url'=>array('index')),
+	array('label'=>'Create Conserjeadministrador', 'url'=>array('create')),
+	array('label'=>'View Conserjeadministrador', 'url'=>array('view', 'id'=>$model->caRut)),
+	array('label'=>'Manage Conserjeadministrador', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Actualizar Conserje/Administrador <?php echo $model->caRut; ?></h1>
+<h1>Update Conserjeadministrador <?php echo $model->caRut; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model,'persona'=>$persona)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model)); ?>

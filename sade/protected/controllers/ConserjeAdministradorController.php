@@ -1,6 +1,6 @@
 <?php
 
-class ConserjeAdministradorController extends Controller
+class ConserjeadministradorController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,31 +62,31 @@ class ConserjeAdministradorController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new ConserjeAdministrador;
-		$persona= new Persona;
+		$model=new Conserjeadministrador;
+		$persona = new Persona;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['ConserjeAdministrador'],$_POST['Persona']))
+		if(isset($_POST['Conserjeadministrador'],$_POST['Persona']))
 		{
-			$model->attributes=$_POST['ConserjeAdministrador'];
 			$persona->attributes=$_POST['Persona'];
-			$valida=$model->validate();
-			$valida=$persona->validate() && $valida;
-			if($valida){
-				$persona->save(false);
-				$model->caRut = $persona->peRut;
-				$model->save(false);
-			}
+			$model->attributes = $_POST['Conserjeadministrador'];
+
+			$persona->save();
+			$model->caRut = $persona->peRut;
+			$model->save();
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->caRut));
 		}
+
 		$this->render('create',array(
-			'persona'=>$persona,
 			'model'=>$model,
+			'persona' =>$persona,
 		));
 	}
+
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -99,9 +99,9 @@ class ConserjeAdministradorController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['ConserjeAdministrador']))
+		if(isset($_POST['Conserjeadministrador']))
 		{
-			$model->attributes=$_POST['ConserjeAdministrador'];
+			$model->attributes=$_POST['Conserjeadministrador'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->caRut));
 		}
@@ -130,7 +130,7 @@ class ConserjeAdministradorController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('ConserjeAdministrador');
+		$dataProvider=new CActiveDataProvider('Conserjeadministrador');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -141,10 +141,10 @@ class ConserjeAdministradorController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new ConserjeAdministrador('search');
+		$model=new Conserjeadministrador('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['ConserjeAdministrador']))
-			$model->attributes=$_GET['ConserjeAdministrador'];
+		if(isset($_GET['Conserjeadministrador']))
+			$model->attributes=$_GET['Conserjeadministrador'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -155,12 +155,12 @@ class ConserjeAdministradorController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return ConserjeAdministrador the loaded model
+	 * @return Conserjeadministrador the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=ConserjeAdministrador::model()->findByPk($id);
+		$model=Conserjeadministrador::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -168,11 +168,11 @@ class ConserjeAdministradorController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param ConserjeAdministrador $model the model to be validated
+	 * @param Conserjeadministrador $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='conserje-administrador-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='conserjeadministrador-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

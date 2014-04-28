@@ -33,7 +33,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'peTelefono'); ?>
-		<?php echo $form->textField($model,'peTelefono',array('size'=>14,'maxlength'=>14)); ?>
+		<?php echo $form->textField($model,'peTelefono',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
 	<div class="row">
@@ -43,12 +43,12 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'peDescripcion'); ?>
-		<?php echo $form->textArea($model,'peDescripcion',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->textField($model,'peDescripcion',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'peDireccion'); ?>
-		<?php echo $form->textArea($model,'peDireccion',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->textField($model,'peDireccion',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row buttons">

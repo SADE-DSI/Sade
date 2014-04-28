@@ -1,24 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "conserjeAdministrador".
+ * This is the model class for table "conserjeadministrador".
  *
- * The followings are the available columns in table 'conserjeAdministrador':
+ * The followings are the available columns in table 'conserjeadministrador':
  * @property string $caRut
  * @property string $caClave
  *
  * The followings are the available model relations:
  * @property Persona $caRut0
- * @property VisitaDpto[] $visitaDptos
+ * @property Visitadpto[] $visitadptos
  */
-class ConserjeAdministrador extends CActiveRecord
+class Conserjeadministrador extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'conserjeAdministrador';
+		return 'conserjeadministrador';
 	}
 
 	/**
@@ -31,7 +31,7 @@ class ConserjeAdministrador extends CActiveRecord
 		return array(
 			array('caRut, caClave', 'required'),
 			array('caRut', 'length', 'max'=>13),
-			array('caClave', 'length', 'max'=>30),
+			array('caClave', 'length', 'max'=>20),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('caRut, caClave', 'safe', 'on'=>'search'),
@@ -46,8 +46,8 @@ class ConserjeAdministrador extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'caRut0' => array(self::BELONGS_TO, 'Persona', 'caRut'),
-			'visitaDptos' => array(self::HAS_MANY, 'VisitaDpto', 'caRut'),
+			'ca_pe' => array(self::HAS_ONE, 'Persona', 'peRut'),
+			'visitadptos' => array(self::HAS_MANY, 'Visitadpto', 'caRut'),
 		);
 	}
 
@@ -92,7 +92,7 @@ class ConserjeAdministrador extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return ConserjeAdministrador the static model class
+	 * @return Conserjeadministrador the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

@@ -39,9 +39,9 @@ class Persona extends CActiveRecord
 		return array(
 			array('peRut, peNombresApellidos, peEmail, peTipo', 'required'),
 			array('peActivo', 'numerical', 'integerOnly'=>true),
-			array('peRut', 'length', 'max'=>13),
-			 array('peRut','match','pattern'=>'/^[0-9_-]{12,13}$/'
-                , 'message'=>CrugeTranslator::t("El rut ingresado no es valido")),
+			array('peRut', 'length', 'max'=>10),
+			array('peRut', 'length', 'min'=>9),
+			array('peRut','validateRut'),
 			array('peNombresApellidos', 'length', 'max'=>80),
 			array('peNombresApellidos','match','pattern'=>'/^[a-z]$/'
                 , 'message'=>CrugeTranslator::t("El nombre/apellido no es válido")),
@@ -133,4 +133,26 @@ class Persona extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function validateRut($attribute, $params) {
+        $data = explode('-', $this->peRut);
+        $evaluate = strrev($data[0]);
+        $multiply = 2;
+        $store = 0;
+        for ($i = 0; $i < strlen($evaluate); $i++) {
+            $store += $evaluate[$i] * $multiply;
+            $multiply++;
+            if ($multiply > 7)
+                $multiply = 2;
+        }
+        isset($data[1]) ? $verifyCode = strtolower($data[1]) : $verifyCode = '';
+        $result = 11 - ($store % 11);
+        if ($result == 10)
+            $result = 'k';
+        if ($result == 11)
+            $result = 0;
+        if ($verifyCode != $result)
+            $this->addError('peRut', 'Rut inválido.');
+    }
+
 }

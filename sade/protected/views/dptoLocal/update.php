@@ -3,9 +3,9 @@
 /* @var $model Dptolocal */
 
 $this->breadcrumbs=array(
-	'Dpto/locals'=>array('index'),
+	'Dptos/locales'=>array('index'),
 	$model->dlDireccion=>array('view','id'=>$model->dlDireccion),
-	'Modificar',
+	'Crear',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Modificar Dpto/local <?php echo $model->dlDireccion; ?></h1>
+<h1>Actualizar Dptos/Local <?php echo $model->dlDireccion; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

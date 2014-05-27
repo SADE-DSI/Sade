@@ -23,7 +23,12 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'dlValorArriendo'); ?>
-		<?php echo $form->textField($model,'dlValorArriendo'); ?>
+		<?php echo $form->textField($model,'dlValorArriendo',array('size'=>10,'maxlength'=>10)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'dlActivo'); ?>
+		<?php echo $form->textField($model,'dlActivo',array('size'=>2,'maxlength'=>2)); ?>
 	</div>
 
 	<div class="row buttons">

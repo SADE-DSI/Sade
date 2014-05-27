@@ -3,16 +3,16 @@
 /* @var $model Dptolocal */
 
 $this->breadcrumbs=array(
-	'Dpto/locals'=>array('index'),
+	'Dpto/local'=>array('index'),
 	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'Listar Dpto/Local', 'url'=>array('index')),
-	array('label'=>'Administrar Dpto/Local', 'url'=>array('admin')),
+	array('label'=>'Listar Dpto/local', 'url'=>array('index')),
+	array('label'=>'Administrar Dpto/local', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Crear Departamento o Local</h1>
+<h1>Crear Dpto/local</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

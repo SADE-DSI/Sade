@@ -38,7 +38,8 @@ class Dptolocal extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('dlDireccion, dlMts2Construidos, dlValorArriendo, dlActivo', 'safe', 'on'=>'search'),
-			array('dlDireccion, dlMts2Construidos, dlActivo', 'required'),		
+			array('dlDireccion, dlMts2Construidos, dlActivo', 'required'),
+			array('dlDireccion', 'unique'),		
 			array('dlMts2Construidos', 'numerical', 'integerOnly'=>false, 'min'=>1, 'message'=>
 					'{attribute}  debe ser un entero o un decimal con punto.'),	
 		);

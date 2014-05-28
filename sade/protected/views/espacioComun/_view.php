@@ -1,6 +1,6 @@
 <?php
-/* @var $this EspacioComunController */
-/* @var $data EspacioComun */
+/* @var $this EspaciocomunController */
+/* @var $data Espaciocomun */
 ?>
 
 <div class="view">

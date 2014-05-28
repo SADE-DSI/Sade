@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Sugerencias', 'url'=>array('index')),
+	array('label'=>'Lista de Sugerencias', 'url'=>array('index')),
 	array('label'=>'Crear Sugerencia', 'url'=>array('create')),
 	array('label'=>'Responder Sugerencia', 'url'=>array('update', 'id'=>$model->sgId)),
 	array('label'=>'Eliminar Sugerencias', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->sgId),'confirm'=>'Are you sure you want to delete this item?')),
@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Ver Sugerencias #<?php echo $model->sgId; ?></h1>
+<h1>Ver Sugerencia # <?php echo $model->sgId; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

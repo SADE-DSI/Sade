@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Sugerencias', 'url'=>array('index')),
+	array('label'=>'Lista de Sugerencias', 'url'=>array('index')),
 	array('label'=>'Crear Sugerencia', 'url'=>array('create')),
 	array('label'=>'Ver Sugerencias', 'url'=>array('view', 'id'=>$model->sgId)),
 	array('label'=>'Administrar Sugerencias', 'url'=>array('admin')),

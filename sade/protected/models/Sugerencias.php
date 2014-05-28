@@ -30,8 +30,10 @@ class Sugerencias extends CActiveRecord
 			array('sfComentario', 'required'),
 			array('sfComentario, sfRespuesta', 'length', 'max'=>767),
 			array('sfLeido', 'length', 'max'=>10),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
+			array('sfComentario',  'match', 'pattern'=>'/[a-zA-Z]/'
+                , 'message'=>CrugeTranslator::t("Ingrese al menos una letra")),
+			array('sfRespuesta',  'match', 'pattern'=>'/[a-zA-Z]/'
+                , 'message'=>CrugeTranslator::t("Ingrese al menos una letra")),
 			array('sgId, sfComentario, sfRespuesta, sfLeido', 'safe', 'on'=>'search'),
 		);
 	}
@@ -53,10 +55,10 @@ class Sugerencias extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'sgId' => 'Sg',
-			'sfComentario' => 'Sf Comentario',
-			'sfRespuesta' => 'Sf Respuesta',
-			'sfLeido' => 'Sf Leido',
+			'sgId' => 'Número',
+			'sfComentario' => 'Comentario',
+			'sfRespuesta' => 'Respuesta',
+			'sfLeido' => 'Estado',
 		);
 	}
 

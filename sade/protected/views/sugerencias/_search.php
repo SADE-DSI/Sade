@@ -12,7 +12,7 @@
 )); ?>
 
 	<div class="row">
-		
+		<?php echo $form->label($model,'sgId'); ?>
 		<?php echo $form->textField($model,'sgId',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
@@ -32,7 +32,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?php echo CHtml::submitButton('Buscar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

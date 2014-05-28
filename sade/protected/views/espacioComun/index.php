@@ -1,5 +1,5 @@
 <?php
-/* @var $this EspacioComunController */
+/* @var $this EspaciocomunController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Crear Espacio Comun', 'url'=>array('create')),
-	array('label'=>'Administrar Espacio Comun', 'url'=>array('admin')),
+	array('label'=>'Crear Espacio Común', 'url'=>array('create')),
+	array('label'=>'Administrar Espacio Común', 'url'=>array('admin')),
 );
 ?>
 

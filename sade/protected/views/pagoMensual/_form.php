@@ -29,6 +29,7 @@
 		<?php echo $form->labelEx($model,'pmFechaPago'); ?>
 
 	<?php echo $form->textField($model,'pmFechaPago', array('value'=>date('Y-m-d'),'readonly'=>'false')); ?>
+	<!-- ingresa la fecha actual y no se puede modificar -->
 
 		<?php echo $form->error($model,'pmFechaPago'); ?>
 	</div>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="STYLESHEET" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/estiloGeneral.css">
+<link rel="STYLESHEET" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/tema-estiloGeneral.css">
 
 
 
@@ -52,8 +52,10 @@
 			'links'=>$this->breadcrumbs,
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
+
 	<div class="contenidos">
 	<?php echo $content; ?>
+	
 	<div class="span-5 last">
 	<div id="sidebar">
 	<?php

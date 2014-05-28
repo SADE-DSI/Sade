@@ -31,35 +31,40 @@
 			'items'=>array(
 				array('label'=>'Inicio', 'url'=>array('/site/index')),
 				
-				array('label'=>'Gestionar Gasto Comun', 'url'=>array('/compromisoPago/index')
-				    , 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Administrar Usuarios'
+					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
+					, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Agregar Conserje'
+					, 'url'=>array('/conserjeAdministrador/index')
+					, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Agregar Usuario'
+					, 'url'=>array('/arrendatarioDueno/index')
+					, 'visible'=>!Yii::app()->user->isGuest),				
 				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
 				array('label'=>'Gestionar Avisos', 'url'=>array('/aviso/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Gestionar Dpto/Locales', 'url'=>array('/Dptolocal/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Gestionar Gastos Comunes', 'url'=>array('/compromisoPago/index')
+				    , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Gestionar pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
-				array('label'=>'Administrar Usuarios'
-					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
-					, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Agregar Usuario'
-					, 'url'=>array('/arrendatarioDueno/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Agregar Conserje'
-					, 'url'=>array('/conserjeAdministrador/index')
+				array('label'=>'Personal', 'url'=>array('/Personal/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
 				    , 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Visitas', 'url'=>array('/Visitas/index')
+					, 'invisible'=>!Yii::app()->user->isGuest),
+				
 				array('label'=>'Login'
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Acerca', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Logout ('.Yii::app()->user->name.')'
 					, 'url'=>Yii::app()->user->ui->logoutUrl
 					, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Acerca', 'url'=>array('/site/page', 'view'=>'about')),
-			),
+				),
 		)); ?>
 	</div><!-- mainmenu -->
 	<?php if(isset($this->breadcrumbs)):?>

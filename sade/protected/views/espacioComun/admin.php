@@ -1,24 +1,24 @@
 <?php
-/* @var $this EspacioComunController */
-/* @var $model EspacioComun */
+/* @var $this EspaciocomunController */
+/* @var $model Espaciocomun */
 
 $this->breadcrumbs=array(
-	'Espacios Comunes'=>array('index'),
+	'Espacio Común'=>array('index'),
 	'Administrar',
 );
 
 $this->menu=array(
-	array('label'=>'Listar Espacios Comúnes', 'url'=>array('index')),
+	array('label'=>'Lista de Espacios Comunes', 'url'=>array('index')),
 	array('label'=>'Crear Espacio Común', 'url'=>array('create')),
 );
 
-Yii::app()->clientScript->registerScript('search', "s
+Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#espacio-comun-grid').yiiGridView('update', {
+	$('#espaciocomun-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -28,7 +28,9 @@ $('.search-form form').submit(function(){
 
 <h1>Administrar Espacios Comunes</h1>
 
-<?php #echo CHtml::link('Busqueda Avanzada','#',array('class'=>'search-button')); ?>
+
+
+<?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -36,7 +38,7 @@ $('.search-form form').submit(function(){
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'espacio-comun-grid',
+	'id'=>'espaciocomun-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(

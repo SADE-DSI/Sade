@@ -1,13 +1,13 @@
 <?php
-/* @var $this EspacioComunController */
-/* @var $model EspacioComun */
+/* @var $this EspaciocomunController */
+/* @var $model Espaciocomun */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'espacio-comun-form',
+	'id'=>'espaciocomun-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -27,7 +27,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ecDescripcion'); ?>
-		<?php echo $form->textArea($model,'ecDescripcion',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->textField($model,'ecDescripcion',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'ecDescripcion'); ?>
 	</div>
 

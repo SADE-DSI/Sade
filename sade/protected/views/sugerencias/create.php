@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Sugerencias', 'url'=>array('index')),
+	array('label'=>'Lista de Sugerencias', 'url'=>array('index')),
 	array('label'=>'Administrar Sugerencias', 'url'=>array('admin')),
 );
 ?>

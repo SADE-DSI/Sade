@@ -1,6 +1,6 @@
 <?php
 
-class EspacioComunController extends Controller
+class EspaciocomunController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,14 +62,14 @@ class EspacioComunController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new EspacioComun;
+		$model=new Espaciocomun;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['EspacioComun']))
+		if(isset($_POST['Espaciocomun']))
 		{
-			$model->attributes=$_POST['EspacioComun'];
+			$model->attributes=$_POST['Espaciocomun'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->ecCodigo));
 		}
@@ -91,9 +91,9 @@ class EspacioComunController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['EspacioComun']))
+		if(isset($_POST['Espaciocomun']))
 		{
-			$model->attributes=$_POST['EspacioComun'];
+			$model->attributes=$_POST['Espaciocomun'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->ecCodigo));
 		}
@@ -122,7 +122,7 @@ class EspacioComunController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('EspacioComun');
+		$dataProvider=new CActiveDataProvider('Espaciocomun');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -133,10 +133,10 @@ class EspacioComunController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new EspacioComun('search');
+		$model=new Espaciocomun('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['EspacioComun']))
-			$model->attributes=$_GET['EspacioComun'];
+		if(isset($_GET['Espaciocomun']))
+			$model->attributes=$_GET['Espaciocomun'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -147,12 +147,12 @@ class EspacioComunController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return EspacioComun the loaded model
+	 * @return Espaciocomun the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=EspacioComun::model()->findByPk($id);
+		$model=Espaciocomun::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -160,11 +160,11 @@ class EspacioComunController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param EspacioComun $model the model to be validated
+	 * @param Espaciocomun $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='espacio-comun-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='espaciocomun-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

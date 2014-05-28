@@ -1,6 +1,6 @@
 <?php
-/* @var $this EspacioComunController */
-/* @var $model EspacioComun */
+/* @var $this EspaciocomunController */
+/* @var $model Espaciocomun */
 /* @var $form CActiveForm */
 ?>
 
@@ -18,11 +18,11 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'ecDescripcion'); ?>
-		<?php echo $form->textArea($model,'ecDescripcion',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->textField($model,'ecDescripcion',array('size'=>60,'maxlength'=>100)); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?php echo CHtml::submitButton('Buscar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

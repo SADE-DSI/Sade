@@ -1,23 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "espacioComun".
+ * This is the model class for table "espaciocomun".
  *
- * The followings are the available columns in table 'espacioComun':
+ * The followings are the available columns in table 'espaciocomun':
  * @property string $ecCodigo
  * @property string $ecDescripcion
  *
  * The followings are the available model relations:
- * @property ReservaEspacioComun[] $reservaEspacioComuns
+ * @property Reservaespcomun[] $reservaespcomuns
  */
-class EspacioComun extends CActiveRecord
+class Espaciocomun extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'espacioComun';
+		return 'espaciocomun';
 	}
 
 	/**
@@ -30,7 +30,11 @@ class EspacioComun extends CActiveRecord
 		return array(
 			array('ecCodigo', 'required'),
 			array('ecCodigo', 'length', 'max'=>30),
-			array('ecDescripcion', 'safe'),
+			array('ecCodigo', 'length', 'min'=>4),
+			array('ecCodigo',  'match', 'pattern'=>'/[a-zA-Z]/'),
+			array('ecCodigo', 'unique'),
+
+			array('ecDescripcion', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('ecCodigo, ecDescripcion', 'safe', 'on'=>'search'),
@@ -45,7 +49,7 @@ class EspacioComun extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'reservaEspacioComuns' => array(self::HAS_MANY, 'ReservaEspacioComun', 'ecCodigo'),
+			'reservaespcomuns' => array(self::HAS_MANY, 'Reservaespcomun', 'ecCodigo'),
 		);
 	}
 
@@ -55,8 +59,8 @@ class EspacioComun extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'ecCodigo' => 'Ec Codigo',
-			'ecDescripcion' => 'Ec Descripcion',
+			'ecCodigo' => 'Código',
+			'ecDescripcion' => 'Descripción',
 		);
 	}
 
@@ -90,7 +94,7 @@ class EspacioComun extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return EspacioComun the static model class
+	 * @return Espaciocomun the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

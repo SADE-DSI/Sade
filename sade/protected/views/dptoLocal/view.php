@@ -8,15 +8,14 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Dpto/local', 'url'=>array('index')),
-	array('label'=>'Crear Dpto/local', 'url'=>array('create')),
-	array('label'=>'Modificar Dpto/local', 'url'=>array('update', 'id'=>$model->dlDireccion)),
-	array('label'=>'Eliminar Dpto/local', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->dlDireccion),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Administrar Dpto/local', 'url'=>array('admin')),
+	array('label'=>'Listar Dptolocal', 'url'=>array('index')),
+	array('label'=>'Crear Dptolocal', 'url'=>array('create')),
+	array('label'=>'Actualizar Dptolocal', 'url'=>array('update', 'id'=>$model->dlDireccion)),
+	array('label'=>'Administrar Dptolocal', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Ver Dpto/local <?php echo $model->dlDireccion; ?></h1>
+<h1>Ver Dpto/Local <?php echo $model->dlDireccion; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
@@ -24,5 +23,6 @@ $this->menu=array(
 		'dlDireccion',
 		'dlMts2Construidos',
 		'dlValorArriendo',
+		'dlActivo',
 	),
 )); ?>

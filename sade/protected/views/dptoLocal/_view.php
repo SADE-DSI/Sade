@@ -17,5 +17,9 @@
 	<?php echo CHtml::encode($data->dlValorArriendo); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('dlActivo')); ?>:</b>
+	<?php echo CHtml::encode($data->dlActivo); ?>
+	<br />
+
 
 </div>

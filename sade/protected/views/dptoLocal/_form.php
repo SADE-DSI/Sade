@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
+	<p class="note">Campos Con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -33,12 +33,18 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'dlValorArriendo'); ?>
-		<?php echo $form->textField($model,'dlValorArriendo'); ?>
+		<?php echo $form->textField($model,'dlValorArriendo',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'dlValorArriendo'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'dlActivo'); ?>
+		<?php echo $form->textField($model,'dlActivo',array('size'=>2,'maxlength'=>2)); ?>
+		<?php echo $form->error($model,'dlActivo'); ?>
+	</div>
+
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar Cambios'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

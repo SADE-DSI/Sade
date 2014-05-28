@@ -3,13 +3,13 @@
 /* @var $model Dptolocal */
 
 $this->breadcrumbs=array(
-	'Dpto/Locales'=>array('index'),
+	'Dpto/locals'=>array('index'),
 	'Administrar',
 );
 
 $this->menu=array(
-	array('label'=>'Listar Dpto/Local', 'url'=>array('index')),
-	array('label'=>'Crear Dpto/Local', 'url'=>array('create')),
+	array('label'=>'Listar Dpto/local', 'url'=>array('index')),
+	array('label'=>'Crear Dpto/local', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,14 +26,14 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Administrar Dptos/Locales</h1>
+<h1>Administrar Departamentos / Locales </h1>
 
 <p>
 Opcionalmente usted puede introducir operadores comparativos (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
 or <b>=</b>) en la primera fila de cada columna en la cual desea realizar la comparaci&oacute;n.
 </p>
 
-<?php echo CHtml::link('B&uacute;squeda Avanzada','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -48,6 +48,7 @@ or <b>=</b>) en la primera fila de cada columna en la cual desea realizar la com
 		'dlDireccion',
 		'dlMts2Construidos',
 		'dlValorArriendo',
+		'dlActivo',
 		array(
 			'class'=>'CButtonColumn',
 		),

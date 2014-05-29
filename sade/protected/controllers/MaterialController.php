@@ -65,11 +65,12 @@ class MaterialController extends Controller
 		$model=new Material;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Material']))
 		{
 			$model->attributes=$_POST['Material'];
+			$model->maEstado=1;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->maCodigo));
 		}
@@ -89,7 +90,7 @@ class MaterialController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Material']))
 		{

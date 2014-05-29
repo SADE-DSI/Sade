@@ -47,6 +47,18 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'caRut',
 		'caClave',
+		array('name'=>'persona.peNombresApellidos','value'=>'$data->ca_pe->peNombresApellidos',
+			'type'=>'text',),
+		array('name'=>'persona.peActivo','value'=>'$data->ca_pe->peActivo',
+			'type'=>'text',),
+		array('name'=>'persona.peEmail','value'=>'$data->ca_pe->peEmail',
+			'type'=>'text',),
+		array('name'=>'persona.peTelefono','value'=>'$data->ca_pe->peTelefono',
+			'type'=>'text',),
+		array('name'=>'persona.peTipo','value'=>'$data->ca_pe->peTipo',
+			'type'=>'text',),
+		array('name'=>'persona.peDescripcion','value'=>'$data->ca_pe->peDescripcion',
+			'type'=>'text',),
 		array(
 			'class'=>'CButtonColumn',
 		),

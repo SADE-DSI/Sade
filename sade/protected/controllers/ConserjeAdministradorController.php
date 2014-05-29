@@ -53,6 +53,7 @@ class ConserjeadministradorController extends Controller
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+			'persona'=>$this->loadModel($id),
 		));
 	}
 
@@ -66,19 +67,24 @@ class ConserjeadministradorController extends Controller
 		$persona = new Persona;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation(array($model,$persona));
 
 		if(isset($_POST['Conserjeadministrador'],$_POST['Persona']))
 		{
-			$persona->attributes=$_POST['Persona'];
 			$model->attributes = $_POST['Conserjeadministrador'];
-
-			$persona->save();
+			$persona->attributes=$_POST['Persona'];
 			$model->caRut = $persona->peRut;
-			$model->save();
-
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->caRut));
+			$persona->peActivo = 1;
+			$persona->peTipo = 1;
+			$valid = $model->validate();
+			$valid = $persona->validate() && $valid;
+			
+			if ($valid){
+				if ($persona->save()){
+					if($model->save())
+						$this->redirect(array('view','id'=>$model->caRut));
+				}
+			}
 		}
 
 		$this->render('create',array(
@@ -94,22 +100,32 @@ class ConserjeadministradorController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		$persona=Persona::model()->findByPk($id);		
 		$model=$this->loadModel($id);
-		$persona=Persona::model()->findByPk($id);
+
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation(array($model,$persona));
 
-		if(isset($_POST['Conserjeadministrador']))
+		if(isset($_POST['Conserjeadministrador'],$_POST['Persona']))
 		{
-			$model->attributes=$_POST['Conserjeadministrador'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->caRut));
+			$model->attributes = $_POST['Conserjeadministrador'];
+			$persona->attributes=$_POST['Persona'];
+			$model->caRut = $persona->peRut;
+			$valid = $model->validate();
+			$valid = $persona->validate() && $valid;
+			
+			if ($valid){
+				if ($persona->save()){
+					if($model->save())
+						$this->redirect(array('view','id'=>$model->caRut));
+				}
+			}
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
-			'persona'=>$persona
+			'persona'=>$persona,
 		));
 	}
 
@@ -163,6 +179,7 @@ class ConserjeadministradorController extends Controller
 	public function loadModel($id)
 	{
 		$model=Conserjeadministrador::model()->findByPk($id);
+		$persona=Persona::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

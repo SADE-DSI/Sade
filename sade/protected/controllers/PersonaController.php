@@ -1,6 +1,6 @@
 <?php
 
-class ArrendatarioduenoController extends Controller
+class PersonaController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -53,7 +53,6 @@ class ArrendatarioduenoController extends Controller
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
-			'persona'=>$this->loadModel($id),
 		));
 	}
 
@@ -63,34 +62,20 @@ class ArrendatarioduenoController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Arrendatariodueno;
-		$persona = new Persona;
+		$model=new Persona;
 
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation(array($model,$persona));
+		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Arrendatariodueno'], $_POST['Persona']))
+		if(isset($_POST['Persona']))
 		{
-			$model->attributes=$_POST['Arrendatariodueno'];
-			$persona->attributes=$_POST['Persona'];
-			$model->adRut = $persona->peRut;
-			$model->adEstado = 1;
-			$persona->peActivo = 1;
-			$persona->peTipo = 2;
-			$valid = $model->validate();
-			$valid = $persona->validate() && $valid;
-			
-			if ($valid){
-				if ($persona->save()){
-					if($model->save())
-						$this->redirect(array('view','id'=>$model->adRut));
-				}
-			}
+			$model->attributes=$_POST['Persona'];
+			if($model->save(true))
+				$this->redirect(array('view','id'=>$model->peRut));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
-			'persona' =>$persona,
 		));
 	}
 
@@ -101,31 +86,20 @@ class ArrendatarioduenoController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
-		$persona = Persona::model()->findByPk($id);
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation(array($model,$persona));
-		
-		if(isset($_POST['Arrendatariodueno'], $_POST['Persona']))
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Persona']))
 		{
-			$model->attributes=$_POST['Arrendatariodueno'];
-			$persona->attributes=$_POST['Persona'];
-			$model->adRut = $persona->peRut;
-			$valid = $model->validate();
-			$valid = $persona->validate() && $valid;
-			
-			if ($valid){
-				if ($persona->save()){
-					if($model->save())
-						$this->redirect(array('view','id'=>$model->adRut));
-				}
-			}
+			$model->attributes=$_POST['Persona'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->peRut));
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
-			'persona' =>$persona,
 		));
 	}
 
@@ -148,7 +122,7 @@ class ArrendatarioduenoController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Arrendatariodueno');
+		$dataProvider=new CActiveDataProvider('Persona');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -159,10 +133,10 @@ class ArrendatarioduenoController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Arrendatariodueno('search');
+		$model=new Persona('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Arrendatariodueno']))
-			$model->attributes=$_GET['Arrendatariodueno'];
+		if(isset($_GET['Persona']))
+			$model->attributes=$_GET['Persona'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -173,13 +147,12 @@ class ArrendatarioduenoController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Arrendatariodueno the loaded model
+	 * @return Persona the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Arrendatariodueno::model()->findByPk($id);
-		$persona=Persona::model()->findByPk($id);
+		$model=Persona::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -187,11 +160,11 @@ class ArrendatarioduenoController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Arrendatariodueno $model the model to be validated
+	 * @param Persona $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='arrendatariodueno-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='persona-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

@@ -38,20 +38,24 @@ class Persona extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('peRut, peNombresApellidos, peEmail, peTipo', 'required'),
-			array('peActivo', 'numerical', 'integerOnly'=>true),
-			array('peRut', 'length', 'max'=>10),
-			array('peRut', 'length', 'min'=>9),
+			array('peRut','match','pattern'=>'/^[0-9.kK-]{11,12}$/',
+              'message'=>CrugeTranslator::t("El rut debe tener el formato '11.111.111-1'")),
+			array('peRut', 'length', 'max'=>12, 'min'=>11),
 			array('peRut','validateRut'),
+			array('peRut','unique'),
 			array('peNombresApellidos', 'length', 'max'=>80),
-			array('peNombresApellidos','match','pattern'=>'/^[a-z]$/'
-                , 'message'=>CrugeTranslator::t("El nombre/apellido no es válido")),
+			array('peNombresApellidos','match','pattern'=>'/^[a-zA-Z\s]{3,80}$/',
+              	 'message'=>CrugeTranslator::t("El nombre/apellido no es válido")),
 			array('peEmail', 'length', 'max'=>30),
 			array('peEmail', 'email'),
-			array('peTelefono', 'length', 'max'=>10),
-			array('peTelefono','match','pattern'=>'/^[0-9_-]$/'
-                , 'message'=>CrugeTranslator::t("El teléfono no es válido")),
-			array('peTipo', 'length', 'max'=>12),
+			array('peTelefono', 'length', 'max'=>10, 'min'=>6),
+			array('peTelefono','match','pattern'=>'/^[0-9]{6,10}$/',
+               	'message'=>CrugeTranslator::t("El Teléfono debe contener solo números")),
 			array('peDescripcion, peDireccion', 'length', 'max'=>255),
+			array('peDescripcion',  'match', 'pattern'=>'/.[a-zA-Z]{2,255}/', 
+                'message'=>CrugeTranslator::t("Ingrese al menos una palabra")),
+			array('peDireccion',  'match', 'pattern'=>'/.[a-zA-Z]{2,255}/', 
+                'message'=>CrugeTranslator::t("Ingrese al menos una palabra")),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('peRut, peNombresApellidos, peActivo, peEmail, peTelefono, peTipo, peDescripcion, peDireccion', 'safe', 'on'=>'search'),
@@ -134,25 +138,48 @@ class Persona extends CActiveRecord
 		return parent::model($className);
 	}
 
-	public function validateRut($attribute, $params) {
-        $data = explode('-', $this->peRut);
-        $evaluate = strrev($data[0]);
-        $multiply = 2;
-        $store = 0;
-        for ($i = 0; $i < strlen($evaluate); $i++) {
-            $store += $evaluate[$i] * $multiply;
-            $multiply++;
-            if ($multiply > 7)
-                $multiply = 2;
-        }
-        isset($data[1]) ? $verifyCode = strtolower($data[1]) : $verifyCode = '';
-        $result = 11 - ($store % 11);
-        if ($result == 10)
-            $result = 'k';
-        if ($result == 11)
-            $result = 0;
-        if ($verifyCode != $result)
-            $this->addError('peRut', 'Rut inválido.');
-    }
+	public function formatRut($peRut){ 
+     
+    $parte4 = substr($peRut, -1); // seria solo el numero verificador 
+    $parte3 = substr($peRut, -4,3); // la cuenta va de derecha a izq  
+    $parte2 = substr($peRut, -7,3);  
+    $parte1 = substr($peRut, 0,-7); //de esta manera toma todos los caracteres desde el 8 hacia la izq 
+
+    $peRut =  $parte1.".".$parte2.".".$parte3."-".$parte4; 
+    return $peRut;
+}
+	
+	public function validateRut($attribute,$params){
+
+
+		$rut = $this->peRut;
+		$suma = "";
+		if(strpos($rut,"-")==false){
+	        $RUT[0] = substr($rut, 0, -1);
+	        $RUT[1] = substr($rut, -1);
+	    }else{
+	        $RUT = explode("-", trim($rut));
+	    }
+	    $elRut = str_replace(".", "", trim($RUT[0]));
+	    $factor = 2;
+	    for($i = strlen($elRut)-1; $i >= 0; $i--):
+	        $factor = $factor > 7 ? 2 : $factor;
+	        $suma += $elRut{$i}*$factor++;
+	    endfor;
+	    $resto = $suma % 11;
+	    $dv = 11 - $resto;
+	    if($dv == 11){
+	        $dv=0;
+	    }else if($dv == 10){
+	        $dv="k";
+	    }else{
+	        $dv=$dv;
+	    }
+	   if($dv == trim(strtolower($RUT[1]))){
+	       return true;
+	   }else{
+	       $this->addError($attribute, 'El rut ingresado NO es válido');
+	   }
+	}
 
 }

@@ -33,31 +33,21 @@ class Pagomensual extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			
-			array('dlDireccion','exist','allowEmpty' => true, 'attributeName' => 'dlDireccion', 'className' => 'Dptolocal'),
-			//valida si la direccion ingresada esta en la tabla dptolocal
-			
 			array('dlDireccion, pmFechaPago, pmMonto, pmFechaRealPago', 'required'),
-			//valida que los campos no esten vacios
-
-
 			array('dlDireccion', 'length', 'max'=>767),
 			array('pmMonto, pmId', 'length', 'max'=>10),
 			array('pmObs', 'length', 'max'=>255),
-            //valida el largo maximo
 
-
+			array('dlDireccion','exist','allowEmpty' => true, 'attributeName' => 'dlDireccion', 'className' => 'Dptolocal'),
+			//valida si la direccion ingresada esta en la tabla dptolocal
 
 			array('pmFechaPago', 'date', 'format'=>'yyyy-M-d'),
 			array('pmFechaRealPago', 'date', 'format'=>'yyyy-M-d'),
-			//valida los formatos de las fechas
+				//valida los formatos de las fechas
 
 			array('pmMonto','numerical','integerOnly'=>true,'min'=>1,'tooSmall'=>'No se pueden ingresar menor a 1'),
-			//valida si es un numero
-			//valida si es mayor a 1
-
-
-
+				//valida si es un numero
+				//valida si es mayor a 1
 
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

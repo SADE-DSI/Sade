@@ -54,11 +54,8 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'cpFechaIngreso'); ?>
-		
 		<?php echo $form->textField($model,'cpFechaIngreso', array('value'=>date('Y-m-d'),'readonly'=>'false')); ?>
 		<!-- ingresa la fecha actual y no se puede modificar -->
-
-
 		<?php echo $form->error($model,'cpFechaIngreso'); ?>
 	</div>
 

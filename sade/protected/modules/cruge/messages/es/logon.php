@@ -10,7 +10,7 @@ return array(
     'Logout' => 'Cerrar Sesión',
     'User not found' => 'el usuario no fue hallado',
     'Password' => 'Clave de Acceso',
-    'Remember this machine' => 'Recordar en este equipo',
+    'Remember this machine' => 'Recordarme',
     'Security code' => 'Código de seguridad',
     'or' => 'o',
     'Lost Password?' => 'Recuperar Clave',

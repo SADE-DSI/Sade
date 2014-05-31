@@ -39,7 +39,7 @@
 				    , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Gestionar pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
-				array('label'=>'Personal', 'url'=>array('/Personal/index')
+				array('label'=>'Personal', 'url'=>array('/contratoPersonal/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
 				    , 'visible'=>!Yii::app()->user->isGuest),

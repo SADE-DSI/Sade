@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Dptolocals',
+	'Departamentos Locales',
 );
 
 $this->menu=array(

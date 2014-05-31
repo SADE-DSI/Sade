@@ -18,7 +18,7 @@ class Conserjeadministrador extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'conserjeadministrador';
+		return 'conserjeAdministrador';
 	}
 
 	/**
@@ -30,10 +30,9 @@ class Conserjeadministrador extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('caRut, caClave', 'required'),
-			array('caRut', 'length', 'max'=>13),
-			array('caClave', 'length', 'max'=>20),
-			array('caClave','match','pattern'=>'/^[a-z0-9]{12,13}$/'
-                , 'message'=>CrugeTranslator::t("Solo letras y números")),
+			array('caClave', 'length', 'max'=>20, 'min'=>6),
+		    array('caClave','match','pattern'=>'/^[a-zA-Z0-9]{6,20}$/',
+               	 'message'=>CrugeTranslator::t("Solo letras y números")),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('caRut, caClave', 'safe', 'on'=>'search'),

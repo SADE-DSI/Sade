@@ -12,16 +12,16 @@
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary(array($model,$persona)); ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($persona,'peRut'); ?>
-		<?php echo $form->textField($persona,'peRut',array('size'=>13,'maxlength'=>13)); ?>
+		<?php echo $form->textField($persona,'peRut',array('maxlength'=>12)); ?>
 		<?php echo $form->error($persona,'peRut'); ?>
 	</div>
 
@@ -32,37 +32,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'adEstado'); ?>
-		<?php echo $form->textField($model,'adEstado'); ?>
-		<?php echo $form->error($model,'adEstado'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'adFechaLiberacion'); ?>
-		<?php 
-               $this->widget("zii.widgets.jui.CJuiDatePicker",array(
-                       "attribute"=>"adFechaLiberacion",
-                       "model"=>$model,
-                       "language"=>"es",
-                       "options"=>array(
-                               "dateFormat"=>"yy-mm-dd"
-                               )
-                       ));
-
-               ?>
-		<?php echo $form->error($model,'adFechaLiberacion'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($persona,'peNombresApellidos'); ?>
 		<?php echo $form->textField($persona,'peNombresApellidos'); ?>
 		<?php echo $form->error($persona,'peNombresApellidos'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($persona,'peActivo'); ?>
-		<?php echo $form->textField($persona,'peActivo'); ?>
-		<?php echo $form->error($persona,'peActivo'); ?>
 	</div>
 
 	<div class="row">
@@ -75,13 +47,6 @@
 		<?php echo $form->labelEx($persona,'peTelefono'); ?>
 		<?php echo $form->textField($persona,'peTelefono'); ?>
 		<?php echo $form->error($persona,'peTelefono'); ?>
-	</div>
-
-
-	<div class="row">
-		<?php echo $form->labelEx($persona,'peTipo'); ?>
-		<?php echo $form->textField($persona,'peTipo',array('value'=>2,'readonly'=>'false')); ?>
-		<?php echo $form->error($persona,'peTipo'); ?>
 	</div>
 
 	<div class="row">

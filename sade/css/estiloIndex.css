@@ -2,7 +2,7 @@
  
 .contenedor {
 	width: 1349px;
-	height: 643px;
+	height: 633px;
  }
  
 .cabecera {
@@ -33,9 +33,9 @@
  }
  
 a {
-	text-decoration-color: #FFD25E;
+	text-decoration-color: #272625;
 	text-decoration: none;
-	color: #FFD25E;
+	color: #272625;
  }
  
 .foto {
@@ -43,9 +43,7 @@ a {
 	height: 580px;
 	float: left; /*	quede en una misma linea*/
  }
- .form {
-	text-align: right;
- }
+ 
  
 .pieDePagina {clear: both;}
  

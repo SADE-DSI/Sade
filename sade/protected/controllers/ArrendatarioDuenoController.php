@@ -53,6 +53,7 @@ class ArrendatarioduenoController extends Controller
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+			'persona'=>$this->loadModel($id),
 		));
 	}
 
@@ -66,19 +67,25 @@ class ArrendatarioduenoController extends Controller
 		$persona = new Persona;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation(array($model,$persona));
 
-		if(isset($_POST['Arrendatariodueno'],$_POST['Persona']))
+		if(isset($_POST['Arrendatariodueno'], $_POST['Persona']))
 		{
-			$persona->attributes=$_POST['Persona'];
 			$model->attributes=$_POST['Arrendatariodueno'];
-
-			$persona->save();
+			$persona->attributes=$_POST['Persona'];
 			$model->adRut = $persona->peRut;
-			$model->save();
-
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->adRut));
+			$model->adEstado = 1;
+			$persona->peActivo = 1;
+			$persona->peTipo = 2;
+			$valid = $model->validate();
+			$valid = $persona->validate() && $valid;
+			
+			if ($valid){
+				if ($persona->save()){
+					if($model->save())
+						$this->redirect(array('view','id'=>$model->adRut));
+				}
+			}
 		}
 
 		$this->render('create',array(
@@ -94,20 +101,31 @@ class ArrendatarioduenoController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		$persona = Persona::model()->findByPk($id);
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Arrendatariodueno']))
+		$this->performAjaxValidation(array($model,$persona));
+		
+		if(isset($_POST['Arrendatariodueno'], $_POST['Persona']))
 		{
 			$model->attributes=$_POST['Arrendatariodueno'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->adRut));
+			$persona->attributes=$_POST['Persona'];
+			$model->adRut = $persona->peRut;
+			$valid = $model->validate();
+			$valid = $persona->validate() && $valid;
+			
+			if ($valid){
+				if ($persona->save()){
+					if($model->save())
+						$this->redirect(array('view','id'=>$model->adRut));
+				}
+			}
 		}
 
 		$this->render('update',array(
 			'model'=>$model,
+			'persona' =>$persona,
 		));
 	}
 
@@ -161,6 +179,7 @@ class ArrendatarioduenoController extends Controller
 	public function loadModel($id)
 	{
 		$model=Arrendatariodueno::model()->findByPk($id);
+		$persona=Persona::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

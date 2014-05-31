@@ -12,12 +12,12 @@
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary(array($model,$persona)); ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($persona,'peRut'); ?>
@@ -38,12 +38,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($persona,'peActivo'); ?>
-		<?php echo $form->textField($persona,'peActivo'); ?>
-		<?php echo $form->error($persona,'peActivo'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($persona,'peEmail'); ?>
 		<?php echo $form->textField($persona,'peEmail'); ?>
 		<?php echo $form->error($persona,'peEmail'); ?>
@@ -53,12 +47,6 @@
 		<?php echo $form->labelEx($persona,'peTelefono'); ?>
 		<?php echo $form->textField($persona,'peTelefono'); ?>
 		<?php echo $form->error($persona,'peTelefono'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($persona,'peTipo'); ?>
-		<?php echo $form->textField($persona,'peTipo'); ?>
-		<?php echo $form->error($persona,'peTipo'); ?>
 	</div>
 
 	<div class="row">

@@ -19,6 +19,7 @@ $this->menu=array(
 <h1>View Arrendatariodueno #<?php echo $model->adRut; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
+	
 	'data'=>$model,
 	'attributes'=>array(
 		'adRut',

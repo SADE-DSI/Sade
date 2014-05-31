@@ -28,14 +28,14 @@ class Material extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('maNombre', 'required'),
-			array('maNombre', 'length', 'max'=>20),
-			array('maNombre','match','pattern'=>'/^[a-z_-]$/'
-                , 'message'=>CrugeTranslator::t("El nombre no es válido")),
+			array('maNombre', 'length', 'max'=>20,'min'=>3),
+			array('maNombre','match','pattern'=>'/^[a-zA-Z\s]{3,20}$/',
+				 'message'=>CrugeTranslator::t("El nombre deben ser solo letras")),
 			array('maDescripcion', 'length', 'max'=>100),
+			array('maDescripcion',  'match', 'pattern'=>'/.[a-zA-Z]{2,255}/', 
+                'message'=>CrugeTranslator::t("Ingrese al menos una palabra")),
 			array('maEstado', 'length', 'max'=>10),
 			array('maEstado', 'numerical', 'integerOnly'=>true),
-			array('maEstado','match','pattern'=>'/^[0-1]$/'
-                , 'message'=>CrugeTranslator::t("El estado no es válido")),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('maCodigo, maNombre, maDescripcion, maEstado', 'safe', 'on'=>'search'),

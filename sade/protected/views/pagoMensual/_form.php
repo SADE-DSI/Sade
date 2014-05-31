@@ -27,10 +27,8 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pmFechaPago'); ?>
-
-	<?php echo $form->textField($model,'pmFechaPago', array('value'=>date('Y-m-d'),'readonly'=>'false')); ?>
+		<?php echo $form->textField($model,'pmFechaPago', array('value'=>date('Y-m-d'),'readonly'=>'false')); ?>
 	<!-- ingresa la fecha actual y no se puede modificar -->
-
 		<?php echo $form->error($model,'pmFechaPago'); ?>
 	</div>
 
@@ -59,11 +57,16 @@
 			));
 
 		?>
-
 		<?php echo $form->error($model,'pmFechaRealPago'); ?>
 	</div>
 
-		<div class="row buttons">
+	<div class="row">
+		<?php echo $form->labelEx($model,'pmId'); ?>
+		<?php echo $form->textField($model,'pmId',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->error($model,'pmId'); ?>
+	</div>
+
+	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 

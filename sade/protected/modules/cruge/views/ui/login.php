@@ -1,4 +1,6 @@
-<h1><?php echo CrugeTranslator::t('logon',"Login"); ?></h1>
+<br>
+<br>
+<br>
 <?php if(Yii::app()->user->hasFlash('loginflash')): ?>
 <div class="flash-error">
 	<?php echo Yii::app()->user->getFlash('loginflash'); ?>
@@ -13,15 +15,14 @@
 	),
 )); ?>
 
+
 	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username'); ?>
+		<?php echo $form->textField($model,'username',array('value'=>'Nombre Usuario')); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password'); ?>
+		<?php echo $form->passwordField($model,'password',array('value'=>'Contraseña')); ?>
 		<?php echo $form->error($model,'password'); ?>
 	</div>
 
@@ -31,10 +32,16 @@
 		<?php echo $form->error($model,'rememberMe'); ?>
 	</div>
 
+	<br>
 	<div class="row buttons">
-		<?php Yii::app()->user->ui->tbutton(CrugeTranslator::t('logon', "Entrar")); ?>
+		<?php Yii::app()->user->ui->tbutton(CrugeTranslator::t('logon', "Iniciar seccion")); ?>
+		<br>
+		<br>
+		<br>
+		<br>
 		<?php echo Yii::app()->user->ui->passwordRecoveryLink; ?>
-		<?php
+		<br>
+				<?php
 			if(Yii::app()->user->um->getDefaultSystem()->getn('registrationonlogin')===1)
 				echo Yii::app()->user->ui->registrationLink;
 		?>

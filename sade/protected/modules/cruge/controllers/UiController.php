@@ -26,7 +26,6 @@ class UiController extends Controller
     public function init()
     {
         $this->registerScripts();
-        $this->layout ='/layouts/gui';
     }
 
     public function registerScripts()
@@ -162,7 +161,7 @@ class UiController extends Controller
     public function actionPwdRec()
     {
 
-        $this->layout ='/layouts/gui';
+        
 
         $model = Yii::app()->user->um->getNewCrugeLogon('pwdrec');
 
@@ -214,7 +213,7 @@ class UiController extends Controller
     public function actionEditProfile()
     {
 
-$this->layout ='/layouts/gui';
+
 
         if (!Yii::app()->user->isGuest) {
             $this->_editUserProfile(Yii::app()->user->user, false);
@@ -305,7 +304,7 @@ $this->layout ='/layouts/gui';
     public function actionRegistration($datakey = '')
     {
 
-        $this->layout ='/layouts/gui';
+        
 
 
         $model = Yii::app()->user->um->createBlankUser();
@@ -415,7 +414,7 @@ $this->layout ='/layouts/gui';
 
     public function actionWelcome()
     {
-        $this->layout ='/layouts/gui';
+        
         $this->render("welcome");
     }
 
@@ -1161,7 +1160,7 @@ $this->layout ='/layouts/gui';
     public function actionActivationUrl($key)
     {
 
-        $this->layout ='/layouts/gui';
+        
 
         $model = Yii::app()->user->um->loadUserByKey($key);
         if ($model != null) {

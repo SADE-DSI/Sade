@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Pagomensual', 'url'=>array('index')),
-	array('label'=>'Create Pagomensual', 'url'=>array('create')),
-	array('label'=>'View Pagomensual', 'url'=>array('view', 'id'=>$model->pmCodigo)),
-	array('label'=>'Manage Pagomensual', 'url'=>array('admin')),
+	array('label'=>'Listar pagos mensuales', 'url'=>array('index')),
+	array('label'=>'Crear pagos mensuales', 'url'=>array('create')),
+	array('label'=>'Ver pagos mensuales', 'url'=>array('view', 'id'=>$model->pmCodigo)),
+	array('label'=>'Administrar pagos mensuales', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Pagomensual <?php echo $model->pmCodigo; ?></h1>
+<h1>Actualizar pago mensual <?php echo $model->pmCodigo; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

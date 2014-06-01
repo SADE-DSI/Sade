@@ -87,8 +87,8 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
+		Copyright &copy; <?php echo date('Y'); ?> por GRUPO 6.<br/>
+		Todos los derechos reservados.<br/>
 	</div><!-- footer -->
 
 </div><!-- page -->

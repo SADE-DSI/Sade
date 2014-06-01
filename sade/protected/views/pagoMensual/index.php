@@ -7,12 +7,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Pagomensual', 'url'=>array('create')),
-	array('label'=>'Manage Pagomensual', 'url'=>array('admin')),
+	array('label'=>'Crear pago mensual', 'url'=>array('create')),
+	array('label'=>'Administrar pagos mensuales', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Pagomensuals</h1>
+<h1>Pagos</h1>
+<hr>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

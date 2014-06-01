@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Pagomensual', 'url'=>array('index')),
-	array('label'=>'Manage Pagomensual', 'url'=>array('admin')),
+	array('label'=>'Listar pagos mensuales', 'url'=>array('index')),
+	array('label'=>'Administrar pagos mensuales', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Pagomensual</h1>
-
+<h1>Crear pago mensual</h1>
+<hr>
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

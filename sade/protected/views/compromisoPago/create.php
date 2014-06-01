@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Compromisopago', 'url'=>array('index')),
-	array('label'=>'Manage Compromisopago', 'url'=>array('admin')),
+	array('label'=>'Listar compromisos de pago', 'url'=>array('index')),
+	array('label'=>'Administrar compromisos de pago', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Compromisopago</h1>
-
+<h1>Crear compromiso de pago</h1>
+<hr>
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

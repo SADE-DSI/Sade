@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Compromisopago', 'url'=>array('index')),
-	array('label'=>'Create Compromisopago', 'url'=>array('create')),
-	array('label'=>'View Compromisopago', 'url'=>array('view', 'id'=>$model->cpId)),
-	array('label'=>'Manage Compromisopago', 'url'=>array('admin')),
+	array('label'=>'Listar compromisos de pago', 'url'=>array('index')),
+	array('label'=>'Crear compromiso de pago', 'url'=>array('create')),
+	array('label'=>'Ver Compromisos de pago', 'url'=>array('view', 'id'=>$model->cpId)),
+	array('label'=>'Administrar compromisos de pago', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Compromisopago <?php echo $model->cpId; ?></h1>
+<h1>Actualizar compromiso de pago <?php echo $model->cpId; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

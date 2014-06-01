@@ -3,7 +3,7 @@
 /* @var $model Material */
 
 $this->breadcrumbs=array(
-	'Materials'=>array('index'),
+	'Materiales'=>array('index'),
 	$model->maCodigo,
 );
 
@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Material #<?php echo $model->maCodigo; ?></h1>
+<h1>Ver Material #<?php echo $model->maCodigo; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

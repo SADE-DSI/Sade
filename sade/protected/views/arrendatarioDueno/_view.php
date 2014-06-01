@@ -5,39 +5,35 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('adRut')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Rut')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->adRut), array('view', 'id'=>$data->adRut)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('adClave')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Clave')); ?>:</b>
 	<?php echo CHtml::encode($data->adClave); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('adEstado')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Estado')); ?>:</b>
 	<?php echo CHtml::encode($data->adEstado); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('adFechaLiberacion')); ?>:</b>
-	<?php echo CHtml::encode($data->adFechaLiberacion); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('peNombresApellidos')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('NombresApellidos')); ?>:</b>
 	<?php echo CHtml::encode($data->ad_pe->peNombresApellidos); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('peActivo')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Activo')); ?>:</b>
 	<?php echo CHtml::encode($data->ad_pe->peActivo); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('peEmail')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Email')); ?>:</b>
 	<?php echo CHtml::encode($data->ad_pe->peEmail); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('peTelefono')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Telefono')); ?>:</b>
 	<?php echo CHtml::encode($data->ad_pe->peTelefono); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('peDescripcion')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Descripcion')); ?>:</b>
 	<?php echo CHtml::encode($data->ad_pe->peDescripcion); ?>
 	<br />
 

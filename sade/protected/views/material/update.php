@@ -3,9 +3,9 @@
 /* @var $model Material */
 
 $this->breadcrumbs=array(
-	'Materials'=>array('index'),
+	'Materiales'=>array('index'),
 	$model->maCodigo=>array('view','id'=>$model->maCodigo),
-	'Update',
+	'Actualizar',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Material <?php echo $model->maCodigo; ?></h1>
+<h1>Actualizar Material <?php echo $model->maCodigo; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -5,21 +5,20 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('maCodigo')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Codigo')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->maCodigo), array('view', 'id'=>$data->maCodigo)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('maNombre')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Nombre')); ?>:</b>
 	<?php echo CHtml::encode($data->maNombre); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('maDescripcion')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Descripcion')); ?>:</b>
 	<?php echo CHtml::encode($data->maDescripcion); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('maEstado')); ?>:</b>
-	<?php echo CHtml::encode($data->maEstado); ?>
-	<br />
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Estado')); ?>:</b>
+	<?php echo CHtml::encode($data->maEstado); ?>	<br />
 
 
 </div>

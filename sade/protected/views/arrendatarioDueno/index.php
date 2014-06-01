@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Arrendatarioduenos',
+	'Arrendatarios/Dueños',
 );
 
 $this->menu=array(
-	array('label'=>'Create Arrendatariodueno', 'url'=>array('create')),
-	array('label'=>'Manage Arrendatariodueno', 'url'=>array('admin')),
+	array('label'=>'Crear Arrendatarios/Dueños', 'url'=>array('create')),
+	array('label'=>'Administrar Arrendatarios/Dueños', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Arrendatarioduenos</h1>
+<h1>Arrendatarios/Dueños</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

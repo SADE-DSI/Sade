@@ -3,16 +3,16 @@
 /* @var $model Arrendatariodueno */
 
 $this->breadcrumbs=array(
-	'Arrendatarioduenos'=>array('index'),
-	'Create',
+	'Arrendatarios/Dueños'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'List Arrendatariodueno', 'url'=>array('index')),
-	array('label'=>'Manage Arrendatariodueno', 'url'=>array('admin')),
+	array('label'=>'Listar Arrendatarios/Dueños', 'url'=>array('index')),
+	array('label'=>'Administrar Arrendatarios/Dueños', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Arrendatariodueno</h1>
+<h1>Crear Arrendatario/Dueño</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model, 'persona'=>$persona)); ?>

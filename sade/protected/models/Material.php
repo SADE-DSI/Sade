@@ -4,10 +4,10 @@
  * This is the model class for table "material".
  *
  * The followings are the available columns in table 'material':
- * @property string $maCodigo
+ * @property integer $maCodigo
  * @property string $maNombre
  * @property string $maDescripcion
- * @property string $maEstado
+ * @property integer $maEstado
  */
 class Material extends CActiveRecord
 {
@@ -31,7 +31,7 @@ class Material extends CActiveRecord
 			array('maNombre', 'length', 'max'=>20,'min'=>3),
 			array('maNombre','match','pattern'=>'/^[a-zA-Z\s]{3,20}$/',
 				 'message'=>CrugeTranslator::t("El nombre deben ser solo letras")),
-			array('maDescripcion', 'length', 'max'=>100),
+			array('maDescripcion', 'length', 'max'=>767),
 			array('maDescripcion',  'match', 'pattern'=>'/.[a-zA-Z]{2,255}/', 
                 'message'=>CrugeTranslator::t("Ingrese al menos una palabra")),
 			array('maEstado', 'length', 'max'=>10),
@@ -59,10 +59,10 @@ class Material extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'maCodigo' => 'Ma Codigo',
-			'maNombre' => 'Ma Nombre',
-			'maDescripcion' => 'Ma Descripcion',
-			'maEstado' => 'Ma Estado',
+			'maCodigo' => 'Código',
+			'maNombre' => 'Nombre',
+			'maDescripcion' => 'Descripción',
+			'maEstado' => 'Estado',
 		);
 	}
 
@@ -84,10 +84,10 @@ class Material extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('maCodigo',$this->maCodigo,true);
+		$criteria->compare('maCodigo',$this->maCodigo);
 		$criteria->compare('maNombre',$this->maNombre,true);
 		$criteria->compare('maDescripcion',$this->maDescripcion,true);
-		$criteria->compare('maEstado',$this->maEstado,true);
+		$criteria->compare('maEstado',$this->maEstado);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -73,7 +73,7 @@ class ConserjeadministradorController extends Controller
 		{
 			$model->attributes = $_POST['Conserjeadministrador'];
 			$persona->attributes=$_POST['Persona'];
-			$model->caRut = $persona->peRut;
+			$persona->peRut=$model->caRut;
 			$persona->peActivo = 1;
 			$persona->peTipo = 1;
 			$valid = $model->validate();
@@ -111,7 +111,7 @@ class ConserjeadministradorController extends Controller
 		{
 			$model->attributes = $_POST['Conserjeadministrador'];
 			$persona->attributes=$_POST['Persona'];
-			$model->caRut = $persona->peRut;
+			$persona->peRut=$model->caRut;
 			$valid = $model->validate();
 			$valid = $persona->validate() && $valid;
 			
@@ -136,11 +136,19 @@ class ConserjeadministradorController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
-
+		//$this->loadModel($id)->delete();
+		$model=Conserjeadministrador::model()->findByPk($id);
+		$persona=Persona::model()->findByPk($id);
+		if ($persona->peActivo== 1){
+		$persona->peActivo = 0;
+		}
+		else {
+		$persona->peActivo = 1;			
+		}
+		$persona->save();
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		//if(!isset($_GET['ajax']))
+		//	$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -197,4 +205,5 @@ class ConserjeadministradorController extends Controller
 			Yii::app()->end();
 		}
 	}
+	
 }

@@ -18,7 +18,7 @@ class Conserjeadministrador extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'conserjeAdministrador';
+		return 'conserjeadministrador';
 	}
 
 	/**
@@ -30,6 +30,11 @@ class Conserjeadministrador extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('caRut, caClave', 'required'),
+			array('caRut','match','pattern'=>'/^[0-9.kK-]{11,12}$/',
+              'message'=>CrugeTranslator::t("El rut debe tener el formato '11.111.111-1'")),			
+			array('caRut', 'length', 'max'=>12, 'min'=>11),
+			array('caRut','validateRut'),
+			array('caRut','unique'),
 			array('caClave', 'length', 'max'=>20, 'min'=>6),
 		    array('caClave','match','pattern'=>'/^[a-zA-Z0-9]{6,20}$/',
                	 'message'=>CrugeTranslator::t("Solo letras y números")),
@@ -47,7 +52,7 @@ class Conserjeadministrador extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'ca_pe' => array(self::HAS_ONE, 'Persona', 'peRut'),
+			'ca_pe' => array(self::BELONGS_TO, 'Persona', 'caRut'),
 			'visitadptos' => array(self::HAS_MANY, 'Visitadpto', 'caRut'),
 		);
 	}
@@ -58,8 +63,8 @@ class Conserjeadministrador extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'caRut' => 'Ca Rut',
-			'caClave' => 'Ca Clave',
+			'caRut' => 'Rut',
+			'caClave' => 'Clave',
 		);
 	}
 
@@ -99,4 +104,36 @@ class Conserjeadministrador extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+public function validateRut($attribute,$params){
+		$rut = $this->caRut;
+		$suma = "";
+		if(strpos($rut,"-")==false){
+	        $RUT[0] = substr($rut, 0, -1);
+	        $RUT[1] = substr($rut, -1);
+	    }else{
+	        $RUT = explode("-", trim($rut));
+	    }
+	    $elRut = str_replace(".", "", trim($RUT[0]));
+	    $factor = 2;
+	    for($i = strlen($elRut)-1; $i >= 0; $i--):
+	        $factor = $factor > 7 ? 2 : $factor;
+	        $suma += $elRut{$i}*$factor++;
+	    endfor;
+	    $resto = $suma % 11;
+	    $dv = 11 - $resto;
+	    if($dv == 11){
+	        $dv=0;
+	    }else if($dv == 10){
+	        $dv="k";
+	    }else{
+	        $dv=$dv;
+	    }
+	   if($dv == trim(strtolower($RUT[1]))){
+	       return true;
+	   }else{
+	       $this->addError($attribute, 'El rut ingresado NO es válido');
+	   }
+	}
+
 }

@@ -16,8 +16,8 @@
  * The followings are the available model relations:
  * @property Arrendatariodueno $arrendatariodueno
  * @property Conserjeadministrador $conserjeadministrador
- * @property Contratopersonal[] $contratopersonals
- * @property Sueldopersonal[] $sueldopersonals
+ * @property Contratopersonal $contratopersonal
+ * @property Sueldopersonal $sueldopersonal
  */
 class Persona extends CActiveRecord
 {
@@ -37,21 +37,18 @@ class Persona extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('peRut, peNombresApellidos, peEmail, peTipo', 'required'),
-			array('peRut','match','pattern'=>'/^[0-9.kK-]{11,12}$/',
-              'message'=>CrugeTranslator::t("El rut debe tener el formato '11.111.111-1'")),
-			array('peRut', 'length', 'max'=>12, 'min'=>11),
-			array('peRut','validateRut'),
-			array('peRut','unique'),
+			array('peNombresApellidos, peEmail, peTipo', 'required'),
 			array('peNombresApellidos', 'length', 'max'=>80),
 			array('peNombresApellidos','match','pattern'=>'/^[a-zA-Z\s]{3,80}$/',
               	 'message'=>CrugeTranslator::t("El nombre/apellido no es válido")),
 			array('peEmail', 'length', 'max'=>30),
 			array('peEmail', 'email'),
+			array('peRut', 'unique',
+			 	'message'=>CrugeTranslator::t("El Rut ya está registrado, no se puede ingresar")),
 			array('peTelefono', 'length', 'max'=>10, 'min'=>6),
 			array('peTelefono','match','pattern'=>'/^[0-9]{6,10}$/',
                	'message'=>CrugeTranslator::t("El Teléfono debe contener solo números")),
-			array('peDescripcion, peDireccion', 'length', 'max'=>255),
+			array('peDescripcion, peDireccion', 'length', 'max'=>767),
 			array('peDescripcion',  'match', 'pattern'=>'/.[a-zA-Z]{2,255}/', 
                 'message'=>CrugeTranslator::t("Ingrese al menos una palabra")),
 			array('peDireccion',  'match', 'pattern'=>'/.[a-zA-Z]{2,255}/', 
@@ -61,7 +58,6 @@ class Persona extends CActiveRecord
 			array('peRut, peNombresApellidos, peActivo, peEmail, peTelefono, peTipo, peDescripcion, peDireccion', 'safe', 'on'=>'search'),
 		);
 	}
-
 
 	/**
 	 * @return array relational rules.
@@ -73,8 +69,8 @@ class Persona extends CActiveRecord
 		return array(
 			'pe_ad' => array(self::HAS_ONE, 'Arrendatariodueno', 'adRut'),
 			'pe_ca' => array(self::HAS_ONE, 'Conserjeadministrador', 'caRut'),
-			'contratopersonals' => array(self::HAS_MANY, 'Contratopersonal', 'peRut'),
-			'sueldopersonals' => array(self::HAS_MANY, 'Sueldopersonal', 'peRut'),
+			'contratopersonal' => array(self::HAS_ONE, 'Contratopersonal', 'peRut'),
+			'sueldopersonal' => array(self::HAS_ONE, 'Sueldopersonal', 'peRut'),
 		);
 	}
 
@@ -84,14 +80,14 @@ class Persona extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'peRut' => 'Pe Rut',
-			'peNombresApellidos' => 'Pe Nombres Apellidos',
-			'peActivo' => 'Pe Activo',
-			'peEmail' => 'Pe Email',
-			'peTelefono' => 'Pe Telefono',
-			'peTipo' => 'Pe Tipo',
-			'peDescripcion' => 'Pe Descripcion',
-			'peDireccion' => 'Pe Direccion',
+			'peRut' => 'Rut',
+			'peNombresApellidos' => 'Nombres Apellidos',
+			'peActivo' => 'Activo',
+			'peEmail' => 'Email',
+			'peTelefono' => 'Teléfono',
+			'peTipo' => 'Tipo',
+			'peDescripcion' => 'Descripción',
+			'peDireccion' => 'Dirección',
 		);
 	}
 
@@ -137,21 +133,8 @@ class Persona extends CActiveRecord
 	{
 		return parent::model($className);
 	}
-
-	public function formatRut($peRut){ 
-     
-    $parte4 = substr($peRut, -1); // seria solo el numero verificador 
-    $parte3 = substr($peRut, -4,3); // la cuenta va de derecha a izq  
-    $parte2 = substr($peRut, -7,3);  
-    $parte1 = substr($peRut, 0,-7); //de esta manera toma todos los caracteres desde el 8 hacia la izq 
-
-    $peRut =  $parte1.".".$parte2.".".$parte3."-".$parte4; 
-    return $peRut;
-}
-	
+/*
 	public function validateRut($attribute,$params){
-
-
 		$rut = $this->peRut;
 		$suma = "";
 		if(strpos($rut,"-")==false){
@@ -181,5 +164,5 @@ class Persona extends CActiveRecord
 	       $this->addError($attribute, 'El rut ingresado NO es válido');
 	   }
 	}
-
+	*/
 }

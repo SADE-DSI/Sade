@@ -3,16 +3,16 @@
 /* @var $model Conserjeadministrador */
 
 $this->breadcrumbs=array(
-	'Conserjeadministradors'=>array('index'),
-	'Create',
+	'Conserje/administrador'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'List Conserjeadministrador', 'url'=>array('index')),
-	array('label'=>'Manage Conserjeadministrador', 'url'=>array('admin')),
+	array('label'=>'Listar Conserje/administrador', 'url'=>array('index')),
+	array('label'=>'Administrador Conserje/administrador', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Conserjeadministrador</h1>
+<h1>Crear Conserje/administrador</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model, 'persona'=>$persona)); ?>

@@ -3,20 +3,20 @@
 /* @var $model Conserjeadministrador */
 
 $this->breadcrumbs=array(
-	'Conserjeadministradors'=>array('index'),
+	'Conserje/administradorConserje/administrador'=>array('index'),
 	$model->caRut,
 );
 
 $this->menu=array(
-	array('label'=>'List Conserjeadministrador', 'url'=>array('index')),
-	array('label'=>'Create Conserjeadministrador', 'url'=>array('create')),
-	array('label'=>'Update Conserjeadministrador', 'url'=>array('update', 'id'=>$model->caRut)),
-	array('label'=>'Delete Conserjeadministrador', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->caRut),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Conserjeadministrador', 'url'=>array('admin')),
+	array('label'=>'Listar Conserje/administrador', 'url'=>array('index')),
+	array('label'=>'Crear Conserje/administrador', 'url'=>array('create')),
+	array('label'=>'Actualizar Conserje/administrador', 'url'=>array('update', 'id'=>$model->caRut)),
+	array('label'=>'Eliminar Conserje/administrador', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->caRut),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar Conserje/administrador', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Conserjeadministrador #<?php echo $model->caRut; ?></h1>
+<h1>Ver Conserje/administrador #<?php echo $model->caRut; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

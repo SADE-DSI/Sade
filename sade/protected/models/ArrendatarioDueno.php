@@ -11,7 +11,7 @@
  *
  * The followings are the available model relations:
  * @property Persona $adRut0
- * @property Reservaespcomun[] $reservaespcomuns
+ * @property Reservaespaciocomun[] $reservaespaciocomuns
  * @property Residedpto[] $residedptos
  */
 class Arrendatariodueno extends CActiveRecord
@@ -21,7 +21,7 @@ class Arrendatariodueno extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'arrendatarioDueno';
+		return 'arrendatariodueno';
 	}
 
 	/**
@@ -32,7 +32,11 @@ class Arrendatariodueno extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('adClave', 'required'),
+			array('adRut, adClave','required'),
+			array('adRut','match','pattern'=>'/^[0-9.kK-]{11,12}$/',
+              'message'=>CrugeTranslator::t("El rut debe tener el formato '11.111.111-1'")),			
+			array('adRut', 'length', 'max'=>12, 'min'=>11),
+			array('adRut','validateRut'),
 			array('adClave', 'length', 'max'=>30),
 			array('adClave', 'length', 'min'=>6),
 		    array('adClave','match','pattern'=>'/^[a-zA-Z0-9]{6,30}$/',
@@ -52,8 +56,8 @@ class Arrendatariodueno extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'ad_pe' => array(self::HAS_ONE, 'Persona', 'peRut'),
-			'reservaespcomuns' => array(self::HAS_MANY, 'Reservaespcomun', 'adRut'),
+			'ad_pe' => array(self::BELONGS_TO, 'Persona', 'adRut'),
+			'reservaespaciocomuns' => array(self::HAS_MANY, 'Reservaespaciocomun', 'adRut'),
 			'residedptos' => array(self::HAS_MANY, 'Residedpto', 'adRut'),
 		);
 	}
@@ -64,10 +68,10 @@ class Arrendatariodueno extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'adRut' => 'Ad Rut',
-			'adClave' => 'Ad Clave',
-			'adEstado' => 'Ad Estado',
-			'adFechaLiberacion' => 'Ad Fecha Liberacion',
+			'adRut' => 'Rut',
+			'adClave' => 'Clave',
+			'adEstado' => 'Estado',
+			'adFechaLiberacion' => 'Fecha Liberacion',
 		);
 	}
 
@@ -109,4 +113,36 @@ class Arrendatariodueno extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+public function validateRut($attribute,$params){
+		$rut = $this->adRut;
+		$suma = "";
+		if(strpos($rut,"-")==false){
+	        $RUT[0] = substr($rut, 0, -1);
+	        $RUT[1] = substr($rut, -1);
+	    }else{
+	        $RUT = explode("-", trim($rut));
+	    }
+	    $elRut = str_replace(".", "", trim($RUT[0]));
+	    $factor = 2;
+	    for($i = strlen($elRut)-1; $i >= 0; $i--):
+	        $factor = $factor > 7 ? 2 : $factor;
+	        $suma += $elRut{$i}*$factor++;
+	    endfor;
+	    $resto = $suma % 11;
+	    $dv = 11 - $resto;
+	    if($dv == 11){
+	        $dv=0;
+	    }else if($dv == 10){
+	        $dv="k";
+	    }else{
+	        $dv=$dv;
+	    }
+	   if($dv == trim(strtolower($RUT[1]))){
+	       return true;
+	   }else{
+	       $this->addError($attribute, 'El rut ingresado NO es válido');
+	   }
+	}
+
 }

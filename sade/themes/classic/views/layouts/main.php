@@ -34,40 +34,67 @@
 		<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Inicio', 'url'=>array('/site/index')),
 				
-				array('label'=>'Administrar Usuarios'
-					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
+				//array('label'=>'Inicio', 'url'=>array('/site/index')),
+				
+				//debora
+    			array('label'=>'Gestionar Avisos', 'url'=>array('/aviso/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Agregar Conserje'
+
+    			array('label'=>'Gestionar Dpto/Locales', 'url'=>array('/Dptolocal/index')
+					, 'visible'=>!Yii::app()->user->isGuest),
+
+
+
+    			//leonardo
+
+				//array('label'=>'Administrar Usuarios'
+				//	, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
+				//	, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Gestionar Conserjes'
 					, 'url'=>array('/conserjeAdministrador/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Agregar Usuario'
+				array('label'=>'Gestionar Usuario'
 					, 'url'=>array('/arrendatarioDueno/index')
 					, 'visible'=>!Yii::app()->user->isGuest),				
+				array('label'=>'Gestionar Inventarios'
+					, 'url'=>array('/material/index')
+					, 'visible'=>!Yii::app()->user->isGuest),				
+
+				//diego
 				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
-				array('label'=>'Gestionar Avisos', 'url'=>array('/aviso/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Gestionar Dpto/Locales', 'url'=>array('/Dptolocal/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
+				    , 'visible'=>!Yii::app()->user->isGuest),
+				
+
+
+				//samuel
 				array('label'=>'Gestionar Gastos Comunes', 'url'=>array('/compromisoPago/index')
 				    , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Gestionar pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
-				array('label'=>'Personal', 'url'=>array('/Personal/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
-				    , 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Visitas', 'url'=>array('/Visitas/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
+
+
+
 				array('label'=>'Login'
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Acerca', 'url'=>array('/site/page', 'view'=>'about')),
+
 				array('label'=>'Logout ('.Yii::app()->user->name.')'
 					, 'url'=>Yii::app()->user->ui->logoutUrl
 					, 'visible'=>!Yii::app()->user->isGuest),
+
+				/*
+				
+				array('label'=>'Personal', 'url'=>array('/Personal/index')
+					, 'visible'=>!Yii::app()->user->isGuest),
+
+				array('label'=>'Visitas', 'url'=>array('/Visitas/index')
+					, 'visible'=>!Yii::app()->user->isGuest),
+				
+				array('label'=>'Acerca', 'url'=>array('/site/page', 'view'=>'about')),
+				*/
 				),
 		)); ?>
 	</div><!-- mainmenu -->

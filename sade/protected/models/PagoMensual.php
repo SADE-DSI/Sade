@@ -73,13 +73,13 @@ class Pagomensual extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'pmCodigo' => 'Pm Codigo',
-			'dlDireccion' => 'Dl Direccion',
-			'pmFechaPago' => 'Pm Fecha Pago',
-			'pmMonto' => 'Pm Monto',
-			'pmObs' => 'Pm Obs',
-			'pmFechaRealPago' => 'Pm Fecha Real Pago',
-			'pmId' => 'Pm',
+			'pmCodigo' => 'Codigo',
+			'dlDireccion' => 'Direccion',
+			'pmFechaPago' => 'Fecha de pago',
+			'pmMonto' => 'Monto',
+			'pmObs' => 'Observaciones',
+			'pmFechaRealPago' => 'Fecha real de pago',
+			'pmId' => 'Identificador',
 		);
 	}
 

@@ -80,15 +80,15 @@ class Compromisopago extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'cpId' => 'Cp',
-			'cpCodigo' => 'Cp Codigo',
-			'cpFechaVencimiento' => 'Cp Fecha Vencimiento',
-			'cpMonto' => 'Cp Monto',
-			'cpDescripcion' => 'Cp Descripcion',
-			'cpFechaIngreso' => 'Cp Fecha Ingreso',
-			'cpObs' => 'Cp Obs',
-			'cpNumeroBoleta' => 'Cp Numero Boleta',
-			'cpFechaRealPago' => 'Cp Fecha Real Pago',
+			'cpId' => 'Identificador',
+			'cpCodigo' => 'Codigo',
+			'cpFechaVencimiento' => 'Fecha vencimiento',
+			'cpMonto' => 'Monto',
+			'cpDescripcion' => 'Descripcion',
+			'cpFechaIngreso' => 'Fecha ingreso',
+			'cpObs' => 'Observaciones',
+			'cpNumeroBoleta' => 'Numero de boleta',
+			'cpFechaRealPago' => 'Fecha real de pago',
 		);
 	}
 

@@ -18,7 +18,17 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'ecDescripcion'); ?>
-		<?php echo $form->textField($model,'ecDescripcion',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->textField($model,'ecDescripcion',array('size'=>60,'maxlength'=>767)); ?>
+	</div>
+
+	<!--<div class="row">
+		<?php echo $form->label($model,'ecFrecuencia'); ?>
+		<?php echo $form->textField($model,'ecFrecuencia'); ?>
+	</div> -->
+
+	<div class="row">
+		<?php echo $form->label($model,'ecActivo'); ?>
+		<?php echo $form->textField($model,'ecActivo'); ?>
 	</div>
 
 	<div class="row buttons">

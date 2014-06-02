@@ -3,7 +3,7 @@
 /* @var $model Espaciocomun */
 
 $this->breadcrumbs=array(
-	'Espacio Común'=>array('index'),
+	'Espacios Comunes'=>array('index'),
 	'Administrar',
 );
 
@@ -29,7 +29,6 @@ $('.search-form form').submit(function(){
 <h1>Administrar Espacios Comunes</h1>
 
 
-
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
@@ -44,6 +43,8 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		'ecCodigo',
 		'ecDescripcion',
+		'ecFrecuencia',
+		//'ecActivo',
 		array(
 			'class'=>'CButtonColumn',
 		),

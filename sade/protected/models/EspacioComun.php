@@ -6,6 +6,8 @@
  * The followings are the available columns in table 'espaciocomun':
  * @property string $ecCodigo
  * @property string $ecDescripcion
+ * @property integer $ecFrecuencia
+ * @property integer $ecActivo
  *
  * The followings are the available model relations:
  * @property Reservaespcomun[] $reservaespcomuns
@@ -33,11 +35,12 @@ class Espaciocomun extends CActiveRecord
 			array('ecCodigo', 'length', 'min'=>4),
 			array('ecCodigo',  'match', 'pattern'=>'/[a-zA-Z]/'),
 			array('ecCodigo', 'unique'),
-
-			array('ecDescripcion', 'length', 'max'=>100),
+			array('ecFrecuencia, ecActivo', 'numerical', 'integerOnly'=>true),
+			array('ecFrecuencia', 'required'),
+			array('ecDescripcion', 'length', 'max'=>767),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('ecCodigo, ecDescripcion', 'safe', 'on'=>'search'),
+			array('ecCodigo, ecDescripcion, ecFrecuencia, ecActivo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,6 +64,8 @@ class Espaciocomun extends CActiveRecord
 		return array(
 			'ecCodigo' => 'Código',
 			'ecDescripcion' => 'Descripción',
+			'ecFrecuencia' => 'Frecuencia (Minutos)',
+			'ecActivo' => 'Activo',
 		);
 	}
 
@@ -84,6 +89,8 @@ class Espaciocomun extends CActiveRecord
 
 		$criteria->compare('ecCodigo',$this->ecCodigo,true);
 		$criteria->compare('ecDescripcion',$this->ecDescripcion,true);
+		$criteria->compare('ecFrecuencia',$this->ecFrecuencia);
+		$criteria->compare('ecActivo',$this->ecActivo);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Crear Espacio Común', 'url'=>array('create')),
-	array('label'=>'Administrar Espacio Común', 'url'=>array('admin')),
+	array('label'=>'Administrar Espacios Comunes', 'url'=>array('admin')),
 );
 ?>
 

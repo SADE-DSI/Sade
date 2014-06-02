@@ -54,9 +54,8 @@
 					, 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
 				    , 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Visitas', 'url'=>array('/Visitas/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
-				
+				array('label'=>'Visitas', 'url'=>array('/visita/index')
+				    , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Login'
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),

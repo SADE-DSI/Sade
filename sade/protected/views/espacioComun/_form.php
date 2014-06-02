@@ -27,9 +27,21 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ecDescripcion'); ?>
-		<?php echo $form->textField($model,'ecDescripcion',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->textField($model,'ecDescripcion',array('size'=>60,'maxlength'=>767)); ?>
 		<?php echo $form->error($model,'ecDescripcion'); ?>
 	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'ecFrecuencia'); ?>
+		<?php echo $form->textField($model,'ecFrecuencia'); ?>
+		<?php echo $form->error($model,'ecFrecuencia'); ?>
+	</div>
+
+	<!--<div class="row">
+		<?php echo $form->labelEx($model,'ecActivo'); ?>
+		<?php echo $form->textField($model,'ecActivo'); ?>
+		<?php echo $form->error($model,'ecActivo'); ?>
+	</div> -->
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>

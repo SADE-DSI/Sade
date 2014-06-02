@@ -3,25 +3,27 @@
 /* @var $model Espaciocomun */
 
 $this->breadcrumbs=array(
-	'Espaciocomuns'=>array('index'),
+	'Espacios Comunes'=>array('index'),
 	$model->ecCodigo,
 );
 
 $this->menu=array(
-	array('label'=>'List Espaciocomun', 'url'=>array('index')),
-	array('label'=>'Create Espaciocomun', 'url'=>array('create')),
-	array('label'=>'Update Espaciocomun', 'url'=>array('update', 'id'=>$model->ecCodigo)),
-	array('label'=>'Delete Espaciocomun', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ecCodigo),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Espaciocomun', 'url'=>array('admin')),
+	array('label'=>'Lista de Espacios Comunes', 'url'=>array('index')),
+	array('label'=>'Crear Espacio Común', 'url'=>array('create')),
+	array('label'=>'Modificar Espacios Comunes', 'url'=>array('update', 'id'=>$model->ecCodigo)),
+	array('label'=>'Eliminar Espacio Común', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ecCodigo),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar Espacios Comunes', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Espaciocomun #<?php echo $model->ecCodigo; ?></h1>
+<h1>Ver Espacio Común:  <?php echo $model->ecCodigo; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'ecCodigo',
 		'ecDescripcion',
+		'ecFrecuencia',
+		//'ecActivo',
 	),
 )); ?>

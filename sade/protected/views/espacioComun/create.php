@@ -3,7 +3,7 @@
 /* @var $model Espaciocomun */
 
 $this->breadcrumbs=array(
-	'Espacio Común'=>array('index'),
+	'Espacios Comunes'=>array('index'),
 	'Crear',
 );
 

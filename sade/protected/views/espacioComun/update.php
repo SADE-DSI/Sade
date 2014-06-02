@@ -5,7 +5,7 @@
 $this->breadcrumbs=array(
 	'Espacios Comunes'=>array('index'),
 	$model->ecCodigo=>array('view','id'=>$model->ecCodigo),
-	'Update',
+	'Modificar',
 );
 
 $this->menu=array(
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Actualizar Espacio Común <?php echo $model->ecCodigo; ?></h1>
+<h1>Modificar Espacio Común <?php echo $model->ecCodigo; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -9,7 +9,7 @@
  * @property string $viObs
  *
  * The followings are the available model relations:
- * @property VisitaDpto[] $visitaDptos
+ * @property Visitadpto[] $visitadptos
  */
 class Visita extends CActiveRecord
 {
@@ -29,10 +29,10 @@ class Visita extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('viRut', 'required'),
+			array('viRut, viNombresApellidos', 'required'),
 			array('viRut', 'length', 'max'=>13),
 			array('viNombresApellidos', 'length', 'max'=>80),
-			array('viObs', 'safe'),
+			array('viObs', 'length', 'max'=>767),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('viRut, viNombresApellidos, viObs', 'safe', 'on'=>'search'),
@@ -47,7 +47,7 @@ class Visita extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'visitaDptos' => array(self::HAS_MANY, 'VisitaDpto', 'viRut'),
+			'visitadptos' => array(self::HAS_MANY, 'Visitadpto', 'viRut'),
 		);
 	}
 

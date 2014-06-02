@@ -23,7 +23,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'viObs'); ?>
-		<?php echo $form->textArea($model,'viObs',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->textField($model,'viObs',array('size'=>60,'maxlength'=>767)); ?>
 	</div>
 
 	<div class="row buttons">

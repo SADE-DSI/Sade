@@ -13,5 +13,13 @@
 	<?php echo CHtml::encode($data->ecDescripcion); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('ecFrecuencia')); ?>:</b>
+	<?php echo CHtml::encode($data->ecFrecuencia); ?>
+	<br />
+
+	<!-- <b><?php echo CHtml::encode($data->getAttributeLabel('ecActivo')); ?>:</b>
+	<?php echo CHtml::encode($data->ecActivo); ?> 
+	<br />-->
+
 
 </div>

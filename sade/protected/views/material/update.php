@@ -9,10 +9,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Material', 'url'=>array('index')),
-	array('label'=>'Create Material', 'url'=>array('create')),
-	array('label'=>'View Material', 'url'=>array('view', 'id'=>$model->maCodigo)),
-	array('label'=>'Manage Material', 'url'=>array('admin')),
+	array('label'=>'Listar Material', 'url'=>array('index')),
+	array('label'=>'Crear Material', 'url'=>array('create')),
+	array('label'=>'Ver Material', 'url'=>array('view', 'id'=>$model->maCodigo)),
+	array('label'=>'Administrar Material', 'url'=>array('admin')),
 );
 ?>
 

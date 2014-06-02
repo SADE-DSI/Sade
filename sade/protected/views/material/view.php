@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Material', 'url'=>array('index')),
-	array('label'=>'Create Material', 'url'=>array('create')),
-	array('label'=>'Update Material', 'url'=>array('update', 'id'=>$model->maCodigo)),
-	array('label'=>'Delete Material', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->maCodigo),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Material', 'url'=>array('admin')),
+	array('label'=>'Listar Material', 'url'=>array('index')),
+	array('label'=>'Crear Material', 'url'=>array('create')),
+	array('label'=>'Actualizar Material', 'url'=>array('update', 'id'=>$model->maCodigo)),
+	array('label'=>'Eliminar Material', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->maCodigo),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar Material', 'url'=>array('admin')),
 );
 ?>
 

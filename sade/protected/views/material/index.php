@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Material', 'url'=>array('create')),
-	array('label'=>'Manage Material', 'url'=>array('admin')),
+	array('label'=>'Crear Material', 'url'=>array('create')),
+	array('label'=>'Administrar Material', 'url'=>array('admin')),
 );
 ?>
 

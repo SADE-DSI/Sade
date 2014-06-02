@@ -13,6 +13,12 @@
  */
 class Conserjeadministrador extends CActiveRecord
 {
+	public $nombres;
+	public $activo;
+	public $email;
+	public $telefono;
+	public $descripcion;
+	public $direccion;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -41,6 +47,7 @@ class Conserjeadministrador extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('caRut, caClave', 'safe', 'on'=>'search'),
+			array('nombres,activo,email,telefono,descripcion,direccion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -85,9 +92,15 @@ class Conserjeadministrador extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
+		$criteria->with = array('ca_pe');
 		$criteria->compare('caRut',$this->caRut,true);
 		$criteria->compare('caClave',$this->caClave,true);
+		$criteria->compare('peNombresApellidos', $this->nombres,true);
+		$criteria->compare('peActivo', $this->activo,true);
+		$criteria->compare('peEmail', $this->email,true);
+		$criteria->compare('peTelefono', $this->telefono,true);
+		$criteria->compare('peDescripcion', $this->descripcion,true);
+		$criteria->compare('peDireccion', $this->direccion,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

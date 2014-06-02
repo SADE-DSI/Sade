@@ -16,6 +16,13 @@
  */
 class Arrendatariodueno extends CActiveRecord
 {
+	public $nombres;
+	public $activo;
+	public $email;
+	public $telefono;
+	public $descripcion;
+	public $direccion;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -45,6 +52,7 @@ class Arrendatariodueno extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('adRut, adClave, adEstado, adFechaLiberacion', 'safe', 'on'=>'search'),
+			array('nombres,activo,email,telefono,descripcion,direccion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -92,12 +100,17 @@ class Arrendatariodueno extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
+		$criteria->with = array('ad_pe');
 		$criteria->compare('adRut',$this->adRut,true);
 		$criteria->compare('adClave',$this->adClave,true);
 		$criteria->compare('adEstado',$this->adEstado);
 		$criteria->compare('adFechaLiberacion',$this->adFechaLiberacion,true);
-
+		$criteria->compare('peNombresApellidos', $this->nombres,true);
+		$criteria->compare('peActivo', $this->activo,true);
+		$criteria->compare('peEmail', $this->email,true);
+		$criteria->compare('peTelefono', $this->telefono,true);
+		$criteria->compare('peDescripcion', $this->descripcion,true);
+		$criteria->compare('peDireccion', $this->direccion,true);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

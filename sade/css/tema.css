@@ -17,7 +17,7 @@
 font-size: 0.9em;
 margin: 0 0 15px 0;
 padding: 5px 8px;
-background: #EFFDFF;
+background: rgba(183, 188, 189, 0.17);
 }
 
 
@@ -82,7 +82,9 @@ background: #EFFDFF;
 				width: 190px;
 				height: 520px;
 				padding: 10px;
-				background: rgba(183, 188, 189, 0.05);
+				background: rgba(183, 188, 189, 0.17);
+				font-family: "GauntletClassic_TB";
+    			src: url(../fonts/GauntletClassic_TB.otf) format("truetype");
 
 			}
 	
@@ -107,8 +109,7 @@ background: #EFFDFF;
 			#mainmenu ul li a
 			{
 				background-color:transparent;
-				font-size:12px;
-				font-weight:bold;
+				font-size:18px;
 				text-decoration:none;
 			}
 
@@ -200,8 +201,8 @@ background: #EFFDFF;
 	.portlet-decoration
 	{
 		padding: 3px 8px;
-		background: #B7D6E7;
-		border-left: 5px solid #6FACCF;
+		background: rgba(242, 226, 140, 0.92);
+		border-left: 5px solid #8196A3;
 	}
 
 	.portlet-title
@@ -210,15 +211,7 @@ background: #EFFDFF;
 		font-weight: bold;
 		padding: 0;
 		margin: 0;
-		color: #298dcd;
-	}
-
-	.portlet-content
-	{
-		font-size:0.9em;
-		margin: 0 0 15px 0;
-		padding: 5px 8px;
-		background:#EFFDFF;
+		color: #43484C;
 	}
 
 	.portlet-content ul
@@ -250,7 +243,7 @@ background: #EFFDFF;
 	.operations li a
 	{
 		font: bold 12px Arial;
-		color: #0066A4;
+		color: #43484C;
 		display: block;
 		padding: 2px 0 2px 8px;
 		line-height: 15px;
@@ -259,7 +252,7 @@ background: #EFFDFF;
 
 	.operations li a:visited
 	{
-		color: #0066A4;
+		color: #43484C;
 	}
 
 	.operations li a:hover

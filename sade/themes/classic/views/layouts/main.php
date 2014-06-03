@@ -38,10 +38,10 @@
 				//array('label'=>'Inicio', 'url'=>array('/site/index')),
 				
 				//debora
-    			array('label'=>'Gestionar Avisos', 'url'=>array('/aviso/index')
+    			array('label'=>'Avisos', 'url'=>array('/aviso/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
 
-    			array('label'=>'Gestionar Dpto/Locales', 'url'=>array('/Dptolocal/index')
+    			array('label'=>'Dpto/Locales', 'url'=>array('/Dptolocal/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
 
 
@@ -51,13 +51,13 @@
 				//array('label'=>'Administrar Usuarios'
 				//	, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
 				//	, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Gestionar Conserjes'
+				array('label'=>'Conserjes'
 					, 'url'=>array('/conserjeAdministrador/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Gestionar Usuario'
+				array('label'=>'Usuario'
 					, 'url'=>array('/arrendatarioDueno/index')
 					, 'visible'=>!Yii::app()->user->isGuest),				
-				array('label'=>'Gestionar Inventarios'
+				array('label'=>'Inventarios'
 					, 'url'=>array('/material/index')
 					, 'visible'=>!Yii::app()->user->isGuest),				
 
@@ -70,9 +70,9 @@
 
 
 				//samuel
-				array('label'=>'Gestionar Gastos Comunes', 'url'=>array('/compromisoPago/index')
+				array('label'=>'Gastos Comunes', 'url'=>array('/compromisoPago/index')
 				    , 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Gestionar pagos', 'url'=>array('/pagoMensual/index')
+				array('label'=>'Pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
 
 

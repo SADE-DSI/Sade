@@ -68,7 +68,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar Cambios'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar Cambios',array('class' => 'guardar')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

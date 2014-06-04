@@ -69,7 +69,12 @@ class DptolocalController extends Controller
 
 		if(isset($_POST['Dptolocal']))
 		{
+			if($_POST['$model']['dlActivo'])
+				$model->dlActivo = 'Si';
+			else $model->dlActivo = 'No';
+			
 			$model->attributes=$_POST['Dptolocal'];
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->dlDireccion));
 		}

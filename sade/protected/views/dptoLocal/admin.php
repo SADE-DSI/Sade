@@ -3,13 +3,13 @@
 /* @var $model Dptolocal */
 
 $this->breadcrumbs=array(
-	'Dpto/locals'=>array('index'),
+	'Dpto/Local'=>array('index'),
 	'Administrar',
 );
 
 $this->menu=array(
-	array('label'=>'Listar Dpto/local', 'url'=>array('index')),
-	array('label'=>'Crear Dpto/local', 'url'=>array('create')),
+	array('label'=>'Listar Dpto/Local', 'url'=>array('index')),
+	array('label'=>'Crear Dpto/Local', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

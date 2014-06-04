@@ -18,19 +18,19 @@
 	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+	<table class="items">
+	<tr>
+		<td><?php echo $form->labelEx($model,'avTitulo'); ?></td>
+		<td><?php echo $form->textField($model,'avTitulo',array('size'=>25,'maxlength'=>40)); ?></td>
+		<td><?php echo $form->error($model,'avTitulo'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'avTitulo'); ?>
-		<?php echo $form->textField($model,'avTitulo',array('size'=>40,'maxlength'=>40)); ?>
-		<?php echo $form->error($model,'avTitulo'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'avAviso'); ?>
-		<?php echo $form->textField($model,'avAviso',array('size'=>60,'maxlength'=>767)); ?>
-		<?php echo $form->error($model,'avAviso'); ?>
-	</div>
-
+	<tr>
+		<td><?php echo $form->labelEx($model,'avAviso'); ?></td>
+		<td><?php echo $form->textArea($model,'avAviso',array('maxlength'=>767)); ?></td>
+		<td><?php echo $form->error($model,'avAviso'); ?></td>
+	</tr>
+	</table>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Guardar' : 'Save',array('class' => 'guardar')); ?>
 	</div>

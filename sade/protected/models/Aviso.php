@@ -54,8 +54,8 @@ class Aviso extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'avCodigo' => 'Codigo',
-			'avTitulo' => 'Titulo',
+			'avCodigo' => 'Código',
+			'avTitulo' => 'Título',
 			'avFecha' => 'Fecha',
 			'avAviso' => 'Aviso',
 		);

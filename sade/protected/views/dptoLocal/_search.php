@@ -28,7 +28,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'dlActivo'); ?>
-		<?php echo $form->textField($model,'dlActivo',array('size'=>2,'maxlength'=>2)); ?>
+		<?php echo $form->checkBox($model, 'dlActivo', array('checked'=>true)); ?>
 	</div>
 
 	<div class="row buttons">

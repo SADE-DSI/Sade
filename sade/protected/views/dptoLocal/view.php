@@ -3,15 +3,15 @@
 /* @var $model Dptolocal */
 
 $this->breadcrumbs=array(
-	'Dpto/locals'=>array('index'),
+	'Dpto/Locales'=>array('index'),
 	$model->dlDireccion,
 );
 
 $this->menu=array(
-	array('label'=>'Listar Dptolocal', 'url'=>array('index')),
-	array('label'=>'Crear Dptolocal', 'url'=>array('create')),
-	array('label'=>'Actualizar Dptolocal', 'url'=>array('update', 'id'=>$model->dlDireccion)),
-	array('label'=>'Administrar Dptolocal', 'url'=>array('admin')),
+	array('label'=>'Listar Dpto/Local', 'url'=>array('index')),
+	array('label'=>'Crear Dpto/Local', 'url'=>array('create')),
+	array('label'=>'Actualizar Dpto/Local', 'url'=>array('update', 'id'=>$model->dlDireccion)),
+	array('label'=>'Administrar Dpto/Local', 'url'=>array('admin')),
 );
 ?>
 

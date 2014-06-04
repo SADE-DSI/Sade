@@ -3,13 +3,13 @@
 /* @var $model Dptolocal */
 
 $this->breadcrumbs=array(
-	'Dpto/local'=>array('index'),
+	'Dpto/Local'=>array('index'),
 	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'Listar Dpto/local', 'url'=>array('index')),
-	array('label'=>'Administrar Dpto/local', 'url'=>array('admin')),
+	array('label'=>'Listar Dpto/Local', 'url'=>array('index')),
+	array('label'=>'Administrar Dpto/Local', 'url'=>array('admin')),
 );
 ?>
 

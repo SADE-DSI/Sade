@@ -40,7 +40,7 @@
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'dlActivo'); ?></td>
-		<td><?php echo $form->textField($model,'dlActivo',array('size'=>60,'maxlength'=>2)); ?></td>
+		<td><?php echo $form->checkBox($model, 'dlActivo', array('checked'=>true)); ?></td> 	
 		<td><?php echo $form->error($model,'dlActivo'); ?></td>
 	</tr>
 	</table>

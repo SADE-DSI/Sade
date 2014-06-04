@@ -58,12 +58,28 @@
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'cpFechaInicio'); ?></td>
-		<td><?php echo $form->textField($model,'cpFechaInicio', array('size'=>30)); ?></td>
+		<td><?php $this->widget("zii.widgets.jui.CJuiDatePicker", array(
+							'attribute'=>'cpFechaInicio', 
+							'model'=>$model,
+							'language'=>'es',
+							'options'=>array(
+								'dateFormat'=>'yy-mm-dd'
+							)
+						)); ?>
+
+					</td>
 		<td><?php echo $form->error($model,'cpFechaInicio'); ?></td>
 	</tr>
 	<tr>
 		<td><?php echo $form->labelEx($model,'cpFechaFin'); ?></td>
-		<td><?php echo $form->textField($model,'cpFechaFin', array('size'=>30)); ?></td>
+		<td><?php $this->widget("zii.widgets.jui.CJuiDatePicker", array(
+							'attribute'=>'cpFechaFin', 
+							'model'=>$model,
+							'language'=>'es',
+							'options'=>array(
+								'dateFormat'=>'yy-mm-dd'
+							)
+						)); ?></td>
 		<td><?php echo $form->error($model,'cpFechaFin'); ?></td>
 	</tr>
 	

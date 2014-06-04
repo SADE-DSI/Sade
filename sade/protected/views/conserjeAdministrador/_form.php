@@ -19,47 +19,53 @@
 
 	<?php echo $form->errorSummary(array($model,$persona)); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'caRut'); ?>
-		<?php echo $form->textField($model,'caRut',array('size'=>13,'maxlength'=>13)); ?>
-		<?php echo $form->error($model,'caRut'); ?>
-	</div>
+
+
+<table class="items">
+
+
+
+<tr>
+<td>	<?php echo $form->labelEx($model,'caRut'); ?></td><td><?php echo $form->textField($model,'caRut',array('size'=>13,'maxlength'=>13)); ?></td>
+</tr>
+<tr><td><?php echo $form->error($model,'caRut'); ?></td></tr>
+
+<tr>
+<td><?php echo $form->labelEx($model,'caClave'); ?></td><td><?php echo $form->textField($model,'caClave',array('size'=>30,'maxlength'=>30)); ?></td>
+</tr>
+<tr><td><?php echo $form->error($model,'caClave'); ?></td></tr>
+
+
+<tr>
+<td><?php echo $form->labelEx($persona,'peNombresApellidos'); ?></td><td><?php echo $form->textField($persona,'peNombresApellidos'); ?></td>
+</tr>
+<tr><td><?php echo $form->error($persona,'peNombresApellidos'); ?></td></tr>
+
+<tr>
+<td><?php echo $form->labelEx($persona,'peEmail'); ?></td><td><?php echo $form->textField($persona,'peEmail'); ?></td>
+</tr>
+<tr><td><?php echo $form->error($persona,'peEmail'); ?></td></tr>
+
+
+<tr>
+<td><?php echo $form->labelEx($persona,'peTelefono'); ?></td><td><?php echo $form->textField($persona,'peTelefono'); ?></td>
+</tr>
+<tr><td><?php echo $form->error($persona,'peTelefono'); ?></td></tr>
+
+<tr>
+<td><?php echo $form->labelEx($persona,'peDescripcion'); ?></td><td><?php echo $form->textField($persona,'peDescripcion'); ?></td>
+</tr>
+<tr><td><?php echo $form->error($persona,'peDescripcion'); ?></td></tr>
+
+<tr>
+<td><?php echo $form->labelEx($persona,'peDireccion'); ?></td><td><?php echo $form->textField($persona,'peDireccion'); ?></td>
+</tr>
+<tr><td><?php echo $form->error($persona,'peDireccion'); ?></td></tr>
+
+
+</table>
 	
-	<div class="row">
-		<?php echo $form->labelEx($model,'caClave'); ?>
-		<?php echo $form->textField($model,'caClave',array('size'=>30,'maxlength'=>30)); ?>
-		<?php echo $form->error($model,'caClave'); ?>
-	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($persona,'peNombresApellidos'); ?>
-		<?php echo $form->textField($persona,'peNombresApellidos'); ?>
-		<?php echo $form->error($persona,'peNombresApellidos'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($persona,'peEmail'); ?>
-		<?php echo $form->textField($persona,'peEmail'); ?>
-		<?php echo $form->error($persona,'peEmail'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($persona,'peTelefono'); ?>
-		<?php echo $form->textField($persona,'peTelefono'); ?>
-		<?php echo $form->error($persona,'peTelefono'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($persona,'peDescripcion'); ?>
-		<?php echo $form->textField($persona,'peDescripcion'); ?>
-		<?php echo $form->error($persona,'peDescripcion'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($persona,'peDireccion'); ?>
-		<?php echo $form->textField($persona,'peDireccion'); ?>
-		<?php echo $form->error($persona,'peDireccion'); ?>
-	</div>	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar',array('class' => 'guardar')); ?>

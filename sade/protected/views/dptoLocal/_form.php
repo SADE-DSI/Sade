@@ -19,30 +19,31 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'dlDireccion'); ?>
-		<?php echo $form->textField($model,'dlDireccion',array('size'=>60,'maxlength'=>767)); ?>
-		<?php echo $form->error($model,'dlDireccion'); ?>
-	</div>
+	<table class="items">
+	<tr>
+		<td><?php echo $form->labelEx($model,'dlDireccion'); ?></td>
+		<td><?php echo $form->textField($model,'dlDireccion',array('size'=>60,'maxlength'=>767)); ?></td>
+		<td><?php echo $form->error($model,'dlDireccion'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'dlMts2Construidos'); ?>
-		<?php echo $form->textField($model,'dlMts2Construidos'); ?>
-		<?php echo $form->error($model,'dlMts2Construidos'); ?>
-	</div>
+	<tr>
+		<td><?php echo $form->labelEx($model,'dlMts2Construidos'); ?></td>
+		<td><?php echo $form->textField($model,'dlMts2Construidos',array('size'=>60)); ?></td>
+		<td><?php echo $form->error($model,'dlMts2Construidos'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'dlValorArriendo'); ?>
-		<?php echo $form->textField($model,'dlValorArriendo',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'dlValorArriendo'); ?>
-	</div>
+	<tr>
+		<td><?php echo $form->labelEx($model,'dlValorArriendo'); ?></td>
+		<td><?php echo $form->textField($model,'dlValorArriendo',array('size'=>60,'maxlength'=>10)); ?></td>
+		<td><?php echo $form->error($model,'dlValorArriendo'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'dlActivo'); ?>
-		<?php echo $form->textField($model,'dlActivo',array('size'=>2,'maxlength'=>2)); ?>
-		<?php echo $form->error($model,'dlActivo'); ?>
-	</div>
-
+	<tr>
+		<td><?php echo $form->labelEx($model,'dlActivo'); ?></td>
+		<td><?php echo $form->textField($model,'dlActivo',array('size'=>60,'maxlength'=>2)); ?></td>
+		<td><?php echo $form->error($model,'dlActivo'); ?></td>
+	</tr>
+	</table>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar Cambios',array('class' => 'guardar')); ?>
 	</div>

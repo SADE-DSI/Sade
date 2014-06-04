@@ -1,4 +1,4 @@
-<?php
+	<?php
 /* @var $this ContratopersonalController */
 /* @var $model Contratopersonal */
 /* @var $form CActiveForm */
@@ -19,54 +19,55 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'peRut'); ?>
-		<?php echo $form->textField($model,'peRut',array('size'=>13,'maxlength'=>13)); ?>
-		<?php echo $form->error($model,'peRut'); ?>
-	</div>
+	<table class="items">
+	<tr>
+		<td><?php echo $form->labelEx($model,'peRut'); ?></td>
+		<td><?php echo $form->textField($model,'peRut',array('size'=>30, 'maxlength'=>13)); ?></td>
+		<td><?php echo $form->error($model,'peRut'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'cpAFPNombre'); ?>
-		<?php echo $form->textField($model,'cpAFPNombre',array('size'=>20,'maxlength'=>20)); ?>
-		<?php echo $form->error($model,'cpAFPNombre'); ?>
-	</div>
+	<tr>
+		<td><?php echo $form->labelEx($model,'cpAFPNombre'); ?></td>
+		<td><?php echo $form->textField($model,'cpAFPNombre',array('size'=>30,'maxlength'=>20)); ?></td>
+		<td><?php echo $form->error($model,'cpAFPNombre'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'cpAFPMonto'); ?>
-		<?php echo $form->textField($model,'cpAFPMonto'); ?>
-		<?php echo $form->error($model,'cpAFPMonto'); ?>
-	</div>
+	<tr>
+		<td><?php echo $form->labelEx($model,'cpAFPMonto'); ?></td>
+		<td><?php echo $form->textField($model,'cpAFPMonto', array('size'=>30)); ?></td>	
+		<td><?php echo $form->error($model,'cpAFPMonto'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'cpPrevisionNombre'); ?>
-		<?php echo $form->textField($model,'cpPrevisionNombre',array('size'=>20,'maxlength'=>20)); ?>
-		<?php echo $form->error($model,'cpPrevisionNombre'); ?>
-	</div>
+	<tr>
+		<td><?php echo $form->labelEx($model,'cpPrevisionNombre'); ?></td>
+		<td><?php echo $form->textField($model,'cpPrevisionNombre',array('size'=>30,'maxlength'=>20)); ?></td>
+		<td><?php echo $form->error($model,'cpPrevisionNombre'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'cpPrevisionMonto'); ?>
-		<?php echo $form->textField($model,'cpPrevisionMonto'); ?>
-		<?php echo $form->error($model,'cpPrevisionMonto'); ?>
-	</div>
+	<tr>
+		<td><?php echo $form->labelEx($model,'cpPrevisionMonto'); ?></td>
+		<td><?php echo $form->textField($model,'cpPrevisionMonto', array('size'=>30)); ?></td>
+		<td><?php echo $form->error($model,'cpPrevisionMonto'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'cpSueldoBruto'); ?>
-		<?php echo $form->textField($model,'cpSueldoBruto'); ?>
-		<?php echo $form->error($model,'cpSueldoBruto'); ?>
-	</div>
+	<tr>
+		<td><?php echo $form->labelEx($model,'cpSueldoBruto'); ?></td>
+		<td><?php echo $form->textField($model,'cpSueldoBruto', array('size'=>30)); ?></td>
+		<td><?php echo $form->error($model,'cpSueldoBruto'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'cpFechaInicio'); ?>
-		<?php echo $form->textField($model,'cpFechaInicio'); ?>
-		<?php echo $form->error($model,'cpFechaInicio'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'cpFechaFin'); ?>
-		<?php echo $form->textField($model,'cpFechaFin'); ?>
-		<?php echo $form->error($model,'cpFechaFin'); ?>
-	</div>
-
+	<tr>
+		<td><?php echo $form->labelEx($model,'cpFechaInicio'); ?></td>
+		<td><?php echo $form->textField($model,'cpFechaInicio', array('size'=>30)); ?></td>
+		<td><?php echo $form->error($model,'cpFechaInicio'); ?></td>
+	</tr>
+	<tr>
+		<td><?php echo $form->labelEx($model,'cpFechaFin'); ?></td>
+		<td><?php echo $form->textField($model,'cpFechaFin', array('size'=>30)); ?></td>
+		<td><?php echo $form->error($model,'cpFechaFin'); ?></td>
+	</tr>
+	
+	</table>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar Cambios',array('class' => 'guardar')); ?>
 	</div>

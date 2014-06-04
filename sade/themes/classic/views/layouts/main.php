@@ -40,12 +40,10 @@
 				//debora
     			array('label'=>'Avisos', 'url'=>array('/aviso/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
-
+				array('label'=>'Contrato Personal', 'url'=>array('/ContratoPersonal/index')
+					, 'visible'=>!Yii::app()->user->isGuest),
     			array('label'=>'Dpto/Locales', 'url'=>array('/Dptolocal/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
-
-
-
     			//leonardo
 
 				//array('label'=>'Administrar Usuarios'
@@ -87,8 +85,7 @@
 
 				/*
 				
-				array('label'=>'Personal', 'url'=>array('/Personal/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
+				
 
 				array('label'=>'Visitas', 'url'=>array('/Visitas/index')
 					, 'visible'=>!Yii::app()->user->isGuest),

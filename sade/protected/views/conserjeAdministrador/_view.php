@@ -4,40 +4,32 @@
 ?>
 
 <div class="view">
+<table class="tablaView">
+<tr><td>	<b><?php echo CHtml::encode($data->getAttributeLabel('Rut')); ?>:</b></td><td><?php echo CHtml::link(CHtml::encode($data->caRut), array('view', 'id'=>$data->caRut)); ?>
+	<br /></td></tr>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Rut')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->caRut), array('view', 'id'=>$data->caRut)); ?>
-	<br />
+<tr><td>	<b><?php echo CHtml::encode($data->getAttributeLabel('Clave')); ?>:</b></td><td><?php echo CHtml::encode($data->caClave); ?>
+	<br /></td></tr>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Clave')); ?>:</b>
-	<?php echo CHtml::encode($data->caClave); ?>
-	<br />
+<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('NombresApellidos')); ?>:</b></td><td><?php echo CHtml::encode($data->ca_pe->peNombresApellidos); ?>
+	<br /></td></tr>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('NombresApellidos')); ?>:</b>
-	<?php echo CHtml::encode($data->ca_pe->peNombresApellidos); ?>
-	<br />
+<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Activo')); ?>:</b></td><td><?php echo CHtml::encode($data->ca_pe->peActivo); ?>
+	<br /></td></tr>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Activo')); ?>:</b>
-	<?php echo CHtml::encode($data->ca_pe->peActivo); ?>
-	<br />
+<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Email')); ?>:</b></td><td><?php echo CHtml::encode($data->ca_pe->peEmail); ?>
+	<br /></td></tr>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Email')); ?>:</b>
-	<?php echo CHtml::encode($data->ca_pe->peEmail); ?>
-	<br />
+<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Telefono')); ?>:</b></td><td><?php echo CHtml::encode($data->ca_pe->peTelefono); ?>
+	<br /></td></tr>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Telefono')); ?>:</b>
-	<?php echo CHtml::encode($data->ca_pe->peTelefono); ?>
-	<br />
+<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Descripcion')); ?>:</b></td><td><?php echo CHtml::encode($data->ca_pe->peDescripcion); ?>
+	<br /></td></tr>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Descripcion')); ?>:</b>
-	<?php echo CHtml::encode($data->ca_pe->peDescripcion); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Direccion')); ?>:</b>
-	<?php echo CHtml::encode($data->ca_pe->peDireccion); ?>
-	<br />
+<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Direccion')); ?>:</b></td><td><?php echo CHtml::encode($data->ca_pe->peDireccion); ?>
+	<br /></td></tr>
 
 
-
+</table>
 
 </div>

@@ -4,22 +4,15 @@
 ?>
 
 <div class="view">
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Número')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->sgId), array('view', 'id'=>$data->sgId)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Comentario')); ?>:</b>
-	<?php echo CHtml::encode($data->sfComentario); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Respuesta')); ?>:</b>
-	<?php echo CHtml::encode($data->sfRespuesta); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Leido')); ?>:</b>
-	<?php echo CHtml::encode($data->sfLeido); ?>
-	<br />
-
-
+<table class="tablaView">
+<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Número')); ?>:</b></td><td><?php echo CHtml::link(CHtml::encode($data->sgId), array('view', 'id'=>$data->sgId)); ?>
+	<br /></td></tr>
+<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Comentario')); ?>:</b></td><td><?php echo CHtml::encode($data->sfComentario); ?>
+	<br /></td></tr>
+<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Respuesta')); ?>:</b></td><td><?php echo CHtml::encode($data->sfRespuesta); ?>
+	<br /></td></tr>
+<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Leido')); ?>:</b></td><td><?php echo CHtml::encode($data->sfLeido); ?>
+	<br /></td></tr>
+</table>
+	
 </div>

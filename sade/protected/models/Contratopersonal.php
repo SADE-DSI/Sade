@@ -71,14 +71,14 @@ class Contratopersonal extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'peRut' => 'Pe Rut',
-			'cpAFPNombre' => 'Cp Afpnombre',
-			'cpAFPMonto' => 'Cp Afpmonto',
-			'cpPrevisionNombre' => 'Cp Prevision Nombre',
-			'cpPrevisionMonto' => 'Cp Prevision Monto',
-			'cpSueldoBruto' => 'Cp Sueldo Bruto',
-			'cpFechaInicio' => 'Cp Fecha Inicio',
-			'cpFechaFin' => 'Cp Fecha Fin',
+			'peRut' => 'Rut',
+			'cpAFPNombre' => 'Nombre AFP',
+			'cpAFPMonto' => 'Monto AFP',
+			'cpPrevisionNombre' => 'Nombre Previsión',
+			'cpPrevisionMonto' => 'Monto Previsión',
+			'cpSueldoBruto' => 'Sueldo Bruto',
+			'cpFechaInicio' => 'Fecha Inicio',
+			'cpFechaFin' => 'Fecha Fin',
 		);
 	}
 

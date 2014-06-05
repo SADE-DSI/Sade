@@ -1,4 +1,4 @@
-	<?php
+<?php
 /* @var $this ContratopersonalController */
 /* @var $model Contratopersonal */
 /* @var $form CActiveForm */
@@ -91,3 +91,4 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+ 

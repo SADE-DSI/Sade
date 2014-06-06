@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Sueldopersonals',
+	'Sueldo Personal',
 );
 
 $this->menu=array(
-	array('label'=>'Create Sueldopersonal', 'url'=>array('create')),
-	array('label'=>'Manage Sueldopersonal', 'url'=>array('admin')),
+	array('label'=>'Crear Sueldo Personal', 'url'=>array('create')),
+	array('label'=>'Administrar Sueldo Personal', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Sueldopersonals</h1>
+<h1>Sueldo Personal</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

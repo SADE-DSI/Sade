@@ -13,7 +13,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'peRut'); ?>
-		<?php echo $form->textField($model,'peRut',array('size'=>13,'maxlength'=>13)); ?>
+		<?php echo $form->textField($model,'peRut',array('size'=>20,'maxlength'=>13)); ?>
 	</div>
 
 	<div class="row">
@@ -43,12 +43,26 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'cpFechaInicio'); ?>
-		<?php echo $form->textField($model,'cpFechaInicio'); ?>
+		<?php $this->widget("zii.widgets.jui.CJuiDatePicker", array(
+							'attribute'=>'cpFechaInicio', 
+							'model'=>$model,
+							'language'=>'es',
+							'options'=>array(
+								'dateFormat'=>'yy-mm-dd'
+							)
+						)); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'cpFechaFin'); ?>
-		<?php echo $form->textField($model,'cpFechaFin'); ?>
+		<?php $this->widget("zii.widgets.jui.CJuiDatePicker", array(
+							'attribute'=>'cpFechaFin', 
+							'model'=>$model,
+							'language'=>'es',
+							'options'=>array(
+								'dateFormat'=>'yy-mm-dd'
+							)
+						)); ?>
 	</div>
 
 	<div class="row buttons">

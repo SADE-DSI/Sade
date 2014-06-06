@@ -57,10 +57,10 @@ class Sueldopersonal extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'spFechaPago' => 'Sp Fecha Pago',
-			'peRut' => 'Pe Rut',
-			'spOtrosDescuento' => 'Sp Otros Descuento',
-			'spHorasExtra' => 'Sp Horas Extra',
+			'spFechaPago' => 'Fecha De Pago',
+			'peRut' => 'Rut Empleado',
+			'spOtrosDescuento' => 'Otros Descuentos',
+			'spHorasExtra' => 'Horas Extra',
 		);
 	}
 

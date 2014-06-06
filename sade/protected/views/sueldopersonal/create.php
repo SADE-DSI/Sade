@@ -3,16 +3,16 @@
 /* @var $model Sueldopersonal */
 
 $this->breadcrumbs=array(
-	'Sueldopersonals'=>array('index'),
-	'Create',
+	'Sueldo Personal'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'List Sueldopersonal', 'url'=>array('index')),
-	array('label'=>'Manage Sueldopersonal', 'url'=>array('admin')),
+	array('label'=>'Listar Sueldo Personal', 'url'=>array('index')),
+	array('label'=>'Administrar Sueldo Personal', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Sueldopersonal</h1>
+<h1>Crear Sueldo Personal</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

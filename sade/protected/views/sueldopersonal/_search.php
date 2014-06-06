@@ -12,27 +12,33 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'spFechaPago'); ?>
-		<?php echo $form->textField($model,'spFechaPago'); ?>
+			<?php echo $form->label($model,'peRut'); ?>
+			<?php echo $form->textField($model,'peRut',array('size'=>20,'maxlength'=>13)); ?>
 	</div>
-
 	<div class="row">
-		<?php echo $form->label($model,'peRut'); ?>
-		<?php echo $form->textField($model,'peRut',array('size'=>13,'maxlength'=>13)); ?>
+		<?php echo $form->label($model,'spFechaPago'); ?>
+		<?php $this->widget("zii.widgets.jui.CJuiDatePicker", array(
+							'attribute'=>'spFechaPago', 
+							'model'=>$model,
+							'language'=>'es',
+							'options'=>array(
+								'dateFormat'=>'yy-mm-dd'
+							)
+						)); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'spOtrosDescuento'); ?>
-		<?php echo $form->textField($model,'spOtrosDescuento',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->textField($model,'spOtrosDescuento',array('size'=>20,'maxlength'=>10)); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'spHorasExtra'); ?>
-		<?php echo $form->textField($model,'spHorasExtra',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->textField($model,'spHorasExtra',array('size'=>20,'maxlength'=>10)); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?php echo CHtml::submitButton('Buscar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

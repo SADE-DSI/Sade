@@ -15,36 +15,43 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+	<table class="items">
+	<tr>
+		<td><?php echo $form->labelEx($model,'peRut'); ?></td>
+		<td><?php echo $form->textField($model,'peRut',array('size'=>20,'maxlength'=>13)); ?></td>
+		<td><?php echo $form->error($model,'peRut'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'spFechaPago'); ?>
-		<?php echo $form->textField($model,'spFechaPago'); ?>
-		<?php echo $form->error($model,'spFechaPago'); ?>
-	</div>
+	<tr>
+		<td><?php echo $form->labelEx($model,'spFechaPago'); ?></td>
+		<td><?php $this->widget("zii.widgets.jui.CJuiDatePicker", array(
+							'attribute'=>'spFechaPago', 
+							'model'=>$model,
+							'language'=>'es',
+							'options'=>array(
+								'dateFormat'=>'yy-mm-dd'
+							)
+						)); ?></td>
+		<td><?php echo $form->error($model,'spFechaPago'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'peRut'); ?>
-		<?php echo $form->textField($model,'peRut',array('size'=>13,'maxlength'=>13)); ?>
-		<?php echo $form->error($model,'peRut'); ?>
-	</div>
+	<tr>
+		<td><?php echo $form->labelEx($model,'spOtrosDescuento'); ?></td>
+		<td><?php echo $form->textField($model,'spOtrosDescuento',array('size'=>20,'maxlength'=>10)); ?></td>
+		<td><?php echo $form->error($model,'spOtrosDescuento'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'spOtrosDescuento'); ?>
-		<?php echo $form->textField($model,'spOtrosDescuento',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'spOtrosDescuento'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'spHorasExtra'); ?>
-		<?php echo $form->textField($model,'spHorasExtra',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'spHorasExtra'); ?>
-	</div>
-
+	<tr>
+		<td><?php echo $form->labelEx($model,'spHorasExtra'); ?></td>
+		<td><?php echo $form->textField($model,'spHorasExtra',array('size'=>20,'maxlength'=>10)); ?></td>
+		<td><?php echo $form->error($model,'spHorasExtra'); ?></td>
+	</tr>
+	</table>
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

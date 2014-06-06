@@ -36,7 +36,7 @@ class ConserjeadministradorController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','adminEliminados','pdf','restaurar'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -151,6 +151,23 @@ class ConserjeadministradorController extends Controller
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
+		public function actionRestaurar($id)
+	{
+		//$this->loadModel($id)->delete();
+		$model=Conserjeadministrador::model()->findByPk($id);
+		$persona=Persona::model()->findByPk($id);
+		if ($persona->peActivo== 0){
+		$persona->peActivo = 1;
+		}
+		else {
+		$persona->peActivo = 0;			
+		}
+		$persona->save();
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+	}
+
 	/**
 	 * Lists all models.
 	 */
@@ -173,6 +190,18 @@ class ConserjeadministradorController extends Controller
 			$model->attributes=$_GET['Conserjeadministrador'];
 
 		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
+
+	public function actionAdminEliminados()
+	{
+		$model=new Conserjeadministrador('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Conserjeadministrador']))
+			$model->attributes=$_GET['Conserjeadministrador'];
+
+		$this->render('adminEliminados',array(
 			'model'=>$model,
 		));
 	}

@@ -22,11 +22,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'adEstado'); ?>
-		<?php echo $form->textField($model,'adEstado'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'adFechaLiberacion'); ?>
 		<?php echo $form->textField($model,'adFechaLiberacion'); ?>
 	</div>

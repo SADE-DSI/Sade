@@ -3,16 +3,16 @@
 /* @var $model Conserjeadministrador */
 
 $this->breadcrumbs=array(
-	'Conserje/administrador'=>array('index'),
+	'Conserje/Administrador'=>array('index'),
 	$model->caRut=>array('view','id'=>$model->caRut),
 	'Actualizar',
 );
 
 $this->menu=array(
-	array('label'=>'Listar Conserje/administrador', 'url'=>array('index')),
-	array('label'=>'Crear Conserje/administrador', 'url'=>array('create')),
-	array('label'=>'Ver Conserje/administrador', 'url'=>array('view', 'id'=>$model->caRut)),
-	array('label'=>'Administrar Conserje/administrador', 'url'=>array('admin')),
+	array('label'=>'Listar Conserje/Administrador', 'url'=>array('index')),
+	array('label'=>'Crear Conserje/Administrador', 'url'=>array('create')),
+	array('label'=>'Ver Conserje/Administrador', 'url'=>array('view', 'id'=>$model->caRut)),
+	array('label'=>'Administrar Conserje/Administrador', 'url'=>array('admin')),
 );
 ?>
 

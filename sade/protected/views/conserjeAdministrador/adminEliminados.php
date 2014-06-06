@@ -1,15 +1,15 @@
 <?php
-/* @var $this ConserjeadministradorController */
-/* @var $model Conserjeadministrador */
-$activo=1;
+/* @var $this ArrendatarioduenoController */
+/* @var $model Arrendatariodueno */
+$activo=0;
 $this->breadcrumbs=array(
 	'Conserje/Administrador'=>array('index'),
-	'Administrar',
+	'Administrar Eliminados',
 );
 $this->menu=array(
 	array('label'=>'Listar Conserje/Administrador', 'url'=>array('index')),
 	array('label'=>'Crear Conserje/Administrador', 'url'=>array('create')),
-	array('label'=>'Restaurar Conserje/Administrador Eliminados', 'url'=>array('adminEliminados')),
+	array('label'=>'Administrar Conserje/Administrador', 'url'=>array('admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#conserjeadministrador-grid').yiiGridView('update', {
+	$('#arrendatariodueno-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Administrar Conserje/Administrador</h1>
+<h1>Restaurar Conserje/Administrador Eliminados</h1>
 
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -36,7 +36,7 @@ $('.search-form form').submit(function(){
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'conserjeadministrador-grid',
+	'id'=>'arrendatariodueno-grid',
 	'dataProvider'=>$model->search($activo),
 	'filter'=>$model,
 	'columns'=>array(
@@ -54,6 +54,15 @@ $('.search-form form').submit(function(){
 			'type'=>'text',),
 		array(
 			'class'=>'CButtonColumn',
+			'template' => '{view}{Restaurar}',
+	  		'buttons'=>array(
+	    	'Restaurar' => array(
+		      'label'=>'Restaurar Usuario Eliminado', 
+		      'url'=>"CHtml::normalizeUrl(array('Restaurar', 'id'=>\$data->caRut))",
+		      'imageUrl'=>Yii::app()->request->baseUrl.'/images/tick.png', 
+		      'options' => array('class'=>'Restaurar'),
+    ),
+  ),
 		),
 	),
 )); ?>

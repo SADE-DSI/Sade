@@ -1,16 +1,16 @@
 <?php
 /* @var $this ArrendatarioduenoController */
 /* @var $model Arrendatariodueno */
-$activo=1;
+$activo=0;
 $this->breadcrumbs=array(
 	'Arrendatarios/Dueños'=>array('index'),
-	'Administrar',
+	'Administrar Eliminados',
 );
 
 $this->menu=array(
 	array('label'=>'Listar Arrendatarios/Dueños', 'url'=>array('index')),
 	array('label'=>'Crear Arrendatarios/Dueños', 'url'=>array('create')),
-	array('label'=>'Restaurar Arrendatarios/Dueños Eliminados', 'url'=>array('adminEliminados')),
+		array('label'=>'Administrar Arrendatarios/Dueños', 'url'=>array('admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -27,7 +27,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Administrar Arrendatarios/Dueños</h1>
+<h1>Restaurar Arrendatarios/Dueños Eliminados</h1>
 
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -55,6 +55,15 @@ $('.search-form form').submit(function(){
 			'type'=>'text',),
 		array(
 			'class'=>'CButtonColumn',
+			'template' => '{view}{Restaurar}',
+	  		'buttons'=>array(
+	    	'Restaurar' => array(
+		      'label'=>'Restaurar Usuario Eliminado', 
+		      'url'=>"CHtml::normalizeUrl(array('Restaurar', 'id'=>\$data->adRut))",
+		      'imageUrl'=>Yii::app()->request->baseUrl.'/images/tick.png', 
+		      'options' => array('class'=>'Restaurar'),
+    ),
+  ),
 		),
 	),
 )); ?>

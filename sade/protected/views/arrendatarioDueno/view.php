@@ -24,6 +24,5 @@ $this->menu=array(
 	'attributes'=>array(
 		'adRut',
 		'adClave',
-		'adEstado',
 	),
 )); ?>

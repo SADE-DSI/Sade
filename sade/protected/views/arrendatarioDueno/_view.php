@@ -9,11 +9,7 @@
 	<br /></td></tr>
 <tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Clave')); ?>:</b></td><td><?php echo CHtml::encode($data->adClave); ?>
 	<br /></td></tr>
-<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Estado')); ?>:</b></td><td>	<?php echo CHtml::encode($data->adEstado); ?>
-	<br /></td></tr>
 <tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('NombresApellidos')); ?>:</b></td><td><?php echo CHtml::encode($data->ad_pe->peNombresApellidos); ?>
-	<br /></td></tr>
-<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Activo')); ?>:</b></td><td><?php echo CHtml::encode($data->ad_pe->peActivo); ?>
 	<br /></td></tr>
 <tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Email')); ?>:</b></td><td><?php echo CHtml::encode($data->ad_pe->peEmail); ?>
 	<br /></td></tr>

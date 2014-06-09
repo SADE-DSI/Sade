@@ -1,15 +1,15 @@
 <?php
 /* @var $this ConserjeadministradorController */
 /* @var $model Conserjeadministrador */
-
+$activo=1;
 $this->breadcrumbs=array(
-	'Conserje/administrador'=>array('index'),
+	'Conserje/Administrador'=>array('index'),
 	'Administrar',
 );
-
 $this->menu=array(
-	array('label'=>'Listar Conserje/administrador', 'url'=>array('index')),
-	array('label'=>'Crear Conserje/administrador', 'url'=>array('create')),
+	array('label'=>'Listar Conserje/Administrador', 'url'=>array('index')),
+	array('label'=>'Crear Conserje/Administrador', 'url'=>array('create')),
+	array('label'=>'Restaurar Conserje/Administrador Eliminados', 'url'=>array('adminEliminados')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Administrar Conserje/administrador</h1>
+<h1>Administrar Conserje/Administrador</h1>
 
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -37,14 +37,12 @@ $('.search-form form').submit(function(){
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'conserjeadministrador-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$model->search($activo),
 	'filter'=>$model,
 	'columns'=>array(
 		'caRut',
 		'caClave',
 		array('name'=>'nombres','header'=>'Nombres Apellidos','value'=>'$data->ca_pe->peNombresApellidos',
-			'type'=>'text',),
-		array('name'=>'activo','header'=>'Activo','value'=>'$data->ca_pe->peActivo',
 			'type'=>'text',),
 		array('name'=>'email','header'=>'Email','value'=>'$data->ca_pe->peEmail',
 			'type'=>'text',),

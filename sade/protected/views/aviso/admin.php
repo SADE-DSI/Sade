@@ -30,7 +30,7 @@ $('.search-form form').submit(function(){
 
 <p>
 Opcionalmente usted puede introducir operadores comparativos (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) en la primera fila de cada columna en la cual desea realizar la comparaci&oacute;n.
+o <b>=</b>) en la primera fila de cada columna en la cual desea realizar la comparaci&oacute;n.
 </p>
 
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>

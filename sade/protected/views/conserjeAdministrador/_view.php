@@ -14,9 +14,6 @@
 <tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('NombresApellidos')); ?>:</b></td><td><?php echo CHtml::encode($data->ca_pe->peNombresApellidos); ?>
 	<br /></td></tr>
 
-<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Activo')); ?>:</b></td><td><?php echo CHtml::encode($data->ca_pe->peActivo); ?>
-	<br /></td></tr>
-
 <tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Email')); ?>:</b></td><td><?php echo CHtml::encode($data->ca_pe->peEmail); ?>
 	<br /></td></tr>
 

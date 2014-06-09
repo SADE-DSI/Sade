@@ -16,3 +16,5 @@ $this->menu=array(
 <h1>Crear Contrato Personal</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
+
+ 

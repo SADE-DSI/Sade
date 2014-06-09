@@ -8,13 +8,14 @@
  * @property string $cpAFPNombre
  * @property integer $cpAFPMonto
  * @property string $cpPrevisionNombre
- * @property integer $cpPrevisionMonto
- * @property integer $cpSueldoBruto
+ * @property string $cpPrevisionMonto
+ * @property string $cpSueldoBruto
  * @property string $cpFechaInicio
  * @property string $cpFechaFin
  *
  * The followings are the available model relations:
  * @property Persona $peRut0
+ * @property Sueldopersonal $sueldopersonal
  */
 class Contratopersonal extends CActiveRecord
 {
@@ -60,6 +61,7 @@ class Contratopersonal extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'peRut0' => array(self::BELONGS_TO, 'Persona', 'peRut'),
+			'sueldopersonal' => array(self::HAS_ONE, 'Sueldopersonal', 'peRut'),
 		);
 	}
 
@@ -69,14 +71,14 @@ class Contratopersonal extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'peRut' => 'Rut Empleado',
+			'peRut' => 'Rut',
 			'cpAFPNombre' => 'Nombre AFP',
 			'cpAFPMonto' => 'Monto AFP',
-			'cpPrevisionNombre' => 'Nombre Previsión Social',
-			'cpPrevisionMonto' => 'Monto Previsión Social',
+			'cpPrevisionNombre' => 'Nombre Previsión',
+			'cpPrevisionMonto' => 'Monto Previsión',
 			'cpSueldoBruto' => 'Sueldo Bruto',
-			'cpFechaInicio' => 'Fecha Inicio Contrato',
-			'cpFechaFin' => 'Fecha Fin Contrato',
+			'cpFechaInicio' => 'Fecha Inicio',
+			'cpFechaFin' => 'Fecha Fin',
 		);
 	}
 
@@ -102,8 +104,8 @@ class Contratopersonal extends CActiveRecord
 		$criteria->compare('cpAFPNombre',$this->cpAFPNombre,true);
 		$criteria->compare('cpAFPMonto',$this->cpAFPMonto);
 		$criteria->compare('cpPrevisionNombre',$this->cpPrevisionNombre,true);
-		$criteria->compare('cpPrevisionMonto',$this->cpPrevisionMonto);
-		$criteria->compare('cpSueldoBruto',$this->cpSueldoBruto);
+		$criteria->compare('cpPrevisionMonto',$this->cpPrevisionMonto,true);
+		$criteria->compare('cpSueldoBruto',$this->cpSueldoBruto,true);
 		$criteria->compare('cpFechaInicio',$this->cpFechaInicio,true);
 		$criteria->compare('cpFechaFin',$this->cpFechaFin,true);
 

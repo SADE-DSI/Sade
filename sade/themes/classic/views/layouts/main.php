@@ -42,8 +42,12 @@
 					, 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Contrato Personal', 'url'=>array('/ContratoPersonal/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Sueldo Personal', 'url'=>array('/Sueldopersonal/index')
+					, 'visible'=>!Yii::app()->user->isGuest),
     			array('label'=>'Dpto/Locales', 'url'=>array('/Dptolocal/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
+    			
+
     			//leonardo
 
 				//array('label'=>'Administrar Usuarios'

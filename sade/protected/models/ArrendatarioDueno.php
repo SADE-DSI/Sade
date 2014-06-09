@@ -95,12 +95,13 @@ class Arrendatariodueno extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($activo)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 		$criteria->with = array('ad_pe');
+		$criteria->condition = "peActivo=$activo";
 		$criteria->compare('adRut',$this->adRut,true);
 		$criteria->compare('adClave',$this->adClave,true);
 		$criteria->compare('adEstado',$this->adEstado);

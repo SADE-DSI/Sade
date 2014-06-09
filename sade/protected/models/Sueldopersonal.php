@@ -1,28 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "sueldoPersona".
+ * This is the model class for table "sueldopersonal".
  *
- * The followings are the available columns in table 'sueldoPersona':
- * @property string $peRut
+ * The followings are the available columns in table 'sueldopersonal':
  * @property string $spFechaPago
- * @property string $spAFP
- * @property string $spIsapre
- * @property integer $spSueldo
- * @property integer $spDescuento
- * @property string $spHorasExtras
+ * @property string $peRut
+ * @property string $spOtrosDescuento
+ * @property string $spHorasExtra
  *
  * The followings are the available model relations:
- * @property Persona $peRut0
+ * @property Contratopersonal $peRut0
  */
-class SueldoPersona extends CActiveRecord
+class Sueldopersonal extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'sueldoPersona';
+		return 'sueldopersonal';
 	}
 
 	/**
@@ -33,14 +30,12 @@ class SueldoPersona extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('peRut, spFechaPago', 'required'),
-			array('spSueldo, spDescuento', 'numerical', 'integerOnly'=>true),
+			array('spFechaPago, peRut', 'required'),
 			array('peRut', 'length', 'max'=>13),
-			array('spAFP, spIsapre', 'length', 'max'=>20),
-			array('spHorasExtras', 'length', 'max'=>10),
+			array('spOtrosDescuento, spHorasExtra', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('peRut, spFechaPago, spAFP, spIsapre, spSueldo, spDescuento, spHorasExtras', 'safe', 'on'=>'search'),
+			array('spFechaPago, peRut, spOtrosDescuento, spHorasExtra', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,7 +47,7 @@ class SueldoPersona extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'peRut0' => array(self::BELONGS_TO, 'Persona', 'peRut'),
+			'peRut0' => array(self::BELONGS_TO, 'Contratopersonal', 'peRut'),
 		);
 	}
 
@@ -62,13 +57,10 @@ class SueldoPersona extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'peRut' => 'Pe Rut',
-			'spFechaPago' => 'Sp Fecha Pago',
-			'spAFP' => 'Sp Afp',
-			'spIsapre' => 'Sp Isapre',
-			'spSueldo' => 'Sp Sueldo',
-			'spDescuento' => 'Sp Descuento',
-			'spHorasExtras' => 'Sp Horas Extras',
+			'spFechaPago' => 'Fecha De Pago',
+			'peRut' => 'Rut Empleado',
+			'spOtrosDescuento' => 'Otros Descuentos',
+			'spHorasExtra' => 'Horas Extra',
 		);
 	}
 
@@ -90,13 +82,10 @@ class SueldoPersona extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('peRut',$this->peRut,true);
 		$criteria->compare('spFechaPago',$this->spFechaPago,true);
-		$criteria->compare('spAFP',$this->spAFP,true);
-		$criteria->compare('spIsapre',$this->spIsapre,true);
-		$criteria->compare('spSueldo',$this->spSueldo);
-		$criteria->compare('spDescuento',$this->spDescuento);
-		$criteria->compare('spHorasExtras',$this->spHorasExtras,true);
+		$criteria->compare('peRut',$this->peRut,true);
+		$criteria->compare('spOtrosDescuento',$this->spOtrosDescuento,true);
+		$criteria->compare('spHorasExtra',$this->spHorasExtra,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -107,7 +96,7 @@ class SueldoPersona extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return SueldoPersona the static model class
+	 * @return Sueldopersonal the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

@@ -36,7 +36,7 @@ class ArrendatarioduenoController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','adminEliminados','pdf','restaurar'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -139,7 +139,7 @@ class ArrendatarioduenoController extends Controller
 		//$this->loadModel($id)->delete();
 		$model=Arrendatariodueno::model()->findByPk($id);
 		$persona=Persona::model()->findByPk($id);
-		if ($persona->peActivo== 1){
+		if ($persona->peActivo== 1){ 
 		$persona->peActivo = 0;
 		}
 		else {
@@ -152,12 +152,31 @@ class ArrendatarioduenoController extends Controller
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
+	public function actionRestaurar($id)
+	{
+		//$this->loadModel($id)->delete();
+		$model=Arrendatariodueno::model()->findByPk($id);
+		$persona=Persona::model()->findByPk($id);
+		if ($persona->peActivo== 0){ 
+		$persona->peActivo = 1;
+		}
+		else {
+		$persona->peActivo = 0;			
+		}
+		$persona->save();
+
+		//if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+	}
+
+
 	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Arrendatariodueno');
+			$dataProvider=new CActiveDataProvider('Arrendatariodueno');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -177,6 +196,19 @@ class ArrendatarioduenoController extends Controller
 			'model'=>$model,
 		));
 	}
+
+	public function actionAdminEliminados()
+	{
+		$model=new Arrendatariodueno('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Arrendatariodueno']))
+			$model->attributes=$_GET['Arrendatariodueno'];
+
+		$this->render('adminEliminados',array(
+			'model'=>$model,
+		));
+	}
+
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

@@ -1,7 +1,7 @@
 <?php
 /* @var $this ArrendatarioduenoController */
 /* @var $model Arrendatariodueno */
-
+$activo=1;
 $this->breadcrumbs=array(
 	'Arrendatarios/Dueños'=>array('index'),
 	'Administrar',
@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Listar Arrendatarios/Dueños', 'url'=>array('index')),
 	array('label'=>'Crear Arrendatarios/Dueños', 'url'=>array('create')),
+	array('label'=>'Restaurar Arrendatarios/Dueños Eliminados', 'url'=>array('adminEliminados')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -37,15 +38,12 @@ $('.search-form form').submit(function(){
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'arrendatariodueno-grid',
-	'dataProvider'=>$model->search(),
+	'dataProvider'=>$model->search($activo),
 	'filter'=>$model,
 	'columns'=>array(
 		'adRut',
 		'adClave',
-		'adEstado',
 		array('name'=>'nombres','header'=>'Nombres Apellidos','value'=>'$data->ad_pe->peNombresApellidos',
-			'type'=>'text',),
-		array('name'=>'activo','header'=>'Activo','value'=>'$data->ad_pe->peActivo',
 			'type'=>'text',),
 		array('name'=>'email','header'=>'Email','value'=>'$data->ad_pe->peEmail',
 			'type'=>'text',),

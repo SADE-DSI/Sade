@@ -87,12 +87,13 @@ class Conserjeadministrador extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($activo)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 		$criteria->with = array('ca_pe');
+		$criteria->condition = "peActivo=$activo";
 		$criteria->compare('caRut',$this->caRut,true);
 		$criteria->compare('caClave',$this->caClave,true);
 		$criteria->compare('peNombresApellidos', $this->nombres,true);
@@ -101,7 +102,6 @@ class Conserjeadministrador extends CActiveRecord
 		$criteria->compare('peTelefono', $this->telefono,true);
 		$criteria->compare('peDescripcion', $this->descripcion,true);
 		$criteria->compare('peDireccion', $this->direccion,true);
-
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

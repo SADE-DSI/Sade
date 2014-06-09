@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Reservaespaciocomun', 'url'=>array('index')),
-	array('label'=>'Manage Reservaespaciocomun', 'url'=>array('admin')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Reservaespaciocomun</h1>
+<h1>Crear</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

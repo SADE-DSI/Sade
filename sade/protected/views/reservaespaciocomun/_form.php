@@ -15,13 +15,22 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'reFechaInicio'); ?>
-		<?php echo $form->textField($model,'reFechaInicio'); ?>
+		<?php 
+		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
+			"attribute"=>"reFechaInicio",
+			"model"=>$model,
+			"language"=>"es",
+			"options"=>array(
+				"dateFormat"=>"yy-mm-dd"
+				)
+			));
+		?>
 		<?php echo $form->error($model,'reFechaInicio'); ?>
 	</div>
 
@@ -39,12 +48,21 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'reFechaFin'); ?>
-		<?php echo $form->textField($model,'reFechaFin'); ?>
+		<?php 
+		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
+			"attribute"=>"reFechaFin",
+			"model"=>$model,
+			"language"=>"es",
+			"options"=>array(
+				"dateFormat"=>"yy-mm-dd"
+				)
+			));
+		?>
 		<?php echo $form->error($model,'reFechaFin'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar', array('class' => 'guardar')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

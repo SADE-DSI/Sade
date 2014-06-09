@@ -34,6 +34,12 @@ class Reservaespaciocomun extends CActiveRecord
 			array('reFechaInicio, adRut, ecCodigo, reFechaFin', 'required'),
 			array('adRut', 'length', 'max'=>13),
 			array('ecCodigo', 'length', 'max'=>30),
+
+
+			array('reFechaInicio', 'date', 'format'=>'yyyy-M-d'),
+			array('reFechaFin', 'date', 'format'=>'yyyy-M-d'),
+			
+
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('reFechaInicio, adRut, ecCodigo, reFechaFin', 'safe', 'on'=>'search'),
@@ -59,10 +65,10 @@ class Reservaespaciocomun extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'reFechaInicio' => 'Re Fecha Inicio',
-			'adRut' => 'Ad Rut',
-			'ecCodigo' => 'Ec Codigo',
-			'reFechaFin' => 'Re Fecha Fin',
+			'reFechaInicio' => 'Fecha Inicio',
+			'adRut' => 'Rut',
+			'ecCodigo' => 'Codigo',
+			'reFechaFin' => 'Fecha Fin',
 		);
 	}
 

@@ -50,9 +50,9 @@
 
     			//leonardo
 
-				//array('label'=>'Administrar Usuarios'
-				//	, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
-				//	, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Administrar Usuarios'
+					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
+					, 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Conserjes'
 					, 'url'=>array('/conserjeAdministrador/index')
 					, 'visible'=>!Yii::app()->user->isGuest),

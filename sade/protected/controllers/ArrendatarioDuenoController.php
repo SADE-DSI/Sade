@@ -79,19 +79,30 @@ class ArrendatarioduenoController extends Controller
 			$persona->peTipo = 2;
 			$valid = $model->validate();
 			$valid = $persona->validate() && $valid;
-			
-			if ($valid){
+
+		$values = array(
+  			'username' => $persona->peNombresApellidos,
+  			'email' => $persona->peEmail,
+  			);
+
+  			$usuario = Yii::app()->user->um->createNewUser($values,$model->adClave);
+
+				if ($valid){
 				if ($persona->save()){
 					if($model->save())
 						$this->redirect(array('view','id'=>$model->adRut));
+					}
 				}
-			}
+
+			
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
 			'persona' =>$persona,
 		));
+	
+
 	}
 
 	/**

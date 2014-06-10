@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Ver Contrato Personal <?php echo $model->peRut; ?></h1>
+<h1>Ver Contrato Personal <?php echo $model->getNombreRut($model->peRut); ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

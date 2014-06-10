@@ -124,4 +124,13 @@ class Contratopersonal extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function getNombreRut ($peRut){
+		return CHtml::listData(Persona::model()->findAll("peRut=?", array($peRut)), "peRut", "peNombresApellidos");
+	}
+
+	public function getNombresEmpleados (){
+		//return $this->peRut;
+		return CHtml::listData(Persona::model()->findAll(), "peRut", "peNombresApellidos");
+	}
 }

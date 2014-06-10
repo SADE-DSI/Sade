@@ -49,11 +49,6 @@
     			
 
     			//leonardo
-
-				array('label'=>'Administrar Usuarios'
-					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
-					, 'visible'=>Yii::app()->user->isSuperAdmin),
-
 				array('label'=>'Perfiles'
 					, 'url'=>array('/permisos/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin),

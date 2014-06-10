@@ -31,7 +31,7 @@
 		<div id="sidebar">
 		<?php
 			$this->beginWidget('zii.widgets.CPortlet', array(
-				'title'=>ucfirst(CrugeTranslator::t("administracion de usuarios")),
+				'title'=>ucfirst(CrugeTranslator::t("Administración de Usuarios")),
 			));
 			$this->widget('zii.widgets.CMenu', array(
 				'items'=>Yii::app()->user->ui->adminItems,

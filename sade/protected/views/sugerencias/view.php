@@ -7,10 +7,20 @@ $this->breadcrumbs=array(
 	$model->sgId,
 );
 
+
+if ( Yii::app()->user->isSuperAdmin) {
+		$opc = array('label'=>'Responder Sugerencia', 'url'=>array('update', 'id'=>$model->sgId)); }
+		else {
+	$opc = array('label'=>'Modificar Sugerencia', 'url'=>array('update', 'id'=>$model->sgId)); }
+
+
+
+
 $this->menu=array(
 	array('label'=>'Lista de Sugerencias', 'url'=>array('index')),
 	array('label'=>'Crear Sugerencia', 'url'=>array('create')),
-	array('label'=>'Responder Sugerencia', 'url'=>array('update', 'id'=>$model->sgId)),
+	$opc, 
+
 	array('label'=>'Eliminar Sugerencias', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->sgId),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Administrar Sugerencias', 'url'=>array('admin')),
 );

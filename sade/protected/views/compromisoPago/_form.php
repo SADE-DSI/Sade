@@ -20,18 +20,6 @@
 	<?php echo $form->errorSummary($model); ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <table class="items">
 
 <tr>

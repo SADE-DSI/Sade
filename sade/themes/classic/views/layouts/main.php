@@ -76,7 +76,8 @@
 				    , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
-
+				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun/index')
+					, 'visible'=>!Yii::app()->user->isGuest), 
 
 
 				array('label'=>'Login'

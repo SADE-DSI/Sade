@@ -13,6 +13,8 @@ $this->menu=array(
 	array('label'=>'Actualizar compromisos de pago', 'url'=>array('update', 'id'=>$model->cpId)),
 	array('label'=>'Eliminar compromisos de pago', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->cpId),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Administrar compromisos de pago', 'url'=>array('admin')),
+	 array('label'=>'Crear PDF', 'url'=>array('pdf','id'=>$model->cpId)),
+
 );
 ?>
 

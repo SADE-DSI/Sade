@@ -1,26 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "reservaEspacioComun".
+ * This is the model class for table "reservaespaciocomun".
  *
- * The followings are the available columns in table 'reservaEspacioComun':
- * @property string $ecCodigo
+ * The followings are the available columns in table 'reservaespaciocomun':
  * @property string $reFechaInicio
- * @property string $reFechaFin
  * @property string $adRut
+ * @property string $ecCodigo
+ * @property string $reFechaFin
  *
  * The followings are the available model relations:
- * @property EspacioComun $ecCodigo0
- * @property ArrendatarioDueno $adRut0
+ * @property Espaciocomun $ecCodigo0
+ * @property Arrendatariodueno $adRut0
  */
-class ReservaEspacioComun extends CActiveRecord
+class Reservaespaciocomun extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'reservaEspacioComun';
+		return 'reservaespaciocomun';
 	}
 
 	/**
@@ -31,13 +31,18 @@ class ReservaEspacioComun extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ecCodigo, reFechaInicio, adRut', 'required'),
-			array('ecCodigo', 'length', 'max'=>30),
+			array('reFechaInicio, adRut, ecCodigo, reFechaFin', 'required'),
 			array('adRut', 'length', 'max'=>13),
-			array('reFechaFin', 'safe'),
+			array('ecCodigo', 'length', 'max'=>30),
+
+
+			array('reFechaInicio', 'date', 'format'=>'yyyy-M-d'),
+			array('reFechaFin', 'date', 'format'=>'yyyy-M-d'),
+			
+
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('ecCodigo, reFechaInicio, reFechaFin, adRut', 'safe', 'on'=>'search'),
+			array('reFechaInicio, adRut, ecCodigo, reFechaFin', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,8 +54,8 @@ class ReservaEspacioComun extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'ecCodigo0' => array(self::BELONGS_TO, 'EspacioComun', 'ecCodigo'),
-			'adRut0' => array(self::BELONGS_TO, 'ArrendatarioDueno', 'adRut'),
+			'ecCodigo0' => array(self::BELONGS_TO, 'Espaciocomun', 'ecCodigo'),
+			'adRut0' => array(self::BELONGS_TO, 'Arrendatariodueno', 'adRut'),
 		);
 	}
 
@@ -60,10 +65,10 @@ class ReservaEspacioComun extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'ecCodigo' => 'Ec Codigo',
-			'reFechaInicio' => 'Re Fecha Inicio',
-			'reFechaFin' => 'Re Fecha Fin',
-			'adRut' => 'Ad Rut',
+			'reFechaInicio' => 'Fecha Inicio',
+			'adRut' => 'Rut',
+			'ecCodigo' => 'Codigo',
+			'reFechaFin' => 'Fecha Fin',
 		);
 	}
 
@@ -85,10 +90,10 @@ class ReservaEspacioComun extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('ecCodigo',$this->ecCodigo,true);
 		$criteria->compare('reFechaInicio',$this->reFechaInicio,true);
-		$criteria->compare('reFechaFin',$this->reFechaFin,true);
 		$criteria->compare('adRut',$this->adRut,true);
+		$criteria->compare('ecCodigo',$this->ecCodigo,true);
+		$criteria->compare('reFechaFin',$this->reFechaFin,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -99,7 +104,7 @@ class ReservaEspacioComun extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return ReservaEspacioComun the static model class
+	 * @return Reservaespaciocomun the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

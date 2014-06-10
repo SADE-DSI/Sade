@@ -14,13 +14,13 @@
     <?php echo $model->email; ?>
 </h2>
 <p>
-	<?php echo ucfirst(CrugeTranslator::t("marque la casilla para confirmar la eliminacion")); ?>
+	<?php echo ucfirst(CrugeTranslator::t("Marque la casilla para confirmar la eliminación")); ?>
 	<?php echo $form->checkBox($model,'deleteConfirmation'); ?>
 	<?php echo $form->error($model,'deleteConfirmation'); ?>
 </P>
 <div class="row buttons">
 	<?php Yii::app()->user->ui->tbutton("Eliminar Usuario"); ?>
-	<?php Yii::app()->user->ui->bbutton("Volver",'cancelar'); ?>
+	<?php Yii::app()->user->ui->bbutton("Volver",'Cancelar'); ?>
 </div>
 <?php echo $form->errorSummary($model); ?>
 <?php $this->endWidget(); ?>

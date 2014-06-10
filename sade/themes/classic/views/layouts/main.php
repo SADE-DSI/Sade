@@ -52,7 +52,12 @@
 
 				array('label'=>'Administrar Usuarios'
 					, 'url'=>Yii::app()->user->ui->userManagementAdminUrl
-					, 'visible'=>!Yii::app()->user->isGuest),
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
+
+				array('label'=>'Perfiles'
+					, 'url'=>array('/permisos/index')
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
+				
 				array('label'=>'Conserjes'
 					, 'url'=>array('/conserjeAdministrador/index')
 					, 'visible'=>!Yii::app()->user->isGuest),

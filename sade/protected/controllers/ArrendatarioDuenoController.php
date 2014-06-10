@@ -88,6 +88,19 @@ class ArrendatarioduenoController extends Controller
   			$usuario = Yii::app()->user->um->createNewUser($values,$model->adClave);
 
 				if ($valid){
+
+			Yii::app()->user->um->changePassword($usuario,$model->adClave);
+
+			if(Yii::app()->user->um->save($usuario)){
+            echo "Usuario creado: id=".$usuario->primaryKey;
+     		 }
+     		 else{
+            	$errores = CHtml::errorSummary($usuario);
+           		echo "no se pudo crear el usuario: ".$errores;
+       		  }
+
+
+
 				if ($persona->save()){
 					if($model->save())
 						$this->redirect(array('view','id'=>$model->adRut));

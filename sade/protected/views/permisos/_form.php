@@ -1,5 +1,5 @@
 <?php
-/* @var $this SugerenciasController */
+/* @var $this PermisosController */
 /* @var $model Sugerencias */
 /* @var $form CActiveForm */
 ?>
@@ -15,31 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Los Campos con <span class="required">*</span> son obligatorios.</p>
 
-	<?php echo $form->errorSummary($model); ?>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'sfComentario'); ?>
-		<?php echo $form->textField($model,'sfComentario',array('size'=>60,'maxlength'=>767)); ?>
-		<?php echo $form->error($model,'sfComentario'); ?>
-	</div>
-
-	<div class="row"> 
-
-		<?php if ( Yii::app()->user->isSuperAdmin) {
-			echo $form->labelEx($model,'sfRespuesta');
-			echo $form->textField($model,'sfRespuesta',array('size'=>60,'maxlength'=>767)); 
-		 	echo $form->error($model,'sfRespuesta'); }?>
-
-
-	</div>
-
-	
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar',array('class' => 'guardar')); ?>
-	</div>
 
 <?php $this->endWidget(); ?>
 

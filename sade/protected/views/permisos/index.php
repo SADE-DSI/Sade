@@ -6,15 +6,10 @@ $this->breadcrumbs=array(
 	'Perfiles',
 );
 
-$this->menu=array(
-	array('label'=>'Prueba'
-					, 'url'=>Yii::app()->user->ui->systemupdateUrl
-					, 'visible'=>Yii::app()->user->isSuperAdmin),
 
+$itemees = Yii::app()->user->ui->adminItems; 
 
-
-	array('label'=>'hrtsrfsrff', 'url'=>array('admin')),
-);
+$this->menu=$itemees;
 ?>
 
 <h1>Perfiles</h1>

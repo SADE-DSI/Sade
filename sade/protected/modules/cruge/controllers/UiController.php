@@ -218,7 +218,7 @@ class UiController extends Controller
         if (!Yii::app()->user->isGuest) {
             $this->_editUserProfile(Yii::app()->user->user, false);
         } else {
-            throw new CrugeException("necesita iniciar sesion para editar su perfil");
+            throw new CrugeException("Necesita iniciar sesion para editar su perfil");
         }
     }
 
@@ -623,7 +623,7 @@ class UiController extends Controller
 
         $aiModel = Yii::app()->user->rbac->getAuthItem($id);
         if ($aiModel == null) {
-            throw new CrugeException("el item de autenticacion senalado no existe");
+            throw new CrugeException("El item de autenticacion señalado no existe");
         }
 
         $editor = new CrugeAuthItemEditor('update');
@@ -675,7 +675,7 @@ class UiController extends Controller
     {
         $aiModel = Yii::app()->user->rbac->getAuthItem($id);
         if ($aiModel == null) {
-            throw new CrugeException("el item de autenticacion senalado no existe");
+            throw new CrugeException("El item de autenticacion señalado no existe");
         }
 
         $editor = new CrugeAuthItemEditor('delete');

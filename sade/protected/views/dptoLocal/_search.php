@@ -28,7 +28,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'dlActivo'); ?>
-		<?php echo $form->checkBox($model, 'dlActivo', array('checked'=>true)); ?>
+		<?php echo $form->dropDownList($model, 'dlActivo', array('1'=>' ', "Si"=>'Si', 'No'=>'No')); ?>
 	</div>
 
 	<div class="row buttons">

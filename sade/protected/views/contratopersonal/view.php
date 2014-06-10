@@ -16,11 +16,12 @@ $this->menu=array(
 );
 ?>
 
-<h1>Ver Contrato Personal <?php echo $model->getNombreRut($model->peRut); ?></h1>
+<h1>Contrato Empleado(a) <?php echo $model->getNombre($model->peRut); ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
+		'cpCodigo',
 		'peRut',
 		'cpAFPNombre',
 		'cpAFPMonto',
@@ -31,3 +32,7 @@ $this->menu=array(
 		'cpFechaFin',
 	),
 )); ?>
+
+<div class="row buttons">
+	<?php echo CHtml::link('Ingresar Pago de Sueldo', array('/Sueldopersonal/create', 'id'=>$model->cpCodigo)); ?>
+</div>

@@ -12,6 +12,11 @@
 )); ?>
 
 	<div class="row">
+		<?php echo $form->label($model,'cpCodigo'); ?>
+		<?php echo $form->textField($model,'cpCodigo'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'peRut'); ?>
 		<?php echo $form->textField($model,'peRut',array('size'=>20,'maxlength'=>13)); ?>
 	</div>
@@ -72,4 +77,5 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- search-form -->
+ 
  

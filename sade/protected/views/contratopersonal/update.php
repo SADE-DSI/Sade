@@ -19,4 +19,4 @@ $this->menu=array(
 <h1>Actualizar Contrato Personal <?php echo $model->peRut; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
- 
+  

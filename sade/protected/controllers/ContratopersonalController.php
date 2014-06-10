@@ -71,7 +71,7 @@ class ContratopersonalController extends Controller
 		{
 			$model->attributes=$_POST['Contratopersonal'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->peRut));
+				$this->redirect(array('view','id'=>$model->cpCodigo));
 		}
 
 		$this->render('create',array(
@@ -95,7 +95,7 @@ class ContratopersonalController extends Controller
 		{
 			$model->attributes=$_POST['Contratopersonal'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->peRut));
+				$this->redirect(array('view','id'=>$model->cpCodigo));
 		}
 
 		$this->render('update',array(

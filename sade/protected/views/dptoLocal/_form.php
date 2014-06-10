@@ -40,12 +40,12 @@
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'dlActivo'); ?></td>
-		<td><?php echo $form->checkBox($model, 'dlActivo', array('checked'=>true)); ?></td> 	
+		<td><?php echo $form->dropDownList($model, 'dlActivo', array("Si"=>'Si', 'No'=>'No')); ?></td>
 		<td><?php echo $form->error($model,'dlActivo'); ?></td>
 	</tr>
 	</table>
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar Cambios',array('class' => 'guardar')); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar',array('class' => 'guardar')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

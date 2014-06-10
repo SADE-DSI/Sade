@@ -133,6 +133,10 @@ class Persona extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function getNombresRutEmpleados (){
+		return $this->peRut." (".$this->peNombresApellidos.")";
+	}
 /*
 	public function validateRut($attribute,$params){
 		$rut = $this->peRut;

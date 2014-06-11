@@ -34,7 +34,7 @@ class Reservaespaciocomun extends CActiveRecord
 			array('reFechaInicio, adRut, ecCodigo, reFechaFin', 'required'),
 			array('adRut', 'length', 'max'=>13),
 			array('ecCodigo', 'length', 'max'=>30),
-
+			array('adRut','validateRut'),
 
 			array('reFechaInicio', 'date', 'format'=>'yyyy-M-d'),
 			array('reFechaFin', 'date', 'format'=>'yyyy-M-d'),
@@ -109,5 +109,36 @@ class Reservaespaciocomun extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function validateRut($attribute,$params){
+		$rut = $this->adRut;
+		$suma = "";
+		if(strpos($rut,"-")==false){
+	        $RUT[0] = substr($rut, 0, -1);
+	        $RUT[1] = substr($rut, -1);
+	    }else{
+	        $RUT = explode("-", trim($rut));
+	    }
+	    $elRut = str_replace(".", "", trim($RUT[0]));
+	    $factor = 2;
+	    for($i = strlen($elRut)-1; $i >= 0; $i--):
+	        $factor = $factor > 7 ? 2 : $factor;
+	        $suma += $elRut{$i}*$factor++;
+	    endfor;
+	    $resto = $suma % 11;
+	    $dv = 11 - $resto;
+	    if($dv == 11){
+	        $dv=0;
+	    }else if($dv == 10){
+	        $dv="k";
+	    }else{
+	        $dv=$dv;
+	    }
+	   if($dv == trim(strtolower($RUT[1]))){
+	       return true;
+	   }else{
+	       $this->addError($attribute, 'El rut ingresado NO es válido');
+	   }
 	}
 }

@@ -1,5 +1,5 @@
 <?php
-/* @var $this ReservaespaciocomunController */
+/* @var $this Reservaespaciocomun_residenteController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
@@ -13,7 +13,7 @@ $this->menu=array(
 ?>
 
 <h1>Reserva espacio comun</h1>
-<hr>
+
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',

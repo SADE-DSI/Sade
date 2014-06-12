@@ -1,19 +1,18 @@
 <?php
-/* @var $this ReservaespaciocomunController */
+/* @var $this Reservaespaciocomun_conserjeController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Reservaespaciocomuns',
+	'Reserva espacio comun',
 );
 
 $this->menu=array(
-	array('label'=>'Crear', 'url'=>array('create')),
 	array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 
 <h1>Reserva espacio comun</h1>
-<hr>
+
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',

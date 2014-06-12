@@ -49,10 +49,7 @@
     			
 
     			//leonardo
-				array('label'=>'Perfiles'
-					, 'url'=>array('/permisos/index')
-					, 'visible'=>Yii::app()->user->isSuperAdmin),
-				
+						
 				array('label'=>'Conserjes'
 					, 'url'=>array('/conserjeAdministrador/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
@@ -68,7 +65,9 @@
 					, 'visible'=>!Yii::app()->user->isGuest), 
 				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
 				    , 'visible'=>!Yii::app()->user->isGuest),
-				
+				array('label'=>'Perfiles'
+					, 'url'=>array('/permisos/index')
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
 
 
 				//samuel
@@ -78,8 +77,11 @@
 					, 'visible'=>!Yii::app()->user->isGuest), 
 				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
+				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun_residente/index')
+					, 'visible'=>!Yii::app()->user->isGuest), 
 
-
+				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun_conserje/index')
+					, 'visible'=>!Yii::app()->user->isGuest), 
 				array('label'=>'Login'
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),

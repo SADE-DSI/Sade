@@ -4,13 +4,14 @@
  * This is the model class for table "sueldopersonal".
  *
  * The followings are the available columns in table 'sueldopersonal':
+ * @property integer $spCodigo
+ * @property integer $cpCodigo
  * @property string $spFechaPago
- * @property string $peRut
- * @property string $spOtrosDescuento
- * @property string $spHorasExtra
+ * @property integer $spOtrosDescuentos
+ * @property string $spHorasExtras
  *
  * The followings are the available model relations:
- * @property Contratopersonal $peRut0
+ * @property Contratopersonal $cpCodigo0
  */
 class Sueldopersonal extends CActiveRecord
 {
@@ -30,12 +31,15 @@ class Sueldopersonal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('spFechaPago, peRut', 'required'),
-			array('peRut', 'length', 'max'=>13),
-			array('spOtrosDescuento, spHorasExtra', 'length', 'max'=>10),
+			array('spFechaPago, cpCodigo', 'required'),
+			array('cpCodigo', 'numerical', 'integerOnly'=>true),
+			array('spHorasExtras', 'numerical', 'min'=>0,  'max'=>20),
+			array('spOtrosDescuentos', 'numerical', 'min'=>0,  'max'=>50000, 'integerOnly'=>true),
+			array('spFechaPago', 'safe'),
+			array('spFechaPago', 'date', 'format'=>'yyyy-M-d'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('spFechaPago, peRut, spOtrosDescuento, spHorasExtra', 'safe', 'on'=>'search'),
+			array('spCodigo, cpCodigo, spFechaPago, spOtrosDescuentos, spHorasExtras', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -47,7 +51,7 @@ class Sueldopersonal extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'peRut0' => array(self::BELONGS_TO, 'Contratopersonal', 'peRut'),
+			'cpCodigo0' => array(self::BELONGS_TO, 'Contratopersonal', 'cpCodigo'),
 		);
 	}
 
@@ -57,10 +61,16 @@ class Sueldopersonal extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'spCodigo' => 'Código Sueldo',
+			'cpCodigo' => 'Código Contrato',
 			'spFechaPago' => 'Fecha De Pago',
-			'peRut' => 'Rut Empleado',
-			'spOtrosDescuento' => 'Otros Descuentos',
-			'spHorasExtra' => 'Horas Extra',
+			'spOtrosDescuentos' => 'Otros Descuentos',
+			'spHorasExtras' => 'Horas Extras',
+			'spSueldoLiquido' => 'Sueldo Líquido',	
+			'cpSueldoBruto' => 'Sueldo Bruto',
+			'cpDctoAFP' => 'Descuento AFP',
+			'cpDctoIsapre' => 'Descuento Isapre',
+			'cpHoraExtra' => 'Valor Hora Extra',
 		);
 	}
 
@@ -82,10 +92,11 @@ class Sueldopersonal extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
+		$criteria->compare('spCodigo',$this->spCodigo);
+		$criteria->compare('cpCodigo',$this->cpCodigo);
 		$criteria->compare('spFechaPago',$this->spFechaPago,true);
-		$criteria->compare('peRut',$this->peRut,true);
-		$criteria->compare('spOtrosDescuento',$this->spOtrosDescuento,true);
-		$criteria->compare('spHorasExtra',$this->spHorasExtra,true);
+		$criteria->compare('spOtrosDescuentos',$this->spOtrosDescuentos);
+		$criteria->compare('spHorasExtras',$this->spHorasExtras,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -101,5 +112,31 @@ class Sueldopersonal extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function getNombre ($codigoContrato){
+		$modelCodigoContrato = Contratopersonal::model()->findByPk($codigoContrato);
+		if($modelCodigoContrato===null)
+			throw new CHttpException(404,'La pagina solicitada No existe.');	
+		else{
+  			$peRut = $modelCodigoContrato->peRut;
+  			$peNombreApellidos = $modelCodigoContrato->getNombre($peRut);
+  			return $peNombreApellidos;
+  		}
+	}
+
+	public function getSueldoLiquido ($cpCodigo, $spCodigo){
+		$modelCP = Contratopersonal::model()->findByPk($cpCodigo);
+		return $modelCP->cpSueldoBruto + ($modelCP->cpValorHoraExtra * $this->spHorasExtras)
+								- $modelCP->cpAFPMonto - $modelCP->cpPrevisionMonto - $this->spOtrosDescuentos;
+	}
+
+	public function getDatosSueldo ($cpCodigo, $dato){
+		$modelCP = Contratopersonal::model()->findByPk($cpCodigo);
+		if($modelCP===null)
+			throw new CHttpException(404,'La pagina solicitada No existe.');	
+		else if ($modelCP->$dato===null)
+			throw new CHttpException(404,'El dato solicitado No existe.');
+		return $modelCP->$dato;
 	}
 }

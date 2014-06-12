@@ -35,5 +35,5 @@ $this->menu=array(
 )); ?>
 
 <div class="row buttons">
-	<?php echo CHtml::link('Ingresar Pago de Sueldo', array('/Sueldopersonal/create', 'id'=>$model->cpCodigo)); ?>
+	<?php echo CHtml::link('Ingresar Pago de Sueldo', array('/Sueldopersonal/create', 'cpCodigo'=>$model->cpCodigo)); ?>
 </div>

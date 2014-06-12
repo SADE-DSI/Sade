@@ -170,9 +170,4 @@ class CompromisopagoController extends Controller
 			Yii::app()->end();
 		}
 	}
-
-	public function actionPdf()
-	 {
-	$this->renderPartial('pdf');
-	 }
 }

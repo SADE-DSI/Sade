@@ -36,7 +36,7 @@ class DptolocalController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin'),
+				'actions'=>array('admin','pdf'),
 				'users'=>array('admin'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -174,4 +174,9 @@ class DptolocalController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+	public function actionPdf($id)
+	 {
+	$this->renderPartial('pdf');
+	 }
 }

@@ -51,6 +51,15 @@ or <b>=</b>) en la primera fila de cada columna en la cual desea realizar la com
 		'dlActivo',
 		array(
 			'class'=>'CButtonColumn',
+			'template' => '{view} {update} {delete} {pdf}',
+			 'buttons'=>array(
+			 	'pdf' => array(
+			 		'label'=>'Generar PDF', 
+			 		'url'=>"CHtml::normalizeUrl(array('pdf', 'id'=>\$data->dlDireccion))",
+			 		'imageUrl'=>Yii::app()->request->baseUrl.'/images/pdf_icon.png', 
+			 	'	options' => array('class'=>'pdf'),
+   					),
+ 			),
 		),
 	),
 )); ?>

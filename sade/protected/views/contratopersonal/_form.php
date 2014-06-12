@@ -57,6 +57,12 @@
 	</tr>
 
 	<tr>
+		<td><?php echo $form->labelEx($model,'cpValorHoraExtra'); ?></td>
+		<td><?php echo $form->textField($model,'cpValorHoraExtra', array('size'=>30)); ?></td>
+		<td><?php echo $form->error($model,'cpValorHoraExtra'); ?></td>
+	</tr>
+
+	<tr>
 		<td><?php echo $form->labelEx($model,'cpFechaInicio'); ?></td>
 		<td><?php $this->widget("zii.widgets.jui.CJuiDatePicker", array(
 							'attribute'=>'cpFechaInicio', 

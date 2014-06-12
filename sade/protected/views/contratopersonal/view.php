@@ -10,8 +10,8 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Listar Contrato Personal', 'url'=>array('index')),
 	array('label'=>'Crear Contrato Personal', 'url'=>array('create')),
-	array('label'=>'Actualizar Contrato Personal', 'url'=>array('update', 'id'=>$model->peRut)),
-	array('label'=>'Borrar Personal', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->peRut),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Actualizar Contrato Personal', 'url'=>array('update', 'id'=>$model->cpCodigo)),
+	array('label'=>'Borrar Personal', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->cpCodigo),'confirm'=>'¿Está seguro que desea borrar este dato?')),
 	array('label'=>'Administrar Contrato Personal', 'url'=>array('admin')),
 );
 ?>
@@ -30,6 +30,7 @@ $this->menu=array(
 		'cpSueldoBruto',
 		'cpFechaInicio',
 		'cpFechaFin',
+		'cpValorHoraExtra',
 	),
 )); ?>
 

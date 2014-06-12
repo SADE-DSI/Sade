@@ -47,6 +47,11 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'cpValorHoraExtra'); ?>
+		<?php echo $form->textField($model,'cpValorHoraExtra'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'cpFechaInicio'); ?>
 		<?php $this->widget("zii.widgets.jui.CJuiDatePicker", array(
 							'attribute'=>'cpFechaInicio', 

@@ -71,7 +71,7 @@ class SueldopersonalController extends Controller
 		{
 			$model->attributes=$_POST['Sueldopersonal'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->peRut));
+				$this->redirect(array('view','id'=>$model->spCodigo));
 		}
 
 		$this->render('create',array(
@@ -95,7 +95,7 @@ class SueldopersonalController extends Controller
 		{
 			$model->attributes=$_POST['Sueldopersonal'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->peRut));
+				$this->redirect(array('view','id'=>$model->spCodigo));
 		}
 
 		$this->render('update',array(

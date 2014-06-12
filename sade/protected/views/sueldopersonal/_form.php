@@ -15,14 +15,15 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
+	<p class="note">Campos Con <span class="required">*</span> son obligatorios.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php #echo $form->errorSummary($model); ?>
+
 	<table class="items">
 	<tr>
-		<td><?php echo $form->labelEx($model,'peRut'); ?></td>
-		<td><?php echo $form->textField($model,'peRut',array('size'=>20,'maxlength'=>13)); ?></td>
-		<td><?php echo $form->error($model,'peRut'); ?></td>
+		<td><?php echo $form->labelEx($model,'cpCodigo'); ?></td>
+		<td><?php echo $form->textField($model,'cpCodigo', array('size'=>20,'maxlength'=>20)); ?></td>
+		<td><?php echo $form->error($model,'cpCodigo'); ?></td>
 	</tr>
 
 	<tr>
@@ -37,17 +38,16 @@
 						)); ?></td>
 		<td><?php echo $form->error($model,'spFechaPago'); ?></td>
 	</tr>
-
 	<tr>
-		<td><?php echo $form->labelEx($model,'spOtrosDescuento'); ?></td>
-		<td><?php echo $form->textField($model,'spOtrosDescuento',array('size'=>20,'maxlength'=>10)); ?></td>
-		<td><?php echo $form->error($model,'spOtrosDescuento'); ?></td>
+		<td><?php echo $form->labelEx($model,'spOtrosDescuentos'); ?></td>
+		<td><?php echo $form->textField($model,'spOtrosDescuentos', array('size'=>20,'maxlength'=>20)); ?></td>
+		<td><?php echo $form->error($model,'spOtrosDescuentos'); ?></td>
 	</tr>
 
 	<tr>
-		<td><?php echo $form->labelEx($model,'spHorasExtra'); ?></td>
-		<td><?php echo $form->textField($model,'spHorasExtra',array('size'=>20,'maxlength'=>10)); ?></td>
-		<td><?php echo $form->error($model,'spHorasExtra'); ?></td>
+		<td><?php echo $form->labelEx($model,'spHorasExtras'); ?></td>
+		<td><?php echo $form->textField($model,'spHorasExtras', array('size'=>20,'maxlength'=>20)); ?></td>
+		<td><?php echo $form->error($model,'spHorasExtras'); ?></td>
 	</tr>
 	</table>
 	<div class="row buttons">

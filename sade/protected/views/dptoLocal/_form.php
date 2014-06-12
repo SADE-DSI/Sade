@@ -17,7 +17,7 @@
 
 	<p class="note">Campos Con <span class="required">*</span> son obligatorios.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php #echo $form->errorSummary($model); ?>
 
 	<table class="items">
 	<tr>

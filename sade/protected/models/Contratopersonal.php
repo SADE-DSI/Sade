@@ -41,6 +41,7 @@ class Contratopersonal extends CActiveRecord
 			array('cpSueldoBruto', 'numerical', 'integerOnly'=>true, 'min'=>156770, 'max'=>5000000),
 			array('cpPrevisionMonto', 'numerical', 'integerOnly'=>true, 'min'=>10974, 'max'=>500000),
 			array('cpAFPMonto', 'numerical', 'integerOnly'=>true, 'min'=>15677, 'max'=>700000),
+			array('cpValorHoraExtra', 'numerical', 'integerOnly'=>true, 'min'=>0),
 			array('peRut','exist','allowEmpty'=>true, 'attributeName'=>'peRut', 'className' => 'persona'),
 			array('peRut', 'length', 'max'=>13),
 			array('cpAFPNombre, cpPrevisionNombre', 'length', 'max'=>20),
@@ -48,7 +49,7 @@ class Contratopersonal extends CActiveRecord
 			array('cpFechaInicio, cpFechaFin', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('cpCodigo, peRut, cpAFPNombre, cpAFPMonto, cpPrevisionNombre, cpPrevisionMonto, cpSueldoBruto, cpFechaInicio, cpFechaFin', 'safe', 'on'=>'search'),
+			array('cpCodigo, peRut, cpAFPNombre, cpAFPMonto, cpPrevisionNombre, cpPrevisionMonto, cpSueldoBruto, cpFechaInicio, cpFechaFin, cpValorHoraExtra', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -80,6 +81,7 @@ class Contratopersonal extends CActiveRecord
 			'cpSueldoBruto' => 'Sueldo Bruto',
 			'cpFechaInicio' => 'Fecha Inicio',
 			'cpFechaFin' => 'Fecha Fin',
+			'cpValorHoraExtra' => 'Valor Hora Extra',
 		);
 	}
 
@@ -110,6 +112,7 @@ class Contratopersonal extends CActiveRecord
 		$criteria->compare('cpSueldoBruto',$this->cpSueldoBruto);
 		$criteria->compare('cpFechaInicio',$this->cpFechaInicio,true);
 		$criteria->compare('cpFechaFin',$this->cpFechaFin,true);
+		$criteria->compare('cpValorHoraExtra',$this->cpValorHoraExtra,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -133,9 +136,6 @@ class Contratopersonal extends CActiveRecord
 			throw new CHttpException(404,'La pagina solicitada No existe.');	
 		else
   			return $model->peNombresApellidos;
-		$post=Persona::model()->findByPk($peRut, "peRut", "peNombresApellidos");
-		
-		// CHtml::listData(Persona::model()->findByPk($peRut), "peRut", "peNombresApellidos");
 	}
 
 	public function getNombresEmpleados (){

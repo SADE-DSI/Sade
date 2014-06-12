@@ -44,6 +44,10 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cpSueldoBruto')); ?>:</b>
 	<?php echo CHtml::encode($data->cpSueldoBruto); ?>
 	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('cpValorHoraExtra')); ?>:</b>
+	<?php echo CHtml::encode($data->cpValorHoraExtra); ?>
+	<br />
 	*/ ?>
 
 </div>

@@ -177,6 +177,80 @@ class DptolocalController extends Controller
 
 	public function actionPdf($id)
 	 {
-	$this->renderPartial('pdf');
+	 	ob_clean();
+ $html2pdfPath = Yii::getPathOfAlias('application.extensions.tcpdf');
+  require_once($html2pdfPath.'\tcpdf\tcpdf.php');
+
+
+  		$mes = date("m");
+  		$fecha = date("d/m/Y");
+
+        $pdf = new TCPDF();
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('SADE');
+        $pdf->SetTitle('Informe de Gastos Mensuales');
+       // $pdf->SetSubject('TCPDF Tutorial');
+      //  $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+        $pdf->SetHeaderData('', 60, 'Informe de Gastos Mensuales', 'Para el mes '.$mes);
+        $pdf->setHeaderFont(Array('helvetica', '', 12));
+        $pdf->setFooterFont(Array('helvetica', '', 8));
+        $pdf->SetMargins(15, 18, 15);
+        $pdf->SetHeaderMargin(5);
+        $pdf->SetFooterMargin(10);
+        $pdf->SetAutoPageBreak(TRUE, 0);
+        $pdf->SetFont('dejavusans', '', 7);
+        $pdf->AddPage();
+        $pdf->SetFillColor(255, 0, 0);
+        $pdf->SetTextColor(0);
+        $pdf->SetDrawColor(0, 0, 0);
+        $pdf->SetLineWidth(0.3);
+        $pdf->SetFont('');
+        $pdf->writeHTML('Informe generado el '.$fecha);
+        $pdf->ln(5);
+        // Header
+        $tbl_header = '<table border="1">';
+        $tbl_footer = '</table>';
+        // Data        
+        $tbl = '';
+        $sql = "select * from compromisopago where month(cpFechaRealPago)='$mes'";
+        $data = Yii::app()->db->createCommand($sql)->queryAll(); 
+    
+   $tbl .= '<tr>' .
+   					'<td>' . 'Descripción' . '</td>' .
+                    '<td>' . 'Número de Boleta' .'</td>' .
+                    '<td>' .'Monto' . '</td>' .
+                    '<td>' .'Fecha de Pago' . '</td>'.
+                    '<td>' .'Observación' . '</td>'.
+                    '</tr>'; 
+                    
+
+
+        for ($i = 0; $i < count($data); $i++) {
+            $tbl .= '<tr>' .
+                    '<td>' . $data[$i]['cpDescripcion'] . '</td>' .
+                    '<td>' . $data[$i]['cpNumeroBoleta'] . '</td>' .
+                    '<td>' . $data[$i]['cpMonto'] . '</td>' .
+                    '<td>' . $data[$i]['cpFechaRealPago'] . '</td>' .
+                    '<td>' . $data[$i]['cpObs'] . '</td>' .
+                    '</tr>';
+        }
+
+        $sql2 = "select * from dptolocal where dlActivo='Si'";
+        $data2 = Yii::app()->db->createCommand($sql2)->queryAll();
+        $dptos = count($data2); 
+
+        $pdf->writeHTML($tbl_header . $tbl . $tbl_footer, true, false, false, false, '');
+
+        $sql3 = "select sum(cpMonto) as total from compromisopago where month(cpFechaRealPago)='$mes'";
+        $data3 = Yii::app()->db->createCommand($sql3)->queryAll();
+        $total = $data3[0]['total'];
+        $pdf->writeHTML('El monto total de gastos es = $'.$total);
+
+        $gastos = ceil($total/$dptos);
+
+        $pdf->writeHTML('El valor a pagar por el dpto '.$id.' es = $'  .$gastos);
+       
+        $pdf->Output("Informe de Gastos.pdf", "I");
+        Yii::app()->end();
 	 }
 }

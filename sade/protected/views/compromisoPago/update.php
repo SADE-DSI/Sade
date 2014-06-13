@@ -9,10 +9,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar compromisos de pago', 'url'=>array('index')),
-	array('label'=>'Crear compromiso de pago', 'url'=>array('create')),
-	array('label'=>'Ver Compromisos de pago', 'url'=>array('view', 'id'=>$model->cpId)),
-	array('label'=>'Administrar compromisos de pago', 'url'=>array('admin')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Ver', 'url'=>array('view', 'id'=>$model->cpId)),
+	array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 

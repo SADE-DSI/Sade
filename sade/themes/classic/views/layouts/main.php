@@ -46,7 +46,10 @@
 					, 'visible'=>!Yii::app()->user->isGuest),
     			array('label'=>'Dpto/Locales', 'url'=>array('/Dptolocal/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
-    			
+    			array('label'=>'Visitas', 'url'=>array('/Visita/index')
+					, 'visible'=>!Yii::app()->user->isGuest),
+    			array('label'=>'Datos Visitas', 'url'=>array('/Visitadpto/index')
+					, 'visible'=>!Yii::app()->user->isGuest),
 
     			//leonardo
 						

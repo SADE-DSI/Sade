@@ -64,7 +64,7 @@ class Visitadpto extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'vdCodigo' => 'Vd Codigo',
+			'vdCodigo' => 'Código Visita',
 			'viRut' => 'Rut Visita',
 			'dlDireccion' => 'Dirección',
 			'vdFechaIngreso' => 'Fecha Ingreso',

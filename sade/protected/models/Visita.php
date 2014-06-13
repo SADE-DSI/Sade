@@ -30,6 +30,7 @@ class Visita extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('viRut', 'required'),
+			array('viRut', 'unique'),
 			array('viRut', 'length', 'max'=>13),
 			array('viNombresApellidos', 'length', 'max'=>40),
 			array('viObs', 'length', 'max'=>255),

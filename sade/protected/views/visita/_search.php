@@ -13,7 +13,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'viRut'); ?>
-		<?php echo $form->textField($model,'viRut',array('size'=>13,'maxlength'=>13)); ?>
+		<?php echo $form->textField($model,'viRut',array('size'=>40,'maxlength'=>13)); ?>
 	</div>
 
 	<div class="row">
@@ -23,11 +23,11 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'viObs'); ?>
-		<?php echo $form->textField($model,'viObs',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'viObs',array('size'=>40,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?php echo CHtml::submitButton('Buscar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

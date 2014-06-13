@@ -3,12 +3,12 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Visitas',
+	'Datos Visitas',
 );
 
 $this->menu=array(
-	array('label'=>'Create Visita', 'url'=>array('create')),
-	array('label'=>'Manage Visita', 'url'=>array('admin')),
+	array('label'=>'Crear Visita', 'url'=>array('create')),
+	array('label'=>'Administrar Visita', 'url'=>array('admin')),
 );
 ?>
 

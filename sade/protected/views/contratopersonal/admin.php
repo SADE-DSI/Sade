@@ -59,7 +59,7 @@ o <b>=</b>) en la primera fila de cada columna en la cual desea realizar la comp
 		'cpFechaFin',
 		
 		array(
-			'class'=>'CButtonColumn',
+			'class'=>'CButtonColumn2',
 		),
 	),
 )); ?>

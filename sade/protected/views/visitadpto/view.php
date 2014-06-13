@@ -11,12 +11,13 @@ $this->menu=array(
 	array('label'=>'Listar Visita', 'url'=>array('index')),
 	array('label'=>'Crear Visita', 'url'=>array('create')),
 	array('label'=>'Actualizar Visita', 'url'=>array('update', 'id'=>$model->vdCodigo)),
-	array('label'=>'Borrar Visita', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->vdCodigo),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Borrar Visita', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->vdCodigo),'confirm'=>'¿Está seguro que desea eliminar esta Visita?')),
 	array('label'=>'Administrar Visita', 'url'=>array('admin')),
+	array('label'=>'Registrar Salida Visita', 'url'=>array('salida', 'id'=>$model->vdCodigo)),
 );
 ?>
 
-<h1>View Visitadpto #<?php echo $model->vdCodigo; ?></h1>
+<h1>Ver Visita <?php echo $model->vdCodigo; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

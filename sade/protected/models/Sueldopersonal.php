@@ -32,6 +32,7 @@ class Sueldopersonal extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('spFechaPago, cpCodigo', 'required'),
+			array('cpCodigo', 'validarClaveForanea'),
 			array('cpCodigo', 'numerical', 'integerOnly'=>true),
 			array('spHorasExtras', 'numerical', 'min'=>0,  'max'=>20),
 			array('spOtrosDescuentos', 'numerical', 'min'=>0,  'max'=>50000, 'integerOnly'=>true),
@@ -41,6 +42,12 @@ class Sueldopersonal extends CActiveRecord
 			// @todo Please remove those attributes that should not be searched.
 			array('spCodigo, cpCodigo, spFechaPago, spOtrosDescuentos, spHorasExtras', 'safe', 'on'=>'search'),
 		);
+	}
+
+	public function validarClaveForanea ($attribute, $param){
+		$modelCP = Contratopersonal::model()->findByPk($this->$attribute);
+		if($modelCP===null)
+			$this->addError($attribute, 'Este Contrato No se encuentra Registrado en nuestra Base de Datos.');			
 	}
 
 	/**
@@ -134,7 +141,7 @@ class Sueldopersonal extends CActiveRecord
 	public function getDatosSueldo ($cpCodigo, $dato){
 		$modelCP = Contratopersonal::model()->findByPk($cpCodigo);
 		if($modelCP===null)
-			throw new CHttpException(404,'La pagina solicitada No existe.');	
+			throw new CHttpException(404,'La página solicitada No existe.');	
 		else if ($modelCP->$dato===null)
 			throw new CHttpException(404,'El dato solicitado No existe.');
 		return $modelCP->$dato;

@@ -35,6 +35,7 @@ class Visitadpto extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('viRut', 'required'),
+			array('viRut', 'validarClaveForanea'),
 			array('viRut, caRut', 'length', 'max'=>13),
 			array('dlDireccion', 'length', 'max'=>767),
 			array('vdFechaIngreso, vdFechaSalida', 'safe'),
@@ -44,6 +45,11 @@ class Visitadpto extends CActiveRecord
 		);
 	}
 
+	public function validarClaveForanea ($attribute, $param){
+		$modelVisita = Visita::model()->findByPk($this->$attribute);
+		if($modelVisita===null)
+			$this->addError($attribute, 'Esta Visita No se encuentra Registrada en nuestra Base de Datos.');			
+	}
 	/**
 	 * @return array relational rules.
 	 */

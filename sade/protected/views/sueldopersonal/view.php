@@ -1,6 +1,7 @@
 <?php
 /* @var $this SueldopersonalController */
 /* @var $model Sueldopersonal */
+/* @var $modelCP Sueldopersonal */
 
 $this->breadcrumbs=array(
 	'Sueldo Personal'=>array('index'),
@@ -19,7 +20,7 @@ $this->menu=array(
 <h1>Ver Sueldo <?php echo $model->getNombre($model->cpCodigo).' '.$model->spFechaPago; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
+	'data'=>$model, 
 	'attributes'=>array(
 		array('label'=>'Nombre Empleado',
 			'type'=>'text',

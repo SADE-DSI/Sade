@@ -39,7 +39,7 @@ class Persona extends CActiveRecord
 		return array(
 			array('peNombresApellidos, peEmail, peTipo', 'required'),
 			array('peNombresApellidos', 'length', 'max'=>80),
-			array('peNombresApellidos','match','pattern'=>'/^[a-zA-Z\s]{3,80}$/',
+			array('peNombresApellidos','match','pattern'=>'/^([a-zA-Zñáéíóú\s]{3,80})$/',
               	 'message'=>CrugeTranslator::t("El nombre/apellido no es válido")),
 			array('peEmail', 'length', 'max'=>30),
 			array('peEmail', 'email'),

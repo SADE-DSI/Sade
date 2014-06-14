@@ -45,6 +45,8 @@
 				    , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Visitas', 'url'=>array('/visita/index')
 				    , 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Gastos Dpto/Local', 'url'=>array('/Deptolocal/viewResidentes')
+				    , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Login'
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),

@@ -1,26 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "resideDpto".
+ * This is the model class for table "residedpto".
  *
- * The followings are the available columns in table 'resideDpto':
+ * The followings are the available columns in table 'residedpto':
+ * @property string $rdFechaInicio
  * @property string $adRut
  * @property string $dlDireccion
- * @property string $fechaInicio
- * @property string $fechaFin
+ * @property string $rdFechaFin
  *
  * The followings are the available model relations:
- * @property DptoLocal $dlDireccion0
- * @property ArrendatarioDueno $adRut0
+ * @property Dptolocal $dlDireccion0
+ * @property Arrendatariodueno $adRut0
  */
-class ResideDpto extends CActiveRecord
+class Residedpto extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'resideDpto';
+		return 'residedpto';
 	}
 
 	/**
@@ -31,13 +31,13 @@ class ResideDpto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('adRut, dlDireccion, fechaInicio', 'required'),
+			array('rdFechaInicio, adRut, dlDireccion', 'required'),
 			array('adRut', 'length', 'max'=>13),
-			array('dlDireccion', 'length', 'max'=>100),
-			array('fechaFin', 'safe'),
+			array('dlDireccion', 'length', 'max'=>767),
+			array('rdFechaFin', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('adRut, dlDireccion, fechaInicio, fechaFin', 'safe', 'on'=>'search'),
+			array('rdFechaInicio, adRut, dlDireccion, rdFechaFin', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,8 +49,8 @@ class ResideDpto extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'dlDireccion0' => array(self::BELONGS_TO, 'DptoLocal', 'dlDireccion'),
-			'adRut0' => array(self::BELONGS_TO, 'ArrendatarioDueno', 'adRut'),
+			'dlDireccion0' => array(self::BELONGS_TO, 'Dptolocal', 'dlDireccion'),
+			'adRut0' => array(self::BELONGS_TO, 'Arrendatariodueno', 'adRut'),
 		);
 	}
 
@@ -60,10 +60,10 @@ class ResideDpto extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'rdFechaInicio' => 'Rd Fecha Inicio',
 			'adRut' => 'Ad Rut',
 			'dlDireccion' => 'Dl Direccion',
-			'fechaInicio' => 'Fecha Inicio',
-			'fechaFin' => 'Fecha Fin',
+			'rdFechaFin' => 'Rd Fecha Fin',
 		);
 	}
 
@@ -85,10 +85,10 @@ class ResideDpto extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
+		$criteria->compare('rdFechaInicio',$this->rdFechaInicio,true);
 		$criteria->compare('adRut',$this->adRut,true);
 		$criteria->compare('dlDireccion',$this->dlDireccion,true);
-		$criteria->compare('fechaInicio',$this->fechaInicio,true);
-		$criteria->compare('fechaFin',$this->fechaFin,true);
+		$criteria->compare('rdFechaFin',$this->rdFechaFin,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -99,7 +99,7 @@ class ResideDpto extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return ResideDpto the static model class
+	 * @return Residedpto the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

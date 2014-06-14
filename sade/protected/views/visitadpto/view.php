@@ -13,7 +13,7 @@ $this->menu=array(
 	array('label'=>'Actualizar Visita', 'url'=>array('update', 'id'=>$model->vdCodigo)),
 	array('label'=>'Borrar Visita', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->vdCodigo),'confirm'=>'¿Está seguro que desea eliminar esta Visita?')),
 	array('label'=>'Administrar Visita', 'url'=>array('admin')),
-	array('label'=>'Registrar Salida Visita', 'url'=>array('salida', 'id'=>$model->vdCodigo)),
+	array('label'=>'Registrar Salida Visita', 'url'=>array('salidaVisita', 'id'=>$model->vdCodigo)),
 );
 ?>
 

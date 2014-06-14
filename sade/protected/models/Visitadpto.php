@@ -35,7 +35,9 @@ class Visitadpto extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('viRut', 'required'),
-			array('viRut', 'validarClaveForanea'),
+		//	array('viRut', 'validarClaveForanea'),
+			array('viRut','exist','allowEmpty'=>true, 'attributeName'=>'viRut', 'className' => 'visita', 'message'=>
+					'El {attribute}  No se encuentra en Nuestra base de Datos.'),
 			array('viRut, caRut', 'length', 'max'=>13),
 			array('dlDireccion', 'length', 'max'=>767),
 			array('vdFechaIngreso, vdFechaSalida', 'safe'),

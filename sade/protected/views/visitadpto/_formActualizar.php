@@ -37,12 +37,6 @@
 		<?php echo $form->error($model,'caRut'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'vdFechaSalida'); ?>
-		<?php echo $form->textField($model,'vdFechaSalida'); ?>
-		<?php echo $form->error($model,'vdFechaSalida'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>

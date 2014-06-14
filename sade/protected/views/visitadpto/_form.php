@@ -37,11 +37,11 @@
 		<?php echo $form->error($model,'caRut'); ?>
 	</div>
 
-	<div class="row">
+	<?php /*<div class="row">
 		<?php echo $form->labelEx($model,'vdFechaSalida'); ?>
 		<?php echo $form->textField($model,'vdFechaSalida'); ?>
 		<?php echo $form->error($model,'vdFechaSalida'); ?>
-	</div>
+	</div> */ ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($visita,'viNombresApellidos'); ?>

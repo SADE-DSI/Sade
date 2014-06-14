@@ -32,7 +32,7 @@ class VisitadptoController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'salidaVisita'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -122,6 +122,23 @@ class VisitadptoController extends Controller
 			'model'=>$model,
 		));
 	}
+
+	public function actionSalidaVisita($id)
+	{
+		date_default_timezone_set('America/Mendoza');	
+		$model=$this->loadModel($id);
+
+		if($model->vdFechaSalida=='0000-00-00 00:00:00' || $model->vdFechaSalida==''){
+			$model->vdFechaSalida = date('Y-m-d h:i:s');
+			$model->save();
+
+			$this->render('view',array(
+				'model'=>$this->loadModel($id), 
+			));
+		}
+		else throw new CHttpException('La salida de esta visita ya estaba registrada');
+	}
+
 
 	/**
 	 * Deletes a particular model.

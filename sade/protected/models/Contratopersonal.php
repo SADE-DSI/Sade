@@ -44,6 +44,7 @@ class Contratopersonal extends CActiveRecord
 			array('cpValorHoraExtra', 'numerical', 'integerOnly'=>true, 'min'=>0),
 			array('peRut','exist','allowEmpty'=>true, 'attributeName'=>'peRut', 'className' => 'persona'),
 			array('peRut', 'length', 'max'=>13),
+			array('peRut, cpFechaInicio', 'claveUnica'),
 			array('cpAFPNombre, cpPrevisionNombre', 'length', 'max'=>20),
 			array('cpFechaInicio, cpFechaFin', 'date', 'format'=>'yyyy-M-d'),
 			array('cpFechaInicio, cpFechaFin', 'safe'),
@@ -52,6 +53,12 @@ class Contratopersonal extends CActiveRecord
 			array('cpCodigo, peRut, cpAFPNombre, cpAFPMonto, cpPrevisionNombre, cpPrevisionMonto, cpSueldoBruto, cpFechaInicio, cpFechaFin, cpValorHoraExtra', 'safe', 'on'=>'search'),
 		);
 	}
+
+	public function claveUnica ($attribute, $param){
+		if ($attribute=>'cpFechaInicio'=='')
+		$this->addError($attribute, '=)');	
+	}
+
 
 	/**
 	 * @return array relational rules.

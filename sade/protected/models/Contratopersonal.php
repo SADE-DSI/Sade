@@ -41,12 +41,16 @@ class Contratopersonal extends CActiveRecord
 			array('cpSueldoBruto', 'numerical', 'integerOnly'=>true, 'min'=>156770, 'max'=>5000000),
 			array('cpPrevisionMonto', 'numerical', 'integerOnly'=>true, 'min'=>10974, 'max'=>500000),
 			array('cpAFPMonto', 'numerical', 'integerOnly'=>true, 'min'=>15677, 'max'=>700000),
+			array('cpAFPMonto', 'AFPmenorAlSueldo'),
+			array('cpPrevisionMonto', 'IsapreMenorAlSueldo'),
 			array('cpValorHoraExtra', 'numerical', 'integerOnly'=>true, 'min'=>0),
 			array('peRut','exist','allowEmpty'=>true, 'attributeName'=>'peRut', 'className' => 'persona'),
 			array('peRut', 'length', 'max'=>13),
-			array('peRut, cpFechaInicio', 'claveUnica'),
+			array('cpFechaInicio', 'claveUnica'),
+			array('peRut', 'contratoVigente'),
 			array('cpAFPNombre, cpPrevisionNombre', 'length', 'max'=>20),
 			array('cpFechaInicio, cpFechaFin', 'date', 'format'=>'yyyy-M-d'),
+			array('cpFechaFin', 'validarFechas'),
 			array('cpFechaInicio, cpFechaFin', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -55,11 +59,42 @@ class Contratopersonal extends CActiveRecord
 	}
 
 	public function claveUnica ($attribute, $param){
-		if ($attribute=>'cpFechaInicio'=='')
-		$this->addError($attribute, '=)');	
+		if ($this->cpCodigo=='')
+			$contrato = $this->find('cpFechaInicio=:cpFechaInicio AND peRut=:peRut', 
+						array(':cpFechaInicio'=>$this->cpFechaInicio, ':peRut'=>$this->peRut));
+		else 
+			$contrato = $this->find('cpCodigo<>:cpCodigo AND cpFechaInicio=:cpFechaInicio AND peRut=:peRut', 
+						array(':cpCodigo'=>$this->cpCodigo, ':cpFechaInicio'=>$this->cpFechaInicio, ':peRut'=>$this->peRut));
+		if (isset($contrato))
+			$this->addError($attribute, 'Esta Persona Ya Tiene Un contrato Ingresado en Esta fecha.');	
 	}
 
+	public function contratoVigente ($attribute, $param){
+		if ($this->cpCodigo=='')
+			$contrato = $this->find('peRut=:peRut AND cpFechaFin is null', 
+						array(':peRut'=>$this->peRut));
+		else
+			$contrato = $this->find('cpCodigo<>:cpCodigo AND peRut=:peRut AND cpFechaFin is null', 
+						array(':cpCodigo'=>$this->cpCodigo, ':peRut'=>$this->peRut));
+		if (isset($contrato))
+			$this->addError($attribute, 'Esta Persona Tiene Un contrato Vigente.');
+	}
 
+	public function validarFechas ($attribute, $param){
+		if($this->cpFechaFin != '')
+			if($this->cpFechaInicio >= $this->cpFechaFin)
+				$this->addError($attribute, 'La Fecha de Fin Del Contrato debe ser mayor a la Fecha de Inicio');
+	}
+
+	public function AFPmenorAlSueldo ($attribute, $param){
+		if (($this->cpSueldoBruto/2) < $this->cpAFPMonto )
+		$this->addError($attribute, 'El Monto de AFP No puede superar la mitad del sueldo bruto');
+	}
+
+	public function isapreMenorAlSueldo ($attribute, $param){
+		if (($this->cpSueldoBruto/2) < $this->cpPrevisionMonto )
+		$this->addError($attribute, 'El Monto de Isapre No puede superar la mitad del sueldo bruto');
+	}
 	/**
 	 * @return array relational rules.
 	 */

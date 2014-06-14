@@ -5,7 +5,7 @@
 $this->breadcrumbs=array(
 	'Contrato Personal'=>array('index'),
 	$model->peRut=>array('view','id'=>$model->peRut),
-	'Actualizar',
+	'Finiquitar',
 );
 
 $this->menu=array(
@@ -15,7 +15,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Actualizar Contrato Personal <?php echo $model->peRut; ?></h1>
+<h1>Finiquitar a <?php echo $model->peRut; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_formFiniquito', array('model'=>$model)); ?>
   

@@ -12,10 +12,11 @@ $this->menu=array(
 	array('label'=>'Crear Contrato Personal', 'url'=>array('create')),
 	array('label'=>'Actualizar Contrato Personal', 'url'=>array('update', 'id'=>$model->cpCodigo)),
 	array('label'=>'Administrar Contrato Personal', 'url'=>array('admin')),
+	array('label'=>'Finiquitar Contrato Personal', 'url'=>array('finiquitar', 'id'=>$model->cpCodigo)),
 );
 ?>
 
-<h1>Contrato Empleado(a) <?php echo $model->getNombre($model->peRut); ?></h1>
+<h1>Contrato De <?php echo $model->getNombre($model->peRut); ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

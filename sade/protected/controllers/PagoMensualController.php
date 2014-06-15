@@ -36,7 +36,7 @@ class PagomensualController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','pdf',),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -170,4 +170,129 @@ class PagomensualController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+		public function actionPdf()
+	 {
+	 	ob_clean();
+ 		$html2pdfPath = Yii::getPathOfAlias('application.extensions.tcpdf');
+  		require_once($html2pdfPath.'\tcpdf\tcpdf.php');
+
+
+  		$mes = date("m");
+  		$meses = array('Diciembre','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
+  		$año = date("Y");
+  		$fecha = date("d/m/Y");
+  		$fecha2= date("Y/m/d");
+  		$color = 0;
+
+        $pdf = new TCPDF();
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('SADE');
+        $pdf->SetTitle('Informe de Pagos Mensuales');
+       // $pdf->SetSubject('TCPDF Tutorial');
+      //  $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+        $pdf->SetHeaderData('', 60, 'Informe de Pagos Mensuales', 'Correspondiente a '.$meses[$mes-1]. ' de ' .$año);
+        $pdf->setHeaderFont(Array('helvetica', '', 12));
+        $pdf->setFooterFont(Array('helvetica', '', 8));
+        $pdf->SetMargins(15, 18, 15);
+        $pdf->SetHeaderMargin(5);
+        $pdf->SetFooterMargin(10);
+        $pdf->SetAutoPageBreak(TRUE, 0);
+        $pdf->SetFont('dejavusans', '', 7);
+        $pdf->AddPage();
+        //$pdf->Image('/images/logo.jpeg', 218 ,4, 26 , 18,'JPEG','http://www.ubiobio.cl');
+        $pdf->SetFillColor(242, 226, 140);
+        $pdf->SetTextColor(0);
+        $pdf->SetDrawColor(10,63,122);
+        $pdf->SetLineWidth(0);
+        $pdf->SetFont('','',10);
+        $pdf->writeHTML('Informe generado el '.$fecha);
+        $pdf->ln(5);
+        // Data        
+        $sql = "select * from pagomensual where month(pmFechaRealPago)='$mes'-1
+         and year(pmFechaRealPago)='$año'";
+        $data = Yii::app()->db->createCommand($sql)->queryAll(); 
+   
+   		$pdf->SetFont('','',12);
+   		$pdf->Cell(0.1,5,'');
+   		$pdf->Cell(180,1,'Gastos Comunes Pagados',1,1,'C',true);   
+
+   		$pdf->SetFont('','',10);
+		$pdf->Cell(0.1,5,'');		
+		$pdf->Cell(25,5,'Dirección',1,'','C',true);
+		$pdf->Cell(35,5,'Fecha Vencimiento',1,'','C',true);
+		$pdf->Cell(25,5,'Monto $',1,'','C',true);
+		$pdf->Cell(35,5,'Fecha de Pago',1,'','C',true);
+		$pdf->Cell(60,5,'Observación',1,1,'C',true);              
+
+		$pdf->SetFont('','',8);
+
+        for ($i = 0; $i < count($data); $i++) {
+			if ($color==0){
+				$pdf->SetFillColor(230,230,230);
+				$color++;
+			}
+			else{
+				$pdf->SetFillColor(205,205,205);
+				$color--;
+			}
+        	$pdf->Cell(0.1,5,'');		
+			$pdf->Cell(25,5,$data[$i]['dlDireccion'],1,'','C',true);
+			$pdf->Cell(35,5,$data[$i]['pmFechaPago'],1,'','C',true);
+			$pdf->Cell(25,5,$data[$i]['pmMonto'],1,'','C',true);
+			$pdf->Cell(35,5,$data[$i]['pmFechaRealPago'],1,'','C',true);
+			$pdf->Cell(60,5,$data[$i]['pmObs'],1,1,'C',true);    
+        }
+        	$pdf->ln(8);
+
+        $sql2 = "select * from residedpto R where rdFechaInicio<='$fecha2' and rdFechaFin>='$fecha2'
+        		 and not exists( select * from pagomensual P where R.dlDireccion=P.dlDireccion)";
+       	$data2 = Yii::app()->db->createCommand($sql2)->queryAll();
+        $dptos = count($data2); 
+
+       	$pdf->SetFillColor(242, 226, 140);
+        $pdf->SetFont('','',12);
+   		$pdf->Cell(50,5,'');
+   		$pdf->Cell(85,1,'Gastos Comunes sin Pagar',1,1,'C',true);   
+
+   		$pdf->SetFont('','',10);
+		$pdf->Cell(50,5,'');		
+		$pdf->Cell(25,5,'Dirección',1,'','C',true);
+		$pdf->Cell(35,5,'Fecha Vencimiento',1,'','C',true);
+		$pdf->Cell(25,5,'Monto $',1,1,'C',true);
+
+		for ($i = 0; $i < count($data2); $i++) {
+			if ($color==0){
+				$pdf->SetFillColor(230,230,230);
+				$color++;
+			}
+			else{
+				$pdf->SetFillColor(205,205,205);
+				$color--;
+			}
+        	$pdf->Cell(50,5,'');
+        	$pdf->SetTextColor(180,0,0);		
+			$pdf->Cell(25,5,$data[$i]['dlDireccion'],1,'','C',true);
+			$pdf->Cell(35,5,$data[$i]['pmFechaPago'],1,'','C',true);
+			$pdf->Cell(25,5,$data[$i]['pmMonto'],1,1,'C',true); 
+        }
+        $pdf->ln(5);
+
+        $pdf->SetFont('','',11);
+
+        $sql3 = "select sum(pmMonto) as total from pagomensual P where not exists( select * from  residedpto R 
+        			where R.dlDireccion=P.dlDireccion and rdFechaInicio<='$fecha2' and rdFechaFin>='$fecha2')";
+        $data3 = Yii::app()->db->createCommand($sql3)->queryAll();
+        $total = $data3[0]['total'];
+        $pdf->writeHTML('* El monto total de gastos comunes sin pagar es = $'.$total);
+        $pdf->ln(1);
+/*
+        $gastos = ceil($total/$dptos);
+        $pdf->SetTextColor(180,0,0);
+        $pdf->writeHTML('* El valor a pagar para el dpto '.$id.' es = $'  .$gastos);
+*/
+        $pdf->Output("Informe de Gastos.pdf", "I");
+        Yii::app()->end();
+	 }
+
 }

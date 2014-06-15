@@ -85,7 +85,7 @@
 
 				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun_conserje/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
-				array('label'=>'Gastos Dpto/Local', 'url'=>array('/Deptolocal/viewResidentes')
+				array('label'=>'Gastos Dpto/Local', 'url'=>array('/deptolocalresidentes/viewResidentes')
 				    , 'visible'=>!Yii::app()->user->isGuest),
 
 				array('label'=>'Login'

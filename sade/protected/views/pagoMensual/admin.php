@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Listar pagos mensuales', 'url'=>array('index')),
 	array('label'=>'Crear pago mensual', 'url'=>array('create')),
+	array('label'=>'VER INFORME PDF', 'url'=>array('pdf')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

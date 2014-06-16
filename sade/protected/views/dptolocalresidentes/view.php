@@ -8,7 +8,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'VER INFORME GASTOS COMUNES', 'url'=>array('pdf', 'id'=>$model->dlDireccion)),
+	array('label'=>'Listar Dpto/Local', 'url'=>array('index')),
+	array('label'=>'Crear Dpto/Local', 'url'=>array('create')),
+	array('label'=>'Actualizar Dpto/Local', 'url'=>array('update', 'id'=>$model->dlDireccion)),
+	array('label'=>'Administrar Dpto/Local', 'url'=>array('admin')),
 );
 ?>
 

@@ -1,6 +1,6 @@
 <?php
 
-class DptolocalController extends Controller
+class DptolocalresidentesController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -28,19 +28,15 @@ class DptolocalController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array(),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array(),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','pdf','fecha'),
-				'users'=>array('admin'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('pdf'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -175,6 +171,7 @@ class DptolocalController extends Controller
 		}
 	}
 
+
 	public function actionPdf()
 	 {
 	 	ob_clean();
@@ -261,13 +258,5 @@ class DptolocalController extends Controller
         $pdf->Output("Informe de Gastos.pdf", "I");
         Yii::app()->end();
 	 }
-
-	public function actionFecha()
-	{
-				$fecha;
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
 
 }

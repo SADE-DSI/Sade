@@ -7,10 +7,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Crear Dpto/Local', 'url'=>array('create')),
-	array('label'=>'Administrar Dpto/Local', 'url'=>array('admin')),
- array('label'=>'Informe de Gastos Comunes Actual', 'url'=>array('pdf')),
-  array('label'=>'Informe de Gastos Comunes Por Fecha', 'url'=>array('fecha')),
+	array('label'=>'VER INFORME PDF DE LOS GASTOS COMUNES', 'url'=>array('pdf')),
 );
 ?>
 

@@ -28,14 +28,12 @@ $this->menu=array(
 
 <h1>Ver Sugerencia # <?php echo $model->sgId; ?></h1>
 
-<?php
-
-$this->widget('zii.widgets.CDetailView', array(
+<?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'sgId',
 		'sfComentario',
 		'sfRespuesta',
-		//'sfLeido',
+		'sfLeido',
 	),
 )); ?>

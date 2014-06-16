@@ -32,7 +32,12 @@
 
 	<!-- <div class="menu"> -->
 		<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
+
+
+		<?php
+//Yii::app()->user->um->getFieldValue(Yi::app()->user->id,'nombre');  
+
+		 $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				
 				//array('label'=>'Inicio', 'url'=>array('/site/index')),

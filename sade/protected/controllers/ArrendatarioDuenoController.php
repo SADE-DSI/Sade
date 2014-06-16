@@ -81,8 +81,9 @@ class ArrendatarioduenoController extends Controller
 			$valid = $persona->validate() && $valid;
 
 		$values = array(
-  			'username' => $persona->peNombresApellidos,
+  			'username' => $model->adRut,
   			'email' => $persona->peEmail,
+  			'nombre'=> $persona->peNombresApellidos,
   			);
 
   			$usuario = Yii::app()->user->um->createNewUser($values,$model->adClave);

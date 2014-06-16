@@ -29,7 +29,7 @@ class SugerenciasController extends Controller
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
-				'users'=>array('*'),		
+				'users'=>array('@'),		
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('update'),
@@ -95,7 +95,7 @@ class SugerenciasController extends Controller
 		if(isset($_POST['Sugerencias']))
 		{
 			$model->attributes=$_POST['Sugerencias'];
-			if($model->sfRespuesta != null) $model->sfLeido ='1'; 
+			if($model->sfRespuesta != null) $model->sfLeido =1; 
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->sgId));
 		}

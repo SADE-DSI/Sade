@@ -33,18 +33,17 @@
 	</div>
 
 	<br>
-	<div class="row buttons">
-		<?php Yii::app()->user->ui->tbutton(CrugeTranslator::t('logon', "Iniciar seccion")); ?>
-		<br>
-		<br>
-		<br>
-		<br>
-		<?php echo Yii::app()->user->ui->passwordRecoveryLink; ?>
-		<br>
-				<?php
-			if(Yii::app()->user->um->getDefaultSystem()->getn('registrationonlogin')===1)
-				echo Yii::app()->user->ui->registrationLink;
+	<div class="row buttons" id="botonIngreso">
+		<?php Yii::app()->user->ui->tbutton(CrugeTranslator::t('logon', "Iniciar seccion")); 
+				
+
 		?>
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 	</div>
 
 	<?php

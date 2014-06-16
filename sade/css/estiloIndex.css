@@ -46,4 +46,16 @@ a {
  
  
 .pieDePagina {clear: both;}
- 
+
+
+
+div#botonIngreso input{
+	 
+     background:rgba(242, 226, 140, 0.92);
+     font-size:12px;
+     font-family:Verdana,Helvetica;
+     width:120px;
+     height: 30px;
+     font-weight: bold;
+     
+} 

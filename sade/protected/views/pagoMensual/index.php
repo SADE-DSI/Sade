@@ -3,12 +3,12 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Pagomensuals',
+	'Pagos',
 );
 
 $this->menu=array(
-	array('label'=>'Crear pago mensual', 'url'=>array('create')),
-	array('label'=>'Administrar pagos mensuales', 'url'=>array('admin')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 

@@ -3,8 +3,8 @@
 /* @var $model Compromisopago */
 
 $this->breadcrumbs=array(
-	'Compromisopagos'=>array('index'),
-	'Create',
+	'Gastos comunes'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Crear compromiso de pago</h1>
+<h1>Crear gasto común</h1>
 <hr>
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

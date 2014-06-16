@@ -3,7 +3,7 @@
 /* @var $model Compromisopago */
 
 $this->breadcrumbs=array(
-	'Compromisopagos'=>array('index'),
+	'Gastos comunes'=>array('index'),
 	$model->cpId=>array('view','id'=>$model->cpId),
 	'Update',
 );
@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Actualizar compromiso de pago <?php echo $model->cpId; ?></h1>
+<h1>Actualizar gasto común <?php echo $model->cpId; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

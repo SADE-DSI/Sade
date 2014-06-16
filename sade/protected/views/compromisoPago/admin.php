@@ -3,8 +3,8 @@
 /* @var $model Compromisopago */
 
 $this->breadcrumbs=array(
-	'Compromisopagos'=>array('index'),
-	'Manage',
+	'Gastos comunes'=>array('index'),
+	'Administrar',
 );
 
 $this->menu=array(
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Administrar compromisos de pagos</h1>
+<h1>Administrar gastos comunes</h1>
 <hr>
 
 

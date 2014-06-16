@@ -3,7 +3,7 @@
 /* @var $model Reservaespaciocomun */
 
 $this->breadcrumbs=array(
-	'Reservaespaciocomuns'=>array('index'),
+	'Reserva espacio comun'=>array('index'),
 	$model->reFechaInicio=>array('view','id'=>$model->reFechaInicio),
 	'Update',
 );

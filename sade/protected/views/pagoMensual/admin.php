@@ -3,13 +3,13 @@
 /* @var $model Pagomensual */
 
 $this->breadcrumbs=array(
-	'Pagomensuals'=>array('index'),
-	'Manage',
+	'Pagos'=>array('index'),
+	'Administrar',
 );
 
 $this->menu=array(
-	array('label'=>'Listar pagos mensuales', 'url'=>array('index')),
-	array('label'=>'Crear pago mensual', 'url'=>array('create')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
 	array('label'=>'VER INFORME PDF', 'url'=>array('pdf')),
 );
 

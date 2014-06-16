@@ -3,16 +3,16 @@
 /* @var $model Pagomensual */
 
 $this->breadcrumbs=array(
-	'Pagomensuals'=>array('index'),
+	'Pagos'=>array('index'),
 	$model->pmCodigo=>array('view','id'=>$model->pmCodigo),
 	'Update',
 );
 
 $this->menu=array(
-	array('label'=>'Listar pagos mensuales', 'url'=>array('index')),
-	array('label'=>'Crear pagos mensuales', 'url'=>array('create')),
-	array('label'=>'Ver pagos mensuales', 'url'=>array('view', 'id'=>$model->pmCodigo)),
-	array('label'=>'Administrar pagos mensuales', 'url'=>array('admin')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Ver', 'url'=>array('view', 'id'=>$model->pmCodigo)),
+	array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 

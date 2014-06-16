@@ -3,7 +3,7 @@
 /* @var $model Compromisopago */
 
 $this->breadcrumbs=array(
-	'Compromisopagos'=>array('index'),
+	'Gastos comunes'=>array('index'),
 	$model->cpId,
 );
 
@@ -18,7 +18,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Compromiso de pago #<?php echo $model->cpId; ?></h1>
+<h1>Gasto común #<?php echo $model->cpId; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

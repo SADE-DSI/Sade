@@ -3,8 +3,8 @@
 /* @var $model Reservaespaciocomun */
 
 $this->breadcrumbs=array(
-	'Reservaespaciocomuns'=>array('index'),
-	'Manage',
+	'Reserva espacio común'=>array('index'),
+	'Administrar',
 );
 
 

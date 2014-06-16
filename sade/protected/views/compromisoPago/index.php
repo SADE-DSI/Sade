@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Compromisopagos',
+	'Gastos comunes',
 );
 
 $this->menu=array(

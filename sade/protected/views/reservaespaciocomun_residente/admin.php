@@ -3,8 +3,8 @@
 /* @var $model Reservaespaciocomun */
 
 $this->breadcrumbs=array(
-	'Reservaespaciocomuns'=>array('index'),
-	'Manage',
+	'Reserva espacio común'=>array('index'),
+	'Administrar',
 );
 
 $this->menu=array(
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Reserva espacio comun </h1>
+<h1>Reserva espacio común</h1>
 
 
 <?php echo CHtml::link('Busqueda avanzada','#',array('class'=>'search-button')); ?>

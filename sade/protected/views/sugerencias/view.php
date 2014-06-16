@@ -7,23 +7,30 @@ $this->breadcrumbs=array(
 	$model->sgId,
 );
 
+ if (Yii::app()->user->checkAccess('Conserje')) {
 
-if ( Yii::app()->user->isSuperAdmin) {
-		$opc = array('label'=>'Responder Sugerencia', 'url'=>array('update', 'id'=>$model->sgId)); }
-		else {
-	$opc = array('label'=>'Modificar Sugerencia', 'url'=>array('update', 'id'=>$model->sgId)); }
-
-
+	$this->menu=array(
+	array('label'=>'Lista de Sugerencias', 'url'=>array('index')),);
+ }
 
 
-$this->menu=array(
+if (Yii::app()->user->checkAccess('Residente')) {
+
+	$this->menu=array(
 	array('label'=>'Lista de Sugerencias', 'url'=>array('index')),
 	array('label'=>'Crear Sugerencia', 'url'=>array('create')),
-	$opc, 
+	array('label'=>'Modificar Sugerencia', 'url'=>array('update', 'id'=>$model->sgId)), );
 
+ }
+
+if ( Yii::app()->user->isSuperAdmin) {
+$this->menu=array(
+	array('label'=>'Lista de Sugerencias', 'url'=>array('index')),
+	array('label'=>'Responder Sugerencia', 'url'=>array('update', 'id'=>$model->sgId)),
 	array('label'=>'Eliminar Sugerencias', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->sgId),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Administrar Sugerencias', 'url'=>array('admin')),
-);
+	array('label'=>'Administrar Sugerencias', 'url'=>array('admin')), );
+ }
+
 ?>
 
 <h1>Ver Sugerencia # <?php echo $model->sgId; ?></h1>

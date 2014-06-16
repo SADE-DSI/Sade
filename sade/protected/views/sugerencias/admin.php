@@ -9,7 +9,6 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Lista de Sugerencias', 'url'=>array('index')),
-	array('label'=>'Crear Sugerencia', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

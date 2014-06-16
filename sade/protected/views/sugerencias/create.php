@@ -7,10 +7,19 @@ $this->breadcrumbs=array(
 	'Crear',
 );
 
+if (Yii::app()->user->checkAccess('Residente')) {
+
+	$this->menu=array(
+	array('label'=>'Lista de Sugerencias', 'url'=>array('index')), );
+ }
+
+if ( Yii::app()->user->isSuperAdmin) {
 $this->menu=array(
 	array('label'=>'Lista de Sugerencias', 'url'=>array('index')),
-	array('label'=>'Administrar Sugerencias', 'url'=>array('admin')),
-);
+	array('label'=>'Administrar Sugerencias', 'url'=>array('admin')), );
+ }
+
+
 ?>
 
 <h1>Crear Sugerencia</h1>

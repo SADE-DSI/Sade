@@ -73,7 +73,7 @@
 
 				//diego
 				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')
-					, 'visible'=>Yii::app()->user->isSuperAdmin), 
+					, 'visible'=>(Yii::app()->user->isSuperAdmin || Yii::app()->user->checkAccess('Conserje')) ), 
 				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
 				    , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Perfiles'
@@ -83,7 +83,10 @@
 
 				//samuel
 				array('label'=>'Gastos Comunes', 'url'=>array('/compromisoPago/index')
-				    , 'visible'=>!Yii::app()->user->isGuest),
+				    , 'visible'=>Yii::app()->user->isSuperAdmin),
+				array('label'=>'Gastos Comunes', 'url'=>array('/compromisoPago_otros/index')
+				    , 'visible'=>(Yii::app()->user->checkAccess('Conserje') || Yii::app()->user->checkAccess('Residente'))),
+				
 				array('label'=>'Pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
 				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun/index')

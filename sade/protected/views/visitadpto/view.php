@@ -33,5 +33,6 @@ $this->menu=array(
 		'dlDireccion',
 		'vdFechaIngreso',	
 		'vdFechaSalida',
+		'caRut'
 	),
 )); ?>

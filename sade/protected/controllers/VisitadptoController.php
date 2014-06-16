@@ -67,6 +67,7 @@ class VisitadptoController extends Controller
 		
 		date_default_timezone_set('America/Mendoza');		
 		$model->vdFechaIngreso = date('Y-m-d h:i:s');
+		$model->caRut = Yii::app()->user->name;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);

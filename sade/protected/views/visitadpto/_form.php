@@ -33,9 +33,9 @@
 	</tr>
 
 	<tr>
-		<td><?php echo $form->labelEx($model,'caRut'); ?></td>
+		<td><?php /*echo $form->labelEx($model,'caRut'); ?></td>
 		<td><?php echo $form->textField($model,'caRut',array('size'=>13,'maxlength'=>13)); ?></td>
-		<td><?php echo $form->error($model,'caRut'); ?></td>
+		<td><?php echo $form->error($model,'caRut'); */?></td>
 	</tr>
 
 	<?php /*<tr>

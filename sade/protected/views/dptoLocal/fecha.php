@@ -3,7 +3,7 @@
 /* @var $model Dptolocal */
 
 $this->breadcrumbs=array(
-	'Dpto/Local'=>array('index'),
+	'Informe Dpto/Local'=>array('index'),
 	'Crear',
 );
 
@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Crear Dpto/Local</h1>
+<h1>Generar Informe de Gastos Comunes por Fecha</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_formFecha', array('model'=>$model)); ?>

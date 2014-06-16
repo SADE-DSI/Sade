@@ -23,7 +23,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'dlDireccion'); ?>
-		<?php echo $form->textField($model,'dlDireccion',array('size'=>60,'maxlength'=>767)); ?>
+		<?php echo $form->dropDownList($model, 'dlDireccion', array(' ', $model->getDirecciones())); ?>
 	</div>
 
 	<div class="row">

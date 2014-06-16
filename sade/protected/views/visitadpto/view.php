@@ -24,9 +24,14 @@ $this->menu=array(
 	'attributes'=>array(
 		'vdCodigo',
 		'viRut',
+		array('label'=>'Nombre Visita',
+			'type'=>'text',
+			'value'=>$model->getDatoVisita($model->viRut, 'viNombresApellidos')),
+		array('label'=>'Observación Visita',
+			'type'=>'text',
+			'value'=>$model->getDatoVisita($model->viRut, 'viObs')),
 		'dlDireccion',
-		'vdFechaIngreso',
-		'caRut',
+		'vdFechaIngreso',	
 		'vdFechaSalida',
 	),
 )); ?>

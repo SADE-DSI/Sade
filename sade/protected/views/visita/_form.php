@@ -17,26 +17,27 @@
 
 	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php #echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'viRut'); ?>
-		<?php echo $form->textField($model,'viRut',array('size'=>13,'maxlength'=>13)); ?>
-		<?php echo $form->error($model,'viRut'); ?>
-	</div>
+	<table class="items">
+	<tr>
+		<td><?php echo $form->labelEx($model,'viRut'); ?></td>
+		<td><?php echo $form->textField($model,'viRut',array('size'=>13,'maxlength'=>13)); ?></td>
+		<td><?php echo $form->error($model,'viRut'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'viNombresApellidos'); ?>
-		<?php echo $form->textField($model,'viNombresApellidos',array('size'=>40,'maxlength'=>40)); ?>
-		<?php echo $form->error($model,'viNombresApellidos'); ?>
-	</div>
+	<tr>
+		<td><?php echo $form->labelEx($model,'viNombresApellidos'); ?></td>
+		<td><?php echo $form->textField($model,'viNombresApellidos',array('size'=>60,'maxlength'=>40)); ?></td>
+		<td><?php echo $form->error($model,'viNombresApellidos'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'viObs'); ?>
-		<?php echo $form->textField($model,'viObs',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'viObs'); ?>
-	</div>
-
+	<tr>
+		<td><?php echo $form->labelEx($model,'viObs'); ?></td>
+		<td><?php echo $form->textField($model,'viObs',array('size'=>60,'maxlength'=>255)); ?></td>
+		<td><?php echo $form->error($model,'viObs'); ?></td>
+	</tr>
+	</table>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>

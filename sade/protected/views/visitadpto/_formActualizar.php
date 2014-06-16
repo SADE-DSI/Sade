@@ -19,24 +19,26 @@
 
 	<?php #echo $form->errorSummary($model, $visita); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'viRut'); ?>
-		<?php echo $form->textField($model,'viRut',array('size'=>13,'maxlength'=>13)); ?>
-		<?php echo $form->error($model,'viRut'); ?>
-	</div>
+	<table class="items">
+	<tr>
+		<td><?php echo $form->labelEx($model,'viRut'); ?></td>
+		<td><?php echo $form->textField($model,'viRut',array('size'=>13,'maxlength'=>13)); ?></td>
+		<td><?php echo $form->error($model,'viRut'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'dlDireccion'); ?>
-		<?php echo $form->dropDownList($model, 'dlDireccion', $model->getDirecciones()); ?>
-		<?php echo $form->error($model,'dlDireccion'); ?>
-	</div>
+	<tr>
+		<td><?php echo $form->labelEx($model,'dlDireccion'); ?></td>
+		<td><?php echo $form->dropDownList($model, 'dlDireccion', $model->getDirecciones()); ?></td>
+		<td><?php echo $form->error($model,'dlDireccion'); ?></td>
+	</tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'caRut'); ?>
-		<?php echo $form->textField($model,'caRut',array('size'=>13,'maxlength'=>13)); ?>
-		<?php echo $form->error($model,'caRut'); ?>
-	</div>
-
+	<tr>
+		<td><?php echo $form->labelEx($model,'caRut'); ?></td>
+		<td><?php echo $form->textField($model,'caRut',array('size'=>13,'maxlength'=>13)); ?></td>
+		<td><?php echo $form->error($model,'caRut'); ?></td>
+	</tr>
+	</table>
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>

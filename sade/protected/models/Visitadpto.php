@@ -38,6 +38,8 @@ class Visitadpto extends CActiveRecord
 		//	array('viRut', 'validarClaveForanea'),
 			array('viRut','exist','allowEmpty'=>true, 'attributeName'=>'viRut', 'className' => 'visita', 'message'=>
 					'El {attribute}  No se encuentra en Nuestra base de Datos.'),
+			array('viRut','match','pattern'=>'/^[0-9.kK-]{11,12}$/',
+              'message'=>CrugeTranslator::t("El rut debe tener el formato '11.111.111-1'")),	
 			array('viRut, caRut', 'length', 'max'=>13),
 			array('dlDireccion', 'length', 'max'=>767),
 			array('vdFechaIngreso, vdFechaSalida', 'safe'),
@@ -137,5 +139,14 @@ class Visitadpto extends CActiveRecord
 	//Esta funcion retorna todas las direcciones presentes en la tabla dptoLocal
 	public function getDirecciones (){
 		return CHtml::listData(Dptolocal::model()->findAll(), "dlDireccion", "dlDireccion");
+	}
+
+	public function getDatoVisita ($viRut, $dato){
+		$visita = Visita::model()->findByPk($viRut);
+		if($visita===null)
+			throw new CHttpException(404,'La página solicitada No existe.');	
+		else if ($visita->$dato===null)
+			return '';
+		return $visita->$dato;
 	}
 }

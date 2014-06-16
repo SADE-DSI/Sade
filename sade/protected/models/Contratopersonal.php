@@ -48,6 +48,7 @@ class Contratopersonal extends CActiveRecord
 			array('peRut', 'length', 'max'=>13),
 			array('cpFechaInicio', 'claveUnica'),
 			array('peRut', 'contratoVigente'),
+			array('cpFechaInicio', 'contratoVigenteRango'),
 			array('cpAFPNombre, cpPrevisionNombre', 'length', 'max'=>20),
 			array('cpFechaInicio, cpFechaFin', 'date', 'format'=>'yyyy-M-d'),
 			array('cpFechaFin', 'validarFechas'),
@@ -78,6 +79,17 @@ class Contratopersonal extends CActiveRecord
 						array(':cpCodigo'=>$this->cpCodigo, ':peRut'=>$this->peRut));
 		if (isset($contrato))
 			$this->addError($attribute, 'Esta Persona Tiene Un contrato Vigente.');
+	}
+
+	public function contratoVigenteRango ($attribute, $param){
+		if ($this->cpCodigo=='')
+			$contrato = $this->find('peRut=:peRut AND cpFechaFin>=:actual AND cpFechaInicio<=:actual AND cpFechaFin is not null', 
+						array(':peRut'=>$this->peRut, ':actual'=>$this->cpFechaInicio));
+		else
+			$contrato = $this->find('cpCodigo<>:cpCodigo AND peRut=:peRut AND cpFechaFin is null', 
+						array(':cpCodigo'=>$this->cpCodigo, ':peRut'=>$this->peRut));
+		if (isset($contrato))
+			$this->addError($attribute, 'Esta Persona Tiene Un contrato Vigente En esta Fecha.');
 	}
 
 	public function validarFechas ($attribute, $param){

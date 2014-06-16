@@ -28,7 +28,7 @@ class DptolocalController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','pdf','fecha','pdf2'),
+				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -192,6 +192,7 @@ class DptolocalController extends Controller
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('SADE');
         $pdf->SetTitle('Informe de Gastos Mensuales');
+        $image_file = K_PATH_IMAGES.'logo.jpg';
        // $pdf->SetSubject('TCPDF Tutorial');
       //  $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         $pdf->SetHeaderData('', 60, 'Informe de Gastos Mensuales', 'Correspondiente a '.$meses[$mes-1]. ' de ' .$año);
@@ -253,7 +254,7 @@ class DptolocalController extends Controller
         $total = $data3[0]['total'];
         $pdf->writeHTML('* El monto total de gastos comunes es = $'.$total);
         $pdf->ln(1);
-
+                $pdf->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
         $gastos = ceil($total/$dptos);
         $pdf->SetTextColor(180,0,0);
         $pdf->writeHTML('* El valor a pagar por departamento es = $'  .$gastos);

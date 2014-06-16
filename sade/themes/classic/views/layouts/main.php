@@ -60,13 +60,16 @@
 						
 				array('label'=>'Conserjes'
 					, 'url'=>array('/conserjeAdministrador/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
 				array('label'=>'Usuario'
 					, 'url'=>array('/arrendatarioDueno/index')
-					, 'visible'=>!Yii::app()->user->isGuest),				
+					, 'visible'=>Yii::app()->user->isSuperAdmin),	
+				array('label'=>'Usuario'
+					, 'url'=>array('/arrendatarioDuenoconserje/index')
+					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)),				
 				array('label'=>'Inventarios'
 					, 'url'=>array('/material/index')
-					, 'visible'=>!Yii::app()->user->isGuest),				
+					, 'visible'=>!Yii::app()->user->checkAccess('Residente')),				
 
 				//diego
 				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')

@@ -27,7 +27,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'adRut'); ?>
-		<?php echo $form->textField($model,'adRut',array('size'=>13,'maxlength'=>13)); ?>
+		<?php echo $form->textField($model,'adRut',array('size'=>13,'maxlength'=>13,'value'=>'.Yii::app()->user->name.','readonly'=>'false'))); ?>
 		<?php echo $form->error($model,'adRut'); ?>
 	</div>
 

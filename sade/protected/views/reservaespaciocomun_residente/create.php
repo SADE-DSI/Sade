@@ -14,5 +14,8 @@ $this->menu=array(
 ?>
 
 <h1>Crear</h1>
+<?php  $id=Yii::app()->user->name;
+echo $id;
+?>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

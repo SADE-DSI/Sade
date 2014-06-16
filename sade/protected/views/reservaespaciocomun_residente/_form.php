@@ -42,6 +42,9 @@
 		<?php echo $form->textField($model,'reFechaFin'); ?>
 		<?php echo $form->error($model,'reFechaFin'); ?>
 	</div>
+	
+
+	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

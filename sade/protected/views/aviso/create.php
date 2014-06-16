@@ -7,10 +7,21 @@ $this->breadcrumbs=array(
 	'Crear',
 );
 
-$this->menu=array(
+if (Yii::app()->user->checkAccess('Conserje')) {
+
+	$this->menu=array(
+	array('label'=>'Lista de Sugerencias', 'url'=>array('index')), );
+ }
+
+if ( Yii::app()->user->isSuperAdmin) {
+	$this->menu=array(
 	array('label'=>'Lista De Avisos', 'url'=>array('index')),
 	array('label'=>'Administrar Aviso', 'url'=>array('admin')),
 );
+}
+
+
+
 ?>
 
 <h1>Crear Aviso</h1>

@@ -46,15 +46,15 @@
     			array('label'=>'Avisos', 'url'=>array('/aviso/index')
 					, 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Contrato Personal', 'url'=>array('/ContratoPersonal/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
 				array('label'=>'Sueldo Personal', 'url'=>array('/Sueldopersonal/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
     			array('label'=>'Dpto/Locales', 'url'=>array('/Dptolocal/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
+					, 'visible'=>(Yii::app()->user->checkAccess('Residente') || Yii::app()->user->checkAccess('Conserje')) ),
     			array('label'=>'Visitas', 'url'=>array('/Visitadpto/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
+					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
     			array('label'=>'Datos Visitas', 'url'=>array('/Visita/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
+					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
 
     			//leonardo
 						

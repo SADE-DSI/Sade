@@ -7,12 +7,15 @@ $this->breadcrumbs=array(
 	$model->dlDireccion,
 );
 
+
+
+if (Yii::app()->user->isSuperAdmin){
 $this->menu=array(
 	array('label'=>'Listar Dpto/Local', 'url'=>array('index')),
 	array('label'=>'Crear Dpto/Local', 'url'=>array('create')),
 	array('label'=>'Actualizar Dpto/Local', 'url'=>array('update', 'id'=>$model->dlDireccion)),
 	array('label'=>'Administrar Dpto/Local', 'url'=>array('admin')),
-);
+);}
 ?>
 
 <h1>Ver Dpto/Local <?php echo $model->dlDireccion; ?></h1>

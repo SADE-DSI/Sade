@@ -3,13 +3,13 @@
 /* @var $model Reservaespaciocomun */
 
 $this->breadcrumbs=array(
-	'Reservaespaciocomuns'=>array('index'),
-	'Create',
+	'Reserva espacio común'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
 	array('label'=>'Listar', 'url'=>array('index')),
-	array('label'=>'Administrar', 'url'=>array('admin')),
+	//array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 

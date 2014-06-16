@@ -18,4 +18,8 @@ $this->menu=array(
 
 <h1>Responder Sugerencia <?php echo $model->sgId; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php 
+
+if($model->sfRespuesta != null) $model->sfLeido ='1'; 
+
+$this->renderPartial('_form', array('model'=>$model)); ?>

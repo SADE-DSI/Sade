@@ -43,7 +43,7 @@ $('.search-form form').submit(function(){
 		'sgId',
 		'sfComentario',
 		'sfRespuesta',
-		'sfLeido',
+		//'sfLeido',
 		array(
 			'class'=>'CButtonColumn',
 		),

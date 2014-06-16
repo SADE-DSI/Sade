@@ -95,6 +95,7 @@ class SugerenciasController extends Controller
 		if(isset($_POST['Sugerencias']))
 		{
 			$model->attributes=$_POST['Sugerencias'];
+			if($model->sfRespuesta != null) $model->sfLeido ='1'; 
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->sgId));
 		}

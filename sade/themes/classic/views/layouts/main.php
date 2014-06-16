@@ -65,7 +65,7 @@
 
 				//diego
 				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')
-					, 'visible'=>!Yii::app()->user->isGuest), 
+					, 'visible'=>Yii::app()->user->isSuperAdmin), 
 				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
 				    , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Perfiles'
@@ -79,12 +79,13 @@
 				array('label'=>'Pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
 				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun/index')
-					, 'visible'=>!Yii::app()->user->isGuest), 
+					, 'visible'=>Yii::app()->user->isSuperAdmin), 
 				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun_residente/index')
-					, 'visible'=>!Yii::app()->user->isGuest), 
-
+					, 'visible'=>(Yii::app()->user->checkAccess('Residente')&& !Yii::app()->user->isSuperAdmin)  ), 
+	
 				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun_conserje/index')
-					, 'visible'=>!Yii::app()->user->isGuest), 
+					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)    ), 
+
 				array('label'=>'Gastos Dpto/Local', 'url'=>array('/deptolocalresidentes/viewResidentes')
 				    , 'visible'=>!Yii::app()->user->isGuest),
 
@@ -92,7 +93,7 @@
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),
 
-				array('label'=>'Logout ('.Yii::app()->user->name.')'
+				array('label'=>'Logout ('.Yii::app()->user->name.')'	
 					, 'url'=>Yii::app()->user->ui->logoutUrl
 					, 'visible'=>!Yii::app()->user->isGuest),
 

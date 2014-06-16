@@ -11,7 +11,8 @@
 	<br /></td></tr>
 <tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Respuesta')); ?>:</b></td><td><?php echo CHtml::encode($data->sfRespuesta); ?>
 	<br /></td></tr>
-<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Leido')); ?>:</b></td><td><?php echo CHtml::encode($data->sfLeido); ?>
+<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Estado')); ?>:</b></td><td><?php if($data->sfLeido == 0 ) echo 'Enviado';
+																									 else echo 'Respuesto'; ?>
 	<br /></td></tr>
 </table>
 	

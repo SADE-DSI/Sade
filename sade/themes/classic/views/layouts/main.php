@@ -90,6 +90,10 @@
 					, 'visible'=>Yii::app()->user->isSuperAdmin), 
 				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun_residente/index')
 					, 'visible'=>(Yii::app()->user->checkAccess('Residente')&& !Yii::app()->user->isSuperAdmin)  ), 
+
+				array('label'=>'Gastos Comunes', 'url'=>array('/compromisoPago_otros/index')
+				    , 'visible'=>!Yii::app()->user->isGuest),
+				
 	
 				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun_conserje/index')
 					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)    ), 

@@ -34,6 +34,8 @@ class Visita extends CActiveRecord
 			array('viRut', 'length', 'max'=>13),
 			array('viNombresApellidos', 'length', 'max'=>40),
 			array('viObs', 'length', 'max'=>255),
+			array('viNombresApellidos','match', 'not' => true, 'pattern' => '/[^a-zA-Z\sáéíóú]/',
+              'message' => 'Sólo puede contener letras.'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('viRut, viNombresApellidos, viObs', 'safe', 'on'=>'search'),

@@ -27,7 +27,7 @@ if ( Yii::app()->user->isSuperAdmin) {
 $this->menu=array(
 	array('label'=>'Crear Dpto/Local', 'url'=>array('create')),
 	array('label'=>'Administrar Dpto/Local', 'url'=>array('admin')),
- array('label'=>'Informe de Gastos Comunes Actual', 'url'=>array('pdf')),
+ array('label'=>'Informe de Gastos Comunes Actual', 'url'=>array('pdf')),);
 }
 
 

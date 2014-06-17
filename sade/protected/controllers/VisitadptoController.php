@@ -128,14 +128,14 @@ class VisitadptoController extends Controller
 	{
 		date_default_timezone_set('America/Mendoza');	
 		$model=$this->loadModel($id);
+		$model->caRut = Yii::app()->user->name;
 
 		if($model->vdFechaSalida=='0000-00-00 00:00:00' || $model->vdFechaSalida==''){
 			$model->vdFechaSalida = date('Y-m-d h:i:s');
-			$model->save();
-
-			$this->render('view',array(
-				'model'=>$this->loadModel($id), 
-			));
+			if($model->save())
+				$this->render('view',array('model'=>$this->loadModel($id),
+					));
+			else throw new CHttpException('La Salida de la visita no fue registrada');
 		}
 		else throw new CHttpException('La salida de esta visita ya estaba registrada');
 	}

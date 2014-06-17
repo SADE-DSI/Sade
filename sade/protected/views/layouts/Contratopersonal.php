@@ -50,7 +50,6 @@ class Contratopersonal extends CActiveRecord
 			array('peRut', 'contratoVigente'),
 			array('cpFechaInicio', 'contratoVigenteRango'),
 			array('cpAFPNombre, cpPrevisionNombre', 'length', 'max'=>20),
-			array('cpAFPNombre, cpPrevisionNombre','match', 'not' => true, 'pattern' => '/[^a-zA-Z\sáéíóú]/','message' => 'Sólo puede contener letras.'),
 			array('cpFechaInicio, cpFechaFin', 'date', 'format'=>'yyyy-M-d'),
 			array('cpFechaFin', 'validarFechas'),
 			array('cpFechaInicio, cpFechaFin', 'safe'),

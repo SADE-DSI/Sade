@@ -6,10 +6,6 @@ $this->breadcrumbs=array(
 	'Gastos comunes'=>array('index'),
 	$model->cpId,
 );
-
-$this->menu=array(
-		array('label'=>'Administrar', 'url'=>array('admin')),
-	);
 ?>
 
 <h1>Gasto común #<?php echo $model->cpId; ?></h1>

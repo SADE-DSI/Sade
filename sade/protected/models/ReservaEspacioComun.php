@@ -38,7 +38,7 @@ class Reservaespaciocomun extends CActiveRecord
 
 			array('reFechaInicio', 'date', 'format'=>'yyyy-M-d'),
 			array('reFechaFin', 'date', 'format'=>'yyyy-M-d'),
-			
+			array('reFechaFin', 'compare', 'compareAttribute'=>'reFechaInicio','operator'=>'>'),
 
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

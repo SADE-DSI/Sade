@@ -36,13 +36,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'adRut'); ?>
-		<?php echo $form->textField($model,'adRut',array('size'=>13,'maxlength'=>13)); ?>
+		<?php echo $form->dropDownList($model,'adRut',CHtml::listData(Arrendatariodueno::model()->findAll(),"adRut","adRut")); ?>
 		<?php echo $form->error($model,'adRut'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ecCodigo'); ?>
-		<?php echo $form->textField($model,'ecCodigo',array('size'=>30,'maxlength'=>30)); ?>
+		<?php echo $form->dropDownList($model,'ecCodigo',CHtml::listData(Espaciocomun::model()->findAll(),"ecCodigo","ecCodigo")); ?>
 		<?php echo $form->error($model,'ecCodigo'); ?>
 	</div>
 

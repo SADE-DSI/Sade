@@ -88,12 +88,12 @@
 				    , 'visible'=>(!Yii::app()->user->isSuperAdmin && !Yii::app()->user->isGuest)), 	
 				array('label'=>'Pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
-				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun/index')
+				array('label'=>'Reserva espacio común', 'url'=>array('/reservaespaciocomun/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin), 
-				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun_residente/index')
+				array('label'=>'Reserva espacio común', 'url'=>array('/reservaespaciocomun_residente/index')
 					, 'visible'=>(Yii::app()->user->checkAccess('Residente')&& !Yii::app()->user->isSuperAdmin) && !Yii::app()->user->isGuest ),				
 	
-				array('label'=>'Reserva espacio comun', 'url'=>array('/reservaespaciocomun_conserje/index')
+				array('label'=>'Reserva espacio común', 'url'=>array('/reservaespaciocomun_conserje/index')
 					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)    ), 
 
 				array('label'=>'Gastos Dpto/Local', 'url'=>array('/deptolocalresidentes/viewResidentes')

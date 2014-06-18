@@ -100,7 +100,7 @@ background: rgba(183, 188, 189, 0.17);
 			{
 				
 				margin:0;
-				padding-bottom: 8px;
+				padding-bottom: 5px;
 				overflow:hidden;
 				
 
@@ -109,8 +109,9 @@ background: rgba(183, 188, 189, 0.17);
 			#mainmenu ul li a
 			{
 				background-color:transparent;
-				font-size:18px;
+				font-size:16px;
 				text-decoration:none;
+				padding-left: 20px;
 			}
 
 			#mainmenu ul li a:hover, #mainmenu ul li.active a
@@ -259,3 +260,12 @@ background: rgba(183, 188, 189, 0.17);
 	{
 		background: #80CFFF;
 	}
+
+
+
+/*para las categorias en el menu*/
+#mainmenu span{
+	font-size: 20px;
+	color: black;
+	font-weight: bold;
+}

@@ -51,7 +51,8 @@
 
 
 <tr>
-<td><?php echo $form->labelEx($model,'cpDescripcion'); ?></td><td><?php echo $form->textField($model,'cpDescripcion',array('size'=>60,'maxlength'=>255)); ?></td>
+<td><?php echo $form->labelEx($model,'cpDescripcion'); ?></td><td>
+<?php echo $form->dropDownList($model,'cpDescripcion',array('Agua'=>'Agua','Luz'=>'Luz','Mantención'=>'Mantención','Otros'=>'Otros',)); ?></td>
 </tr>
 <tr><td><?php echo $form->error($model,'cpDescripcion'); ?></td></tr>
 

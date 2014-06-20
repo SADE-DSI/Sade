@@ -4,18 +4,18 @@
 
 $this->breadcrumbs=array(
 	'Pagos'=>array('index'),
-	$model->pmCodigo=>array('view','id'=>$model->pmCodigo),
+	$model->pmId=>array('view','id'=>$model->pmId),
 	'Update',
 );
 
 $this->menu=array(
 	array('label'=>'Listar', 'url'=>array('index')),
 	array('label'=>'Crear', 'url'=>array('create')),
-	array('label'=>'Ver', 'url'=>array('view', 'id'=>$model->pmCodigo)),
+	array('label'=>'Ver', 'url'=>array('view', 'id'=>$model->pmId)),
 	array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Actualizar pago mensual <?php echo $model->pmCodigo; ?></h1>
+<h1>Actualizar pago mensual <?php echo $model->pmId; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

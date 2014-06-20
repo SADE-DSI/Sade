@@ -4,13 +4,12 @@
  * This is the model class for table "pagomensual".
  *
  * The followings are the available columns in table 'pagomensual':
- * @property string $pmCodigo
+ * @property string $pmId
  * @property string $dlDireccion
  * @property string $pmFechaPago
  * @property string $pmMonto
  * @property string $pmObs
- * @property string $pmFechaRealPago
- * @property string $pmId
+ * @property string $pmMesAPagar
  *
  * The followings are the available model relations:
  * @property Dptolocal $dlDireccion0
@@ -33,25 +32,23 @@ class Pagomensual extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('dlDireccion, pmFechaPago, pmMonto, pmFechaRealPago', 'required'),
-			array('dlDireccion', 'length', 'max'=>767),
-			array('pmMonto, pmId', 'length', 'max'=>10),
-			array('pmObs', 'length', 'max'=>255),
+			array('dlDireccion, pmFechaPago, pmMonto, pmMesAPagar', 'required'),
+			array('dlDireccion, pmObs', 'length', 'max'=>767),
+			array('pmMonto', 'length', 'max'=>10),
 
+			//validar si existe la direccion
 			array('dlDireccion','exist','allowEmpty' => true, 'attributeName' => 'dlDireccion', 'className' => 'Dptolocal'),
-			//valida si la direccion ingresada esta en la tabla dptolocal
 
+			//validar el formato de las fechas
 			array('pmFechaPago', 'date', 'format'=>'yyyy-M-d'),
-			array('pmFechaRealPago', 'date', 'format'=>'yyyy-M-d'),
-				//valida los formatos de las fechas
+			array('pmMesAPagar', 'date', 'format'=>'yyyy-M-d'),
 
+			//valida el monto que sea positivo y entero
 			array('pmMonto','numerical','integerOnly'=>true,'min'=>1,'tooSmall'=>'No se pueden ingresar menor a 1'),
-				//valida si es un numero
-				//valida si es mayor a 1
 
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('pmCodigo, dlDireccion, pmFechaPago, pmMonto, pmObs, pmFechaRealPago, pmId', 'safe', 'on'=>'search'),
+			array('pmId, dlDireccion, pmFechaPago, pmMonto, pmObs, pmMesAPagar', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,13 +70,12 @@ class Pagomensual extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'pmCodigo' => 'Codigo',
+			'pmId' => 'Pm',
 			'dlDireccion' => 'Direccion',
-			'pmFechaPago' => 'Fecha de pago',
+			'pmFechaPago' => 'Fecha Pago',
 			'pmMonto' => 'Monto',
 			'pmObs' => 'Observaciones',
-			'pmFechaRealPago' => 'Fecha real de pago',
-			'pmId' => 'Identificador',
+			'pmMesAPagar' => 'Mes a pagar',
 		);
 	}
 
@@ -101,13 +97,12 @@ class Pagomensual extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('pmCodigo',$this->pmCodigo,true);
+		$criteria->compare('pmId',$this->pmId,true);
 		$criteria->compare('dlDireccion',$this->dlDireccion,true);
 		$criteria->compare('pmFechaPago',$this->pmFechaPago,true);
 		$criteria->compare('pmMonto',$this->pmMonto,true);
 		$criteria->compare('pmObs',$this->pmObs,true);
-		$criteria->compare('pmFechaRealPago',$this->pmFechaRealPago,true);
-		$criteria->compare('pmId',$this->pmId,true);
+		$criteria->compare('pmMesAPagar',$this->pmMesAPagar,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

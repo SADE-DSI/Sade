@@ -12,8 +12,8 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'pmCodigo'); ?>
-		<?php echo $form->textField($model,'pmCodigo',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->label($model,'pmId'); ?>
+		<?php echo $form->textField($model,'pmId',array('size'=>20,'maxlength'=>20)); ?>
 	</div>
 
 	<div class="row">
@@ -33,17 +33,12 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'pmObs'); ?>
-		<?php echo $form->textField($model,'pmObs',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'pmObs',array('size'=>60,'maxlength'=>767)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'pmFechaRealPago'); ?>
-		<?php echo $form->textField($model,'pmFechaRealPago'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'pmId'); ?>
-		<?php echo $form->textField($model,'pmId',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->label($model,'pmMesAPagar'); ?>
+		<?php echo $form->textField($model,'pmMesAPagar'); ?>
 	</div>
 
 	<div class="row buttons">

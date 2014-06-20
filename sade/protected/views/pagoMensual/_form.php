@@ -28,7 +28,6 @@
 	<div class="row">
 		<?php echo $form->labelEx($model,'pmFechaPago'); ?>
 		<?php echo $form->textField($model,'pmFechaPago', array('value'=>date('Y-m-d'),'readonly'=>'false')); ?>
-	<!-- ingresa la fecha actual y no se puede modificar -->
 		<?php echo $form->error($model,'pmFechaPago'); ?>
 	</div>
 
@@ -40,15 +39,15 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pmObs'); ?>
-		<?php echo $form->textField($model,'pmObs',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'pmObs',array('size'=>60,'maxlength'=>767)); ?>
 		<?php echo $form->error($model,'pmObs'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'pmFechaRealPago'); ?>
+		<?php echo $form->labelEx($model,'pmMesAPagar'); ?>
 		<?php 
 		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
-			"attribute"=>"pmFechaRealPago",
+			"attribute"=>"pmMesAPagar",
 			"model"=>$model,
 			"language"=>"es",
 			"options"=>array(
@@ -57,13 +56,7 @@
 			));
 
 		?>
-		<?php echo $form->error($model,'pmFechaRealPago'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'pmId'); ?>
-		<?php echo $form->textField($model,'pmId',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'pmId'); ?>
+		<?php echo $form->error($model,'pmMesAPagar'); ?>
 	</div>
 
 	<div class="row buttons">

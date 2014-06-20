@@ -3,8 +3,8 @@
 /* @var $model Pagomensual */
 
 $this->breadcrumbs=array(
-	'Pagos'=>array('index'),
-	'Administrar',
+	'Pagomensuals'=>array('index'),
+	'Manage',
 );
 
 $this->menu=array(
@@ -31,7 +31,6 @@ $('.search-form form').submit(function(){
 <hr>
 
 
-
 <?php echo CHtml::link('Busqueda avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
@@ -44,15 +43,11 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'pmCodigo',
 		'dlDireccion',
 		'pmFechaPago',
 		'pmMonto',
 		'pmObs',
-		'pmFechaRealPago',
-		/*
-		'pmId',
-		*/
+		'pmMesAPagar',
 		array(
 			'class'=>'CButtonColumn',
 		),

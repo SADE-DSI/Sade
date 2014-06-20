@@ -3,7 +3,7 @@
 /* @var $model Compromisopago */
 
 $this->breadcrumbs=array(
-	'Gastos comunes'=>array('index'),
+	'Compromisopagos'=>array('index'),
 	$model->cpId=>array('view','id'=>$model->cpId),
 	'Update',
 );

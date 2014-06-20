@@ -5,14 +5,12 @@
  *
  * The followings are the available columns in table 'compromisopago':
  * @property string $cpId
- * @property string $cpCodigo
- * @property string $cpFechaVencimiento
+ * @property string $cpTipo
  * @property string $cpMonto
- * @property string $cpDescripcion
  * @property string $cpFechaIngreso
  * @property string $cpObs
  * @property string $cpNumeroBoleta
- * @property string $cpFechaRealPago
+ * @property string $cpFechaPago
  */
 class Compromisopago extends CActiveRecord
 {
@@ -32,34 +30,21 @@ class Compromisopago extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cpCodigo, cpFechaVencimiento, cpMonto, cpFechaIngreso', 'required'),
-			array('cpCodigo, cpMonto, cpNumeroBoleta', 'length', 'max'=>10),
-			array('cpDescripcion, cpObs', 'length', 'max'=>255),
-			
+			array('cpMonto, cpFechaIngreso, cpTipo, cpFechaPago', 'required'),
+			array('cpTipo, cpObs', 'length', 'max'=>767),
+			array('cpMonto, cpNumeroBoleta', 'length', 'max'=>10),
+			array('cpFechaPago', 'safe'),
 
-			array('cpFechaVencimiento', 'date', 'format'=>'yyyy-M-d'),
-			array('cpFechaIngreso', 'date', 'format'=>'yyyy-M-d'),
-			//valida los formatos de las fechas
-
+			//validar fechas
+			array('cpFechaIngreso', 'date', 'format'=>'yyyy-M-d H:m:s'),
+			array('cpFechaPago', 'date', 'format'=>'yyyy-M-d'),
+			//validadar numeros
 			array('cpMonto','numerical','integerOnly'=>true,'min'=>1,'tooSmall'=>'No se pueden ingresar menor a 1'),
-			//valida si es un numero
-			//valida si es mayor a 1
-
-			array('cpFechaRealPago', 'safe'),
-
-
-
-
-
-
-
-
-
-
+			array('cpNumeroBoleta','numerical','integerOnly'=>true,'min'=>1,'tooSmall'=>'No se pueden ingresar menor a 1'),
 
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('cpId, cpCodigo, cpFechaVencimiento, cpMonto, cpDescripcion, cpFechaIngreso, cpObs, cpNumeroBoleta, cpFechaRealPago', 'safe', 'on'=>'search'),
+			array('cpId, cpTipo, cpMonto, cpFechaIngreso, cpObs, cpNumeroBoleta, cpFechaPago', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -80,15 +65,13 @@ class Compromisopago extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'cpId' => 'Identificador',
-			'cpCodigo' => 'Codigo',
-			'cpFechaVencimiento' => 'Fecha vencimiento',
+			'cpId' => 'Cp',
+			'cpTipo' => 'Tipo',
 			'cpMonto' => 'Monto',
-			'cpDescripcion' => 'Descripcion',
-			'cpFechaIngreso' => 'Fecha ingreso',
+			'cpFechaIngreso' => 'Fecha Ingreso',
 			'cpObs' => 'Observaciones',
-			'cpNumeroBoleta' => 'Numero de boleta',
-			'cpFechaRealPago' => 'Fecha real de pago',
+			'cpNumeroBoleta' => 'Numero Boleta',
+			'cpFechaPago' => 'Fecha Pago',
 		);
 	}
 
@@ -111,14 +94,12 @@ class Compromisopago extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('cpId',$this->cpId,true);
-		$criteria->compare('cpCodigo',$this->cpCodigo,true);
-		$criteria->compare('cpFechaVencimiento',$this->cpFechaVencimiento,true);
+		$criteria->compare('cpTipo',$this->cpTipo,true);
 		$criteria->compare('cpMonto',$this->cpMonto,true);
-		$criteria->compare('cpDescripcion',$this->cpDescripcion,true);
 		$criteria->compare('cpFechaIngreso',$this->cpFechaIngreso,true);
 		$criteria->compare('cpObs',$this->cpObs,true);
 		$criteria->compare('cpNumeroBoleta',$this->cpNumeroBoleta,true);
-		$criteria->compare('cpFechaRealPago',$this->cpFechaRealPago,true);
+		$criteria->compare('cpFechaPago',$this->cpFechaPago,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

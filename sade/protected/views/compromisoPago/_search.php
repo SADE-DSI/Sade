@@ -17,23 +17,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'cpCodigo'); ?>
-		<?php echo $form->textField($model,'cpCodigo',array('size'=>10,'maxlength'=>10)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'cpFechaVencimiento'); ?>
-		<?php echo $form->textField($model,'cpFechaVencimiento'); ?>
+		<?php echo $form->label($model,'cpTipo'); ?>
+		<?php echo $form->textField($model,'cpTipo',array('size'=>60,'maxlength'=>767)); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'cpMonto'); ?>
 		<?php echo $form->textField($model,'cpMonto',array('size'=>10,'maxlength'=>10)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'cpDescripcion'); ?>
-		<?php echo $form->textField($model,'cpDescripcion',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
 
 	<div class="row">
@@ -43,7 +33,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'cpObs'); ?>
-		<?php echo $form->textField($model,'cpObs',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'cpObs',array('size'=>60,'maxlength'=>767)); ?>
 	</div>
 
 	<div class="row">
@@ -52,12 +42,12 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'cpFechaRealPago'); ?>
-		<?php echo $form->textField($model,'cpFechaRealPago'); ?>
+		<?php echo $form->label($model,'cpFechaPago'); ?>
+		<?php echo $form->textField($model,'cpFechaPago'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?php echo CHtml::submitButton('Buscar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

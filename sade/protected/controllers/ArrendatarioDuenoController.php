@@ -66,25 +66,33 @@ class ArrendatarioduenoController extends Controller
 	{
 		$model=new Arrendatariodueno;
 		$persona = new Persona;
+		$reside = new Residedpto;
 
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation(array($model,$persona));
+		$this->performAjaxValidation(array($reside,$model,$persona));
 
-		if(isset($_POST['Arrendatariodueno'], $_POST['Persona']))
+		if(isset($_POST['Arrendatariodueno'], $_POST['Persona'], $_POST['Residedpto']))
 		{
 			$model->attributes=$_POST['Arrendatariodueno'];
 			$persona->attributes=$_POST['Persona'];
+			$reside->attributes=$_POST['Residedpto'];
 			$persona->peRut=$model->adRut;
 			$model->adEstado = 1;
 			$persona->peActivo = 1;
 			$persona->peTipo = 2;
+			$reside->rdFechaInicio = date("Y-m-d");
+			$reside->adRut = $model->adRut;
+			$reside->dlDireccion = $persona->peDireccion;
+
 			$valid = $model->validate();
 			$valid = $persona->validate() && $valid;
+			$valid = $reside->validate() && $valid;
 
 
 				if ($valid){
 					if ($persona->save()){
 						if($model->save()){
+							if($reside->save()){
 
 		$values = array(
   			'username' => $model->adRut,
@@ -105,16 +113,16 @@ class ArrendatarioduenoController extends Controller
        		  }
 
 			$this->redirect(array('view','id'=>$model->adRut));
-						}		
+							}		
+						}
 					}
-				}
-
-			
+				}	
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
 			'persona' =>$persona,
+			'reside' =>$reside,
 		));
 	
 

@@ -65,7 +65,7 @@ class ResidedptoController extends Controller
 		$model=new Residedpto;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['Residedpto']))
 		{
@@ -89,7 +89,7 @@ class ResidedptoController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['Residedpto']))
 		{

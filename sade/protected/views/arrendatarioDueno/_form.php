@@ -18,7 +18,7 @@
 
 	<p class="note">Los campos con <span class="required">*</span> son obligatorios.</p>
 
-	<?php echo $form->errorSummary(array($model,$persona)); ?>
+	<?php echo $form->errorSummary(array($model,$persona,$reside)); ?>
 
 
 
@@ -59,6 +59,19 @@
 <td><?php echo $form->labelEx($persona,'peDireccion'); ?></td><td><?php echo $form->dropDownList($persona,'peDireccion',CHtml::listData(Dptolocal::model()->findAll(),"dlDireccion","dlDireccion"));  ?></td>
 </tr>
 <tr><td><?php echo $form->error($persona,'peDireccion'); ?></td></tr>
+
+	<tr>
+		<td><?php echo $form->labelEx($reside,'rdFechaFin'); ?></td>
+		<td><?php $this->widget("zii.widgets.jui.CJuiDatePicker", array(
+							'attribute'=>'rdFechaFin', 
+							'model'=>$reside,
+							'language'=>'es',
+							'options'=>array(
+								'dateFormat'=>'yy-mm-dd'
+							)
+						)); ?></td>
+		<td><?php echo $form->error($reside,'rdFechaFin'); ?></td>
+	</tr>
 
 </table>
 	

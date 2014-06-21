@@ -81,8 +81,6 @@
 					, 'visible'=>Yii::app()->user->isSuperAdmin),
 
 
-				array('label'=>'Gastos Dpto/Local', 'url'=>array('/deptolocalresidentes/viewResidentes')
-				    , 'visible'=>!Yii::app()->user->isGuest),
 				//samuel
 				
 

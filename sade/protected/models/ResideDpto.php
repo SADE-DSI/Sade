@@ -34,7 +34,9 @@ class Residedpto extends CActiveRecord
 			array('rdFechaInicio, adRut, dlDireccion', 'required'),
 			array('adRut', 'length', 'max'=>13),
 			array('dlDireccion', 'length', 'max'=>767),
-			array('rdFechaFin', 'safe'),
+			array('rdFechaFin', 'date', 'format'=>'yyyy-M-d'),
+			array('rdFechaFin', 'compare', 'compareValue'=>date('Y-m-d'),'operator'=>'>'),
+
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('rdFechaInicio, adRut, dlDireccion, rdFechaFin', 'safe', 'on'=>'search'),
@@ -60,10 +62,10 @@ class Residedpto extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'rdFechaInicio' => 'Rd Fecha Inicio',
-			'adRut' => 'Ad Rut',
-			'dlDireccion' => 'Dl Direccion',
-			'rdFechaFin' => 'Rd Fecha Fin',
+			'rdFechaInicio' => 'Fecha Inicio',
+			'adRut' => 'Rut',
+			'dlDireccion' => 'Dirección',
+			'rdFechaFin' => 'Fecha Fin Contrato',
 		);
 	}
 

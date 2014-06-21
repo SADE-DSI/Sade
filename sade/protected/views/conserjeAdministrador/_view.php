@@ -8,9 +8,6 @@
 <tr><td>	<b><?php echo CHtml::encode($data->getAttributeLabel('Rut')); ?>:</b></td><td><?php echo CHtml::link(CHtml::encode($data->caRut), array('view', 'id'=>$data->caRut)); ?>
 	<br /></td></tr>
 
-<tr><td>	<b><?php echo CHtml::encode($data->getAttributeLabel('Clave')); ?>:</b></td><td><?php echo CHtml::encode($data->caClave); ?>
-	<br /></td></tr>
-
 <tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('NombresApellidos')); ?>:</b></td><td><?php echo CHtml::encode($data->ca_pe->peNombresApellidos); ?>
 	<br /></td></tr>
 

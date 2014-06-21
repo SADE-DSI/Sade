@@ -66,7 +66,7 @@ class Arrendatariodueno extends CActiveRecord
 		return array(
 			'ad_pe' => array(self::BELONGS_TO, 'Persona', 'adRut'),
 			'reservaespaciocomuns' => array(self::HAS_MANY, 'Reservaespaciocomun', 'adRut'),
-			'residedptos' => array(self::HAS_MANY, 'Residedpto', 'adRut'),
+			'ad_re' => array(self::HAS_MANY, 'Residedpto', 'adRut'),
 		);
 	}
 
@@ -79,7 +79,7 @@ class Arrendatariodueno extends CActiveRecord
 			'adRut' => 'Rut',
 			'adClave' => 'Clave',
 			'adEstado' => 'Estado',
-			'adFechaLiberacion' => 'Fecha Liberacion',
+			'adFechaLiberacion' => 'Fecha Liberación',
 		);
 	}
 

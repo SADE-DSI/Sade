@@ -16,11 +16,6 @@
 		<?php echo $form->textField($model,'caRut',array('size'=>13,'maxlength'=>13)); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'caClave'); ?>
-		<?php echo $form->textField($model,'caClave',array('size'=>20,'maxlength'=>20)); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Buscar'); ?>
 	</div>

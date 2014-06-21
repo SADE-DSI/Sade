@@ -64,7 +64,7 @@ class Dptolocal extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'dlDireccion' => 'Direccion',
+			'dlDireccion' => 'Dirección',
 			'dlMts2Construidos' => 'Metros Cuadrados Construidos',
 			'dlValorArriendo' => 'Valor Arriendo',
 			'dlActivo' => 'Activo',

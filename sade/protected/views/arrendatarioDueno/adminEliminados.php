@@ -42,7 +42,6 @@ $('.search-form form').submit(function(){
 	'filter'=>$model,
 	'columns'=>array(
 		'adRut',
-		'adClave',
 		array('name'=>'nombres','header'=>'Nombres Apellidos','value'=>'$data->ad_pe->peNombresApellidos',
 			'type'=>'text',),
 		array('name'=>'email','header'=>'Email','value'=>'$data->ad_pe->peEmail',

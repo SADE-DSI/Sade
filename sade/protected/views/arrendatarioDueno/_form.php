@@ -31,7 +31,7 @@
 <tr><td><?php echo $form->error($model,'adRut'); ?></td></tr>
 
 <tr>
-<td>		<?php echo $form->labelEx($model,'adClave'); ?></td><td><?php echo $form->textField($model,'adClave',array('size'=>30,'maxlength'=>30)); ?></td>
+<td>		<?php echo $form->labelEx($model,'adClave'); ?></td><td><?php echo $form->passwordField($model,'adClave',array('size'=>30,'maxlength'=>30)); ?></td>
 </tr>
 <tr><td><?php echo $form->error($model,'adClave'); ?></td></tr>
 
@@ -56,7 +56,7 @@
 <tr><td><?php echo $form->error($persona,'peDescripcion'); ?></td></tr>
 
 <tr>
-<td><?php echo $form->labelEx($persona,'peDireccion'); ?></td><td><?php echo $form->textField($persona,'peDireccion'); ?></td>
+<td><?php echo $form->labelEx($persona,'peDireccion'); ?></td><td><?php echo $form->dropDownList($persona,'peDireccion',CHtml::listData(Dptolocal::model()->findAll(),"dlDireccion","dlDireccion"));  ?></td>
 </tr>
 <tr><td><?php echo $form->error($persona,'peDireccion'); ?></td></tr>
 

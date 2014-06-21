@@ -16,7 +16,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Ver Material #<?php echo $model->maCodigo; ?></h1>
+<h1>Ver Material <?php echo $model->maCodigo; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

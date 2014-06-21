@@ -16,12 +16,11 @@ $this->menu=array(
 );
 ?>
 
-<h1>Ver Conserje/Administrador #<?php echo $model->caRut; ?></h1>
+<h1>Ver Conserje/Administrador <?php echo $model->caRut; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'caRut',
-		'caClave',
 	),
 )); ?>

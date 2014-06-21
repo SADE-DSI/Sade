@@ -31,7 +31,7 @@
 <tr><td><?php echo $form->error($model,'caRut'); ?></td></tr>
 
 <tr>
-<td><?php echo $form->labelEx($model,'caClave'); ?></td><td><?php echo $form->textField($model,'caClave',array('size'=>30,'maxlength'=>30)); ?></td>
+<td><?php echo $form->labelEx($model,'caClave'); ?></td><td><?php echo $form->passwordField($model,'caClave',array('size'=>30,'maxlength'=>30)); ?></td>
 </tr>
 <tr><td><?php echo $form->error($model,'caClave'); ?></td></tr>
 

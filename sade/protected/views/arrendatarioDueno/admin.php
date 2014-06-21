@@ -42,7 +42,6 @@ $('.search-form form').submit(function(){
 	'filter'=>$model,
 	'columns'=>array(
 		'adRut',
-		'adClave',
 		array('name'=>'nombres','header'=>'Nombres Apellidos','value'=>'$data->ad_pe->peNombresApellidos',
 			'type'=>'text',),
 		array('name'=>'email','header'=>'Email','value'=>'$data->ad_pe->peEmail',
@@ -51,7 +50,7 @@ $('.search-form form').submit(function(){
 			'type'=>'text',),
 		array('name'=>'descripcion','header'=>'Descripción','value'=>'$data->ad_pe->peDescripcion',
 			'type'=>'text',),
-		array('name'=>'direccion','header'=>'Dirección','value'=>'$data->ad_pe->peDescripcion',
+		array('name'=>'direccion','header'=>'Dirección','value'=>'$data->ad_pe->peDireccion',
 			'type'=>'text',),
 		array(
 			'class'=>'CButtonColumn',

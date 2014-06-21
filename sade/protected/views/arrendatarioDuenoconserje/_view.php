@@ -5,9 +5,7 @@
 
 <div class="view">
 <table class="tablaView">
-<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Rut')); ?>:</b></td><td><?php echo CHtml::link(CHtml::encode($data->adRut), array('view', 'id'=>$data->adRut)); ?>
-	<br /></td></tr>
-<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Clave')); ?>:</b></td><td><?php echo CHtml::encode($data->adClave); ?>
+<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Rut')); ?>:</b></td><td><?php echo CHtml::encode($data->adRut); ?>
 	<br /></td></tr>
 <tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('NombresApellidos')); ?>:</b></td><td><?php echo CHtml::encode($data->ad_pe->peNombresApellidos); ?>
 	<br /></td></tr>

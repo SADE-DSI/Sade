@@ -41,7 +41,6 @@ $('.search-form form').submit(function(){
 	'filter'=>$model,
 	'columns'=>array(
 		'caRut',
-		'caClave',
 		array('name'=>'nombres','header'=>'Nombres Apellidos','value'=>'$data->ca_pe->peNombresApellidos',
 			'type'=>'text',),
 		array('name'=>'email','header'=>'Email','value'=>'$data->ca_pe->peEmail',

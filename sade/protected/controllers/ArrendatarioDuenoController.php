@@ -51,9 +51,10 @@ class ArrendatarioduenoController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$persona=Persona::model()->findByPk($id);
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
-			'persona'=>$this->loadModel($id),
+			'persona'=>$persona,
 		));
 	}
 
@@ -80,6 +81,11 @@ class ArrendatarioduenoController extends Controller
 			$valid = $model->validate();
 			$valid = $persona->validate() && $valid;
 
+
+				if ($valid){
+					if ($persona->save()){
+						if($model->save()){
+
 		$values = array(
   			'username' => $model->adRut,
   			'email' => $persona->peEmail,
@@ -87,8 +93,6 @@ class ArrendatarioduenoController extends Controller
   			);
 
   			$usuario = Yii::app()->user->um->createNewUser($values,$model->adClave);
-
-				if ($valid){
 
 			Yii::app()->user->um->changePassword($usuario,$model->adClave);
 
@@ -100,11 +104,8 @@ class ArrendatarioduenoController extends Controller
            		echo "no se pudo crear el usuario: ".$errores;
        		  }
 
-
-
-				if ($persona->save()){
-					if($model->save())
-						$this->redirect(array('view','id'=>$model->adRut));
+			$this->redirect(array('view','id'=>$model->adRut));
+						}		
 					}
 				}
 

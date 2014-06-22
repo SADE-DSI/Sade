@@ -1,16 +1,16 @@
 <?php
 /* @var $this PersonaController */
 /* @var $model Persona */
-$activo=1;
+$activo=0;
 $this->breadcrumbs=array(
 	'Empleados'=>array('index'),
-	'Administrar',
+	'Administrar Eliminados',
 );
 
 $this->menu=array(
 	array('label'=>'Listar Empleados', 'url'=>array('index')),
 	array('label'=>'Crear Empleado', 'url'=>array('create')),
-	array('label'=>'Restaurar Empleados Eliminados', 'url'=>array('adminEliminados')),
+	array('label'=>'Administrar Empleados', 'url'=>array('admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -27,7 +27,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Administrar Empleados</h1>
+<h1>Restaurar Empleados Eliminados</h1>
 
 
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
@@ -50,6 +50,15 @@ $('.search-form form').submit(function(){
 		'peDireccion',
 		array(
 			'class'=>'CButtonColumn',
+			'template' => '{view}{Restaurar}',
+	  		'buttons'=>array(
+	    	'Restaurar' => array(
+		      'label'=>'Restaurar Empleado Eliminado', 
+		      'url'=>"CHtml::normalizeUrl(array('Restaurar', 'id'=>\$data->peRut))",
+		      'imageUrl'=>Yii::app()->request->baseUrl.'/images/tick.png', 
+		      'options' => array('class'=>'Restaurar'),
+    ),
+  ),
 		),
 	),
 )); ?>

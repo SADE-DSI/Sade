@@ -36,7 +36,7 @@ class PersonaController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','adminEliminados','restaurar'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -54,6 +54,7 @@ class PersonaController extends Controller
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
+
 	}
 
 	/**
@@ -65,12 +66,14 @@ class PersonaController extends Controller
 		$model=new Persona;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['Persona']))
 		{
 			$model->attributes=$_POST['Persona'];
-			if($model->save(true))
+			$model->peActivo=1;
+			$model->peTipo=3;
+			if($model->save())
 				$this->redirect(array('view','id'=>$model->peRut));
 		}
 
@@ -89,7 +92,7 @@ class PersonaController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['Persona']))
 		{
@@ -110,12 +113,36 @@ class PersonaController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		$persona=Persona::model()->findByPk($id);
+		if ($persona->peActivo== 1){ 
+			$persona->peActivo = 0;
+		}
+		else {
+		$persona->peActivo = 1;			
+		}
+		$persona->save();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
+
+	public function actionRestaurar($id)
+	{
+		$persona=Persona::model()->findByPk($id);
+		if ($persona->peActivo== 0){ 
+			$persona->peActivo = 1;
+		}
+		else {
+		$persona->peActivo = 0;			
+		}
+		$persona->save();
+
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+	}
+
 
 	/**
 	 * Lists all models.
@@ -142,6 +169,19 @@ class PersonaController extends Controller
 			'model'=>$model,
 		));
 	}
+
+	public function actionAdminEliminados()
+	{
+		$model=new Persona('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Persona']))
+			$model->attributes=$_GET['Persona'];
+
+		$this->render('adminEliminados',array(
+			'model'=>$model,
+		));
+	}
+	
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

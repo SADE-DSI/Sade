@@ -21,6 +21,13 @@
  */
 class Persona extends CActiveRecord
 {
+	public $nombres;
+	public $activo;
+	public $email;
+	public $telefono;
+	public $descripcion;
+	public $direccion;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -37,12 +44,17 @@ class Persona extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('peNombresApellidos, peEmail, peTipo', 'required'),
+			array('peNombresApellidos, peEmail, peTipo, peRut', 'required'),
+			array('peRut','match','pattern'=>'/^[0-9.kK-]{11,12}$/',
+              'message'=>CrugeTranslator::t("El rut debe tener el formato '11.111.111-1'")),	
+			array('peRut', 'length', 'max'=>12, 'min'=>11),
 			array('peNombresApellidos', 'length', 'max'=>80),
 			array('peNombresApellidos','match','pattern'=>'/^([a-zA-Zñáéíóú\s]{3,80})$/',
               	 'message'=>CrugeTranslator::t("El nombre/apellido no es válido")),
 			array('peEmail', 'length', 'max'=>30),
 			array('peEmail', 'email'),
+			array('peRut', 'validateRut'),
+			array('peEmail', 'unique'),
 			array('peRut', 'unique',
 			 	'message'=>CrugeTranslator::t("El Rut ya está registrado, no se puede ingresar")),
 			array('peTelefono', 'length', 'max'=>10, 'min'=>6),
@@ -103,11 +115,12 @@ class Persona extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search()
+	public function search($activo)
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
+		$criteria->condition = "peActivo=$activo AND peTipo=3";
 
 		$criteria->compare('peRut',$this->peRut,true);
 		$criteria->compare('peNombresApellidos',$this->peNombresApellidos,true);
@@ -137,8 +150,8 @@ class Persona extends CActiveRecord
 	public function getNombresRutEmpleados (){
 		return $this->peRut." (".$this->peNombresApellidos.")";
 	}
-/*
-	public function validateRut($attribute,$params){
+
+public function validateRut($attribute,$params){
 		$rut = $this->peRut;
 		$suma = "";
 		if(strpos($rut,"-")==false){
@@ -168,5 +181,4 @@ class Persona extends CActiveRecord
 	       $this->addError($attribute, 'El rut ingresado NO es válido');
 	   }
 	}
-	*/
 }

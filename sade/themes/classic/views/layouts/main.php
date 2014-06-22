@@ -69,7 +69,11 @@
 					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)),				
 				array('label'=>'Inventarios'
 					, 'url'=>array('/material/index')
-					, 'visible'=>(Yii::app()->user->checkAccess('Conserje')  || Yii::app()->user->isSuperAdmin)),			
+					, 'visible'=>(Yii::app()->user->checkAccess('Conserje')  || Yii::app()->user->isSuperAdmin)),
+				array('label'=>'Empleados'
+					, 'url'=>array('/persona/index')
+					, 'visible'=>Yii::app()->user->isSuperAdmin),			
+			
 
 				//diego
 				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')

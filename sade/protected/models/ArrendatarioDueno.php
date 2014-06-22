@@ -44,6 +44,7 @@ class Arrendatariodueno extends CActiveRecord
               'message'=>CrugeTranslator::t("El rut debe tener el formato '11.111.111-1'")),			
 			array('adRut', 'length', 'max'=>12, 'min'=>11),
 			array('adRut','validateRut'),
+			array('adRut', 'unique'),
 			array('adClave', 'length', 'max'=>30),
 			array('adClave', 'length', 'min'=>6),
 		    array('adClave','match','pattern'=>'/^[a-zA-Z0-9]{6,30}$/',

@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'Listar Arrendatarios/Dueños', 'url'=>array('index')),
-	array('label'=>'Crear Arrendatarios/Dueños', 'url'=>array('create')),
+	array('label'=>'Crear Arrendatario/Dueño', 'url'=>array('create')),
 		array('label'=>'Administrar Arrendatarios/Dueños', 'url'=>array('admin')),
 );
 

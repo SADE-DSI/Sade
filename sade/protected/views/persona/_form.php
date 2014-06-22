@@ -12,63 +12,48 @@
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Campos con <span class="required">*</span> son requeridos.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'peRut'); ?>
-		<?php echo $form->textField($model,'peRut',array('size'=>13,'maxlength'=>13)); ?>
-		<?php echo $form->error($model,'peRut'); ?>
-	</div>
+<table class="items">
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'peNombresApellidos'); ?>
-		<?php echo $form->textField($model,'peNombresApellidos',array('size'=>60,'maxlength'=>80)); ?>
-		<?php echo $form->error($model,'peNombresApellidos'); ?>
-	</div>
+<tr>
+<td>	<?php echo $form->labelEx($model,'peRut'); ?></td><td><?php echo $form->textField($model,'peRut',array('size'=>12,'maxlength'=>12)); ?></td>
+</tr>		
+<tr><td><?php echo $form->error($model,'peRut'); ?></td></tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'peActivo'); ?>
-		<?php echo $form->textField($model,'peActivo'); ?>
-		<?php echo $form->error($model,'peActivo'); ?>
-	</div>
+<tr>
+<td>	<?php echo $form->labelEx($model,'peNombresApellidos'); ?></td><td><?php echo $form->textField($model,'peNombresApellidos',array('size'=>60,'maxlength'=>80)); ?></td>
+</tr>		
+<tr><td><?php echo $form->error($model,'peNombresApellidos'); ?></td></tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'peEmail'); ?>
-		<?php echo $form->textField($model,'peEmail',array('size'=>30,'maxlength'=>30)); ?>
-		<?php echo $form->error($model,'peEmail'); ?>
-	</div>
+<tr>
+<td>	<?php echo $form->labelEx($model,'peEmail'); ?></td><td><?php echo $form->textField($model,'peEmail',array('size'=>30,'maxlength'=>30)); ?></td>
+</tr>		
+<tr><td><?php echo $form->error($model,'peEmail'); ?></td></tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'peTelefono'); ?>
-		<?php echo $form->textField($model,'peTelefono',array('size'=>10,'maxlength'=>10)); ?>
-		<?php echo $form->error($model,'peTelefono'); ?>
-	</div>
+<tr>
+<td>	<?php echo $form->labelEx($model,'peTelefono'); ?></td><td><?php echo $form->textField($model,'peTelefono',array('size'=>10,'maxlength'=>10)); ?></td>
+</tr>		
+<tr><td><?php echo $form->error($model,'peTelefono'); ?></td></tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'peTipo'); ?>
-		<?php echo $form->dropDownList($model, 'peTipo', array(1=>'test1', 2=>'test2'));?>
-		<?php echo $form->error($model,'peTipo'); ?>
-	</div>
+<tr>
+<td>	<?php echo $form->labelEx($model,'peDescripcion'); ?></td><td><?php echo $form->textField($model,'peDescripcion',array('size'=>60,'maxlength'=>255)); ?></td>
+</tr>		
+<tr><td><?php echo $form->error($model,'peDescripcion'); ?></td></tr>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'peDescripcion'); ?>
-		<?php echo $form->textField($model,'peDescripcion',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'peDescripcion'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'peDireccion'); ?>
-		<?php echo $form->textField($model,'peDireccion',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'peDireccion'); ?>
-	</div>
+<tr>
+<td>	<?php echo $form->labelEx($model,'peDireccion'); ?></td><td><?php echo $form->textField($model,'peDireccion',array('size'=>60,'maxlength'=>255)); ?></td>
+</tr>		
+<tr><td><?php echo $form->error($model,'peDireccion'); ?></td></tr>
+</table>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class' => 'guardar')); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar',array('class' => 'guardar')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

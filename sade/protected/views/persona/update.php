@@ -3,19 +3,19 @@
 /* @var $model Persona */
 
 $this->breadcrumbs=array(
-	'Personas'=>array('index'),
+	'Empleados'=>array('index'),
 	$model->peRut=>array('view','id'=>$model->peRut),
-	'Update',
+	'Actualizar',
 );
 
 $this->menu=array(
-	array('label'=>'List Persona', 'url'=>array('index')),
-	array('label'=>'Create Persona', 'url'=>array('create')),
-	array('label'=>'View Persona', 'url'=>array('view', 'id'=>$model->peRut)),
-	array('label'=>'Manage Persona', 'url'=>array('admin')),
+	array('label'=>'Listar Empleados', 'url'=>array('index')),
+	array('label'=>'Crear Empleados', 'url'=>array('create')),
+	array('label'=>'Ver Empleados', 'url'=>array('view', 'id'=>$model->peRut)),
+	array('label'=>'Administrar Empleados', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Persona <?php echo $model->peRut; ?></h1>
+<h1>Actualizar Empleados <?php echo $model->peRut; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

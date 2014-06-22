@@ -22,11 +22,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'peActivo'); ?>
-		<?php echo $form->textField($model,'peActivo'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'peEmail'); ?>
 		<?php echo $form->textField($model,'peEmail',array('size'=>30,'maxlength'=>30)); ?>
 	</div>
@@ -34,11 +29,6 @@
 	<div class="row">
 		<?php echo $form->label($model,'peTelefono'); ?>
 		<?php echo $form->textField($model,'peTelefono',array('size'=>10,'maxlength'=>10)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'peTipo'); ?>
-		<?php echo $form->textField($model,'peTipo',array('size'=>12,'maxlength'=>12)); ?>
 	</div>
 
 	<div class="row">
@@ -52,7 +42,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+		<?php echo CHtml::submitButton('Buscar'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

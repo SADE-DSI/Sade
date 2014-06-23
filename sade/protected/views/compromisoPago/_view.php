@@ -5,6 +5,10 @@
 
 <div class="view">
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('cpId')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->cpId), array('view', 'id'=>$data->cpId)); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('cpTipo')); ?>:</b>
 	<?php echo CHtml::encode($data->cpTipo); ?>
 	<br />
@@ -25,9 +29,15 @@
 	<?php echo CHtml::encode($data->cpNumeroBoleta); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('cpFechaPago')); ?>:</b>
-	<?php echo CHtml::encode($data->cpFechaPago); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('cpAno')); ?>:</b>
+	<?php echo CHtml::encode($data->cpAno); ?>
 	<br />
 
+	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('cpMes')); ?>:</b>
+	<?php echo CHtml::encode($data->cpMes); ?>
+	<br />
+
+	*/ ?>
 
 </div>

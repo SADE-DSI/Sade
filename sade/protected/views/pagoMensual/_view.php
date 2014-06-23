@@ -5,6 +5,10 @@
 
 <div class="view">
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('pmId')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->pmId), array('view', 'id'=>$data->pmId)); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('dlDireccion')); ?>:</b>
 	<?php echo CHtml::encode($data->dlDireccion); ?>
 	<br />
@@ -21,8 +25,8 @@
 	<?php echo CHtml::encode($data->pmObs); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('pmMesAPagar')); ?>:</b>
-	<?php echo CHtml::encode($data->pmMesAPagar); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('pmMesAno')); ?>:</b>
+	<?php echo CHtml::encode($data->pmMesAno); ?>
 	<br />
 
 

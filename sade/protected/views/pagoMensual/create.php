@@ -15,4 +15,5 @@ $this->menu=array(
 
 <h1>Crear pago mensual</h1>
 <hr>
+
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

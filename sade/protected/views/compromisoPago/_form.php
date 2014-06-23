@@ -15,13 +15,13 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
+	<p class="note"><span class="required">*</span> Campos obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'cpTipo'); ?>
-		<?php echo $form->dropDownList($model,'cpTipo',array(''=>'','Agua'=>'Agua','Luz'=>'Luz','Mantención'=>'Mantención','Otros'=>'Otros',)); ?>
+		<?php echo $form->dropDownList($model,'cpTipo',array(''=>'','Agua'=>'Agua','Luz'=>'Luz','Mantención'=>'Mantención','Otros'=>'Otros'));?>
 		<?php echo $form->error($model,'cpTipo'); ?>
 	</div>
 
@@ -33,8 +33,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'cpFechaIngreso'); ?>
-		<?php echo $form->textField($model,'cpFechaIngreso', array('value'=>date("Y-m-d H:i:s"),'readonly'=>'false')); ?>
-		<!-- ingresa la fecha actual y no se puede modificar -->
+		<?php echo $form->textField($model,'cpFechaIngreso', array('value'=>date('Y-m-d H:i:s'),'readonly'=>'false')); ?>
 		<?php echo $form->error($model,'cpFechaIngreso'); ?>
 	</div>
 
@@ -51,18 +50,15 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'cpFechaPago'); ?>
-		<?php 
-		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
-			"attribute"=>"cpFechaPago",
-			"model"=>$model,
-			"language"=>"es",
-			"options"=>array(
-				"dateFormat"=>"yy-mm-dd"
-				)
-			));
-		?>
-		<?php echo $form->error($model,'cpFechaPago'); ?>
+		<?php echo $form->labelEx($model,'cpAno'); ?>
+		<?php echo $form->numberField($model,'cpAno',array('value'=>date('Y'))); ?>
+		<?php echo $form->error($model,'cpAno'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'cpMes'); ?>
+		<?php echo $form->dropDownList($model,'cpMes',array('1'=>'Enero','2'=>'Febrero','3'=>'Marzo','4'=>'Abril','5'=>'Mayo','6'=>'Junio','7'=>'Julio','8'=>'Agosto','9'=>'Septiembre','10'=>'Octubre','11'=>'Noviembre','12'=>'Diciembre')); ?></td>
+		<?php echo $form->error($model,'cpMes'); ?>
 	</div>
 
 	<div class="row buttons">

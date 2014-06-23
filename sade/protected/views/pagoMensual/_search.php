@@ -37,8 +37,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'pmMesAPagar'); ?>
-		<?php echo $form->textField($model,'pmMesAPagar'); ?>
+		<?php echo $form->label($model,'pmMesAno'); ?>
+		<?php echo $form->textField($model,'pmMesAno',array('size'=>11,'maxlength'=>11)); ?>
 	</div>
 
 	<div class="row buttons">

@@ -42,8 +42,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'cpFechaPago'); ?>
-		<?php echo $form->textField($model,'cpFechaPago'); ?>
+		<?php echo $form->label($model,'cpAno'); ?>
+		<?php echo $form->textField($model,'cpAno',array('size'=>11,'maxlength'=>11)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'cpMes'); ?>
+		<?php echo $form->textField($model,'cpMes',array('size'=>11,'maxlength'=>11)); ?>
 	</div>
 
 	<div class="row buttons">

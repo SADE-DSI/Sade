@@ -9,7 +9,7 @@
  * @property string $pmFechaPago
  * @property string $pmMonto
  * @property string $pmObs
- * @property string $pmMesAPagar
+ * @property string $pmMesAno
  *
  * The followings are the available model relations:
  * @property Dptolocal $dlDireccion0
@@ -32,23 +32,13 @@ class Pagomensual extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('dlDireccion, pmFechaPago, pmMonto, pmMesAPagar', 'required'),
+			array('dlDireccion, pmFechaPago, pmMonto, pmMesAno', 'required'),
 			array('dlDireccion, pmObs', 'length', 'max'=>767),
 			array('pmMonto', 'length', 'max'=>10),
-
-			//validar si existe la direccion
-			array('dlDireccion','exist','allowEmpty' => true, 'attributeName' => 'dlDireccion', 'className' => 'Dptolocal'),
-
-			//validar el formato de las fechas
-			array('pmFechaPago', 'date', 'format'=>'yyyy-M-d'),
-			array('pmMesAPagar', 'date', 'format'=>'yyyy-M-d'),
-
-			//valida el monto que sea positivo y entero
-			array('pmMonto','numerical','integerOnly'=>true,'min'=>1,'tooSmall'=>'No se pueden ingresar menor a 1'),
-
+			array('pmMesAno', 'length', 'max'=>11),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('pmId, dlDireccion, pmFechaPago, pmMonto, pmObs, pmMesAPagar', 'safe', 'on'=>'search'),
+			array('pmId, dlDireccion, pmFechaPago, pmMonto, pmObs, pmMesAno', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -71,11 +61,11 @@ class Pagomensual extends CActiveRecord
 	{
 		return array(
 			'pmId' => 'Pm',
-			'dlDireccion' => 'Direccion',
+			'dlDireccion' => 'Dirección',
 			'pmFechaPago' => 'Fecha Pago',
 			'pmMonto' => 'Monto',
 			'pmObs' => 'Observaciones',
-			'pmMesAPagar' => 'Mes a pagar',
+			'pmMesAno' => 'Fecha a pagar',
 		);
 	}
 
@@ -102,7 +92,7 @@ class Pagomensual extends CActiveRecord
 		$criteria->compare('pmFechaPago',$this->pmFechaPago,true);
 		$criteria->compare('pmMonto',$this->pmMonto,true);
 		$criteria->compare('pmObs',$this->pmObs,true);
-		$criteria->compare('pmMesAPagar',$this->pmMesAPagar,true);
+		$criteria->compare('pmMesAno',$this->pmMesAno,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

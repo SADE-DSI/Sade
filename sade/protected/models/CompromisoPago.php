@@ -10,7 +10,8 @@
  * @property string $cpFechaIngreso
  * @property string $cpObs
  * @property string $cpNumeroBoleta
- * @property string $cpFechaPago
+ * @property string $cpAno
+ * @property string $cpMes
  */
 class Compromisopago extends CActiveRecord
 {
@@ -30,21 +31,13 @@ class Compromisopago extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cpMonto, cpFechaIngreso, cpTipo, cpFechaPago', 'required'),
+			array('cpTipo, cpMonto, cpFechaIngreso, cpAno, cpMes', 'required'),
 			array('cpTipo, cpObs', 'length', 'max'=>767),
 			array('cpMonto, cpNumeroBoleta', 'length', 'max'=>10),
-			array('cpFechaPago', 'safe'),
-
-			//validar fechas
-			array('cpFechaIngreso', 'date', 'format'=>'yyyy-M-d H:m:s'),
-			array('cpFechaPago', 'date', 'format'=>'yyyy-M-d'),
-			//validadar numeros
-			array('cpMonto','numerical','integerOnly'=>true,'min'=>1,'tooSmall'=>'No se pueden ingresar menor a 1'),
-			array('cpNumeroBoleta','numerical','integerOnly'=>true,'min'=>1,'tooSmall'=>'No se pueden ingresar menor a 1'),
-
+			array('cpAno, cpMes', 'length', 'max'=>11),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('cpId, cpTipo, cpMonto, cpFechaIngreso, cpObs, cpNumeroBoleta, cpFechaPago', 'safe', 'on'=>'search'),
+			array('cpId, cpTipo, cpMonto, cpFechaIngreso, cpObs, cpNumeroBoleta, cpAno, cpMes', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -71,7 +64,8 @@ class Compromisopago extends CActiveRecord
 			'cpFechaIngreso' => 'Fecha Ingreso',
 			'cpObs' => 'Observaciones',
 			'cpNumeroBoleta' => 'Numero Boleta',
-			'cpFechaPago' => 'Fecha Pago',
+			'cpAno' => 'Año',
+			'cpMes' => 'Mes',
 		);
 	}
 
@@ -99,7 +93,8 @@ class Compromisopago extends CActiveRecord
 		$criteria->compare('cpFechaIngreso',$this->cpFechaIngreso,true);
 		$criteria->compare('cpObs',$this->cpObs,true);
 		$criteria->compare('cpNumeroBoleta',$this->cpNumeroBoleta,true);
-		$criteria->compare('cpFechaPago',$this->cpFechaPago,true);
+		$criteria->compare('cpAno',$this->cpAno,true);
+		$criteria->compare('cpMes',$this->cpMes,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

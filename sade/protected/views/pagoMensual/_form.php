@@ -32,8 +32,24 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'pmMesAno'); 
+		$orden = new CDbCriteria;
+		$orden->order = 'gmMesAno ASC';
+		 echo $form->dropDownList($model,'pmMesAno',CHtml::listData(Gastomensual::model()->findAll($orden),"gmMesAno","gmMesAno"),
+		 array(
+		 	'ajax'=>array(
+		 		'type'=>'POST',
+		 		'url'=>Ccontroller::createUrl('pagoMensual/Obtenerprecio'),
+		 		'update'=>'#'.CHtml::activeId($model,'pmMonto'),
+		 		),
+		 	)
+		 	); 
+		 echo $form->error($model,'pmMesAno'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'pmMonto'); ?>
-		<?php echo $form->textField($model,'pmMonto',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->dropDownList($model,'pmMonto',array(''=>'seleccione el año')); ?>
 		<?php echo $form->error($model,'pmMonto'); ?>
 	</div>
 
@@ -41,22 +57,6 @@
 		<?php echo $form->labelEx($model,'pmObs'); ?>
 		<?php echo $form->textField($model,'pmObs',array('size'=>60,'maxlength'=>767)); ?>
 		<?php echo $form->error($model,'pmObs'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'pmMesAPagar'); ?>
-		<?php 
-		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
-			"attribute"=>"pmMesAPagar",
-			"model"=>$model,
-			"language"=>"es",
-			"options"=>array(
-				"dateFormat"=>"yy-mm-dd"
-				)
-			));
-
-		?>
-		<?php echo $form->error($model,'pmMesAPagar'); ?>
 	</div>
 
 	<div class="row buttons">

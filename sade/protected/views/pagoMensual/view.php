@@ -21,10 +21,11 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
+		'pmId',
 		'dlDireccion',
 		'pmFechaPago',
 		'pmMonto',
 		'pmObs',
-		'pmMesAPagar',
+		'pmMesAno',
 	),
 )); ?>

@@ -60,7 +60,7 @@
 				array('label'=>'Sueldo Personal', 'url'=>array('/Sueldopersonal/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin),
     			array('label'=>'Dpto/Locales', 'url'=>array('/Dptolocal/index')
-					, 'visible'=>(Yii::app()->user->checkAccess('Residente') || Yii::app()->user->checkAccess('Conserje')) ),
+					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
     			array('label'=>'Visitas', 'url'=>array('/Visitadpto/index')
 					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
     			array('label'=>'Datos Visitas', 'url'=>array('/Visita/index')
@@ -82,7 +82,11 @@
 					, 'visible'=>(Yii::app()->user->checkAccess('Conserje')  || Yii::app()->user->isSuperAdmin)),
 				array('label'=>'Empleados'
 					, 'url'=>array('/persona/index')
-					, 'visible'=>Yii::app()->user->isSuperAdmin),			
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
+				array('label'=>'PDF Gastos Comunes'
+					, 'url'=>array('/Dptolocal/pdf')
+					, 'visible'=>!Yii::app()->user->isSuperAdmin),		
+					
 			
 
 				//diego

@@ -28,6 +28,7 @@ class Residedpto extends CActiveRecord
 	 */
 	public function rules()
 	{
+		$fecha=date('Y-m-d', strtotime('+1 month')) ;
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
@@ -35,7 +36,7 @@ class Residedpto extends CActiveRecord
 			array('adRut', 'length', 'max'=>13),
 			array('dlDireccion', 'length', 'max'=>767),
 			array('rdFechaFin', 'date', 'format'=>'yyyy-M-d'),
-			array('rdFechaFin', 'compare', 'compareValue'=>date('Y-m-d'),'operator'=>'>'),
+			array('rdFechaFin', 'compare', 'compareValue'=>$fecha,'operator'=>'>'),
 
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

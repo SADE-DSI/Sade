@@ -59,7 +59,7 @@ $('.search-form form').submit(function(){
 	    	'Restaurar' => array(
 		      'label'=>'Restaurar Usuario Eliminado', 
 		      'url'=>"CHtml::normalizeUrl(array('Restaurar', 'id'=>\$data->adRut))",
-		      'imageUrl'=>Yii::app()->request->baseUrl.'/images/tick.png', 
+		      'imageUrl'=>Yii::app()->request->baseUrl.'/images/tick.gif', 
 		      'options' => array('class'=>'Restaurar'),
     ),
   ),

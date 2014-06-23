@@ -181,18 +181,34 @@ class DptolocalController extends Controller
  		$html2pdfPath = Yii::getPathOfAlias('application.extensions.tcpdf');
   		require_once($html2pdfPath.'\tcpdf\tcpdf.php');
 
-
   		$mes = date("m");
   		$meses = array('Diciembre','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
+  		$meses2 = array('12','1','2','3','4','5','6','7','8','9','10','11','12');
+  		$month=$meses2[$mes-1];
   		$año = date("Y");
   		$fecha = date("d/m/Y");
+  		$fecha2 = date("Y/m/d");
   		$color = 0;
+
+  		if (Yii::app()->user->name == 'admin' || Yii::app()->user->checkAccess('Conserje')){
+  			$id=$_GET['id'];
+        	$sql6 = "select adRut from residedpto where dlDireccion='$id'
+        	and (date_add(rdFechaInicio, interval 1 month)<'$fecha2')
+        	and (date_add(rdFechaFin, interval 1 month)>='$fecha2')";
+        	$data6 = Yii::app()->db->createCommand($sql6)->queryAll();
+        	$usuario = $data6[0]['adRut'];
+  		}
+  		else {
+  			$usuario=Yii::app()->user->name; 
+  		}
+ 
 
         $pdf = new TCPDF();
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('SADE');
         $pdf->SetTitle('Informe de Gastos Mensuales');
-        $image_file = K_PATH_IMAGES.'logo.jpg';
+        //$image_file = K_PATH_IMAGES.'logo.jpg';
+        //$pdf->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
        // $pdf->SetSubject('TCPDF Tutorial');
       //  $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
         $pdf->SetHeaderData('', 60, 'Informe de Gastos Mensuales', 'Correspondiente a '.$meses[$mes-1]. ' de ' .$año);
@@ -213,9 +229,9 @@ class DptolocalController extends Controller
         $pdf->writeHTML('Informe generado el '.$fecha);
         $pdf->ln(5);
         // Data        
-        $sql = "select * from compromisopago where month(cpFechaRealPago)='$mes'-1 and year(cpFechaRealPago)='$año'";
+        $sql = "select * from compromisopago where month(cpFechaRealPago)='$month' and year(cpFechaRealPago)='$año'";
         $data = Yii::app()->db->createCommand($sql)->queryAll(); 
-    
+
 		$pdf->Cell(0.1,5,'');		
 		$pdf->Cell(25,5,'Descripción',1,'','C',true);
 		$pdf->Cell(35,5,'Número de Boleta',1,'','C',true);
@@ -242,8 +258,10 @@ class DptolocalController extends Controller
 			$pdf->Cell(60,5,$data[$i]['cpObs'],1,1,'C',true);    
         }
         	$pdf->ln(5);
-
-        $sql2 = "select * from dptolocal where dlActivo='Si'";
+        $dptos=$direccion=$totalMetros=$total=0;
+        $metros=$coeficiente=1;
+        $sql2 = "select * from residedpto where (date_add(rdFechaInicio, interval 1 month)<'$fecha2')
+        and (date_add(rdFechaFin, interval 1 month)>='$fecha2')";
        	$data2 = Yii::app()->db->createCommand($sql2)->queryAll();
         $dptos = count($data2); 
 
@@ -254,10 +272,27 @@ class DptolocalController extends Controller
         $total = $data3[0]['total'];
         $pdf->writeHTML('* El monto total de gastos comunes es = $'.$total);
         $pdf->ln(1);
-                $pdf->Image($image_file, 10, 10, 15, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
-        $gastos = ceil($total/$dptos);
+
+        $sql4 = "select D.dlDireccion,D.dlMts2Construidos from residedpto R, dptolocal D
+        where R.adRut='$usuario' and R.dlDireccion=D.dlDireccion and 
+        date_add(R.rdFechaInicio, interval 1 month)<'$fecha2'
+        and date_add(R.rdFechaFin, interval 1 month)>='$fecha2'";
+        $data4 = Yii::app()->db->createCommand($sql4)->queryAll();
+        $direccion = $data4[0]['dlDireccion'];
+        $metros = $data4[0]['dlMts2Construidos'];
+
+        $sql5 = "select sum(D.dlMts2Construidos) as totalMetros from residedpto R, dptolocal D
+        where R.dlDireccion=D.dlDireccion and 
+        date_add(R.rdFechaInicio, interval 1 month)<'$fecha2'
+        and date_add(R.rdFechaFin, interval 1 month)>='$fecha2'";
+        $data5 = Yii::app()->db->createCommand($sql5)->queryAll();
+        $totalMetros = $data5[0]['totalMetros'];
+
         $pdf->SetTextColor(180,0,0);
-        $pdf->writeHTML('* El valor a pagar por departamento es = $'  .$gastos);
+        $coeficiente=$totalMetros/$metros;
+        $apagar=ceil($total/$coeficiente);
+         $pdf->writeHTML('* El monto a pagar por el Dpto "'.$direccion.'" es = $'.$apagar);
+        
 
         $pdf->Output("Informe de Gastos.pdf", "I");
         Yii::app()->end();
@@ -283,94 +318,4 @@ class DptolocalController extends Controller
 			'model'=>$model,
 		));
 	}
-
-
-		public function actionPdf2()
-	 {
-	 	ob_clean();
- 		$html2pdfPath = Yii::getPathOfAlias('application.extensions.tcpdf');
-  		require_once($html2pdfPath.'\tcpdf\tcpdf.php');
-
-
-  		$mes = date("m");
-  		$meses = array('Diciembre','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
-  		$año = date("Y");
-  		$fecha = date("d/m/Y");
-  		$color = 0;
-
-        $pdf = new TCPDF();
-        $pdf->SetCreator(PDF_CREATOR);
-        $pdf->SetAuthor('SADE');
-        $pdf->SetTitle('Informe de Gastos Mensuales');
-       // $pdf->SetSubject('TCPDF Tutorial');
-      //  $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
-        $pdf->SetHeaderData('', 60, 'Informe de Gastos Mensuales', 'Correspondiente a '.$meses[$mes-1]. ' de ' .$año);
-        $pdf->setHeaderFont(Array('helvetica', '', 12));
-        $pdf->setFooterFont(Array('helvetica', '', 8));
-        $pdf->SetMargins(15, 18, 15);
-        $pdf->SetHeaderMargin(5);
-        $pdf->SetFooterMargin(10);
-        $pdf->SetAutoPageBreak(TRUE, 0);
-        $pdf->SetFont('dejavusans', '', 7);
-        $pdf->AddPage();
-        //$pdf->Image('/images/logo.jpeg', 218 ,4, 26 , 18,'JPEG','http://www.ubiobio.cl');
-        $pdf->SetFillColor(242, 226, 140);
-        $pdf->SetTextColor(0);
-        $pdf->SetDrawColor(10,63,122);
-        $pdf->SetLineWidth(0.3);
-        $pdf->SetFont('','',10);
-        $pdf->writeHTML('Informe generado el '.$fecha);
-        $pdf->ln(5);
-        // Data        
-        $sql = "select * from compromisopago where month(cpFechaRealPago)='$mes'-1 and year(cpFechaRealPago)='$año'";
-        $data = Yii::app()->db->createCommand($sql)->queryAll(); 
-    
-		$pdf->Cell(0.1,5,'');		
-		$pdf->Cell(25,5,'Descripción',1,'','C',true);
-		$pdf->Cell(35,5,'Número de Boleta',1,'','C',true);
-		$pdf->Cell(25,5,'Monto',1,'','C',true);
-		$pdf->Cell(35,5,'Fecha de Pago',1,'','C',true);
-		$pdf->Cell(60,5,'Observación',1,1,'C',true);              
-
-		$pdf->SetFont('','',8);
-
-        for ($i = 0; $i < count($data); $i++) {
-			if ($color==0){
-				$pdf->SetFillColor(230,230,230);
-				$color++;
-			}
-			else{
-				$pdf->SetFillColor(205,205,205);
-				$color--;
-			}
-        	$pdf->Cell(0.1,5,'');		
-			$pdf->Cell(25,5,$data[$i]['cpDescripcion'],1,'','C',true);
-			$pdf->Cell(35,5,$data[$i]['cpNumeroBoleta'],1,'','C',true);
-			$pdf->Cell(25,5,$data[$i]['cpMonto'],1,'','C',true);
-			$pdf->Cell(35,5,$data[$i]['cpFechaRealPago'],1,'','C',true);
-			$pdf->Cell(60,5,$data[$i]['cpObs'],1,1,'C',true);    
-        }
-        	$pdf->ln(5);
-
-        $sql2 = "select * from dptolocal where dlActivo='Si'";
-       	$data2 = Yii::app()->db->createCommand($sql2)->queryAll();
-        $dptos = count($data2); 
-
-        $pdf->SetFont('','',11);
-
-        $sql3 = "select sum(cpMonto) as total from compromisopago where month(cpFechaRealPago)='$mes'-1 and year(cpFechaRealPago)='$año'";
-        $data3 = Yii::app()->db->createCommand($sql3)->queryAll();
-        $total = $data3[0]['total'];
-        $pdf->writeHTML('* El monto total de gastos comunes es = $'.$total);
-        $pdf->ln(1);
-
-        $gastos = ceil($total/$dptos);
-        $pdf->SetTextColor(180,0,0);
-        $pdf->writeHTML('* El valor a pagar por departamento es = $'  .$gastos);
-
-        $pdf->Output("Informe de Gastos.pdf", "I");
-        Yii::app()->end();
-	 }
-
-
 }

@@ -28,6 +28,16 @@
 	<!-- <div class="cabecera"> -->
 	<div id="header">
 		<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo2_2.gif" width="90" height="50" style="margin-left: 20px;">
+		<div style="display: inline-block;  float: right; vertical-align: center">
+		<?php  $this->widget('zii.widgets.CMenu',array(
+			'items'=>array(
+				array('label'=>'Salir ('.Yii::app()->user->name.')'	
+					, 'url'=>Yii::app()->user->ui->logoutUrl
+					, 'visible'=>!Yii::app()->user->isGuest)
+				)));
+				?>	
+		</div>
+		
 	</div><!-- header -->
 
 	<!-- <div class="menu"> -->
@@ -76,8 +86,7 @@
 			
 
 				//diego
-				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')
-					, 'visible'=>(Yii::app()->user->isSuperAdmin || Yii::app()->user->checkAccess('Conserje')) ), 
+				
 				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
 				    , 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Perfiles'
@@ -96,8 +105,11 @@
 				array('label'=>'Pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
 				array('label'=>'Espacios comunes'),//categoria principal
+				array('label'=>'Ingresar', 'url'=>array('/espacioComun/index')
+					, 'visible'=>(Yii::app()->user->isSuperAdmin || Yii::app()->user->checkAccess('Conserje')) ), 
 				array('label'=>'Reservar', 'url'=>array('/reservaespaciocomun/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin), 
+
 				array('label'=>'Reserva espacio común', 'url'=>array('/reservaespaciocomun_residente/index')
 					, 'visible'=>(Yii::app()->user->checkAccess('Residente')&& !Yii::app()->user->isSuperAdmin) && !Yii::app()->user->isGuest ),				
 	
@@ -110,9 +122,7 @@
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),
 
-				array('label'=>'Salir ('.Yii::app()->user->name.')'	
-					, 'url'=>Yii::app()->user->ui->logoutUrl
-					, 'visible'=>!Yii::app()->user->isGuest),
+				
 
 				/*
 				

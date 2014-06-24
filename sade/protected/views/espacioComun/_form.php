@@ -33,7 +33,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ecFrecuencia'); ?>
-		<?php echo $form->textField($model,'ecFrecuencia'); ?>
+		<?php echo $form->numberField($model,'ecFrecuencia'); ?>
 		<?php echo $form->error($model,'ecFrecuencia'); ?>
 	</div>
 

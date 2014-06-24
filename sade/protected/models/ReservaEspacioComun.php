@@ -67,7 +67,7 @@ class Reservaespaciocomun extends CActiveRecord
 		return array(
 			'reFechaInicio' => 'Fecha Inicio',
 			'adRut' => 'Rut',
-			'ecCodigo' => 'Código',
+			'ecCodigo' => 'Nombre',
 			'reFechaFin' => 'Fecha Fin',
 		);
 	}

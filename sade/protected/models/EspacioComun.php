@@ -62,7 +62,7 @@ class Espaciocomun extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'ecCodigo' => 'Código',
+			'ecCodigo' => 'Nombre',
 			'ecDescripcion' => 'Descripción',
 			'ecFrecuencia' => 'Frecuencia (Minutos)',
 			'ecActivo' => 'Activo',

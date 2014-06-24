@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Gastos comunes',
+	'Gastos Comunes',
 );
 
 $this->menu=array(
@@ -12,7 +12,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Gastos comunes</h1>
+<h1>Gastos Comunes</h1>
 <hr>
 
 <?php $this->widget('zii.widgets.CListView', array(

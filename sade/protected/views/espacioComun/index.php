@@ -9,8 +9,8 @@ $this->breadcrumbs=array(
 
 if ( Yii::app()->user->isSuperAdmin) {
 $this->menu=array(
-	array('label'=>'Crear Espacio Común', 'url'=>array('create')),
-	array('label'=>'Administrar Espacios Comunes', 'url'=>array('admin')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Administrar', 'url'=>array('admin')),
 );
  }
 

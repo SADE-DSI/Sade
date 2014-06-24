@@ -62,8 +62,8 @@ class Compromisopago extends CActiveRecord
 			'cpTipo' => 'Tipo',
 			'cpMonto' => 'Monto',
 			'cpFechaIngreso' => 'Fecha Ingreso',
-			'cpObs' => 'Observaciones',
-			'cpNumeroBoleta' => 'Numero Boleta',
+			'cpObs' => 'Observación',
+			'cpNumeroBoleta' => 'Número Boleta',
 			'cpAno' => 'Año',
 			'cpMes' => 'Mes',
 		);

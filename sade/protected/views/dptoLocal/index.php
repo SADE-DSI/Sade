@@ -25,15 +25,15 @@ if (Yii::app()->user->checkAccess('Residente')) {
 
 if ( Yii::app()->user->isSuperAdmin) {
 $this->menu=array(
-	array('label'=>'Crear Dpto/Local', 'url'=>array('create')),
-	array('label'=>'Administrar Dpto/Local', 'url'=>array('admin')),
- array('label'=>'Informe de Gastos Comunes Actual', 'url'=>array('pdf')),);
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Administrar', 'url'=>array('admin')),
+ );
 }
 
 
 ?>
 
-<h1>Dpto/Local</h1>
+<h1>Departamentos-Locales</h1>
 <hr>
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

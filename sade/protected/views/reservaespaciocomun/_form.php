@@ -19,20 +19,6 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'reFechaInicio'); ?>
-		<?php 
-		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
-			"attribute"=>"reFechaInicio",
-			"model"=>$model,
-			"language"=>"es",
-			"options"=>array(
-				"dateFormat"=>"yy-mm-dd"
-				)
-			));
-		?>
-		<?php echo $form->error($model,'reFechaInicio'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'adRut'); ?>
@@ -60,6 +46,22 @@
 		?>
 		<?php echo $form->error($model,'reFechaFin'); ?>
 	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'reFechaInicio'); ?>
+		<?php 
+		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
+			"attribute"=>"reFechaInicio",
+			"model"=>$model,
+			"language"=>"es",
+			"options"=>array(
+				"dateFormat"=>"yy-mm-dd"
+				)
+			));
+		?>
+		<?php echo $form->error($model,'reFechaInicio'); ?>
+	</div>
+
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar', array('class' => 'guardar')); ?>

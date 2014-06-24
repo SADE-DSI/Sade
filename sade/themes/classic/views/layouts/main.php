@@ -51,23 +51,24 @@
 			'items'=>array(
 				
 				//array('label'=>'Inicio', 'url'=>array('/site/index')),
-				
-				//debora
-    			array('label'=>'Avisos', 'url'=>array('/aviso/index')
-					, 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Contrato Personal', 'url'=>array('/ContratoPersonal/index')
-					, 'visible'=>Yii::app()->user->isSuperAdmin),
-				array('label'=>'Sueldo Personal', 'url'=>array('/Sueldopersonal/index')
-					, 'visible'=>Yii::app()->user->isSuperAdmin),
-    			array('label'=>'Dpto/Locales', 'url'=>array('/Dptolocal/index')
-					, 'visible'=>(Yii::app()->user->checkAccess('Residente') || Yii::app()->user->checkAccess('Conserje')) ),
-    			array('label'=>'Visitas', 'url'=>array('/Visitadpto/index')
-					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
-    			array('label'=>'Datos Visitas', 'url'=>array('/Visita/index')
-					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
+					
 
-    			//leonardo
-						
+				array('label'=>'Edificio'),//categoria principal
+				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')
+					, 'visible'=>(Yii::app()->user->isSuperAdmin || Yii::app()->user->checkAccess('Conserje')) ), 
+				array('label'=>'Reservas', 'url'=>array('/reservaespaciocomun/index')
+					, 'visible'=>Yii::app()->user->isSuperAdmin), 
+				array('label'=>'Reserva espacio común', 'url'=>array('/reservaespaciocomun_residente/index')
+					, 'visible'=>(Yii::app()->user->checkAccess('Residente')&& !Yii::app()->user->isSuperAdmin) && !Yii::app()->user->isGuest ),				
+				array('label'=>'Reserva espacio común', 'url'=>array('/reservaespaciocomun_conserje/index')
+					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)    ), 
+				array('label'=>'Dptos-Locales', 'url'=>array('/Dptolocal/index')
+					, 'visible'=>(Yii::app()->user->checkAccess('Residente') || Yii::app()->user->checkAccess('Conserje')) ),
+				array('label'=>'Inventarios'
+					, 'url'=>array('/material/index')
+					, 'visible'=>(Yii::app()->user->checkAccess('Conserje')  || Yii::app()->user->isSuperAdmin)),
+
+				array('label'=>'Usuarios'),//categoria principal				
 				array('label'=>'Conserjes'
 					, 'url'=>array('/conserjeAdministrador/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin),
@@ -76,54 +77,49 @@
 					, 'visible'=>Yii::app()->user->isSuperAdmin),	
 				array('label'=>'Usuario'
 					, 'url'=>array('/arrendatarioDuenoconserje/index')
-					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)),				
-				array('label'=>'Inventarios'
-					, 'url'=>array('/material/index')
-					, 'visible'=>(Yii::app()->user->checkAccess('Conserje')  || Yii::app()->user->isSuperAdmin)),
-				array('label'=>'Empleados'
-					, 'url'=>array('/persona/index')
-					, 'visible'=>Yii::app()->user->isSuperAdmin),			
-			
-
-				//diego
-				
-				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
-				    , 'visible'=>!Yii::app()->user->isGuest),
+					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)),
 				array('label'=>'Perfiles'
 					, 'url'=>array('/permisos/index')
-					, 'visible'=>Yii::app()->user->isSuperAdmin),
-
-
-				//samuel
+					, 'visible'=>Yii::app()->user->isSuperAdmin),				
 				
-
 				array('label'=>'Gastos comunes'),//categoria principal
-				array('label'=>'Ingresar', 'url'=>array('/compromisoPago/index')
+				array('label'=>'Ingreso', 'url'=>array('/compromisoPago/index')
 				    , 'visible'=>Yii::app()->user->isSuperAdmin),
 				array('label'=>'Gastos Comunes', 'url'=>array('/compromisoPago_otros/index')
 				    , 'visible'=>(!Yii::app()->user->isSuperAdmin && !Yii::app()->user->isGuest)), 	
 				array('label'=>'Pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>!Yii::app()->user->isGuest), 
-				array('label'=>'Espacios comunes'),//categoria principal
-				array('label'=>'Ingresar', 'url'=>array('/espacioComun/index')
-					, 'visible'=>(Yii::app()->user->isSuperAdmin || Yii::app()->user->checkAccess('Conserje')) ), 
-				array('label'=>'Reservar', 'url'=>array('/reservaespaciocomun/index')
-					, 'visible'=>Yii::app()->user->isSuperAdmin), 
-
-				array('label'=>'Reserva espacio común', 'url'=>array('/reservaespaciocomun_residente/index')
-					, 'visible'=>(Yii::app()->user->checkAccess('Residente')&& !Yii::app()->user->isSuperAdmin) && !Yii::app()->user->isGuest ),				
-	
-				array('label'=>'Reserva espacio común', 'url'=>array('/reservaespaciocomun_conserje/index')
-					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)    ), 
-
+				
 				
 
+				array('label'=>'Personal'),//categoria principal				
+				array('label'=>'Empleados'
+					, 'url'=>array('/persona/index')
+					, 'visible'=>Yii::app()->user->isSuperAdmin),			
+				array('label'=>'Contratos', 'url'=>array('/ContratoPersonal/index')
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
+				array('label'=>'Sueldos', 'url'=>array('/Sueldopersonal/index')
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
 				array('label'=>'Ingresar'
 					, 'url'=>Yii::app()->user->ui->loginUrl
 					, 'visible'=>Yii::app()->user->isGuest),
+				
+	
 
+
+
+				array('label'=>'Visitas'),//categoria principal				
+				array('label'=>'Visitas', 'url'=>array('/Visitadpto/index')
+					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
+    			array('label'=>'Datos Visitas', 'url'=>array('/Visita/index')
+					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
 				
 
+				array('label'=>'Información'),//categoria principal				
+				array('label'=>'Avisos', 'url'=>array('/aviso/index')
+					, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
+				    , 'visible'=>!Yii::app()->user->isGuest),
 				/*
 				
 				

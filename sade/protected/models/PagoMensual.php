@@ -65,7 +65,7 @@ class Pagomensual extends CActiveRecord
 			'pmFechaPago' => 'Fecha Pago',
 			'pmMonto' => 'Monto',
 			'pmObs' => 'Observaciones',
-			'pmMesAno' => 'Fecha a pagar',
+			'pmMesAno' => 'Fecha a Pagar',
 		);
 	}
 

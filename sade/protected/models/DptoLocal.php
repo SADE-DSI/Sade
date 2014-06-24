@@ -65,7 +65,7 @@ class Dptolocal extends CActiveRecord
 	{
 		return array(
 			'dlDireccion' => 'Dirección',
-			'dlMts2Construidos' => 'Metros Cuadrados Construidos',
+			'dlMts2Construidos' => 'Metros Cuadrados',
 			'dlValorArriendo' => 'Valor Arriendo',
 			'dlActivo' => 'Activo',
 		);

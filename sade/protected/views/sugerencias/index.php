@@ -20,7 +20,7 @@ if (Yii::app()->user->checkAccess('Residente')) {
 
 if ( Yii::app()->user->isSuperAdmin) {
 $this->menu=array(
-array('label'=>'Administrar Sugerencias', 'url'=>array('admin')), );
+array('label'=>'Administrar', 'url'=>array('admin')), );
  }
 
 

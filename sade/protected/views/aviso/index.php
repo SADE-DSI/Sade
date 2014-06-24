@@ -19,8 +19,8 @@ if (Yii::app()->user->checkAccess('Residente')) {
 
 if ( Yii::app()->user->isSuperAdmin) {
 $this->menu=array(
-	array('label'=>'Crear Aviso', 'url'=>array('create')),
-	array('label'=>'Administrar Aviso', 'url'=>array('admin')),);
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Administrar', 'url'=>array('admin')),);
 
 }
 

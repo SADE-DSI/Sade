@@ -51,6 +51,7 @@
 			'items'=>array(
 				
 				//array('label'=>'Inicio', 'url'=>array('/site/index')),
+<<<<<<< HEAD
 					
 
 				array('label'=>'Edificio'),//categoria principal
@@ -67,6 +68,22 @@
 				array('label'=>'Inventarios'
 					, 'url'=>array('/material/index')
 					, 'visible'=>(Yii::app()->user->checkAccess('Conserje')  || Yii::app()->user->isSuperAdmin)),
+=======
+				
+				//debora
+    			array('label'=>'Avisos', 'url'=>array('/aviso/index')
+					, 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Contrato Personal', 'url'=>array('/ContratoPersonal/index')
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
+				array('label'=>'Sueldo Personal', 'url'=>array('/Sueldopersonal/index')
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
+    			array('label'=>'Dpto/Locales', 'url'=>array('/Dptolocal/index')
+					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
+    			array('label'=>'Visitas', 'url'=>array('/Visitadpto/index')
+					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
+    			array('label'=>'Datos Visitas', 'url'=>array('/Visita/index')
+					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
+>>>>>>> origin/master
 
 				array('label'=>'Usuarios'),//categoria principal				
 				array('label'=>'Conserjes'
@@ -77,7 +94,27 @@
 					, 'visible'=>Yii::app()->user->isSuperAdmin),	
 				array('label'=>'Usuario'
 					, 'url'=>array('/arrendatarioDuenoconserje/index')
+<<<<<<< HEAD
 					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)),
+=======
+					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)),				
+				array('label'=>'Inventarios'
+					, 'url'=>array('/material/index')
+					, 'visible'=>(Yii::app()->user->checkAccess('Conserje')  || Yii::app()->user->isSuperAdmin)),
+				array('label'=>'Empleados'
+					, 'url'=>array('/persona/index')
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
+				array('label'=>'PDF Gastos Comunes'
+					, 'url'=>array('/Dptolocal/pdf')
+					, 'visible'=>!Yii::app()->user->isSuperAdmin),		
+					
+			
+
+				//diego
+				
+				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
+				    , 'visible'=>!Yii::app()->user->isGuest),
+>>>>>>> origin/master
 				array('label'=>'Perfiles'
 					, 'url'=>array('/permisos/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin),				

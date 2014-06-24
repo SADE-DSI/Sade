@@ -55,7 +55,7 @@ $('.search-form form').submit(function(){
 	    	'Restaurar' => array(
 		      'label'=>'Restaurar Empleado Eliminado', 
 		      'url'=>"CHtml::normalizeUrl(array('Restaurar', 'id'=>\$data->peRut))",
-		      'imageUrl'=>Yii::app()->request->baseUrl.'/images/tick.png', 
+		      'imageUrl'=>Yii::app()->request->baseUrl.'/images/tick.gif', 
 		      'options' => array('class'=>'Restaurar'),
     ),
   ),

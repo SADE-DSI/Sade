@@ -236,3 +236,6 @@ sade/protected/controllers/DptoLocalController.php
 sade/protected/controllers/DptoLocalController.php
 sade/protected/controllers/DptoLocalController.php
 sade/protected/controllers/DptoLocalController.php
+sade/protected/controllers/ArrendatarioDuenoController.php
+sade/protected/controllers/ArrendatarioDuenoController.php
+sade/protected/views/arrendatarioDueno/update.php

@@ -52,11 +52,9 @@ class ArrendatarioduenoController extends Controller
 	public function actionView($id)
 	{
 		$persona=Persona::model()->findByPk($id);
-		$reside = Residedpto::model()->findByPk($id);
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 			'persona'=>$persona,
-			'reside' =>$reside,
 		));
 	}
 
@@ -137,39 +135,31 @@ class ArrendatarioduenoController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
-		$model=$this->loadModel($id);
 		$persona = Persona::model()->findByPk($id);
-		$dlDireccion=Yii::app()->db->createCommand('select dlDireccion from residedpto where adRut=$id')->queryAll();
-		$reside = Residedpto::model()->find($dlDireccion);
-
+		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation(array($model,$persona,$reside));
+		$this->performAjaxValidation(array($model,$persona));
 		
-		if(isset($_POST['Arrendatariodueno'], $_POST['Persona'], $_POST['Residedpto']))
+		if(isset($_POST['Arrendatariodueno'], $_POST['Persona']))
 		{
 			$model->attributes=$_POST['Arrendatariodueno'];
 			$persona->attributes=$_POST['Persona'];
-			$reside->attributes=$_POST['Residedpto'];
 			$persona->peRut=$model->adRut;
 			$valid = $model->validate();
 			$valid = $persona->validate() && $valid;
-			$valid = $reside->validate() && $valid;
 			
 			if ($valid){
 				if ($persona->save()){
-					if($model->save()){
-						if($reside->save())
+					if($model->save())
 						$this->redirect(array('view','id'=>$model->adRut));
 				}
 			}
 		}
-	}
 
 		$this->render('update',array(
 			'model'=>$model,
 			'persona' =>$persona,
-			'reside' =>$reside,
 		));
 	}
 
@@ -267,13 +257,10 @@ class ArrendatarioduenoController extends Controller
 	{
 		$model=Arrendatariodueno::model()->findByPk($id);
 		$persona=Persona::model()->findByPk($id);
-		$reside = Residedpto::model()->findByPk($id);
-
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
-
 
 	/**
 	 * Performs the AJAX validation.

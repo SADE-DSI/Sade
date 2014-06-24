@@ -18,4 +18,4 @@ $this->menu=array(
 
 <h1>Actualizar Arrendatario/Dueño <?php echo $model->adRut; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model,'persona'=>$persona)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model, 'persona'=>$persona, 'reside'=>$reside)); ?>

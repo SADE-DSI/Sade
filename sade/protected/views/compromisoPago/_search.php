@@ -18,12 +18,22 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'cpTipo'); ?>
-		<?php echo $form->textField($model,'cpTipo',array('size'=>60,'maxlength'=>767)); ?>
+		<?php echo $form->textField($model,'cpTipo',array('size'=>60,'maxlength'=>255)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'cpFechaVencimiento'); ?>
+		<?php echo $form->textField($model,'cpFechaVencimiento'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'cpMonto'); ?>
 		<?php echo $form->textField($model,'cpMonto',array('size'=>10,'maxlength'=>10)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'cpDescripcion'); ?>
+		<?php echo $form->textField($model,'cpDescripcion',array('size'=>60,'maxlength'=>767)); ?>
 	</div>
 
 	<div class="row">
@@ -42,17 +52,12 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'cpAno'); ?>
-		<?php echo $form->textField($model,'cpAno',array('size'=>11,'maxlength'=>11)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'cpMes'); ?>
-		<?php echo $form->textField($model,'cpMes',array('size'=>11,'maxlength'=>11)); ?>
+		<?php echo $form->label($model,'cpFechaRealPago'); ?>
+		<?php echo $form->textField($model,'cpFechaRealPago'); ?>
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Buscar'); ?>
+		<?php echo CHtml::submitButton('Search'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

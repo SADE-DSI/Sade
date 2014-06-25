@@ -25,8 +25,8 @@
 	<?php echo CHtml::encode($data->pmObs); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('pmMesAno')); ?>:</b>
-	<?php echo CHtml::encode($data->pmMesAno); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('pmFechaRealPago')); ?>:</b>
+	<?php echo CHtml::encode($data->pmFechaRealPago); ?>
 	<br />
 
 

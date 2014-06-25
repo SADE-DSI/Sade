@@ -3,17 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Gastos Comunes',
+	'Compromisopagos',
 );
 
 $this->menu=array(
-	array('label'=>'Crear', 'url'=>array('create')),
-	array('label'=>'Administrar', 'url'=>array('admin')),
+	array('label'=>'Create Compromisopago', 'url'=>array('create')),
+	array('label'=>'Manage Compromisopago', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Gastos Comunes</h1>
-<hr>
+<h1>Compromisopagos</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

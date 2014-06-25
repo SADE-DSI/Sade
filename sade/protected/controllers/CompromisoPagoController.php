@@ -70,41 +70,8 @@ class CompromisopagoController extends Controller
 		if(isset($_POST['Compromisopago']))
 		{
 			$model->attributes=$_POST['Compromisopago'];
-			if($model->save()){
-				
-				$personas=Arrendatariodueno::model()->findAll();
-				$count=count($personas);
-
-				if($model->cpMes<10){
-					$mesAno=$model->cpAno."-0".$model->cpMes;	
-				}
-				else{
-					$mesAno=$model->cpAno."-".$model->cpMes;	
-				}
-				
-				echo "el mes es  ".$mesAno;
-				$existe=Gastomensual::model()->find('gmMesAno= "'.$mesAno.'"');
-				
-				if ($existe){
-					$existe->gmDinero=$existe->gmDinero+$model->cpMonto;
-					$existe->gmDepartamentos=$count;
-					$existe->gmPago=($existe->gmDinero)/$count;
-					$existe->save();
-					echo "            existe";
-				}
-
-				else{	
-  					$contact = new Gastomensual;
-					$contact->gmMesAno.=$mesAno;
-					$contact->gmDinero=$model->cpMonto;
-					$contact->gmDepartamentos=$count;
-					$contact->gmPago=($contact->gmDinero)/$count;
-					$contact->save();
-					echo "           no existe";
-				}
-
+			if($model->save())
 				$this->redirect(array('view','id'=>$model->cpId));
-			}
 		}
 
 		$this->render('create',array(

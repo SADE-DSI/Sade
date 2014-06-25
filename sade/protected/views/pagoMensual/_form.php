@@ -15,7 +15,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
+	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -27,29 +27,29 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pmFechaPago'); ?>
-		<?php echo $form->textField($model,'pmFechaPago', array('value'=>date('Y-m-d'),'readonly'=>'false')); ?>
+		<?php 
+		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
+			"attribute"=>"pmFechaPago",
+			"model"=>$model,
+			"language"=>"es",
+			"options"=>array(
+				"dateFormat"=>"yy-mm",
+				'showOtherMonths'=>'true',// Show Other month in jquery
+        		'selectOtherMonths'=>'true',// Select Other month in jquery
+				'changeMonth' => 'true',
+ 				'changeYear' => 'true',
+ 				'constrainInput'=>'true'
+				),
+				
+
+			));
+		?>
 		<?php echo $form->error($model,'pmFechaPago'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'pmMesAno'); 
-		$orden = new CDbCriteria;
-		$orden->order = 'gmMesAno ASC';
-		 echo $form->dropDownList($model,'pmMesAno',CHtml::listData(Gastomensual::model()->findAll($orden),"gmMesAno","gmMesAno"),
-		 array(
-		 	'ajax'=>array(
-		 		'type'=>'POST',
-		 		'url'=>Ccontroller::createUrl('pagoMensual/Obtenerprecio'),
-		 		'update'=>'#'.CHtml::activeId($model,'pmMonto'),
-		 		),
-		 	)
-		 	); 
-		 echo $form->error($model,'pmMesAno'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'pmMonto'); ?>
-		<?php echo $form->dropDownList($model,'pmMonto',array(''=>'seleccione el año')); ?>
+		<?php echo $form->textField($model,'pmMonto',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'pmMonto'); ?>
 	</div>
 
@@ -59,8 +59,14 @@
 		<?php echo $form->error($model,'pmObs'); ?>
 	</div>
 
+	<div class="row">
+		<?php //echo $form->labelEx($model,'pmFechaRealPago'); ?>
+		<?php echo $form->hiddenField($model,'pmFechaRealPago', array('value'=>date('Y-m-d'),'readonly'=>'false')); ?>
+		<?php echo $form->error($model,'pmFechaRealPago'); ?>
+	</div>
+
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar', array('class' => 'guardar')); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

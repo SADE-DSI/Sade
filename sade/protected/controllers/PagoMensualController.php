@@ -28,7 +28,7 @@ class PagomensualController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','Obtenerprecio'),
+				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -70,6 +70,8 @@ class PagomensualController extends Controller
 		if(isset($_POST['Pagomensual']))
 		{
 			$model->attributes=$_POST['Pagomensual'];
+			$model->pmFechaPago=$model->pmFechaPago."-01";
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->pmId));
 		}
@@ -128,18 +130,6 @@ class PagomensualController extends Controller
 		));
 	}
 
-
-
-
-	public function actionObtenerprecio(){
- 		$id_uno=$_POST['Pagomensual']['pmMesAno'];
- 		$lista=Gastomensual::model()->findAll('gmMesAno= :id_uno',array(':id_uno'=>$id_uno));
- 		$lista=CHtml::listData($lista,'gmPago','gmPago');
-
-	 	foreach ($lista as $valor => $descripcion) {
- 			echo CHtml::tag('option',array('value'=>$valor),CHtml::encode($descripcion),true);
- 		}
-	}
 	/**
 	 * Manages all models.
 	 */

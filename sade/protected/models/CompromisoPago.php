@@ -6,12 +6,13 @@
  * The followings are the available columns in table 'compromisopago':
  * @property string $cpId
  * @property string $cpTipo
+ * @property string $cpFechaVencimiento
  * @property string $cpMonto
+ * @property string $cpDescripcion
  * @property string $cpFechaIngreso
  * @property string $cpObs
  * @property string $cpNumeroBoleta
- * @property string $cpAno
- * @property string $cpMes
+ * @property string $cpFechaRealPago
  */
 class Compromisopago extends CActiveRecord
 {
@@ -31,13 +32,14 @@ class Compromisopago extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cpTipo, cpMonto, cpFechaIngreso, cpAno, cpMes', 'required'),
-			array('cpTipo, cpObs', 'length', 'max'=>767),
+			array('cpTipo, cpFechaVencimiento, cpMonto, cpFechaIngreso', 'required'),
+			array('cpTipo', 'length', 'max'=>255),
 			array('cpMonto, cpNumeroBoleta', 'length', 'max'=>10),
-			array('cpAno, cpMes', 'length', 'max'=>11),
+			array('cpDescripcion, cpObs', 'length', 'max'=>767),
+			array('cpFechaRealPago', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('cpId, cpTipo, cpMonto, cpFechaIngreso, cpObs, cpNumeroBoleta, cpAno, cpMes', 'safe', 'on'=>'search'),
+			array('cpId, cpTipo, cpFechaVencimiento, cpMonto, cpDescripcion, cpFechaIngreso, cpObs, cpNumeroBoleta, cpFechaRealPago', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,13 +61,14 @@ class Compromisopago extends CActiveRecord
 	{
 		return array(
 			'cpId' => 'Cp',
-			'cpTipo' => 'Tipo',
-			'cpMonto' => 'Monto',
-			'cpFechaIngreso' => 'Fecha Ingreso',
-			'cpObs' => 'Observación',
-			'cpNumeroBoleta' => 'Número Boleta',
-			'cpAno' => 'Año',
-			'cpMes' => 'Mes',
+			'cpTipo' => 'Cp Tipo',
+			'cpFechaVencimiento' => 'Cp Fecha Vencimiento',
+			'cpMonto' => 'Cp Monto',
+			'cpDescripcion' => 'Cp Descripcion',
+			'cpFechaIngreso' => 'Cp Fecha Ingreso',
+			'cpObs' => 'Cp Obs',
+			'cpNumeroBoleta' => 'Cp Numero Boleta',
+			'cpFechaRealPago' => 'Cp Fecha Real Pago',
 		);
 	}
 
@@ -89,12 +92,13 @@ class Compromisopago extends CActiveRecord
 
 		$criteria->compare('cpId',$this->cpId,true);
 		$criteria->compare('cpTipo',$this->cpTipo,true);
+		$criteria->compare('cpFechaVencimiento',$this->cpFechaVencimiento,true);
 		$criteria->compare('cpMonto',$this->cpMonto,true);
+		$criteria->compare('cpDescripcion',$this->cpDescripcion,true);
 		$criteria->compare('cpFechaIngreso',$this->cpFechaIngreso,true);
 		$criteria->compare('cpObs',$this->cpObs,true);
 		$criteria->compare('cpNumeroBoleta',$this->cpNumeroBoleta,true);
-		$criteria->compare('cpAno',$this->cpAno,true);
-		$criteria->compare('cpMes',$this->cpMes,true);
+		$criteria->compare('cpFechaRealPago',$this->cpFechaRealPago,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

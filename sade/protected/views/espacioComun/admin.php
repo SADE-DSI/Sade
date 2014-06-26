@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Lista de Espacios Comunes', 'url'=>array('index')),
-	array('label'=>'Crear Espacio Común', 'url'=>array('create')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

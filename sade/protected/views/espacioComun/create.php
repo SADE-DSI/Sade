@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Lista de Espacios Comunes', 'url'=>array('index')),
-	array('label'=>'Administrar Espacios Comunes', 'url'=>array('admin')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 

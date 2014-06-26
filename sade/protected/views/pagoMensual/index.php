@@ -3,17 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Pagos',
+	'Pagomensuals',
 );
 
 $this->menu=array(
-	array('label'=>'Crear', 'url'=>array('create')),
-	array('label'=>'Administrar', 'url'=>array('admin')),
+	array('label'=>'Create Pagomensual', 'url'=>array('create')),
+	array('label'=>'Manage Pagomensual', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Pagos</h1>
-<hr>
+<h1>Pagomensuals</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

@@ -15,11 +15,11 @@ if (Yii::app()->user->checkAccess('Conserje')) {
 
 if ( Yii::app()->user->isSuperAdmin) {
 $this->menu=array(
-	array('label'=>'Lista de Espacios Comunes', 'url'=>array('index')),
-	array('label'=>'Crear Espacio Común', 'url'=>array('create')),
-	array('label'=>'Modificar Espacios Comunes', 'url'=>array('update', 'id'=>$model->ecCodigo)),
-	array('label'=>'Eliminar Espacio Común', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ecCodigo),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Administrar Espacios Comunes', 'url'=>array('admin')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Modificar', 'url'=>array('update', 'id'=>$model->ecCodigo)),
+	array('label'=>'Eliminar', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->ecCodigo),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar', 'url'=>array('admin')),
 );}
 ?>
 

@@ -9,10 +9,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Lista de Espacios Comunes', 'url'=>array('index')),
-	array('label'=>'Crear Espacio Común', 'url'=>array('create')),
-	array('label'=>'Ver Espacio Común', 'url'=>array('view', 'id'=>$model->ecCodigo)),
-	array('label'=>'Administrar Espacios Comunes', 'url'=>array('admin')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Ver', 'url'=>array('view', 'id'=>$model->ecCodigo)),
+	array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 

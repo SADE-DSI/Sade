@@ -3,17 +3,16 @@
 /* @var $model Pagomensual */
 
 $this->breadcrumbs=array(
-	'Pagos'=>array('index'),
-	'Crear',
+	'Pagomensuals'=>array('index'),
+	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'Listar', 'url'=>array('index')),
-	array('label'=>'Administrar', 'url'=>array('admin')),
+	array('label'=>'List Pagomensual', 'url'=>array('index')),
+	array('label'=>'Manage Pagomensual', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Crear pago mensual</h1>
-<hr>
+<h1>Create Pagomensual</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -26,14 +26,34 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'cpFechaVencimiento'); ?>
+		<?php 
+		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
+			"attribute"=>"cpFechaVencimiento",
+			"model"=>$model,
+			"language"=>"es",
+			"options"=>array(
+				"dateFormat"=>"yy-mm-dd")
+			));
+		?>
+		<?php echo $form->error($model,'cpFechaVencimiento'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'cpMonto'); ?>
 		<?php echo $form->textField($model,'cpMonto',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'cpMonto'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'cpFechaIngreso'); ?>
-		<?php echo $form->textField($model,'cpFechaIngreso', array('value'=>date('Y-m-d H:i:s'),'readonly'=>'false')); ?>
+		<?php echo $form->labelEx($model,'cpDescripcion'); ?>
+		<?php echo $form->textField($model,'cpDescripcion',array('size'=>60,'maxlength'=>767)); ?>
+		<?php echo $form->error($model,'cpDescripcion'); ?>
+	</div>
+
+	<div class="row">
+		<?php //echo $form->labelEx($model,'cpFechaIngreso'); ?>
+		<?php echo $form->hiddenField($model,'cpFechaIngreso', array('value'=>date('Y-m-d H:i:s'),'readonly'=>'false')); ?>
 		<?php echo $form->error($model,'cpFechaIngreso'); ?>
 	</div>
 
@@ -50,15 +70,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'cpAno'); ?>
-		<?php echo $form->numberField($model,'cpAno',array('value'=>date('Y'))); ?>
-		<?php echo $form->error($model,'cpAno'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'cpMes'); ?>
-		<?php echo $form->dropDownList($model,'cpMes',array('1'=>'Enero','2'=>'Febrero','3'=>'Marzo','4'=>'Abril','5'=>'Mayo','6'=>'Junio','7'=>'Julio','8'=>'Agosto','9'=>'Septiembre','10'=>'Octubre','11'=>'Noviembre','12'=>'Diciembre')); ?></td>
-		<?php echo $form->error($model,'cpMes'); ?>
+		<?php //echo $form->labelEx($model,'cpFechaRealPago'); ?>
+		<?php echo $form->hiddenField($model,'cpFechaRealPago'); ?>
+		<?php echo $form->error($model,'cpFechaRealPago'); ?>
 	</div>
 
 	<div class="row buttons">

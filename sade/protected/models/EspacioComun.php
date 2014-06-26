@@ -35,7 +35,7 @@ class Espaciocomun extends CActiveRecord
 			array('ecCodigo', 'length', 'min'=>4),
 			array('ecCodigo',  'match', 'pattern'=>'/[a-zA-Z]/'),
 			array('ecCodigo', 'unique'),
-			array('ecFrecuencia, ecActivo', 'numerical', 'integerOnly'=>true),
+			array('ecFrecuencia, ecActivo', 'numerical', 'integerOnly'=>true, 'min'=>5, 'tooSmall'=>'La Frecuencia mínima son 5 minutos'),
 			array('ecFrecuencia', 'required'),
 			array('ecDescripcion', 'length', 'max'=>767),
 			// The following rule is used by search().

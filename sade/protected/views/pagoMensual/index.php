@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create Pagomensual', 'url'=>array('create')),
 	array('label'=>'Manage Pagomensual', 'url'=>array('admin')),
+	array('label'=>'VER INFORME PDF', 'url'=>array('pdf')),
 );
 ?>
 

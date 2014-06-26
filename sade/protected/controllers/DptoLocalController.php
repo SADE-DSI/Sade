@@ -224,7 +224,7 @@ class DptolocalController extends Controller
         $pdf->SetFillColor(242, 226, 140);
         $pdf->SetTextColor(0);
         $pdf->SetDrawColor(10,63,122);
-        $pdf->SetLineWidth(0.3);
+        $pdf->SetLineWidth(0);
         $pdf->SetFont('','',10);
         $pdf->writeHTML('Informe generado el '.$fecha);
         $pdf->ln(5);

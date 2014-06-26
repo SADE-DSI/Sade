@@ -129,6 +129,15 @@ class Arrendatariodueno extends CActiveRecord
 		return parent::model($className);
 	}
 
+	public function getDatos ($adRut, $dato){
+		$persona = Persona::model()->findByPk($adRut);
+		if($persona===null)
+			throw new CHttpException(404,'La página solicitada No existe.');	
+		else if ($persona->$dato===null)
+			return '';
+		return $persona->$dato;
+	}
+
 public function validateRut($attribute,$params){
 		$rut = $this->adRut;
 		$suma = "";

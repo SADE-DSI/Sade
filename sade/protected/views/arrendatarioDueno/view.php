@@ -23,5 +23,8 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'adRut',
+		array('label'=>'Nombre Completo',
+			'type'=>'text',
+			'value'=>$model->getDatos($model->adRut, 'peNombresApellidos')),
 	),
 )); ?>

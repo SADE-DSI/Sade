@@ -155,9 +155,10 @@ class ContratopersonalController extends Controller
 	{
 		$model=new Contratopersonal('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Contratopersonal']))
-			$model->attributes=$_GET['Contratopersonal'];
 
+		if(isset($_GET['Contratopersonal'])){
+			$model->attributes=$_GET['Contratopersonal'];
+		}
 		$this->render('admin',array(
 			'model'=>$model,
 		));

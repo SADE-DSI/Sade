@@ -23,6 +23,7 @@ class Contratopersonal extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+	public $peNombresApellidos;
 	public function tableName()
 	{
 		return 'contratopersonal';
@@ -36,6 +37,7 @@ class Contratopersonal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('peNombresApellidos', 'safe', 'on'=>'search'),
 			array('peRut, cpAFPMonto, cpPrevisionMonto, cpSueldoBruto, cpAFPNombre, cpPrevisionNombre, cpFechaInicio','required'),
 			array('cpAFPMonto, cpPrevisionMonto, cpSueldoBruto,', 'numerical', 'integerOnly'=>true),
 			array('cpSueldoBruto', 'numerical', 'integerOnly'=>true, 'min'=>156770, 'max'=>5000000),
@@ -137,6 +139,7 @@ class Contratopersonal extends CActiveRecord
 			'cpFechaInicio' => 'Fecha Inicio',
 			'cpFechaFin' => 'Fecha Fin',
 			'cpValorHoraExtra' => 'Valor Hora Extra',
+			'peNombresApellidos'=> 'Nombre Empleado',
 		);
 	}
 
@@ -168,6 +171,8 @@ class Contratopersonal extends CActiveRecord
 		$criteria->compare('cpFechaInicio',$this->cpFechaInicio,true);
 		$criteria->compare('cpFechaFin',$this->cpFechaFin,true);
 		$criteria->compare('cpValorHoraExtra',$this->cpValorHoraExtra,true);
+		$criteria->with = array('peRut0');
+		$criteria->compare('peRut0.peNombresApellidos', $this->peNombresApellidos, true );
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

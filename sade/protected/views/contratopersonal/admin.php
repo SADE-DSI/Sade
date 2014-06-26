@@ -36,7 +36,7 @@ o <b>=</b>) en la primera fila de cada columna en la cual desea realizar la comp
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
-	'model'=>$model,
+	'model'=>$model,	
 )); ?>
 </div><!-- search-form -->
 
@@ -45,7 +45,10 @@ o <b>=</b>) en la primera fila de cada columna en la cual desea realizar la comp
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'cpCodigo',
+		array(
+			   'name'=>'peNombresApellidos',
+			   'value'=>'$data->peRut0->peNombresApellidos',
+			),
 		'peRut',
 		/*
 		'cpAFPNombre',

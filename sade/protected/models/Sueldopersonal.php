@@ -15,6 +15,8 @@
  */
 class Sueldopersonal extends CActiveRecord
 {
+	public $peNombresApellidos;
+	public $spSueldoLiquido;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -31,6 +33,7 @@ class Sueldopersonal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('peNombresApellidos', 'safe', 'on'=>'search'),
 			array('spFechaPago, cpCodigo', 'required'),
 			array('cpCodigo', 'validarClaveForanea'),
 			array('cpCodigo', 'numerical', 'integerOnly'=>true),
@@ -78,6 +81,7 @@ class Sueldopersonal extends CActiveRecord
 			'cpDctoAFP' => 'Descuento AFP',
 			'cpDctoIsapre' => 'Descuento Isapre',
 			'cpHoraExtra' => 'Valor Hora Extra',
+			'peNombresApellidos' => 'Empleado',
 		);
 	}
 
@@ -104,6 +108,8 @@ class Sueldopersonal extends CActiveRecord
 		$criteria->compare('spFechaPago',$this->spFechaPago,true);
 		$criteria->compare('spOtrosDescuentos',$this->spOtrosDescuentos);
 		$criteria->compare('spHorasExtras',$this->spHorasExtras,true);
+		$criteria->with = array('cpCodigo0');
+		$criteria->compare('cpCodigo0.peNombresApellidos', $this->peNombresApellidos, true );
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

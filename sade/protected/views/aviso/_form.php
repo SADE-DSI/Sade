@@ -21,13 +21,13 @@
 	<table class="items">
 	<tr>
 		<td><?php echo $form->labelEx($model,'avTitulo'); ?></td>
-		<td><?php echo $form->textField($model,'avTitulo',array('size'=>25,'maxlength'=>40)); ?></td>
+		<td><?php echo $form->textField($model,'avTitulo',array('size'=>25,'maxlength'=>40, 'placeholder'=>'Título del Aviso')); ?></td>
 		<td><?php echo $form->error($model,'avTitulo'); ?></td>
 	</tr>
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'avAviso'); ?></td>
-		<td><?php echo $form->textArea($model,'avAviso',array('maxlength'=>767)); ?></td>
+		<td><?php echo $form->textArea($model,'avAviso',array('maxlength'=>767, 'placeholder'=>'Escriba aquí el contenido del aviso')); ?></td>
 		<td><?php echo $form->error($model,'avAviso'); ?></td>
 	</tr>
 	</table>

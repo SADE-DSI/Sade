@@ -62,7 +62,7 @@
 					, 'visible'=>(Yii::app()->user->checkAccess('Residente')&& !Yii::app()->user->isSuperAdmin) && !Yii::app()->user->isGuest ),				
 				array('label'=>'Reserva espacio común', 'url'=>array('/reservaespaciocomun_conserje/index')
 					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)    ), 
-				array('label'=>'Dptos-Locales', 'url'=>array('/Dptolocal/index')
+				array('label'=>'Dptos-Locales', 'url'=>array('/Dptolocal/admin')
 					, 'visible'=>(Yii::app()->user->checkAccess('Residente') || Yii::app()->user->checkAccess('Conserje')) ),
 				array('label'=>'Inventarios'
 					, 'url'=>array('/material/index')
@@ -96,9 +96,9 @@
 				array('label'=>'Empleados'
 					, 'url'=>array('/persona/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin),			
-				array('label'=>'Contratos', 'url'=>array('/ContratoPersonal/index')
+				array('label'=>'Contratos', 'url'=>array('/ContratoPersonal/admin')
 					, 'visible'=>Yii::app()->user->isSuperAdmin),
-				array('label'=>'Sueldos', 'url'=>array('/Sueldopersonal/index')
+				array('label'=>'Sueldos', 'url'=>array('/Sueldopersonal/admin')
 					, 'visible'=>Yii::app()->user->isSuperAdmin),
 				array('label'=>'Ingresar'
 					, 'url'=>Yii::app()->user->ui->loginUrl
@@ -109,14 +109,14 @@
 
 
 				array('label'=>'Visitas'),//categoria principal				
-				array('label'=>'Visitas', 'url'=>array('/Visitadpto/index')
+				array('label'=>'Visitas', 'url'=>array('/Visitadpto/admin')
 					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
-    			array('label'=>'Datos Visitas', 'url'=>array('/Visita/index')
+    			array('label'=>'Datos Visitas', 'url'=>array('/Visita/admin')
 					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
 				
 
 				array('label'=>'Información'),//categoria principal				
-				array('label'=>'Avisos', 'url'=>array('/aviso/index')
+				array('label'=>'Avisos', 'url'=>array('/aviso/admin')
 					, 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')
 				    , 'visible'=>!Yii::app()->user->isGuest),

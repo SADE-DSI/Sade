@@ -22,19 +22,19 @@
 	<table class="items">
 	<tr>
 		<td><?php echo $form->labelEx($model,'dlDireccion'); ?></td>
-		<td><?php echo $form->textField($model,'dlDireccion',array('size'=>60,'maxlength'=>767)); ?></td>
+		<td><?php echo $form->textField($model,'dlDireccion',array('size'=>60,'maxlength'=>767, 'placeholder'=>'Ingrese aquí Dirección' )); ?></td>
 		<td><?php echo $form->error($model,'dlDireccion'); ?></td>
 	</tr>
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'dlMts2Construidos'); ?></td>
-		<td><?php echo $form->textField($model,'dlMts2Construidos',array('size'=>60)); ?></td>
+		<td><?php echo $form->textField($model,'dlMts2Construidos',array('size'=>60, 'placeholder'=>'Ingrese la cantidad de metros cuadrados')); ?></td>
 		<td><?php echo $form->error($model,'dlMts2Construidos'); ?></td>
 	</tr>
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'dlValorArriendo'); ?></td>
-		<td><?php echo $form->textField($model,'dlValorArriendo',array('size'=>60,'maxlength'=>10)); ?></td>
+		<td><?php echo $form->textField($model,'dlValorArriendo',array('size'=>60,'maxlength'=>10, 'placeholder'=>'Cantidad en pesos chilenos')); ?></td>
 		<td><?php echo $form->error($model,'dlValorArriendo'); ?></td>
 	</tr>
 

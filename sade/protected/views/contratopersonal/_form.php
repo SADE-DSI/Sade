@@ -28,37 +28,37 @@
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'cpAFPNombre'); ?></td>
-		<td><?php echo $form->textField($model,'cpAFPNombre',array('size'=>30,'maxlength'=>20)); ?></td>
+		<td><?php echo $form->textField($model,'cpAFPNombre',array('size'=>30,'maxlength'=>20, 'placeholder'=>'Nombre AFP')); ?></td>
 		<td><?php echo $form->error($model,'cpAFPNombre'); ?></td>
 	</tr>
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'cpAFPMonto'); ?></td>
-		<td><?php echo $form->textField($model,'cpAFPMonto', array('size'=>30)); ?></td>	
+		<td><?php echo $form->textField($model,'cpAFPMonto', array('size'=>30, 'placeholder'=>'Cantidad en pesos chilenos')); ?></td>	
 		<td><?php echo $form->error($model,'cpAFPMonto'); ?></td>
 	</tr>
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'cpPrevisionNombre'); ?></td>
-		<td><?php echo $form->textField($model,'cpPrevisionNombre',array('size'=>30,'maxlength'=>20)); ?></td>
+		<td><?php echo $form->textField($model,'cpPrevisionNombre',array('size'=>30,'maxlength'=>20, 'placeholder'=>'Nombre Isapre')); ?></td>
 		<td><?php echo $form->error($model,'cpPrevisionNombre'); ?></td>
 	</tr>
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'cpPrevisionMonto'); ?></td>
-		<td><?php echo $form->textField($model,'cpPrevisionMonto', array('size'=>30)); ?></td>
+		<td><?php echo $form->textField($model,'cpPrevisionMonto', array('size'=>30, 'placeholder'=>'Cantidad en pesos chilenos')); ?></td>
 		<td><?php echo $form->error($model,'cpPrevisionMonto'); ?></td>
 	</tr>
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'cpSueldoBruto'); ?></td>
-		<td><?php echo $form->textField($model,'cpSueldoBruto', array('size'=>30)); ?></td>
+		<td><?php echo $form->textField($model,'cpSueldoBruto', array('size'=>30, 'placeholder'=>'Cantidad en pesos chilenos')); ?></td>
 		<td><?php echo $form->error($model,'cpSueldoBruto'); ?></td>
 	</tr>
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'cpValorHoraExtra'); ?></td>
-		<td><?php echo $form->textField($model,'cpValorHoraExtra', array('size'=>30)); ?></td>
+		<td><?php echo $form->textField($model,'cpValorHoraExtra', array('size'=>30, 'placeholder'=>'Cantidad en pesos chilenos')); ?></td>
 		<td><?php echo $form->error($model,'cpValorHoraExtra'); ?></td>
 	</tr>
 
@@ -70,7 +70,8 @@
 							'language'=>'es',
 							'options'=>array(
 								'dateFormat'=>'yy-mm-dd'
-							)
+							),
+
 						)); ?></td>
 		<td><?php echo $form->error($model,'cpFechaInicio'); ?></td>
 	</tr>

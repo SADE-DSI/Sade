@@ -22,19 +22,19 @@
 	<table class="items">
 	<tr>
 		<td><?php echo $form->labelEx($model,'viRut'); ?></td>
-		<td><?php echo $form->textField($model,'viRut',array('size'=>13,'maxlength'=>13)); ?></td>
+		<td><?php echo $form->textField($model,'viRut',array('size'=>60,'maxlength'=>13, 'placeholder'=>'Ingrese Rut (11.111.111-1)')); ?></td>
 		<td><?php echo $form->error($model,'viRut'); ?></td>
 	</tr>
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'viNombresApellidos'); ?></td>
-		<td><?php echo $form->textField($model,'viNombresApellidos',array('size'=>60,'maxlength'=>40)); ?></td>
+		<td><?php echo $form->textField($model,'viNombresApellidos',array('size'=>60,'maxlength'=>40, 'placeholder'=>'Ingrese Nombres y Apellidos')); ?></td>
 		<td><?php echo $form->error($model,'viNombresApellidos'); ?></td>
 	</tr>
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'viObs'); ?></td>
-		<td><?php echo $form->textField($model,'viObs',array('size'=>60,'maxlength'=>255)); ?></td>
+		<td><?php echo $form->textField($model,'viObs',array('size'=>60,'maxlength'=>255, 'placeholder'=>'Observaciones')); ?></td>
 		<td><?php echo $form->error($model,'viObs'); ?></td>
 	</tr>
 	</table>

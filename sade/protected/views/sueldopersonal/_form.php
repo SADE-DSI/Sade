@@ -44,13 +44,13 @@
 	</tr>
 	<tr>
 		<td><?php echo $form->labelEx($model,'spOtrosDescuentos'); ?></td>
-		<td><?php echo $form->textField($model,'spOtrosDescuentos', array('size'=>20,'maxlength'=>20)); ?></td>
+		<td><?php echo $form->textField($model,'spOtrosDescuentos', array('size'=>40,'maxlength'=>20, 'placeholder'=>'Cantidad en pesos chilenos')); ?></td>
 		<td><?php echo $form->error($model,'spOtrosDescuentos'); ?></td>
 	</tr>
 
 	<tr>
 		<td><?php echo $form->labelEx($model,'spHorasExtras'); ?></td>
-		<td><?php echo $form->textField($model,'spHorasExtras', array('size'=>20,'maxlength'=>20)); ?></td>
+		<td><?php echo $form->textField($model,'spHorasExtras', array('size'=>40,'maxlength'=>20, 'placeholder'=>'Ingrese cantidad de horas extras en horas.')); ?></td>
 		<td><?php echo $form->error($model,'spHorasExtras'); ?></td>
 	</tr>
 	</table>

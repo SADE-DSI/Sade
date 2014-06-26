@@ -45,7 +45,6 @@ o <b>=</b>) en la primera fila de cada columna en la cual desea realizar la comp
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'avCodigo',
 		'avTitulo',
 		'avFecha',
 		'avAviso',

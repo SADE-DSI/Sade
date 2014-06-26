@@ -40,16 +40,21 @@
  				'changeYear' => 'true',
  				'constrainInput'=>'true'
 				),
-				
-
-			));
+			
+		));
 		?>
-		<?php echo $form->error($model,'pmFechaPago'); ?>
+		<?php 
+
+  
+         
+  echo CHtml::ajaxLink('Consultar',array('pagoMensual/Obtenerprecio'),array('update'=>'#Pagomensual_pmMonto','type'=>'POST',));
+  
+		echo $form->error($model,'pmFechaPago'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pmMonto'); ?>
-		<?php echo $form->textField($model,'pmMonto',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->dropDownList($model,'pmMonto',array(''=>'seleccione fecha')); ?>
 		<?php echo $form->error($model,'pmMonto'); ?>
 	</div>
 

@@ -3,16 +3,16 @@
 /* @var $model Reservaespaciocomun */
 
 $this->breadcrumbs=array(
-	'Reserva espacio comun'=>array('index'),
-	'Crear',
+	'Reservaespaciocomuns'=>array('index'),
+	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'Listar', 'url'=>array('index')),
-	array('label'=>'Administrar', 'url'=>array('admin')),
+	array('label'=>'List Reservaespaciocomun', 'url'=>array('index')),
+	array('label'=>'Manage Reservaespaciocomun', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Crear</h1>
+<h1>Create Reservaespaciocomun</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

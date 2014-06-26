@@ -28,7 +28,7 @@ class PagomensualController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','Obtenerprecio'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -128,6 +128,46 @@ class PagomensualController extends Controller
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+	}
+
+	public function actionObtenerprecio(){
+ 		
+			$direccion=$_POST['Pagomensual']['dlDireccion'];
+			$fecha=$_POST['Pagomensual']['pmFechaPago'];
+			
+
+
+			//dividir la fecha del formulario en año y mes
+			$porciones = explode("-", $fecha);
+			$año=$porciones[0];
+			$mes=$porciones[1];
+			
+			
+			//OBTENER M2 DEPARTAMENTO
+			$sql1 = "select dlMts2Construidos from dptolocal where dlDireccion='$direccion'";
+       		$data1 = Yii::app()->db->createCommand($sql1)->queryAll();
+       		$mDepartamento = $data1[0]['dlMts2Construidos'];
+			echo CHtml::tag('option',array('value'=>'10'),CHtml::encode('tiene '.$mDepartamento.' m2'),true);
+
+			//OBTENER TOTAL DE M2 DEPARTAMENTOS ARRENDADOS EN ESA FECHA
+			$sql5 = "select sum(D.dlMts2Construidos) as totalMetros from residedpto R, dptolocal D where R.dlDireccion=D.dlDireccion";
+        	$data5 = Yii::app()->db->createCommand($sql5)->queryAll();
+        	$totalMetros = $data5[0]['totalMetros'];
+			echo CHtml::tag('option',array('value'=>'10'),CHtml::encode('total de metros '.$totalMetros),true);
+
+			//OBTENER TOTAL DE GASTOS EN ESA FECHA
+       		$sql2 = "select sum(cpMonto) as total from compromisopago where month(cpFechaVencimiento)='$mes' and year(cpFechaVencimiento)='$año'";
+       		$data2 = Yii::app()->db->createCommand($sql2)->queryAll();
+       		$totalGastos = $data2[0]['total'];
+			echo CHtml::tag('option',array('value'=>'10'),CHtml::encode('gastos mes '.$totalGastos),true);       		
+
+			
+			//MOSTRAR LA CANTIDAD TOTAL
+			$cantidad=ceil(($mDepartamento*$totalGastos)/$totalMetros);
+			echo CHtml::tag('option',array('value'=>'10'),CHtml::encode('gastos para el '.$cantidad),true);
+					 	
+ 			//echo CHtml::tag('option',array('value'=>'10'),CHtml::encode($mDepartamento),true);
+ 		
 	}
 
 	/**

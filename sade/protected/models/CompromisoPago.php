@@ -37,6 +37,25 @@ class Compromisopago extends CActiveRecord
 			array('cpMonto, cpNumeroBoleta', 'length', 'max'=>10),
 			array('cpDescripcion, cpObs', 'length', 'max'=>767),
 			array('cpFechaRealPago', 'safe'),
+
+// Tipo *
+
+// Fecha Vencimiento *
+array('cpFechaVencimiento', 'date', 'format'=>'yyyy-M-d'),
+array('cpFechaVencimiento','compare','compareValue'=>date('Y-m-d'),'operator'=>'>'),
+	
+
+// Monto *
+array('cpMonto', 'numerical', 'integerOnly'=>true, 'min'=>1, 'max'=>1000000000),
+
+// Descripción
+
+// Observación
+
+// Numero Boleta
+
+
+			
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('cpId, cpTipo, cpFechaVencimiento, cpMonto, cpDescripcion, cpFechaIngreso, cpObs, cpNumeroBoleta, cpFechaRealPago', 'safe', 'on'=>'search'),
@@ -61,14 +80,14 @@ class Compromisopago extends CActiveRecord
 	{
 		return array(
 			'cpId' => 'Cp',
-			'cpTipo' => 'Cp Tipo',
-			'cpFechaVencimiento' => 'Cp Fecha Vencimiento',
-			'cpMonto' => 'Cp Monto',
-			'cpDescripcion' => 'Cp Descripcion',
-			'cpFechaIngreso' => 'Cp Fecha Ingreso',
-			'cpObs' => 'Cp Obs',
-			'cpNumeroBoleta' => 'Cp Numero Boleta',
-			'cpFechaRealPago' => 'Cp Fecha Real Pago',
+			'cpTipo' => 'Tipo',
+			'cpFechaVencimiento' => 'Fecha Vencimiento',
+			'cpMonto' => 'Monto',
+			'cpDescripcion' => 'Descripción',
+			'cpFechaIngreso' => 'Fecha Ingreso',
+			'cpObs' => 'Observación',
+			'cpNumeroBoleta' => 'Numero Boleta',
+			'cpFechaRealPago' => 'Fecha Real Pago',
 		);
 	}
 

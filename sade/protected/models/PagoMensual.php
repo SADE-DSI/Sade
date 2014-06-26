@@ -35,6 +35,16 @@ class Pagomensual extends CActiveRecord
 			array('dlDireccion, pmFechaPago, pmMonto, pmFechaRealPago', 'required'),
 			array('dlDireccion, pmObs', 'length', 'max'=>767),
 			array('pmMonto', 'length', 'max'=>10),
+
+
+// Dl Direccion *
+
+// Pm Fecha Pago *
+array('pmFechaPago', 'date', 'format'=>'yyyy-M'),
+
+// Pm Monto *
+
+// Pm Obs
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('dlDireccion, pmFechaPago, pmMonto, pmObs, pmFechaRealPago, pmId', 'safe', 'on'=>'search'),

@@ -4,10 +4,12 @@
  * This is the model class for table "reservaespaciocomun".
  *
  * The followings are the available columns in table 'reservaespaciocomun':
- * @property string $reFechaInicio
- * @property string $adRut
+ * @property string $reId
  * @property string $ecCodigo
- * @property string $reFechaFin
+ * @property string $reFecha
+ * @property string $adRut
+ * @property string $reHoraInicio
+ * @property string $reHoraFin
  *
  * The followings are the available model relations:
  * @property Espaciocomun $ecCodigo0
@@ -31,18 +33,12 @@ class Reservaespaciocomun extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('reFechaInicio, adRut, ecCodigo, reFechaFin', 'required'),
-			array('adRut', 'length', 'max'=>13),
+			array('ecCodigo, reFecha, adRut, reHoraInicio, reHoraFin', 'required'),
 			array('ecCodigo', 'length', 'max'=>30),
-			array('adRut','validateRut'),
-
-			array('reFechaInicio', 'date', 'format'=>'yyyy-M-d'),
-			array('reFechaFin', 'date', 'format'=>'yyyy-M-d'),
-			array('reFechaFin', 'compare', 'compareAttribute'=>'reFechaInicio','operator'=>'>'),
-
+			array('adRut', 'length', 'max'=>13),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('reFechaInicio, adRut, ecCodigo, reFechaFin', 'safe', 'on'=>'search'),
+			array('reId, ecCodigo, reFecha, adRut, reHoraInicio, reHoraFin', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,10 +61,12 @@ class Reservaespaciocomun extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'reFechaInicio' => 'Fecha Inicio',
-			'adRut' => 'Rut',
-			'ecCodigo' => 'Nombre',
-			'reFechaFin' => 'Fecha Fin',
+			'reId' => 'Re',
+			'ecCodigo' => 'Ec Codigo',
+			'reFecha' => 'Re Fecha',
+			'adRut' => 'Ad Rut',
+			'reHoraInicio' => 'Re Hora Inicio',
+			'reHoraFin' => 'Re Hora Fin',
 		);
 	}
 
@@ -90,10 +88,12 @@ class Reservaespaciocomun extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('reFechaInicio',$this->reFechaInicio,true);
-		$criteria->compare('adRut',$this->adRut,true);
+		$criteria->compare('reId',$this->reId,true);
 		$criteria->compare('ecCodigo',$this->ecCodigo,true);
-		$criteria->compare('reFechaFin',$this->reFechaFin,true);
+		$criteria->compare('reFecha',$this->reFecha,true);
+		$criteria->compare('adRut',$this->adRut,true);
+		$criteria->compare('reHoraInicio',$this->reHoraInicio,true);
+		$criteria->compare('reHoraFin',$this->reHoraFin,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -109,36 +109,5 @@ class Reservaespaciocomun extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-
-	public function validateRut($attribute,$params){
-		$rut = $this->adRut;
-		$suma = "";
-		if(strpos($rut,"-")==false){
-	        $RUT[0] = substr($rut, 0, -1);
-	        $RUT[1] = substr($rut, -1);
-	    }else{
-	        $RUT = explode("-", trim($rut));
-	    }
-	    $elRut = str_replace(".", "", trim($RUT[0]));
-	    $factor = 2;
-	    for($i = strlen($elRut)-1; $i >= 0; $i--):
-	        $factor = $factor > 7 ? 2 : $factor;
-	        $suma += $elRut{$i}*$factor++;
-	    endfor;
-	    $resto = $suma % 11;
-	    $dv = 11 - $resto;
-	    if($dv == 11){
-	        $dv=0;
-	    }else if($dv == 10){
-	        $dv="k";
-	    }else{
-	        $dv=$dv;
-	    }
-	   if($dv == trim(strtolower($RUT[1]))){
-	       return true;
-	   }else{
-	       $this->addError($attribute, 'El rut ingresado NO es válido');
-	   }
 	}
 }

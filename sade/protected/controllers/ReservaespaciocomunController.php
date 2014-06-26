@@ -28,7 +28,7 @@ class ReservaespaciocomunController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','obtenerHoras','ObtenerHoraFin'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -71,7 +71,7 @@ class ReservaespaciocomunController extends Controller
 		{
 			$model->attributes=$_POST['Reservaespaciocomun'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->reFechaInicio));
+				$this->redirect(array('view','id'=>$model->reId));
 		}
 
 		$this->render('create',array(
@@ -84,6 +84,95 @@ class ReservaespaciocomunController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
+
+
+		public function actionObtenerHoras(){
+ 		
+			$rut=$_POST['Reservaespaciocomun']['adRut'];
+			$codigo=$_POST['Reservaespaciocomun']['ecCodigo'];
+			$fecha=$_POST['Reservaespaciocomun']['reFecha'];
+			
+			//OBTENER LOS MINUTOS DE RECERVA DEL ESPACIO COMUN
+			$sql1 = "select ecFrecuencia from espaciocomun where ecCodigo='$codigo'";
+       		$data1 = Yii::app()->db->createCommand($sql1)->queryAll();
+       		$frecuencia = $data1[0]['ecFrecuencia'];
+			echo CHtml::tag('option',array('value'=>'10'),CHtml::encode('frecuencia '.$frecuencia.' m'),true);
+
+			//GENERAR LAS OPCIONES DE HORA
+			
+			$hora=date('08:00');
+			$horaFin = date("H:i", strtotime($hora)+(60*$frecuencia));
+			$periodos=round(720/$frecuencia, 0, PHP_ROUND_HALF_DOWN);//$periodos=720/$frecuencia;
+
+			for ($i=0; $i <$periodos ; $i++) { 
+
+				if($i==0 ){
+       			//obtener si la hora esta reservada						
+				$sql2 = "select * from reservaespaciocomun where ecCodigo='$codigo' and reFecha='$fecha' and reHoraInicio='$hora'";
+       			$data2 = Yii::app()->db->createCommand($sql2)->queryAll();
+       			$estaReservado=count($data2);
+       			
+       			if ($estaReservado==0) {
+       				echo CHtml::tag('option',array('value'=>$hora),CHtml::encode($hora.' a '.$horaFin),true);		
+       			}
+					
+				}
+
+				else{
+				
+				$hora=date("H:i", strtotime($horaFin));
+				$horaFin = date("H:i", strtotime($hora)+(60*$frecuencia));
+				//obtener si la hora esta reservada					
+				$sql2 = "select * from reservaespaciocomun where ecCodigo='$codigo' and reFecha='$fecha' and reHoraInicio='$hora'";
+       			$data2 = Yii::app()->db->createCommand($sql2)->queryAll();
+       			$estaReservado=count($data2);
+
+				if($i>0 && $estaReservado==0){
+					echo CHtml::tag('option',array('value'=>$hora),CHtml::encode($hora.' a '.$horaFin),true);	
+				}	
+				}
+					
+				
+				
+
+				// if($estaReservado!=0){
+
+				// echo CHtml::tag('option',array('value'=>$hora),CHtml::encode('esta reservado '.$hora.' a '.$horaFin),true);		
+				// }
+				
+			}
+
+			//echo CHtml::tag('option',array('value'=>'10'),CHtml::encode($mDepartamento),true);
+ 		
+	}
+
+
+public function actionObtenerHoraFin(){
+ 		
+ 			
+
+			//obtener hora inicio del formulario
+			$horaInicio=$_POST['Reservaespaciocomun']['reHoraInicio'];
+			
+
+
+			//sumarle el intervalo
+			$codigo=$_POST['Reservaespaciocomun']['ecCodigo'];
+			$sql1 = "select ecFrecuencia from espaciocomun where ecCodigo='$codigo'";
+       		$data1 = Yii::app()->db->createCommand($sql1)->queryAll();
+       		$frecuencia = $data1[0]['ecFrecuencia'];
+			$horaFin2 = date("H:i", strtotime($horaInicio)+(60*$frecuencia));
+
+			//enviar al dropdownlist
+			echo CHtml::tag('option',array('value'=>$horaFin2),CHtml::encode($horaFin2),true);
+			
+			
+			
+ 		
+	}
+
+
+
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
@@ -95,7 +184,7 @@ class ReservaespaciocomunController extends Controller
 		{
 			$model->attributes=$_POST['Reservaespaciocomun'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->reFechaInicio));
+				$this->redirect(array('view','id'=>$model->reId));
 		}
 
 		$this->render('update',array(

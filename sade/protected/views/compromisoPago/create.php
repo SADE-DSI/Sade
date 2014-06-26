@@ -3,16 +3,16 @@
 /* @var $model Compromisopago */
 
 $this->breadcrumbs=array(
-	'Compromisopagos'=>array('index'),
-	'Create',
+	'Gastos comunes'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-	array('label'=>'List Compromisopago', 'url'=>array('index')),
-	array('label'=>'Manage Compromisopago', 'url'=>array('admin')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Compromisopago</h1>
-
+<h1>Crear gasto común</h1>
+<hr>
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

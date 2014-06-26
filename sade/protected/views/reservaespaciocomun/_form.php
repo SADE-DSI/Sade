@@ -14,18 +14,18 @@
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 )); ?>
-
-	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
+<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'adRut'); ?>
 		<?php echo $form->dropDownList($model,'adRut',CHtml::listData(Arrendatariodueno::model()->findAll(),"adRut","adRut")); ?>
 		<?php echo $form->error($model,'adRut'); ?>
 	</div>
-
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'ecCodigo'); ?>
 		<?php echo $form->dropDownList($model,'ecCodigo',CHtml::listData(Espaciocomun::model()->findAll(),"ecCodigo","ecCodigo")); ?>
@@ -33,10 +33,10 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'reFechaFin'); ?>
+		<?php echo $form->labelEx($model,'reFecha'); ?>
 		<?php 
 		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
-			"attribute"=>"reFechaFin",
+			"attribute"=>"reFecha",
 			"model"=>$model,
 			"language"=>"es",
 			"options"=>array(
@@ -44,29 +44,38 @@
 				)
 			));
 		?>
-		<?php echo $form->error($model,'reFechaFin'); ?>
+		<?php echo $form->error($model,'reFecha'); ?>
 	</div>
+
+<?php echo CHtml::ajaxLink('Consultar',array('reservaespaciocomun/ObtenerHoras'),array('update'=>'#Reservaespaciocomun_reHoraInicio','type'=>'POST',)); ?>	
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'reFechaInicio'); ?>
-		<?php 
-		$this->widget("zii.widgets.jui.CJuiDatePicker",array(
-			"attribute"=>"reFechaInicio",
-			"model"=>$model,
-			"language"=>"es",
-			"options"=>array(
-				"dateFormat"=>"yy-mm-dd"
-				)
-			));
-		?>
-		<?php echo $form->error($model,'reFechaInicio'); ?>
+		<?php echo $form->labelEx($model,'reHoraInicio'); ?>
+		<?php echo $form->dropDownList($model,'reHoraInicio',array(''=>'seleccione fecha'),
+		 array(
+		 	'ajax'=>array(
+		 		'type'=>'POST',
+		 		'url'=>Ccontroller::createUrl('reservaespaciocomun/ObtenerHoraFin'),
+		 		'update'=>'#Reservaespaciocomun_reHoraFin',
+		 		),
+		 	)
+		 	); ?>
+		<?php echo $form->error($model,'reHoraInicio'); ?>
 	</div>
 
+	<div class="row" type="hidden">
+		<?php echo $form->labelEx($model,'reHoraFin'); ?>
+		<?php echo $form->dropDownList($model,'reHoraFin',array(''=>'seleccione fecha')); ?>
+		<?php echo $form->error($model,'reHoraFin'); ?>
+	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar', array('class' => 'guardar')); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+
+

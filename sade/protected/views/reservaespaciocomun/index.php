@@ -3,17 +3,17 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Reserva Espacio Común',
+	'Reservaespaciocomuns',
 );
 
 $this->menu=array(
-	array('label'=>'Crear', 'url'=>array('create')),
-	array('label'=>'Administrar', 'url'=>array('admin')),
+	array('label'=>'Create Reservaespaciocomun', 'url'=>array('create')),
+	array('label'=>'Manage Reservaespaciocomun', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Reserva Espacio Común</h1>
-<hr>
+<h1>Reservaespaciocomuns</h1>
+
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',

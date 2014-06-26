@@ -12,13 +12,8 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'reFechaInicio'); ?>
-		<?php echo $form->textField($model,'reFechaInicio'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'adRut'); ?>
-		<?php echo $form->textField($model,'adRut',array('size'=>13,'maxlength'=>13)); ?>
+		<?php echo $form->label($model,'reId'); ?>
+		<?php echo $form->textField($model,'reId',array('size'=>20,'maxlength'=>20)); ?>
 	</div>
 
 	<div class="row">
@@ -27,8 +22,23 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'reFechaFin'); ?>
-		<?php echo $form->textField($model,'reFechaFin'); ?>
+		<?php echo $form->label($model,'reFecha'); ?>
+		<?php echo $form->textField($model,'reFecha'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'adRut'); ?>
+		<?php echo $form->textField($model,'adRut',array('size'=>13,'maxlength'=>13)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'reHoraInicio'); ?>
+		<?php echo $form->textField($model,'reHoraInicio'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'reHoraFin'); ?>
+		<?php echo $form->textField($model,'reHoraFin'); ?>
 	</div>
 
 	<div class="row buttons">

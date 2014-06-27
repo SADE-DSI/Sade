@@ -217,7 +217,7 @@ class PagomensualController extends Controller
 	 {
 	 	ob_clean();
  		$html2pdfPath = Yii::getPathOfAlias('application.extensions.tcpdf');
-  		require_once($html2pdfPath.'\tcpdf\tcpdf.php');
+  		require_once($html2pdfPath.'/tcpdf/tcpdf.php');
 
 
   		$mes = date("m");
@@ -296,7 +296,7 @@ class PagomensualController extends Controller
 
 
 /////////CALCULAR EL VALOR DE GASTOS COMUNES POR DPTO
-        $sql4 = "select sum(cpMonto) as total from compromisopago where month(cpFechaRealPago)='$mes'-1 and year(cpFechaRealPago)='$año'";
+        $sql4 = "select sum(cpMonto) as total from compromisopago where month(cpFechaVencimiento)='$mes'-1 and year(cpFechaVencimiento)='$año'";
         $data4 = Yii::app()->db->createCommand($sql4)->queryAll();
         $total = $data4[0]['total'];
         

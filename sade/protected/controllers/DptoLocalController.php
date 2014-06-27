@@ -179,7 +179,7 @@ class DptolocalController extends Controller
 	 {
 	 	ob_clean();
  		$html2pdfPath = Yii::getPathOfAlias('application.extensions.tcpdf');
-  		require_once($html2pdfPath.'\tcpdf\tcpdf.php');
+  		require_once($html2pdfPath.'/tcpdf/tcpdf.php');
 
   		$mes = date("m");
   		$meses = array('Diciembre','Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
@@ -229,14 +229,14 @@ class DptolocalController extends Controller
         $pdf->writeHTML('Informe generado el '.$fecha);
         $pdf->ln(5);
         // Data        
-        $sql = "select * from compromisopago where month(cpFechaRealPago)='$month' and year(cpFechaRealPago)='$año'";
+        $sql = "select * from compromisopago where month(cpFechaVencimiento)='$month' and year(cpFechaVencimiento)='$año'";
         $data = Yii::app()->db->createCommand($sql)->queryAll(); 
 
 		$pdf->Cell(0.1,5,'');		
 		$pdf->Cell(25,5,'Descripción',1,'','C',true);
 		$pdf->Cell(35,5,'Número de Boleta',1,'','C',true);
 		$pdf->Cell(25,5,'Monto',1,'','C',true);
-		$pdf->Cell(35,5,'Fecha de Pago',1,'','C',true);
+		$pdf->Cell(35,5,'Fecha Vencimiento',1,'','C',true);
 		$pdf->Cell(60,5,'Observación',1,1,'C',true);              
 
 		$pdf->SetFont('','',8);
@@ -254,7 +254,7 @@ class DptolocalController extends Controller
 			$pdf->Cell(25,5,$data[$i]['cpDescripcion'],1,'','C',true);
 			$pdf->Cell(35,5,$data[$i]['cpNumeroBoleta'],1,'','C',true);
 			$pdf->Cell(25,5,$data[$i]['cpMonto'],1,'','C',true);
-			$pdf->Cell(35,5,$data[$i]['cpFechaRealPago'],1,'','C',true);
+			$pdf->Cell(35,5,$data[$i]['cpFechaVencimiento'],1,'','C',true);
 			$pdf->Cell(60,5,$data[$i]['cpObs'],1,1,'C',true);    
         }
         	$pdf->ln(5);
@@ -267,7 +267,7 @@ class DptolocalController extends Controller
 
         $pdf->SetFont('','',11);
 
-        $sql3 = "select sum(cpMonto) as total from compromisopago where month(cpFechaRealPago)='$mes'-1 and year(cpFechaRealPago)='$año'";
+        $sql3 = "select sum(cpMonto) as total from compromisopago where month(cpFechaVencimiento)='$mes'-1 and year(cpFechaVencimiento)='$año'";
         $data3 = Yii::app()->db->createCommand($sql3)->queryAll();
         $total = $data3[0]['total'];
         $pdf->writeHTML('* El monto total de gastos comunes es = $'.$total);

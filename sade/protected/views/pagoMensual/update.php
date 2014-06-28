@@ -3,19 +3,19 @@
 /* @var $model Pagomensual */
 
 $this->breadcrumbs=array(
-	'Pagomensuals'=>array('index'),
+	'Pagos'=>array('index'),
 	$model->pmId=>array('view','id'=>$model->pmId),
 	'Update',
 );
 
 $this->menu=array(
-	array('label'=>'List Pagomensual', 'url'=>array('index')),
-	array('label'=>'Create Pagomensual', 'url'=>array('create')),
-	array('label'=>'View Pagomensual', 'url'=>array('view', 'id'=>$model->pmId)),
-	array('label'=>'Manage Pagomensual', 'url'=>array('admin')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Ver', 'url'=>array('view', 'id'=>$model->pmId)),
+	array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Pagomensual <?php echo $model->pmId; ?></h1>
+<h1>Actualizar pago mensual <?php echo $model->pmCodigo; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

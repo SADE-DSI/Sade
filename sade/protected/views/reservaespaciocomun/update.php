@@ -3,19 +3,19 @@
 /* @var $model Reservaespaciocomun */
 
 $this->breadcrumbs=array(
-	'Reservaespaciocomuns'=>array('index'),
+	'Reserva espacio común'=>array('index'),
 	$model->reId=>array('view','id'=>$model->reId),
-	'Update',
+	'Actualizar',
 );
 
 $this->menu=array(
-	array('label'=>'List Reservaespaciocomun', 'url'=>array('index')),
-	array('label'=>'Create Reservaespaciocomun', 'url'=>array('create')),
-	array('label'=>'View Reservaespaciocomun', 'url'=>array('view', 'id'=>$model->reId)),
-	array('label'=>'Manage Reservaespaciocomun', 'url'=>array('admin')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Ver', 'url'=>array('view', 'id'=>$model->reId)),
+	array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Reservaespaciocomun <?php echo $model->reId; ?></h1>
+<h1>Actualizar <?php echo $model->reFechaInicio; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

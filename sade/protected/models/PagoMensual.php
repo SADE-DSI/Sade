@@ -69,11 +69,11 @@ array('pmFechaPago', 'date', 'format'=>'yyyy-M'),
 	public function attributeLabels()
 	{
 		return array(
-			'dlDireccion' => 'Dl Direccion',
-			'pmFechaPago' => 'Pm Fecha Pago',
-			'pmMonto' => 'Pm Monto',
-			'pmObs' => 'Pm Obs',
-			'pmFechaRealPago' => 'Pm Fecha Real Pago',
+			'dlDireccion' => 'Dirección',
+			'pmFechaPago' => 'Fecha a Pagar',
+			'pmMonto' => 'Monto',
+			'pmObs' => 'Observaciones',
+			'pmFechaRealPago' => 'Fecha de pago',
 			'pmId' => 'Pm',
 		);
 	}

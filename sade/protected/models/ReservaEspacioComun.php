@@ -62,11 +62,11 @@ class Reservaespaciocomun extends CActiveRecord
 	{
 		return array(
 			'reId' => 'Re',
-			'ecCodigo' => 'Ec Codigo',
-			'reFecha' => 'Re Fecha',
-			'adRut' => 'Ad Rut',
-			'reHoraInicio' => 'Re Hora Inicio',
-			'reHoraFin' => 'Re Hora Fin',
+			'ecCodigo' => 'Nombre',
+			'reFecha' => 'Fecha',
+			'adRut' => 'Rut',
+			'reHoraInicio' => 'Hora inicio',
+			'reHoraFin' => 'Hora Fin',
 		);
 	}
 

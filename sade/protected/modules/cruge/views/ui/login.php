@@ -17,12 +17,12 @@
 
 
 	<div class="row">
-		<?php echo $form->textField($model,'username',array('value'=>'Nombre Usuario')); ?>
+		<?php echo $form->textField($model,'username',array('placeholder'=>'Rut')); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->passwordField($model,'password',array('value'=>'Contraseña')); ?>
+		<?php echo $form->passwordField($model,'password',array('placeholder'=>'Contraseña')); ?>
 		<?php echo $form->error($model,'password'); ?>
 	</div>
 
@@ -34,7 +34,7 @@
 
 	<br>
 	<div class="row buttons" id="botonIngreso">
-		<?php Yii::app()->user->ui->tbutton(CrugeTranslator::t('logon', "Iniciar seccion")); 
+		<?php Yii::app()->user->ui->tbutton(CrugeTranslator::t('logon', "Iniciar sesión")); 
 				
 
 		?>

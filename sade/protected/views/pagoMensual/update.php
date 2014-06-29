@@ -16,6 +16,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Actualizar pago mensual <?php echo $model->pmCodigo; ?></h1>
+<h1>Actualizar pago mensual <?php echo $model->pmId; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

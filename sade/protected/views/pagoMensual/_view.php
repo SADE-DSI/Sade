@@ -5,10 +5,6 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('pmId')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->pmId), array('view', 'id'=>$data->pmId)); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('dlDireccion')); ?>:</b>
 	<?php echo CHtml::encode($data->dlDireccion); ?>
 	<br />

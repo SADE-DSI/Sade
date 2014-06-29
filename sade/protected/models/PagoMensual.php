@@ -40,7 +40,7 @@ class Pagomensual extends CActiveRecord
 // Dl Direccion *
 
 // Pm Fecha Pago *
-array('pmFechaPago', 'date', 'format'=>'yyyy-M'),
+//array('pmFechaPago', 'date', 'format'=>'yyyy-M'),
 
 // Pm Monto *
 

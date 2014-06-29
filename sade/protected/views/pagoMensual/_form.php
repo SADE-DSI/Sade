@@ -6,6 +6,8 @@
 
 <div class="form">
 
+
+
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'pagomensual-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
@@ -18,6 +20,11 @@
 	<p class="note"><span class="required">*</span> Campos obligatorios.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+
+
+<?php if ($model->isNewRecord ) {
+?>	
+
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'dlDireccion'); ?>
@@ -59,9 +66,33 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'pmObs'); ?>
-		<?php echo $form->textField($model,'pmObs',array('size'=>60,'maxlength'=>767)); ?>
-		<?php echo $form->error($model,'pmObs'); ?>
+		<?php //echo $form->labelEx($model,'pmFechaRealPago'); ?>
+		<?php echo $form->hiddenField($model,'pmFechaRealPago', array('value'=>date('Y-m-d'),'readonly'=>'false')); ?>
+		<?php echo $form->error($model,'pmFechaRealPago'); ?>
+	</div>
+<?php
+}?>
+
+<?php if (!$model->isNewRecord ) {
+?>	
+
+
+	<div class="row">
+		<?php //echo $form->labelEx($model,'dlDireccion'); ?>
+		<?php echo $form->hiddenField($model,'dlDireccion',CHtml::listData(Dptolocal::model()->findAll(),"dlDireccion","dlDireccion")); ?>
+		<?php echo $form->error($model,'dlDireccion'); ?>
+	</div>
+
+	<div class="row">
+		<?php //echo $form->labelEx($model,'pmFechaPago'); ?>
+		<?php echo $form->hiddenField($model,'pmFechaPago',array(''=>'seleccione fecha')); ?>
+		<?php echo $form->error($model,'pmFechaPago'); ?>
+	</div>
+
+	<div class="row">
+		<?php //echo $form->labelEx($model,'pmMonto'); ?>
+		<?php echo $form->hiddenField($model,'pmMonto',array(''=>'seleccione fecha')); ?>
+		<?php echo $form->error($model,'pmMonto'); ?>
 	</div>
 
 	<div class="row">
@@ -69,7 +100,13 @@
 		<?php echo $form->hiddenField($model,'pmFechaRealPago', array('value'=>date('Y-m-d'),'readonly'=>'false')); ?>
 		<?php echo $form->error($model,'pmFechaRealPago'); ?>
 	</div>
-
+<?php
+}?>
+<div class="row">
+		<?php echo $form->labelEx($model,'pmObs'); ?>
+		<?php echo $form->textField($model,'pmObs',array('size'=>60,'maxlength'=>767)); ?>
+		<?php echo $form->error($model,'pmObs'); ?>
+	</div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar', array('class' => 'guardar')); ?>
 	</div>

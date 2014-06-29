@@ -46,7 +46,6 @@ $('.search-form form').submit(function(){
 		'pmMonto',
 		'pmObs',
 		'pmFechaRealPago',
-		'pmId',
 		array(
 			'class'=>'CButtonColumn',
 		),

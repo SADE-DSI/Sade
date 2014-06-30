@@ -34,6 +34,8 @@ class Aviso extends CActiveRecord
 			// @todo Please remove those attributes that should not be searched.
 			array('avCodigo, avTitulo, avFecha, avAviso', 'safe', 'on'=>'search'),
 			array('avTitulo, avAviso', 'required'),
+			array('avAviso, avTitulo',  'match', 'pattern'=>'/.[a-zA-Z]{1,255}/', 
+                'message'=>CrugeTranslator::t("Ingrese al menos una palabra")),
 		);
 	}
 

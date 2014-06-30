@@ -40,11 +40,44 @@ class Sueldopersonal extends CActiveRecord
 			array('spHorasExtras', 'numerical', 'min'=>0,  'max'=>20),
 			array('spOtrosDescuentos', 'numerical', 'min'=>0,  'max'=>50000, 'integerOnly'=>true),
 			array('spFechaPago', 'safe'),
+			array('spFechaPago', 'claveUnica'),
+			array('spFechaPago', 'pagoMensual'),
 			array('spFechaPago', 'date', 'format'=>'yyyy-M-d'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('spCodigo, cpCodigo, spFechaPago, spOtrosDescuentos, spHorasExtras', 'safe', 'on'=>'search'),
 		);
+	}
+
+	public function claveUnica ($attribute, $param){
+		if ($this->spCodigo=='')
+			$sueldo = $this->find('spFechaPago=:spFechaPago AND cpCodigo=:cpCodigo', 
+						array(':spFechaPago'=>$this->spFechaPago, ':cpCodigo'=>$this->cpCodigo));
+		else 
+			$sueldo = $this->find('spCodigo<>:spCodigo AND spFechaPago=:spFechaPago AND cpCodigo=:cpCodigo', 
+						array(':spCodigo'=>$this->spCodigo, ':spFechaPago'=>$this->spFechaPago, ':cpCodigo'=>$this->cpCodigo));
+		if (isset($sueldo))
+			$this->addError($attribute, 'Esta Persona Ya Tiene Un Sueldo Ingresado en Esta fecha.');	
+	}
+
+	public function pagoMensual ($attribute, $param){
+		$array = explode("-", $this->spFechaPago);
+		$dia = $array[2];
+		$mes = $array[1];
+		$year = $array[0];
+		$fechaInicio = $year.'-'.$mes.'-'.'01';
+		$fechaFin = $year.'-'.$mes.'-'.'31';
+
+
+		if ($this->spCodigo=='')
+			$sueldo = $this->find('spFechaPago>=:spFechaInicio AND spFechaPago<=:spFechaFin AND cpCodigo=:cpCodigo', 
+						array(':spFechaInicio'=>$fechaInicio, ':spFechaFin'=>$fechaFin, ':cpCodigo'=>$this->cpCodigo));
+		else 
+			$sueldo = $this->find('spCodigo<>:spCodigo AND spFechaPago>=:spFechaInicio 
+								AND spFechaPago<=:spFechaFin AND cpCodigo=:cpCodigo', 
+						array(':spCodigo'=>$this->spCodigo, ':spFechaInicio'=>$fechaInicio, ':spFechaFin'=>$fechaFin, ':cpCodigo'=>$this->cpCodigo));
+		if (isset($sueldo))
+			$this->addError($attribute, 'Esta Persona ya tiene un sueldo ingresado en este mes');	
 	}
 
 	public function validarClaveForanea ($attribute, $param){
@@ -151,5 +184,17 @@ class Sueldopersonal extends CActiveRecord
 		else if ($modelCP->$dato===null)
 			throw new CHttpException(404,'El dato solicitado No existe.');
 		return $modelCP->$dato;
+	}
+
+	public function extraerDatoFecha ($fecha, $dato){
+		$array = explode("-", $fecha);
+		if ($dato=='dia') return $array[2];
+		else if ($dato=='mes') return $array[1];
+		else return $array[0];
+	}
+
+	public function getContratos (){
+		//return $this->peRut;
+		return CHtml::listData(Contratopersonal::model()->findAll(), "cpCodigo", "nombresFechaFinContratos");
 	}
 }

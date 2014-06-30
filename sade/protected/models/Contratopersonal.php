@@ -24,6 +24,7 @@ class Contratopersonal extends CActiveRecord
 	 * @return string the associated database table name
 	 */
 	public $peNombresApellidos;
+	
 	public function tableName()
 	{
 		return 'contratopersonal';
@@ -201,5 +202,10 @@ class Contratopersonal extends CActiveRecord
 	public function getNombresEmpleados (){
 		//return $this->peRut;
 		return CHtml::listData(Persona::model()->findAll(), "peRut", "nombresRutEmpleados");
+	}
+
+	public function getNombresFechaFinContratos (){
+		$nombre = $this->getNombre($this->peRut);
+		return $nombre.". Finiquito: ".$this->cpFechaFin;
 	}
 }

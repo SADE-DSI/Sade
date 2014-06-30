@@ -26,7 +26,8 @@
 	<table class="items">
 	<tr>
 		<td><?php echo $form->labelEx($model,'cpCodigo'); ?></td>
-		<td><?php echo $form->textField($model,'cpCodigo', array('size'=>20,'maxlength'=>20, 'value'=>$codigoCP)); ?></td>
+		<td><?php echo $form->dropDownList($model, 'cpCodigo', $model->getContratos()); ?></td>
+		<td><?php #echo $form->textField($model,'cpCodigo', array('size'=>20,'maxlength'=>20, 'value'=>$codigoCP)); ?></td>
 		<td><?php echo $form->error($model,'cpCodigo'); ?></td>
 	</tr>
 

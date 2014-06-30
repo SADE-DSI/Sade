@@ -5,9 +5,9 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('vdCodigo')); ?>:</b>
+	<?php /*<b><?php echo CHtml::encode($data->getAttributeLabel('vdCodigo')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->vdCodigo), array('view', 'id'=>$data->vdCodigo)); ?>
-	<br />
+	<br />*/?>
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('viRut')); ?>:</b>
 	<?php echo CHtml::encode($data->viRut); ?>
@@ -18,7 +18,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('vdFechaIngreso')); ?>:</b>
-	<?php echo CHtml::encode($data->vdFechaIngreso); ?>
+	<?php echo CHtml::link($data->vdFechaIngreso, array('view', 'id'=>$data->vdCodigo)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('caRut')); ?>:</b>

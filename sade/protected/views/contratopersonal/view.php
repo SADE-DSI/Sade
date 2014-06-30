@@ -21,7 +21,7 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'cpCodigo',
+		//'cpCodigo',
 		'peRut',
 		'cpAFPNombre',
 		'cpAFPMonto',
@@ -35,5 +35,5 @@ $this->menu=array(
 )); ?>
 
 <div class="row buttons">
-	<?php echo CHtml::link('Ingresar Pago de Sueldo', array('/Sueldopersonal/create', 'cpCodigo'=>$model->cpCodigo)); ?>
+	<?php #echo CHtml::link('Ingresar Pago de Sueldo', array('/Sueldopersonal/create', 'cpCodigo'=>$model->cpCodigo)); ?>
 </div>

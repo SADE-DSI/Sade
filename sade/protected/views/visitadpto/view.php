@@ -36,3 +36,6 @@ $this->menu=array(
 		'caRut'
 	),
 )); ?>
+<div class="row buttons"><br>
+	<?php echo CHtml::link('Ingresar Otra Persona a esta Visita', array('/Visitadpto/create', 'dlDireccion2'=>$model->dlDireccion, 'fechaIngreso'=>$model->vdFechaIngreso)); ?>
+</div>

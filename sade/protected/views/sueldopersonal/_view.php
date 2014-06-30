@@ -13,6 +13,10 @@
 	<?php echo CHtml::link($data->spFechaPago, array('view', 'id'=>$data->spCodigo)); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('spFechaVencimiento')); ?>:</b>
+	<?php echo CHtml::encode($data->spFechaVencimiento); ?>
+	<br />
+
 	<b><?php echo CHtml::encode('Sueldo Líquido'); ?>:</b>
 	<?php echo CHtml::encode($data->getSueldoLiquido($data->cpCodigo, $data->spCodigo)); ?>
 	<br />

@@ -27,6 +27,7 @@ $this->menu=array(
 			'value'=>$model->getNombre($model->cpCodigo)),
 		//'cpCodigo',
 		'spFechaPago',
+		'spFechaVencimiento',
 		array('label'=>'Sueldo Bruto',
 			'type'=>'text',
 			'value'=>$model->getDatosSueldo($model->cpCodigo, 'cpSueldoBruto')),

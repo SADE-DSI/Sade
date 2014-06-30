@@ -32,6 +32,19 @@
 	</tr>
 
 	<tr>
+		<td><?php echo $form->labelEx($model,'spFechaVencimiento'); ?></td>
+		<td><?php $this->widget("zii.widgets.jui.CJuiDatePicker", array(
+							'attribute'=>'spFechaVencimiento', 
+							'model'=>$model,
+							'language'=>'es',
+							'options'=>array(
+								'dateFormat'=>'yy-mm-dd'
+							)
+						)); ?></td>
+		<td><?php echo $form->error($model,'spFechaVencimiento'); ?></td>
+	</tr>
+
+	<tr>
 		<td><?php echo $form->labelEx($model,'spFechaPago'); ?></td>
 		<td><?php $this->widget("zii.widgets.jui.CJuiDatePicker", array(
 							'attribute'=>'spFechaPago', 

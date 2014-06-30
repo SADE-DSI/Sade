@@ -33,35 +33,35 @@ class Sueldopersonal extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('peNombresApellidos', 'safe', 'on'=>'search'),
-			array('spFechaPago, cpCodigo', 'required'),
+			array('spFechaPago, spFechaVencimiento, cpCodigo', 'required'),
 			array('cpCodigo', 'validarClaveForanea'),
 			array('cpCodigo', 'numerical', 'integerOnly'=>true),
 			array('spHorasExtras', 'numerical', 'min'=>0,  'max'=>20),
 			array('spOtrosDescuentos', 'numerical', 'min'=>0,  'max'=>50000, 'integerOnly'=>true),
-			array('spFechaPago', 'safe'),
-			array('spFechaPago', 'claveUnica'),
-			array('spFechaPago', 'pagoMensual'),
-			array('spFechaPago', 'date', 'format'=>'yyyy-M-d'),
+			array('spFechaVencimiento', 'claveUnica'),
+			array('spFechaVencimiento', 'pagoMensual'),
+			array('spFechaPago, spFechaVencimiento', 'date', 'format'=>'yyyy-M-d'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('spCodigo, cpCodigo, spFechaPago, spOtrosDescuentos, spHorasExtras', 'safe', 'on'=>'search'),
+			array('spCodigo, cpCodigo, spFechaPago, spFechaVencimiento, spOtrosDescuentos, spHorasExtras, 
+				peNombresApellidos, spSueldoLiquido', 'safe', 'on'=>'search'),
 		);
 	}
 
 	public function claveUnica ($attribute, $param){
 		if ($this->spCodigo=='')
-			$sueldo = $this->find('spFechaPago=:spFechaPago AND cpCodigo=:cpCodigo', 
-						array(':spFechaPago'=>$this->spFechaPago, ':cpCodigo'=>$this->cpCodigo));
+			$sueldo = $this->find('spFechaVencimiento=:spFechaVencimiento AND cpCodigo=:cpCodigo', 
+						array(':spFechaVencimiento'=>$this->spFechaVencimiento, ':cpCodigo'=>$this->cpCodigo));
 		else 
-			$sueldo = $this->find('spCodigo<>:spCodigo AND spFechaPago=:spFechaPago AND cpCodigo=:cpCodigo', 
-						array(':spCodigo'=>$this->spCodigo, ':spFechaPago'=>$this->spFechaPago, ':cpCodigo'=>$this->cpCodigo));
+			$sueldo = $this->find('spCodigo<>:spCodigo AND spFechaVencimiento=:spFechaVencimiento AND cpCodigo=:cpCodigo', 
+						array(':spCodigo'=>$this->spCodigo, ':spFechaVencimiento'=>$this->spFechaVencimiento, ':cpCodigo'=>$this->cpCodigo));
 		if (isset($sueldo))
 			$this->addError($attribute, 'Esta Persona Ya Tiene Un Sueldo Ingresado en Esta fecha.');	
 	}
 
+	//Esta función valida que se permita sólo un sueldo al mes
 	public function pagoMensual ($attribute, $param){
-		$array = explode("-", $this->spFechaPago);
+		$array = explode("-", $this->spFechaVencimiento);
 		$dia = $array[2];
 		$mes = $array[1];
 		$year = $array[0];
@@ -70,11 +70,11 @@ class Sueldopersonal extends CActiveRecord
 
 
 		if ($this->spCodigo=='')
-			$sueldo = $this->find('spFechaPago>=:spFechaInicio AND spFechaPago<=:spFechaFin AND cpCodigo=:cpCodigo', 
+			$sueldo = $this->find('spFechaVencimiento>=:spFechaInicio AND spFechaVencimiento<=:spFechaFin AND cpCodigo=:cpCodigo', 
 						array(':spFechaInicio'=>$fechaInicio, ':spFechaFin'=>$fechaFin, ':cpCodigo'=>$this->cpCodigo));
 		else 
-			$sueldo = $this->find('spCodigo<>:spCodigo AND spFechaPago>=:spFechaInicio 
-								AND spFechaPago<=:spFechaFin AND cpCodigo=:cpCodigo', 
+			$sueldo = $this->find('spCodigo<>:spCodigo AND spFechaVencimiento>=:spFechaInicio 
+								AND spFechaVencimiento<=:spFechaFin AND cpCodigo=:cpCodigo', 
 						array(':spCodigo'=>$this->spCodigo, ':spFechaInicio'=>$fechaInicio, ':spFechaFin'=>$fechaFin, ':cpCodigo'=>$this->cpCodigo));
 		if (isset($sueldo))
 			$this->addError($attribute, 'Esta Persona ya tiene un sueldo ingresado en este mes');	
@@ -106,7 +106,8 @@ class Sueldopersonal extends CActiveRecord
 		return array(
 			'spCodigo' => 'Código Sueldo',
 			'cpCodigo' => 'Código Contrato',
-			'spFechaPago' => 'Fecha De Pago',
+			'spFechaPago' => 'Fecha Real De Pago',
+			'spFechaVencimiento' => 'Fecha Vencimiento',
 			'spOtrosDescuentos' => 'Otros Descuentos',
 			'spHorasExtras' => 'Horas Extras',
 			'spSueldoLiquido' => 'Sueldo Líquido',	
@@ -139,6 +140,7 @@ class Sueldopersonal extends CActiveRecord
 		$criteria->compare('spCodigo',$this->spCodigo);
 		$criteria->compare('cpCodigo',$this->cpCodigo);
 		$criteria->compare('spFechaPago',$this->spFechaPago,true);
+		$criteria->compare('spFechaVencimiento',$this->spFechaVencimiento,true);
 		$criteria->compare('spOtrosDescuentos',$this->spOtrosDescuentos);
 		$criteria->compare('spHorasExtras',$this->spHorasExtras,true);
 		$criteria->with = array('cpCodigo0');

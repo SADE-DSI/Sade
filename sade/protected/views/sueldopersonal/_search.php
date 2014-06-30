@@ -34,6 +34,18 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'spFechaVencimiento'); ?>
+		<?php $this->widget("zii.widgets.jui.CJuiDatePicker", array(
+							'attribute'=>'spFechaVencimiento', 
+							'model'=>$model,
+							'language'=>'es',
+							'options'=>array(
+								'dateFormat'=>'yy-mm-dd'
+							)
+						)); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'spOtrosDescuentos'); ?>
 		<?php echo $form->textField($model,'spOtrosDescuentos'); ?>
 	</div>

@@ -52,6 +52,15 @@ o <b>=</b>) en la primera fila de cada columna en la cual desea realizar la comp
 		'vdFechaSalida',
 		array(
 			'class'=>'CButtonColumn',
+			'template' => '{view} {update} {salida}',
+			 'buttons'=>array(
+			 	'salida' => array(
+			 		'label'=>'Registrar Salida', 
+			 		'url'=>"CHtml::normalizeUrl(array('salidaVisita', 'id'=>\$data->vdCodigo))",
+			 		'imageUrl'=>Yii::app()->request->baseUrl.'/images/salida.jpg', 
+			 		'options' => array('class'=>'pdf'),
+			 	),
+ 			),
 		),
 	),
 )); ?>

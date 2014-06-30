@@ -34,7 +34,7 @@ class Visitadpto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('viRut', 'required'),
+			array('viRut, dlDireccion, vdFechaIngreso', 'required'),
 		//	array('viRut', 'validarClaveForanea'),
 			array('viRut','exist','allowEmpty'=>true, 'attributeName'=>'viRut', 'className' => 'visita', 'message'=>
 					'El {attribute}  No se encuentra en Nuestra base de Datos.'),

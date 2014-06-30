@@ -18,31 +18,40 @@
 	<p class="note">Campos con <span class="required">*</span> son obligatorios.</p>
 
 	<?php #echo $form->errorSummary($model, $visita); ?>
+	<?php 
+		if (isset($_GET['dlDireccion2'])){
+			$dlDireccion2 = $_GET['dlDireccion2'];	
+			$fechaIngreso = $_GET['fechaIngreso'];
+			$a = true;
+		} 	
+		else{
+			$dlDireccion2 ='';
+			$a = false;
+		} 
+	?>
 
 	<table class="items">
+	<tr>
+		<td><?php echo $form->labelEx($model,'dlDireccion'); ?></td>
+		<td><?php 
+			if (!$a)echo $form->dropDownList($model, 'dlDireccion', $model->getDirecciones()); 
+			else echo $form->textField($model,'dlDireccion', array('readonly'=>true, 'size'=>20,'maxlength'=>20, 'value'=>$dlDireccion2));
+			?></td>
+		<td><?php echo $form->error($model,'dlDireccion'); ?></td>
+	</tr>
+
+	<tr>
+		<td><?php if ($a) echo $form->labelEx($model,'vdFechaIngreso');?></td>
+		<td><?php if ($a) echo $form->textField($model,'vdFechaIngreso',
+											array('readonly'=>true, 'size'=>20,'maxlength'=>20, 'value'=>$fechaIngreso)); ?></td>
+		<td><?php if ($a) echo $form->error($model,'vdFechaIngreso'); ?></td>
+	</tr>
+
 	<tr>
 		<td><?php echo $form->labelEx($model,'viRut'); ?></td>
 		<td><?php echo $form->textField($model,'viRut',array('size'=>60,'maxlength'=>13, 'placeholder'=>'Ingrese Rut (11.111.111-1)')); ?></td>
 		<td><?php echo $form->error($model,'viRut'); ?></td>
 	</tr>
-
-	<tr>
-		<td><?php echo $form->labelEx($model,'dlDireccion'); ?></td>
-		<td><?php echo $form->dropDownList($model, 'dlDireccion', $model->getDirecciones()); ?></td>
-		<td><?php echo $form->error($model,'dlDireccion'); ?></td>
-	</tr>
-
-	<tr>
-		<td><?php /*echo $form->labelEx($model,'caRut'); ?></td>
-		<td><?php echo $form->textField($model,'caRut',array('size'=>13,'maxlength'=>13)); ?></td>
-		<td><?php echo $form->error($model,'caRut'); */?></td>
-	</tr>
-
-	<?php /*<tr>
-		<td><?php echo $form->labelEx($model,'vdFechaSalida'); ?></td>
-		<td><?php echo $form->textField($model,'vdFechaSalida'); ?></td>
-		<td><?php echo $form->error($model,'vdFechaSalida'); ?></td>
-	</tr> */ ?>
 
 	<tr>
 		<td><?php echo $form->labelEx($visita,'viNombresApellidos'); ?></td>
@@ -55,7 +64,11 @@
 		<td><?php echo $form->textField($visita,'viObs',array('size'=>60,'maxlength'=>255, 'placeholder'=>'Observaciones')); ?></td>
 		<td><?php echo $form->error($visita,'viObs'); ?></td>
 	</tr>
+
 	</table>
+
+
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar'); ?>
 	</div>

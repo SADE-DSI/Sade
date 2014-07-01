@@ -81,9 +81,32 @@ class ConserjeadministradorController extends Controller
 			
 			if ($valid){
 				if ($persona->save()){
-					if($model->save())
-						$this->redirect(array('view','id'=>$model->caRut));
+					if($model->save()){
+
+				
+			$values = array(
+  			'username' => $model->caRut,
+  			'email' => $persona->peEmail,
+  			'nombre'=> $persona->peNombresApellidos,
+  			);
+
+  			$usuario = Yii::app()->user->um->createNewUser($values,$model->caClave);
+
+			Yii::app()->user->um->changePassword($usuario,$model->caClave);
+
+			if(Yii::app()->user->um->save($usuario)){
+            echo "Usuario creado: id=".$usuario->primaryKey;
+     		 }
+     		 else{
+            	$errores = CHtml::errorSummary($usuario);
+           		echo "no se pudo crear el usuario: ".$errores;
+       		  }
+
+			$this->redirect(array('view','id'=>$model->caRut));
+
+
 				}
+			   }
 			}
 		}
 

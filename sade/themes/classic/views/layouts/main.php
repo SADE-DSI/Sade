@@ -53,22 +53,22 @@
 				//array('label'=>'Inicio', 'url'=>array('/site/index')),
 					
 
-				array('label'=>'Edificio'),//categoria principal
+				array('label'=>'Edificio', 'visible'=>!Yii::app()->user->isGuest ),//categoria principal
 				array('label'=>'Espacios Comunes', 'url'=>array('/espacioComun/index')
 					, 'visible'=>(Yii::app()->user->isSuperAdmin || Yii::app()->user->checkAccess('Conserje')) ), 
 				array('label'=>'Reservas', 'url'=>array('/reservaespaciocomun/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin), 
-				array('label'=>'Reserva espacio común', 'url'=>array('/reservaespaciocomun_residente/index')
+				array('label'=>'Reservas', 'url'=>array('/reservaespaciocomun_residente/index')
 					, 'visible'=>(Yii::app()->user->checkAccess('Residente')&& !Yii::app()->user->isSuperAdmin) && !Yii::app()->user->isGuest ),				
-				array('label'=>'Reserva espacio común', 'url'=>array('/reservaespaciocomun_conserje/index')
+				array('label'=>'Reservas', 'url'=>array('/reservaespaciocomun_conserje/index')
 					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)    ), 
 				array('label'=>'Dptos-Locales', 'url'=>array('/Dptolocal/admin')
-					, 'visible'=>(Yii::app()->user->checkAccess('Residente') || Yii::app()->user->checkAccess('Conserje')) ),
+					, 'visible'=>(Yii::app()->user->checkAccess('Residente') || Yii::app()->user->checkAccess('Conserje')) && !Yii::app()->user->isGuest),
 				array('label'=>'Inventarios'
 					, 'url'=>array('/material/index')
 					, 'visible'=>(Yii::app()->user->checkAccess('Conserje')  || Yii::app()->user->isSuperAdmin)),
 
-				array('label'=>'Usuarios'),//categoria principal				
+				array('label'=>'Usuarios' ,'visible'=>!Yii::app()->user->isGuest),//categoria principal				
 				array('label'=>'Conserjes'
 					, 'url'=>array('/conserjeAdministrador/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin),
@@ -82,7 +82,7 @@
 					, 'url'=>array('/permisos/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin),				
 				
-				array('label'=>'Gastos comunes'),//categoria principal
+				array('label'=>'Gastos comunes', 'visible'=>!Yii::app()->user->isGuest),//categoria principal
 				array('label'=>'Ingreso', 'url'=>array('/compromisoPago/index')
 				    , 'visible'=>Yii::app()->user->isSuperAdmin),
 				array('label'=>'Gastos Comunes', 'url'=>array('/compromisoPago_otros/index')
@@ -92,7 +92,7 @@
 				
 				
 
-				array('label'=>'Personal'),//categoria principal				
+				array('label'=>'Personal', 'visible'=>!Yii::app()->user->isGuest),//categoria principal				
 				array('label'=>'Empleados'
 					, 'url'=>array('/persona/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin),			
@@ -108,14 +108,14 @@
 
 
 
-				array('label'=>'Visitas'),//categoria principal				
+				array('label'=>'Visitas' ,'visible'=>!Yii::app()->user->isGuest),//categoria principal				
 				array('label'=>'Visitas', 'url'=>array('/Visitadpto/admin')
 					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
     			array('label'=>'Datos Visitas', 'url'=>array('/Visita/admin')
 					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
 				
 
-				array('label'=>'Información'),//categoria principal				
+				array('label'=>'Información', 'visible'=>!Yii::app()->user->isGuest),//categoria principal				
 				array('label'=>'Avisos', 'url'=>array('/aviso/admin')
 					, 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Sugerencias', 'url'=>array('/sugerencias/index')

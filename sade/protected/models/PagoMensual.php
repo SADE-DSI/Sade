@@ -35,7 +35,7 @@ class Pagomensual extends CActiveRecord
 			array('dlDireccion, pmFechaPago, pmMonto, pmFechaRealPago', 'required'),
 			array('dlDireccion, pmObs', 'length', 'max'=>767),
 			array('pmMonto', 'length', 'max'=>10),
-
+			array('dlDireccion,pmFechaPago','validarUnique'),
 
 // Dl Direccion *
 
@@ -118,4 +118,18 @@ class Pagomensual extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function validarUnique($attribute,$params){
+				$fecha = $this->pmFechaPago;
+				$Direccion = $this->dlDireccion;
+
+				$sql2 = "select * from PagoMensual where pmFechaPago='$fecha' and dlDireccion='$Direccion'";
+       			$data2 = Yii::app()->db->createCommand($sql2)->queryAll();
+       			$existe=count($data2);
+       			if($existe>0){
+       			$this->addError($attribute, 'Ya existe un pago en esa fecha');	
+   			}
+	}
+
+
 }

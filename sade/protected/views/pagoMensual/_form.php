@@ -59,7 +59,7 @@
 		echo $form->error($model,'pmFechaPago'); ?>
 	</div>
 
-	<div class="row">
+	<div class="row" id="monto">
 		<?php echo $form->labelEx($model,'pmMonto'); ?>
 		<?php echo $form->dropDownList($model,'pmMonto',array(''=>'seleccione fecha')); ?>
 		<?php echo $form->error($model,'pmMonto'); ?>
@@ -114,3 +114,20 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+
+
+
+<script>
+$(document).ready(function(){
+    $("#monto").hide();
+    $("#yt0").hide();
+    $("#yt0").click(function(){
+    $("#monto").show();
+  });
+    $("#Pagomensual_pmFechaPago").change(function(){
+    $("#yt0").show();
+  });
+
+});
+</script>

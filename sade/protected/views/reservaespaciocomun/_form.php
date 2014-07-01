@@ -53,7 +53,7 @@
 
 <?php echo CHtml::ajaxLink('Consultar',array('reservaespaciocomun/ObtenerHoras'),array('update'=>'#Reservaespaciocomun_reHoraInicio','type'=>'POST',)); ?>	
 
-	<div class="row">
+	<div class="row" id="hora">
 		<?php echo $form->labelEx($model,'reHoraInicio'); ?>
 		<?php echo $form->dropDownList($model,'reHoraInicio',array(''=>'seleccione fecha'),
 		 array(
@@ -142,3 +142,16 @@
 
 
 
+<script>
+$(document).ready(function(){
+    $("#hora").hide();
+    $("#yt0").hide();
+    $("#yt0").click(function(){
+    $("#hora").show();
+  });
+    $("#Reservaespaciocomun_reFecha").change(function(){
+    $("#yt0").show();
+  });
+
+});
+</script>

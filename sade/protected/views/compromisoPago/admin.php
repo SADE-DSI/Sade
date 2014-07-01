@@ -41,7 +41,6 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'cpId',
 		'cpTipo',
 		'cpFechaVencimiento',
 		'cpMonto',

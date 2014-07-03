@@ -7,10 +7,10 @@ $this->breadcrumbs=array(
 	'Administrar',
 );
 
-$this->menu=array(
+/*$this->menu=array(
 	array('label'=>'Listar Dpto/Local', 'url'=>array('index')),
 	array('label'=>'Crear Dpto/Local', 'url'=>array('create')),
-);
+);*/
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
@@ -51,7 +51,7 @@ or <b>=</b>) en la primera fila de cada columna en la cual desea realizar la com
 		'dlActivo',
 		array(
 			'class'=>'CButtonColumn',
-			'template' => '{view} {update} {pdf}',
+			'template' => '{view}{pdf}',
 			 'buttons'=>array(
 			 	'pdf' => array(
 			 		'label'=>'Generar PDF', 

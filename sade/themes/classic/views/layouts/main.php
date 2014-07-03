@@ -59,14 +59,14 @@
 				array('label'=>'Reservas', 'url'=>array('/reservaespaciocomun/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin), 
 				array('label'=>'Reservas_res', 'url'=>array('/reservaespaciocomun_res/index')
-					, 'visible'=>Yii::app()->user->checkAccess('Residente')),
+					, 'visible'=>(Yii::app()->user->checkAccess('Residente') && !Yii::app()->user->isSuperAdmin)  ),
 				 array('label'=>'Dptos-Locales', 'url'=>array('/Dptolocal/admin')
-					, 'visible'=>(Yii::app()->user->checkAccess('Residente') || Yii::app()->user->checkAccess('Conserje')) && !Yii::app()->user->isGuest),
+					, 'visible'=>Yii::app()->user->isSuperAdmin),
 				array('label'=>'Inventarios'
 					, 'url'=>array('/material/index')
 					, 'visible'=>(Yii::app()->user->checkAccess('Conserje')  || Yii::app()->user->isSuperAdmin)),
 
-				array('label'=>'Usuarios' ,'visible'=>!Yii::app()->user->isGuest),//categoria principal				
+				array('label'=>'Usuarios' ,'visible'=>Yii::app()->user->isSuperAdmin ),//categoria principal				
 				array('label'=>'Conserjes'
 					, 'url'=>array('/conserjeAdministrador/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin),
@@ -84,16 +84,16 @@
 				array('label'=>'Ingreso', 'url'=>array('/compromisoPago/index')
 				    , 'visible'=>Yii::app()->user->isSuperAdmin),
 				array('label'=>'Ingreso_conre', 'url'=>array('/compromisopago_conre/index')
-					, 'visible'=>(Yii::app()->user->checkAccess('Residente') || Yii::app()->user->checkAccess('Conserje')) && !Yii::app()->user->isGuest),
+					, 'visible'=>(Yii::app()->user->checkAccess('Residente') || Yii::app()->user->checkAccess('Conserje')) && !Yii::app()->user->isSuperAdmin),
 				array('label'=>'Pagos', 'url'=>array('/pagoMensual/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin), 
 				array('label'=>'Pagos_con', 'url'=>array('/pagomensual_con/index')
-					, 'visible'=>Yii::app()->user->checkAccess('Conserje')),
+					, 'visible'=>Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin),
 				array('label'=>'Pagos_res', 'url'=>array('/pagomensual_res/index')
-					, 'visible'=>Yii::app()->user->checkAccess('Residente')),
+					, 'visible'=>Yii::app()->user->checkAccess('Residente') && !Yii::app()->user->isSuperAdmin),
 								
 				
-				array('label'=>'Personal', 'visible'=>!Yii::app()->user->isGuest),//categoria principal				
+				array('label'=>'Personal', 'visible'=>Yii::app()->user->isSuperAdmin ),//categoria principal				
 				array('label'=>'Empleados'
 					, 'url'=>array('/persona/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin),			
@@ -109,7 +109,7 @@
 
 
 
-				array('label'=>'Visitas' ,'visible'=>!Yii::app()->user->isGuest),//categoria principal				
+				array('label'=>'Visitas' ,'visible'=>Yii::app()->user->isSuperAdmin || Yii::app()->user->checkAccess('Conserje')),//categoria principal				
 				array('label'=>'Visitas', 'url'=>array('/Visitadpto/admin')
 					, 'visible'=>(Yii::app()->user->isSuperAdmin ||Yii::app()->user->checkAccess('Conserje')) ),
     			array('label'=>'Datos Visitas', 'url'=>array('/Visita/admin')

@@ -29,6 +29,7 @@
 	<div class="row">
 		<?php echo $form->labelEx($model,'dlDireccion'); ?>
 		<?php echo $form->dropDownList($model,'dlDireccion',CHtml::listData(Dptolocal::model()->findAll(),"dlDireccion","dlDireccion")); ?>
+
 		<?php echo $form->error($model,'dlDireccion'); ?>
 	</div>
 

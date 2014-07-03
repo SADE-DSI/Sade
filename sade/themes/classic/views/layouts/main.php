@@ -58,11 +58,9 @@
 					, 'visible'=>(Yii::app()->user->isSuperAdmin || Yii::app()->user->checkAccess('Conserje')) ), 
 				array('label'=>'Reservas', 'url'=>array('/reservaespaciocomun/index')
 					, 'visible'=>Yii::app()->user->isSuperAdmin), 
-				array('label'=>'Reservas', 'url'=>array('/reservaespaciocomun_residente/index')
-					, 'visible'=>(Yii::app()->user->checkAccess('Residente')&& !Yii::app()->user->isSuperAdmin) && !Yii::app()->user->isGuest ),				
-				array('label'=>'Reservas', 'url'=>array('/reservaespaciocomun_conserje/index')
-					, 'visible'=>(Yii::app()->user->checkAccess('Conserje') && !Yii::app()->user->isSuperAdmin)    ), 
-				array('label'=>'Dptos-Locales', 'url'=>array('/Dptolocal/admin')
+				array('label'=>'Reservas_res', 'url'=>array('/reservaespaciocomun_res/index')
+					, 'visible'=>Yii::app()->user->checkAccess('Residente')),
+				 array('label'=>'Dptos-Locales', 'url'=>array('/Dptolocal/admin')
 					, 'visible'=>(Yii::app()->user->checkAccess('Residente') || Yii::app()->user->checkAccess('Conserje')) && !Yii::app()->user->isGuest),
 				array('label'=>'Inventarios'
 					, 'url'=>array('/material/index')
@@ -85,13 +83,16 @@
 				array('label'=>'Gastos comunes', 'visible'=>!Yii::app()->user->isGuest),//categoria principal
 				array('label'=>'Ingreso', 'url'=>array('/compromisoPago/index')
 				    , 'visible'=>Yii::app()->user->isSuperAdmin),
-				array('label'=>'Gastos Comunes', 'url'=>array('/compromisoPago_otros/index')
-				    , 'visible'=>(!Yii::app()->user->isSuperAdmin && !Yii::app()->user->isGuest)), 	
+				array('label'=>'Ingreso_conre', 'url'=>array('/compromisopago_conre/index')
+					, 'visible'=>(Yii::app()->user->checkAccess('Residente') || Yii::app()->user->checkAccess('Conserje')) && !Yii::app()->user->isGuest),
 				array('label'=>'Pagos', 'url'=>array('/pagoMensual/index')
-					, 'visible'=>!Yii::app()->user->isGuest), 
+					, 'visible'=>Yii::app()->user->isSuperAdmin), 
+				array('label'=>'Pagos_con', 'url'=>array('/pagomensual_con/index')
+					, 'visible'=>Yii::app()->user->checkAccess('Conserje')),
+				array('label'=>'Pagos_res', 'url'=>array('/pagomensual_res/index')
+					, 'visible'=>Yii::app()->user->checkAccess('Residente')),
+								
 				
-				
-
 				array('label'=>'Personal', 'visible'=>!Yii::app()->user->isGuest),//categoria principal				
 				array('label'=>'Empleados'
 					, 'url'=>array('/persona/index')

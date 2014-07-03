@@ -10,13 +10,13 @@ $this->breadcrumbs=array(
 if (Yii::app()->user->checkAccess('Residente')) {
 
 	$this->menu=array(
-	array('label'=>'Lista de Sugerencias', 'url'=>array('index')), );
+	array('label'=>'Listar', 'url'=>array('index')), );
  }
 
 if ( Yii::app()->user->isSuperAdmin) {
 $this->menu=array(
-	array('label'=>'Lista de Sugerencias', 'url'=>array('index')),
-	array('label'=>'Administrar Sugerencias', 'url'=>array('admin')), );
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Administrar', 'url'=>array('admin')), );
  }
 
 

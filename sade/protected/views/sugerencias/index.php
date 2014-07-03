@@ -15,7 +15,7 @@ $this->breadcrumbs=array(
 if (Yii::app()->user->checkAccess('Residente')) {
 
 	$this->menu=array(
-	array('label'=>'Crear Sugerencia', 'url'=>array('create')), );
+	array('label'=>'Crear', 'url'=>array('create')), );
  }
 
 if ( Yii::app()->user->isSuperAdmin) {

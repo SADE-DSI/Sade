@@ -3,6 +3,13 @@
 /* @var $data Arrendatariodueno */
 ?>
 
+
+	<?php
+	 $activo=$data->adEstado;
+			if ($activo == 0 ){}
+				else if ($activo == 1){
+	 ?>
+
 <div class="view">
 <table class="tablaView">
 <tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Rut')); ?>:</b></td><td><?php echo CHtml::link(CHtml::encode($data->adRut), array('view', 'id'=>$data->adRut)); ?>
@@ -20,3 +27,7 @@
 </table>
 	
 </div>
+
+	<?php
+		}
+	?>

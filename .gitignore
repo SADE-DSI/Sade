@@ -239,3 +239,7 @@ sade/protected/controllers/DptoLocalController.php
 sade/protected/controllers/ArrendatarioDuenoController.php
 sade/protected/controllers/ArrendatarioDuenoController.php
 sade/protected/views/arrendatarioDueno/update.php
+sade/protected/views/arrendatarioDueno/_form.php
+sade/protected/views/arrendatarioDueno/_form.php
+*.php
+*.php

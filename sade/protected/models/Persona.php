@@ -44,7 +44,7 @@ class Persona extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('peNombresApellidos, peEmail, peTipo, peRut', 'required'),
+			array('peNombresApellidos, peEmail, peTipo, peRut,peDireccion', 'required'),
 			array('peRut','match','pattern'=>'/^[0-9.kK-]{11,12}$/',
               'message'=>CrugeTranslator::t("El rut debe tener el formato '11.111.111-1'")),	
 			array('peRut', 'length', 'max'=>12, 'min'=>11),
@@ -63,8 +63,8 @@ class Persona extends CActiveRecord
 			array('peDescripcion, peDireccion', 'length', 'max'=>767),
 			array('peDescripcion',  'match', 'pattern'=>'/.[a-zA-Z]{2,255}/', 
                 'message'=>CrugeTranslator::t("Ingrese al menos una palabra")),
-			array('peDireccion',  'match', 'pattern'=>'/.[a-zA-Z]{2,255}/', 
-                'message'=>CrugeTranslator::t("Ingrese al menos una palabra")),
+			//array('peDireccion',  'match', 'pattern'=>'/.[a-zA-Z]{2,255}/', 
+              //  'message'=>CrugeTranslator::t("Ingrese al menos una palabra")),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('peRut, peNombresApellidos, peActivo, peEmail, peTelefono, peTipo, peDescripcion, peDireccion', 'safe', 'on'=>'search'),

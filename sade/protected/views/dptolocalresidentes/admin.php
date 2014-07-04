@@ -7,10 +7,9 @@ $this->breadcrumbs=array(
 	'Administrar',
 );
 
-/*$this->menu=array(
-	array('label'=>'Listar Dpto/Local', 'url'=>array('index')),
-	array('label'=>'Crear Dpto/Local', 'url'=>array('create')),
-);*/
+$this->menu=array(
+	array('label'=>'Informe de Gastos Comunes Actual', 'url'=>array('pdf')),
+);
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){

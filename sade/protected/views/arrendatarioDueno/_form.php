@@ -41,6 +41,18 @@
 <tr><td><?php echo $form->error($persona,'peNombresApellidos'); ?></td></tr>
 
 <tr>
+<td><?php echo $form->labelEx($persona,'peDireccion'); ?></td>
+
+ <td><?php $fecha=date('Y-m-d');
+ $data = CHtml::listData(Dptolocal::model()->findAllBySql
+ ("select distinct D.dlDireccion from dptolocal D where  
+  (not exists (select * from residedpto R where D.dlDireccion=R.dlDireccion or
+  (R.rdFechaFin>'$fecha' and R.dlDireccion=D.dlDireccion)))"),'dlDireccion','dlDireccion');
+ echo $form->dropDownList($persona,'peDireccion',$data,array('empty'=>Yii::t('','Seleccione'))); ?></td>
+</tr>
+<tr><td><?php echo $form->error($persona,'peDireccion'); ?></td></tr>
+
+<tr>
 <td><?php echo $form->labelEx($persona,'peEmail'); ?></td><td><?php echo $form->textField($persona,'peEmail'); ?></td>
 </tr>
 <tr><td><?php echo $form->error($persona,'peEmail'); ?></td></tr>
@@ -54,20 +66,6 @@
 <td><?php echo $form->labelEx($persona,'peDescripcion'); ?></td><td><?php echo $form->textField($persona,'peDescripcion'); ?></td>
 </tr>
 <tr><td><?php echo $form->error($persona,'peDescripcion'); ?></td></tr>
-
-<tr>
-<td><?php $fecha=date('Y-m-d');
-
- echo $form->labelEx($persona,'peDireccion'); ?></td>
-
- <td><?php 
- $data = CHtml::listData(Dptolocal::model()->findAllBySql
- ("select distinct D.dlDireccion from dptolocal D, residedpto R where 
-  (R.rdFechaFin<'$fecha' and R.dlDireccion=D.dlDireccion) or
-  (not exists (select * from residedpto R2 where D.dlDireccion=R2.dlDireccion))"),'dlDireccion','dlDireccion');
- echo $form->dropDownList($persona,'peDireccion',$data,array('empty'=>Yii::t('','Seleccione'))); ?></td>
-</tr>
-<tr><td><?php echo $form->error($persona,'peDireccion'); ?></td></tr>
 
 	<tr>
 		<td><?php echo $form->labelEx($reside,'rdFechaFin'); ?></td>

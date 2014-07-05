@@ -32,7 +32,7 @@ class Residedpto extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('rdFechaInicio, adRut, dlDireccion', 'required'),
+			array('rdFechaInicio, adRut, dlDireccion,rdFechaFin', 'required'),
 			array('adRut', 'length', 'max'=>13),
 			array('dlDireccion', 'length', 'max'=>767),
 			array('rdFechaFin', 'date', 'format'=>'yyyy-M-d'),
@@ -52,8 +52,8 @@ class Residedpto extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'dlDireccion0' => array(self::BELONGS_TO, 'Dptolocal', 'dlDireccion'),
-			'adRut0' => array(self::BELONGS_TO, 'Arrendatariodueno', 'adRut'),
+			'rd_dl' => array(self::BELONGS_TO, 'Dptolocal', 'dlDireccion'),
+			'rd_ad' => array(self::BELONGS_TO, 'Arrendatariodueno', 'adRut'),
 		);
 	}
 

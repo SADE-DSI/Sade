@@ -137,10 +137,13 @@ class ArrendatarioduenoController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		$fecha=date('Y-m-d');
 		$model=$this->loadModel($id);
 		$persona = Persona::model()->findByPk($id);
-		$dlDireccion=Yii::app()->db->createCommand('select dlDireccion from residedpto where adRut=$id')->queryAll();
-		$reside = Residedpto::model()->find($dlDireccion);
+		$sql="select rdFechaInicio from residedpto where rdFechaFin>='$fecha' and adRut='$id'";
+		$data=Yii::app()->db->createCommand($sql)->queryAll();
+		$dlDireccion = $data[0]['rdFechaInicio'];
+		$reside = Residedpto::model()->findByPk($dlDireccion);
 
 
 		// Uncomment the following line if AJAX validation is needed
@@ -185,10 +188,13 @@ class ArrendatarioduenoController extends Controller
 		$persona=Persona::model()->findByPk($id);
 		if ($persona->peActivo== 1){ 
 		$persona->peActivo = 0;
+		$model->adEstado = 0;
 		$model->adFechaLiberacion=date('Y-m-d');
 		}
 		else {
-		$persona->peActivo = 1;			
+		$persona->peActivo = 1;
+		$model->adEstado = 1;
+		$model->adFechaLiberacion="";			
 		}
 		$persona->save();
 		$model->save();
@@ -205,11 +211,15 @@ class ArrendatarioduenoController extends Controller
 		$persona=Persona::model()->findByPk($id);
 		if ($persona->peActivo== 0){ 
 		$persona->peActivo = 1;
+		$model->adEstado = 1;
+		$model->adFechaLiberacion=NULL;	
 		}
 		else {
-		$persona->peActivo = 0;			
+		$persona->peActivo = 0;	
+		$model->adEstado = 0;		
 		}
 		$persona->save();
+		$model->save();
 
 		//if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))

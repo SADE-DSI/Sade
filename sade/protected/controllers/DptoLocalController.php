@@ -230,14 +230,21 @@ class DptolocalController extends Controller
         $pdf->ln(5);
         // Data        
         $sql = "select * from compromisopago where month(cpFechaVencimiento)='$month' and year(cpFechaVencimiento)='$año'";
-        $data = Yii::app()->db->createCommand($sql)->queryAll(); 
+        $data = Yii::app()->db->createCommand($sql)->queryAll();
+
+        if (count($data)==0) {
+        	$pdf->writeHTML('No hay gastos ingresados para el mes especificado');
+        	$pdf->Output("Informe de Gastos.pdf", "I");
+        	Yii::app()->end();
+        }
+        else{
 
 		$pdf->Cell(0.1,5,'');		
-		$pdf->Cell(25,5,'Descripción',1,'','C',true);
+		$pdf->Cell(28,5,'Tipo de Gasto',1,'','C',true);
 		$pdf->Cell(35,5,'Número de Boleta',1,'','C',true);
-		$pdf->Cell(25,5,'Monto',1,'','C',true);
+		$pdf->Cell(25,5,'Monto $',1,'','C',true);
 		$pdf->Cell(35,5,'Fecha Vencimiento',1,'','C',true);
-		$pdf->Cell(60,5,'Observación',1,1,'C',true);              
+		$pdf->Cell(58,5,'Descripción',1,1,'C',true);              
 
 		$pdf->SetFont('','',8);
 
@@ -251,11 +258,11 @@ class DptolocalController extends Controller
 				$color--;
 			}
         	$pdf->Cell(0.1,5,'');		
-			$pdf->Cell(25,5,$data[$i]['cpDescripcion'],1,'','C',true);
+			$pdf->Cell(28,5,$data[$i]['cpTipo'],1,'','C',true);
 			$pdf->Cell(35,5,$data[$i]['cpNumeroBoleta'],1,'','C',true);
-			$pdf->Cell(25,5,$data[$i]['cpMonto'],1,'','C',true);
+			$pdf->Cell(25,5,'$'.$data[$i]['cpMonto'],1,'','C',true);
 			$pdf->Cell(35,5,$data[$i]['cpFechaVencimiento'],1,'','C',true);
-			$pdf->Cell(60,5,$data[$i]['cpObs'],1,1,'C',true);    
+			$pdf->Cell(58,5,$data[$i]['cpDescripcion'],1,1,'C',true);    
         }
         	$pdf->ln(5);
         $dptos=$direccion=$totalMetros=$total=0;
@@ -288,6 +295,13 @@ class DptolocalController extends Controller
         $data5 = Yii::app()->db->createCommand($sql5)->queryAll();
         $totalMetros = $data5[0]['totalMetros'];
 
+        if (count($data4)==0 || count($data5)==0 || count($data3)==0 || count($data2)==0 ) {
+        	$pdf->writeHTML('{Ha ocurrido un error generando el informe, Posibles causas:');
+        	$pdf->writeHTML('-No hay dptos ingresados en el sistema}');
+        	$pdf->Output("Informe de Gastos.pdf", "I");
+        	Yii::app()->end();
+        }
+        else{
         $pdf->SetTextColor(180,0,0);
         $coeficiente=$totalMetros/$metros;
         $apagar=ceil($total/$coeficiente);
@@ -296,6 +310,8 @@ class DptolocalController extends Controller
 
         $pdf->Output("Informe de Gastos.pdf", "I");
         Yii::app()->end();
+    		}
+    	}
 	 }
 
 	public function actionFecha()

@@ -280,7 +280,7 @@ class PagomensualController extends Controller
 			}
         	$pdf->Cell(0.1,5,'');		
 			$pdf->Cell(60,5,$data[$i]['dlDireccion'],1,'','C',true);
-			$pdf->Cell(25,5,$data[$i]['pmMonto'],1,'','C',true);
+			$pdf->Cell(25,5,'$'.$data[$i]['pmMonto'],1,'','C',true);
 			$pdf->Cell(35,5,$data[$i]['pmFechaRealPago'],1,'','C',true);
 			$pdf->Cell(60,5,$data[$i]['pmObs'],1,1,'C',true);    
         }
@@ -293,7 +293,7 @@ class PagomensualController extends Controller
         and (date_add(rdFechaFin, interval 1 month)>='$fecha2'))";
        	$data2 = Yii::app()->db->createCommand($sql2)->queryAll();
         $dptos = count($data2);
-
+        if (count($data2)>0){
 
 /////////CALCULAR EL VALOR DE GASTOS COMUNES POR DPTO
         $sql4 = "select sum(cpMonto) as total from compromisopago where month(cpFechaVencimiento)='$mes'-1 and year(cpFechaVencimiento)='$año'";
@@ -338,7 +338,7 @@ class PagomensualController extends Controller
         	$pdf->Cell(40,5,'');
         	$pdf->SetTextColor(180,0,0);		
 			$pdf->Cell(60,5,$data2[$j]['dlDireccion'],1,'','C',true);
-			$pdf->Cell(40,5,$apagar[$j],1,1,'C',true);
+			$pdf->Cell(40,5,'$'.$apagar[$j],1,1,'C',true);
         }
 
 		$suma=0;
@@ -348,9 +348,21 @@ class PagomensualController extends Controller
      $pdf->SetFont('','',10);
      $pdf->writeHTML('* El monto total de gastos comunes sin pagar es = $'.$suma);
      }
-     
+
      else  $pdf->writeHTML('No hay pagos realizados para el mes específicado');
+     if (count($data4)==0 || count($data5)==0 || count($data2)==0 ) {
+           $pdf->ln(5);
+            $pdf->writeHTML('{Ha ocurrido un error generando el informe, Posibles causas:');
+        	$pdf->writeHTML('-No hay dptos ingresados en el sistema');
+        	$pdf->writeHTML('-Los dptos ingresados no fueron utilizados en la fecha especificada');
+        	$pdf->Output("Informe de Gastos.pdf", "I");
+        	Yii::app()->end();
+        }
+        else{
+
         $pdf->Output("Informe de Gastos.pdf", "I");
         Yii::app()->end();
+    	}
 	 }
+	}
 }

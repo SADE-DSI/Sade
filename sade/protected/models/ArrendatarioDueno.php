@@ -67,7 +67,7 @@ class Arrendatariodueno extends CActiveRecord
 		return array(
 			'ad_pe' => array(self::BELONGS_TO, 'Persona', 'adRut'),
 			'reservaespaciocomuns' => array(self::HAS_MANY, 'Reservaespaciocomun', 'adRut'),
-			'ad_re' => array(self::HAS_MANY, 'Residedpto', 'adRut'),
+			'ad_rd' => array(self::HAS_MANY, 'Residedpto', 'adRut'),
 		);
 	}
 
@@ -103,6 +103,7 @@ class Arrendatariodueno extends CActiveRecord
 		$criteria=new CDbCriteria;
 		$criteria->with = array('ad_pe');
 		$criteria->condition = "peActivo=$activo";
+		$criteria->condition = "adEstado=$activo";
 		$criteria->compare('adRut',$this->adRut,true);
 		$criteria->compare('adClave',$this->adClave,true);
 		$criteria->compare('adEstado',$this->adEstado);

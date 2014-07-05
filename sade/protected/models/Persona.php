@@ -93,7 +93,7 @@ class Persona extends CActiveRecord
 	{
 		return array(
 			'peRut' => 'Rut',
-			'peNombresApellidos' => 'Nombres Apellidos',
+			'peNombresApellidos' => 'Nombre Completo',
 			'peActivo' => 'Activo',
 			'peEmail' => 'Email',
 			'peTelefono' => 'Teléfono',

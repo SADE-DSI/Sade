@@ -22,8 +22,7 @@
 	<table class="items">
 	<tr>
 		<td><?php echo $form->labelEx($model,'peRut'); ?></td>
-		<td><?php #echo $form->dropDownList($model, 'peRut', $model->getNombresEmpleados()); ?></td>
-		<td><?php echo $form->textField($model,'peRut',array('size'=>30,'maxlength'=>20, 'placeholder'=>'RUT')); ?></td>
+		<td><?php echo $form->dropDownList($model, 'peRut', $model->getNombresEmpleados()); ?></td>
 		<td><?php echo $form->error($model,'peRut'); ?></td>
 	</tr>
 

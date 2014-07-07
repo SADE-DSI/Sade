@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Material', 'url'=>array('index')),
-	array('label'=>'Crear Material', 'url'=>array('create')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -43,7 +43,6 @@ $('.search-form form').submit(function(){
 		'maCodigo',
 		'maNombre',
 		'maDescripcion',
-		'maEstado',
 		array(
 			'class'=>'CButtonColumn',
 		),

@@ -3,14 +3,14 @@
 /* @var $model Arrendatariodueno */
 $activo=0;
 $this->breadcrumbs=array(
-	'Arrendatarios/Dueños'=>array('index'),
+	'Arrendatarios-Dueños'=>array('index'),
 	'Administrar Eliminados',
 );
 
 $this->menu=array(
-	array('label'=>'Listar Arrendatarios/Dueños', 'url'=>array('index')),
-	array('label'=>'Crear Arrendatario/Dueño', 'url'=>array('create')),
-		array('label'=>'Administrar Arrendatarios/Dueños', 'url'=>array('admin')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
+		array('label'=>'Administrar', 'url'=>array('admin')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -27,7 +27,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Restaurar Arrendatarios/Dueños Eliminados</h1>
+<h1>Restaurar Arrendatarios-Dueños Eliminados</h1>
 
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -44,7 +44,7 @@ $('.search-form form').submit(function(){
 		'adRut',
 		array('name'=>'nombres','header'=>'Nombres Apellidos','value'=>'$data->ad_pe->peNombresApellidos',
 			'type'=>'text',),
-		array('name'=>'email','header'=>'Email','value'=>'$data->ad_pe->peEmail',
+		array('name'=>'email','header'=>'E-mail','value'=>'$data->ad_pe->peEmail',
 			'type'=>'text',),
 		array('name'=>'telefono','header'=>'Teléfono','value'=>'$data->ad_pe->peTelefono',
 			'type'=>'text',),

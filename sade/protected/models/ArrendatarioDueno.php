@@ -44,7 +44,7 @@ class Arrendatariodueno extends CActiveRecord
               'message'=>CrugeTranslator::t("El rut debe tener el formato '11.111.111-1'")),			
 			array('adRut', 'length', 'max'=>12, 'min'=>11),
 			array('adRut','validateRut'),
-			array('adRut', 'unique'),
+			array('adRut','validarUnique'),
 			array('adClave', 'length', 'max'=>30),
 			array('adClave', 'length', 'min'=>6),
 		    array('adClave','match','pattern'=>'/^[a-zA-Z0-9]{6,30}$/',
@@ -137,6 +137,16 @@ class Arrendatariodueno extends CActiveRecord
 		else if ($persona->$dato===null)
 			return '';
 		return $persona->$dato;
+	}
+
+	public function validarUnique($attribute,$params){
+				$rut = $this->adRut;
+				$sql2 = "select * from residedpto where rdActivo=1 and adRut='$rut'";
+       			$data2 = Yii::app()->db->createCommand($sql2)->queryAll();
+       			$existe=count($data2);
+       			if($existe>0){
+       			$this->addError($attribute, 'El Rut ya está Registrado');	
+   			}
 	}
 
 public function validateRut($attribute,$params){

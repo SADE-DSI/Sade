@@ -55,8 +55,7 @@ class Persona extends CActiveRecord
 			array('peEmail', 'email'),
 			array('peRut', 'validateRut'),
 			array('peEmail', 'unique'),
-			array('peRut', 'unique',
-			 	'message'=>CrugeTranslator::t("El Rut ya está registrado, no se puede ingresar")),
+			array('peRut', 'validarUnique'),
 			array('peTelefono', 'length', 'max'=>10, 'min'=>6),
 			array('peTelefono','match','pattern'=>'/^[0-9]{6,10}$/',
                	'message'=>CrugeTranslator::t("El Teléfono debe contener solo números")),
@@ -95,7 +94,7 @@ class Persona extends CActiveRecord
 			'peRut' => 'Rut',
 			'peNombresApellidos' => 'Nombre Completo',
 			'peActivo' => 'Activo',
-			'peEmail' => 'Email',
+			'peEmail' => 'E-mail',
 			'peTelefono' => 'Teléfono',
 			'peTipo' => 'Tipo',
 			'peDescripcion' => 'Descripción',
@@ -149,6 +148,19 @@ class Persona extends CActiveRecord
 
 	public function getNombresRutEmpleados (){
 		return $this->peRut." (".$this->peNombresApellidos.")";
+	}
+
+	public function validarUnique($attribute,$params){
+				$rut = $this->peRut;
+				$tipo = $this->peTipo;
+				$sql2 = "select * from persona P, residedpto R, arrendatariodueno A
+				where P.peActivo=1 and P.peRut='$rut' and P.peTipo='$tipo' and
+				P.peRut=A.adRut and A.adRut=R.adRut and R.rdActivo=1";
+       			$data2 = Yii::app()->db->createCommand($sql2)->queryAll();
+       			$existe=count($data2);
+       			if($existe>0){
+       			$this->addError($attribute, 'Esta persona ya está Registrada');	
+   			}
 	}
 
 public function validateRut($attribute,$params){

@@ -46,8 +46,8 @@
  <td><?php $fecha=date('Y-m-d');
  $data = CHtml::listData(Dptolocal::model()->findAllBySql
  ("select distinct D.dlDireccion from dptolocal D where  
-  (not exists (select * from residedpto R where D.dlDireccion=R.dlDireccion or
-  (R.rdFechaFin>'$fecha' and R.dlDireccion=D.dlDireccion)))"),'dlDireccion','dlDireccion');
+  (not exists (select * from residedpto R where D.dlDireccion=r.dlDireccion)) or
+   D.dlDireccion in (select R2.dlDireccion from residedpto R2 where R2.rdactivo=0) "),'dlDireccion','dlDireccion');
  echo $form->dropDownList($persona,'peDireccion',$data,array('empty'=>Yii::t('','Seleccione'))); ?></td>
 </tr>
 <tr><td><?php echo $form->error($persona,'peDireccion'); ?></td></tr>

@@ -3,13 +3,13 @@
 /* @var $model Conserjeadministrador */
 $activo=1;
 $this->breadcrumbs=array(
-	'Conserje/Administrador'=>array('index'),
+	'Conserjes'=>array('index'),
 	'Administrar',
 );
 $this->menu=array(
-	array('label'=>'Listar Conserje/Administrador', 'url'=>array('index')),
-	array('label'=>'Crear Conserje/Administrador', 'url'=>array('create')),
-	array('label'=>'Restaurar Conserje/Administrador Eliminados', 'url'=>array('adminEliminados')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Restaurar Eliminados', 'url'=>array('adminEliminados')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Administrar Conserje/Administrador</h1>
+<h1>Administrar Conserjes</h1>
 
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
@@ -43,7 +43,7 @@ $('.search-form form').submit(function(){
 		'caRut',
 		array('name'=>'nombres','header'=>'Nombres Apellidos','value'=>'$data->ca_pe->peNombresApellidos',
 			'type'=>'text',),
-		array('name'=>'email','header'=>'Email','value'=>'$data->ca_pe->peEmail',
+		array('name'=>'email','header'=>'E-mail','value'=>'$data->ca_pe->peEmail',
 			'type'=>'text',),
 		array('name'=>'telefono','header'=>'Teléfono','value'=>'$data->ca_pe->peTelefono',
 			'type'=>'text',),

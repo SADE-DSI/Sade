@@ -40,7 +40,8 @@ class Conserjeadministrador extends CActiveRecord
               'message'=>CrugeTranslator::t("El rut debe tener el formato '11.111.111-1'")),			
 			array('caRut', 'length', 'max'=>12, 'min'=>11),
 			array('caRut','validateRut'),
-			array('caRut','unique'),
+			array('caRut','unique',
+				'message'=>CrugeTranslator::t("El Rut ya está registrado")),
 			array('caClave', 'length', 'max'=>20, 'min'=>6),
 		    array('caClave','match','pattern'=>'/^[a-zA-Z0-9]{6,20}$/',
                	 'message'=>CrugeTranslator::t("Solo letras y números")),
@@ -116,6 +117,15 @@ class Conserjeadministrador extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function getDatos ($caRut, $dato){
+		$persona = Persona::model()->findByPk($caRut);
+		if($persona===null)
+			throw new CHttpException(404,'La página solicitada No existe.');	
+		else if ($persona->$dato===null)
+			return '';
+		return $persona->$dato;
 	}
 
 public function validateRut($attribute,$params){

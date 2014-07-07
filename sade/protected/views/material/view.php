@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Listar Material', 'url'=>array('index')),
-	array('label'=>'Crear Material', 'url'=>array('create')),
-	array('label'=>'Actualizar Material', 'url'=>array('update', 'id'=>$model->maCodigo)),
-	array('label'=>'Eliminar Material', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->maCodigo),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Administrar Material', 'url'=>array('admin')),
+	array('label'=>'Listar', 'url'=>array('index')),
+	array('label'=>'Crear', 'url'=>array('create')),
+	array('label'=>'Actualizar', 'url'=>array('update', 'id'=>$model->maCodigo)),
+	array('label'=>'Eliminar', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->maCodigo),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar', 'url'=>array('admin')),
 );
 ?>
 
@@ -24,6 +24,5 @@ $this->menu=array(
 		'maCodigo',
 		'maNombre',
 		'maDescripcion',
-		'maEstado',
 	),
 )); ?>

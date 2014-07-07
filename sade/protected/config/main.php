@@ -148,24 +148,24 @@ return array(
 */
 		
 		# Conexion si se usa base de datos Local 
-		/*'db'=>array(
+		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=sade',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
 		),
-		*/
+		
 		
 		# Conexion si se usa base de datos del servidor 
-		 'db'=>array(
+		/* 'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=SADE',
 			'emulatePrepare' => true,
 			'username' => 'grupo6',
 			'password' => 'face2014',
 			'charset' => 'utf8',
 		),  
-		
+		*/
 		
 		
 		

@@ -20,9 +20,16 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
+
+		<?php if ( Yii::app()->user->isSuperAdmin) {?>
+		<?php echo $form->labelEx($model,'sfComentario'); ?>
+		<?php echo $form->textField($model,'sfComentario',array('size'=>60,'readonly'=> true)); ?>
+		<?php echo $form->error($model,'sfComentario');} 
+
+		else {?>
 		<?php echo $form->labelEx($model,'sfComentario'); ?>
 		<?php echo $form->textField($model,'sfComentario',array('size'=>60,'maxlength'=>767)); ?>
-		<?php echo $form->error($model,'sfComentario'); ?>
+		<?php echo $form->error($model,'sfComentario');} ?>
 	</div>
 
 	<div class="row"> 
@@ -34,8 +41,6 @@
 
 
 	</div>
-
-	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crear' : 'Guardar',array('class' => 'guardar')); ?>

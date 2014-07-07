@@ -123,7 +123,7 @@ class Pagomensual extends CActiveRecord
 				$fecha = $this->pmFechaPago;
 				$Direccion = $this->dlDireccion;
 
-				$sql2 = "select * from PagoMensual where pmFechaPago='$fecha' and dlDireccion='$Direccion'";
+				$sql2 = "select * from pagomensual where pmFechaPago='$fecha' and dlDireccion='$Direccion'";
        			$data2 = Yii::app()->db->createCommand($sql2)->queryAll();
        			$existe=count($data2);
        			if($existe>0){

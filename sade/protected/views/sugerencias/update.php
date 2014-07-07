@@ -8,12 +8,24 @@ $this->breadcrumbs=array(
 	'Responder',
 );
 
+if (Yii::app()->user->checkAccess('Conserje')) {
+
+	$this->menu=array();
+ }
+
+
+if (Yii::app()->user->checkAccess('Residente')) {
+
+	$this->menu=array(
+	array('label'=>'Crear', 'url'=>array('create')), );
+ }
+
+if ( Yii::app()->user->isSuperAdmin) {
 $this->menu=array(
-	array('label'=>'Listar', 'url'=>array('index')),
-	array('label'=>'Crear', 'url'=>array('create')),
-	array('label'=>'Ver', 'url'=>array('view', 'id'=>$model->sgId)),
-	array('label'=>'Administrar', 'url'=>array('admin')),
-);
+array('label'=>'Administrar', 'url'=>array('admin')), );
+ }
+
+
 ?>
 
 <h1>Responder Sugerencia <?php echo $model->sgId; ?></h1>

@@ -29,10 +29,10 @@ class SugerenciasController extends Controller
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
-				'users'=>array('@'),		
+				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('update'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -40,8 +40,7 @@ class SugerenciasController extends Controller
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
-				'actions' =>array('create'), 
-				'users'=>array('admin'),
+				'users'=>array('*'),
 			),
 		);
 	}
@@ -71,6 +70,10 @@ class SugerenciasController extends Controller
 		if(isset($_POST['Sugerencias']))
 		{
 			$model->attributes=$_POST['Sugerencias'];
+			$model->sfUsuario = Yii::app()->user->name;
+			$model->sfFecha = date('Y-m-d h:i:s');
+
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->sgId));
 		}
@@ -95,7 +98,7 @@ class SugerenciasController extends Controller
 		if(isset($_POST['Sugerencias']))
 		{
 			$model->attributes=$_POST['Sugerencias'];
-			if($model->sfRespuesta != null) $model->sfLeido =1; 
+			if($model->sfRespuesta != null) $model->sfLeido = 'Respuesto'; 
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->sgId));
 		}

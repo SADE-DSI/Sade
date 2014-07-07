@@ -8,6 +8,8 @@
  * @property string $sfComentario
  * @property string $sfRespuesta
  * @property string $sfLeido
+ * @property string $sfFecha
+ * @property string $sfUsuario
  */
 class Sugerencias extends CActiveRecord
 {
@@ -34,7 +36,11 @@ class Sugerencias extends CActiveRecord
                 , 'message'=>CrugeTranslator::t("Ingrese al menos una letra")),
 			array('sfRespuesta',  'match', 'pattern'=>'/[a-zA-Z]/'
                 , 'message'=>CrugeTranslator::t("Ingrese al menos una letra")),
-			array('sgId, sfComentario, sfRespuesta, sfLeido', 'safe', 'on'=>'search'),
+			array('sfUsuario', 'length', 'max'=>13),
+			array('sfFecha', 'safe'),
+
+
+			array('sgId, sfComentario, sfRespuesta, sfLeido, sfFecha, sfUsuario', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,10 +61,13 @@ class Sugerencias extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'sgId' => 'Número',
+			'sgId' => 'N&uacutemero',
+			'sfUsuario' => 'Usuario',
 			'sfComentario' => 'Comentario',
 			'sfRespuesta' => 'Respuesta',
 			'sfLeido' => 'Estado',
+			'sfFecha' => 'Fecha',
+			
 		);
 	}
 
@@ -84,6 +93,8 @@ class Sugerencias extends CActiveRecord
 		$criteria->compare('sfComentario',$this->sfComentario,true);
 		$criteria->compare('sfRespuesta',$this->sfRespuesta,true);
 		$criteria->compare('sfLeido',$this->sfLeido,true);
+		$criteria->compare('sfFecha',$this->sfFecha,true);
+		$criteria->compare('sfUsuario',$this->sfUsuario,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

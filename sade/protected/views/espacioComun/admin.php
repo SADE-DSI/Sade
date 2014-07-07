@@ -28,13 +28,18 @@ $('.search-form form').submit(function(){
 
 <h1>Administrar Espacios Comunes</h1>
 
-
+<!--
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
+-->
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
 )); ?>
-</div><!-- search-form -->
+</div>
+
+
+
+
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'espaciocomun-grid',

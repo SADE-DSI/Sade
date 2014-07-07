@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
  if (Yii::app()->user->checkAccess('Conserje')) {
 
 	$this->menu=array(
-	array('label'=>'Lista de Sugerencias', 'url'=>array('index')),);
+	array('label'=>'Listar', 'url'=>array('index')),);
  }
 
 
@@ -18,7 +18,7 @@ if (Yii::app()->user->checkAccess('Residente')) {
 
 	$this->menu=array(
 	array('label'=>'Listar', 'url'=>array('index')),
-	array('label'=>'Crear Sugerencia', 'url'=>array('create')),
+	array('label'=>'Crear', 'url'=>array('create')),
 	array('label'=>'Modificar', 'url'=>array('update', 'id'=>$model->sgId)), );
 
  }
@@ -35,6 +35,7 @@ $this->menu=array(
 
 <h1>Ver Sugerencia # <?php echo $model->sgId; ?></h1>
 
+
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
@@ -42,5 +43,7 @@ $this->menu=array(
 		'sfComentario',
 		'sfRespuesta',
 		'sfLeido',
+		'sfFecha',
+		'sfUsuario',
 	),
 )); ?>

@@ -89,9 +89,36 @@ class ArrendatarioduenoController extends Controller
 			$valid = $model->validate();
 			$valid = $persona->validate() && $valid;
 			$valid = $reside->validate() && $valid;
+			
+			//SABER SI ESTA EL SISTEMA
+			$rut=$_POST['Arrendatariodueno']['adRut'];
+			$sql2 = "select * from arrendatariodueno where adRut='$rut'";
+       		$data2 = Yii::app()->db->createCommand($sql2)->queryAll();
+        	$esta = count($data2); 
+              
+			if($esta>0){
+				echo '       esta en el sistema';
+			//buscar rut 
+				/*$personaInactiva = Arrendatariodueno::model()->findByPk($rut);
+				$personaInactiva2 = Persona::model()->findByPk($rut);
+				$sql3="select rdFechaInicio from residedpto where rdActivo=1 and adRut='$rut'";
+				$data3=Yii::app()->db->createCommand($sql3)->queryAll();
+				$dlDireccion = $data3[0]['rdFechaInicio'];
+				$reside = Residedpto::model()->findByPk($dlDireccion);*/
 
+/*   Se deben guardar los datos para cada modelo y usar $_POST['Arrendatariodueno']['adClave'];
+			//cambiar datos
+				$personaInactiva->adClave=$_POST['Arrendatariodueno']['adClave'];
+				$personaInactiva->ad=$_POST['Arrendatariodueno']['adClave'];
+/* Se deben guardar con $persona->save()*/
+			//guardar
+			}
 
-				if ($valid){
+			
+			//si no esta
+			
+			else{
+			if ($valid){
 					if ($persona->save()){
 						if($model->save()){
 							if($reside->save()){
@@ -114,11 +141,15 @@ class ArrendatarioduenoController extends Controller
            		echo "no se pudo crear el usuario: ".$errores;
        		  }
 
-			$this->redirect(array('view','id'=>$model->adRut));
+			//$this->redirect(array('view','id'=>$model->adRut));
 							}		
 						}
 					}
 				}	
+}
+
+
+				
 		}
 
 		$this->render('create',array(

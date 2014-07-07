@@ -29,7 +29,9 @@ $('.search-form form').submit(function(){
 <h1>Administrar gastos comunes</h1>
 <hr>
 
-<?php echo CHtml::link('Busqueda avanzada','#',array('class'=>'search-button')); ?>
+<!--
+<?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
+-->
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,

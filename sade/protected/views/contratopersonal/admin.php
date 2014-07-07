@@ -33,7 +33,9 @@ Opcionalmente usted puede introducir operadores comparativos (<b>&lt;</b>, <b>&l
 o <b>=</b>) en la primera fila de cada columna en la cual desea realizar la comparaci&oacute;n.
 </p>
 
+<!--
 <?php echo CHtml::link('Búsqueda Avanzada','#',array('class'=>'search-button')); ?>
+-->
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,	

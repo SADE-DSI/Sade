@@ -4,15 +4,30 @@
 ?>
 
 <div class="view">
-<table class="tablaView">
-<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Número')); ?>:</b></td><td><?php echo CHtml::link(CHtml::encode($data->sgId), array('view', 'id'=>$data->sgId)); ?>
-	<br /></td></tr>
-<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Comentario')); ?>:</b></td><td><?php echo CHtml::encode($data->sfComentario); ?>
-	<br /></td></tr>
-<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Respuesta')); ?>:</b></td><td><?php echo ($data->sfRespuesta); ?>
-	<br /></td></tr>
-<tr><td><b><?php echo CHtml::encode($data->getAttributeLabel('Estado')); ?>:</b></td><td><?php if ($data->sfLeido == 0) echo ('Enviado'); else echo ('Respuesto');  ?>
-	<br /></td></tr>
-</table>
-	
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Número')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->sgId), array('view', 'id'=>$data->sgId)); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('sfComentario')); ?>:</b>
+	<?php echo CHtml::encode($data->sfComentario); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('sfRespuesta')); ?>:</b>
+	<?php echo CHtml::encode($data->sfRespuesta); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('sfLeido')); ?>:</b>
+	<?php echo CHtml::encode($data->sfLeido); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('sfFecha')); ?>:</b>
+	<?php echo CHtml::encode($data->sfFecha); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('sfUsuario')); ?>:</b>
+	<?php echo CHtml::encode($data->sfUsuario); ?>
+	<br />
+
+
 </div>

@@ -31,8 +31,18 @@
 		<?php echo $form->textField($model,'sfLeido',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'sfFecha'); ?>
+		<?php echo $form->textField($model,'sfFecha'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'sfUsuario'); ?>
+		<?php echo $form->textField($model,'sfUsuario',array('size'=>13,'maxlength'=>13)); ?>
+	</div>
+
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Buscar'); ?>
+		<?php echo CHtml::submitButton('Search'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
